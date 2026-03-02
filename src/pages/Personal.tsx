@@ -3,7 +3,7 @@ import { Heart, Music, Gamepad2, MapPin } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const Pessoal = () => {
+const Personal = () => {
   const interests = [
     {
       icon: Heart,
@@ -35,7 +35,7 @@ const Pessoal = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <section id="pessoal" className="pt-32 pb-20 px-4">
+      <section id="personal" className="pt-32 pb-20 px-4">
         <div className="container max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,7 @@ const Pessoal = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-gradient">
-              Pessoal
+              Personal
             </h1>
             
             <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
@@ -92,4 +92,4 @@ const Pessoal = () => {
   );
 };
 
-export default Pessoal;
+export default Personal;

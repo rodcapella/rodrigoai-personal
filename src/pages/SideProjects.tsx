@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const ProjetosParalelos = () => {
+const SideProjects = () => {
   const projects = [
     {
       title: "DataFlow Analytics",
       description: "An open-source framework for building real-time data pipelines with minimal configuration. Supports multiple data sources and sinks.",
       tags: ["Python", "Apache Spark", "Real-time"],
       github: "https://github.com/rodcapella",
-      demo: "#",
       status: "Active"
     },
     {
@@ -18,39 +17,34 @@ const ProjetosParalelos = () => {
       description: "A centralized platform for managing, versioning, and deploying machine learning models. Includes experiment tracking and model governance.",
       tags: ["Python", "FastAPI", "MLOps"],
       github: "https://github.com/rodcapella",
-      demo: "#",
       status: "Active"
     },
     {
-      title: "AI Chat Interface",
-      description: "A modern web-based chat interface for interacting with large language models. Built with React and TypeScript for optimal performance.",
-      tags: ["React", "TypeScript", "LLMs"],
+      title: "Azure Data Lakehouse",
+      description: "Reference architecture for building medallion-pattern data lakehouses on Azure Databricks with governance and quality frameworks.",
+      tags: ["Azure", "Databricks", "Delta Lake"],
       github: "https://github.com/rodcapella",
-      demo: "#",
       status: "Active"
     },
     {
-      title: "Data Visualization Dashboard",
-      description: "Interactive dashboard for exploring complex datasets. Features real-time updates, custom visualizations, and advanced filtering capabilities.",
-      tags: ["React", "D3.js", "WebSocket"],
+      title: "Power BI Semantic Models",
+      description: "Collection of reusable semantic models and DAX patterns for enterprise analytics. Includes best practices documentation.",
+      tags: ["Power BI", "DAX", "Analytics"],
       github: "https://github.com/rodcapella",
-      demo: "#",
-      status: "Maintenance"
+      status: "Active"
     },
     {
       title: "ETL Orchestration Tool",
       description: "A lightweight orchestration tool for managing complex ETL workflows. Includes scheduling, monitoring, and error handling.",
       tags: ["Python", "Airflow", "Docker"],
       github: "https://github.com/rodcapella",
-      demo: "#",
-      status: "Active"
+      status: "Maintenance"
     },
     {
-      title: "Predictive Analytics Engine",
-      description: "A scalable engine for building and deploying predictive models. Supports multiple algorithms and real-time predictions.",
-      tags: ["Python", "TensorFlow", "FastAPI"],
+      title: "Data Quality Framework",
+      description: "Comprehensive framework for implementing data quality checks, validation rules, and data governance standards.",
+      tags: ["Python", "SQL", "Governance"],
       github: "https://github.com/rodcapella",
-      demo: "#",
       status: "Active"
     }
   ];
@@ -59,7 +53,7 @@ const ProjetosParalelos = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       
-      <section id="projetos" className="pt-32 pb-20 px-4">
+      <section id="side-projects" className="pt-32 pb-20 px-4">
         <div className="container max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -67,11 +61,11 @@ const ProjetosParalelos = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-gradient">
-              Projetos Paralelos
+              Side Projects
             </h1>
             
             <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              Beyond my professional work, I'm passionate about building tools and solutions that solve real problems. 
+              Beyond my professional work, I'm passionate about building tools and solutions that solve real problems in data engineering and analytics. 
               Here are some of my side projects and open-source contributions.
             </p>
 
@@ -113,19 +107,8 @@ const ProjetosParalelos = () => {
                       className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
                     >
                       <Github className="w-4 h-4" />
-                      <span className="text-sm font-medium">Code</span>
+                      <span className="text-sm font-medium">View Code</span>
                     </a>
-                    {project.demo !== '#' && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        <span className="text-sm font-medium">Demo</span>
-                      </a>
-                    )}
                   </div>
                 </motion.div>
               ))}
@@ -140,16 +123,16 @@ const ProjetosParalelos = () => {
             >
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
+                  <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                  <p className="text-muted-foreground">Years of Experience</p>
+                </div>
+                <div>
                   <div className="text-4xl font-bold text-primary mb-2">50+</div>
-                  <p className="text-muted-foreground">Open Source Projects</p>
+                  <p className="text-muted-foreground">Projects Delivered</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-primary mb-2">1K+</div>
-                  <p className="text-muted-foreground">GitHub Stars</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary mb-2">200+</div>
-                  <p className="text-muted-foreground">Contributions</p>
+                  <div className="text-4xl font-bold text-primary mb-2">100+</div>
+                  <p className="text-muted-foreground">Professionals Mentored</p>
                 </div>
               </div>
             </motion.div>
@@ -162,4 +145,4 @@ const ProjetosParalelos = () => {
   );
 };
 
-export default ProjetosParalelos;
+export default SideProjects;

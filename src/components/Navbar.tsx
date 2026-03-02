@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Menu, X } from "lucide-react";
+import { Github, Linkedin, Menu, X, Moon, Sun } from "lucide-react";
 
 const links = [
-  { href: "#pessoal", label: "Pessoal" },
-  { href: "#profissional", label: "Profissional" },
-  { href: "#curiosidades", label: "Curiosidades" },
-  { href: "#projetos", label: "Projetos Paralelos" },
+  { href: "#personal", label: "Personal" },
+  { href: "#professional", label: "Professional" },
+  { href: "#curiosities", label: "Curiosities" },
+  { href: "#side-projects", label: "Side Projects" },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  theme?: 'dark' | 'light';
+  onToggleTheme?: () => void;
+}
+
+const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,7 +34,7 @@ const Navbar = () => {
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
             <span className="text-primary-foreground text-sm font-bold">R</span>
           </div>
-          <span>Rodrigo<span className="text-primary">.</span>AI</span>
+          <span>Rodrigo<span className="text-primary">.</span>Póvoa</span>
         </a>
         
         {/* Desktop Navigation */}
@@ -45,10 +50,18 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Social Links */}
+        {/* Social Links & Theme Toggle */}
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={onToggleTheme}
+            className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
           <a
-            href="https://linkedin.com/in/rodrigocspovoa"
+            href="https://www.linkedin.com/in/rodrigocspovoa"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
@@ -70,29 +83,38 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-foreground"
+          className="md:hidden p-2 text-foreground"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur border-t border-primary/20">
+        {/* Mobile Menu */}
+        <div
+          className={`absolute top-full left-0 right-0 bg-background border-b border-primary/20 md:hidden transition-all duration-300 ${
+            mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
           <div className="container px-4 py-4 flex flex-col gap-4">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+                className="text-muted-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
             <div className="flex items-center gap-4 pt-4 border-t border-primary/20">
+              <button
+                onClick={onToggleTheme}
+                className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
+                title="Toggle theme"
+              >
+                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
               <a
-                href="https://linkedin.com/in/rodrigocspovoa"
+                href="https://www.linkedin.com/in/rodrigocspovoa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -110,7 +132,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

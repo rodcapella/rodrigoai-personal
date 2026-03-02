@@ -9,12 +9,17 @@ import Footer from "@/components/Footer";
 
 const ChatWidget = lazy(() => import("@/components/ChatWidget"));
 
-const Index = () => {
+interface IndexProps {
+  theme?: 'dark' | 'light';
+  onToggleTheme?: () => void;
+}
+
+const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
   const [chatOpen, setChatOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={onToggleTheme} />
       <main>
         <HeroSection onOpenChat={() => setChatOpen(true)} />
         <AboutSection />

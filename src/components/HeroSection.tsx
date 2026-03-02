@@ -23,33 +23,33 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-6">
-              AI Architecture • Data Engineering • Analytics
+              Data Engineer • Analytics • Team Leader
             </p>
             
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 tracking-tight">
-              I build intelligent
+              Building intelligent
               <br />
-              <span className="text-gradient">systems that scale.</span>
+              <span className="text-gradient">data solutions.</span>
             </h1>
             
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-              Designing production-grade data infrastructure and AI systems
-              that don't just work — they evolve.
+              15+ years of experience designing production-grade data infrastructure,
+              analytics platforms, and AI-driven systems that drive business value.
             </p>
             
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
-                href="#projects"
+                href="#professional"
                 className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide hover:bg-primary/90 transition-all glow-primary-sm hover:glow-primary"
               >
-                View Projects
+                Explore My Work
               </a>
               <button
                 onClick={onOpenChat}
                 className="px-8 py-3.5 rounded-lg border border-border text-foreground font-display font-semibold text-sm tracking-wide hover:border-primary/50 hover:text-primary transition-all flex items-center gap-2"
               >
                 <Bot className="w-4 h-4" />
-                Ask RodrigoAI
+                Chat with RodrigoAI
               </button>
             </div>
           </motion.div>
@@ -61,19 +61,27 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="relative flex flex-col items-center justify-center"
           >
-            {/* Profile Image Container */}
+            {/* Profile Image Container - LinkedIn Style */}
             <div className="relative w-64 h-80 md:w-72 md:h-96 mb-8">
-              {/* Glow background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl blur-3xl" />
+              {/* LinkedIn-style background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/20 to-transparent rounded-3xl blur-2xl" />
               
-              {/* Image */}
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary/30 shadow-2xl">
+              {/* Outer ring - LinkedIn style */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-primary/30 shadow-2xl" />
+              
+              {/* Image with LinkedIn-style circular crop */}
+              <div className="relative w-full h-full rounded-3xl overflow-hidden">
                 <img
                   src="/profile.jpg"
-                  alt="Rodrigo Póvoa"
+                  alt="Rodrigo Povoa"
                   className="w-full h-full object-cover"
                 />
+                {/* LinkedIn-style overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/10" />
               </div>
+              
+              {/* LinkedIn-style accent light */}
+              <div className="absolute -top-2 -right-2 w-12 h-12 bg-primary/20 rounded-full blur-xl" />
             </div>
 
             {/* Bot Avatar Indicator */}
@@ -82,10 +90,12 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               transition={{ duration: 3, repeat: Infinity }}
               className="relative"
             >
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg border-2 border-primary/50">
+              {/* LinkedIn-style bot avatar */}
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg border-3 border-background hover:shadow-xl transition-shadow">
                 <Bot className="w-8 h-8 text-primary-foreground" />
               </div>
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-2 border-background animate-pulse" />
+              {/* Online status indicator */}
+              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-3 border-background animate-pulse" />
             </motion.div>
           </motion.div>
         </div>
@@ -98,7 +108,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <a href="#pessoal" className="text-muted-foreground hover:text-primary transition-colors">
+        <a href="#professional" className="text-muted-foreground hover:text-primary transition-colors">
           <ArrowDown className="w-5 h-5 animate-bounce" />
         </a>
       </motion.div>
