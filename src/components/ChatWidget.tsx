@@ -38,14 +38,13 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
     setIsLoading(true);
 
     try {
-      const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
-      const resp = await fetch(CHAT_URL, {
+      const CHAT_URL = "/api/povoabot";
+      const resp = await fetch("/api/povoabot", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
-        body: JSON.stringify({ messages: [userMsg] }),
+        body: JSON.stringify({ messages }),
       });
 
       if (!resp.ok) {
