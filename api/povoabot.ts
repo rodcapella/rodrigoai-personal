@@ -1,19 +1,21 @@
 import OpenAI from "openai";
-
-export const config = {
-  runtime: "edge",
-};
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export default async function handler(req: Request) {
-  try {
-    const { messages } = await req.json();
+export const config = {
+  runtime: "nodejs", // 
+};
 
-    const completion = await openai.chat.completions.create({
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  try {
+    const { messages } = req.body;
+
+    const stream = await openai.chat.completions.create({
       model: "gpt-4o-mini",
+      stream: true,
       temperature: 0.4,
       messages: [
         {
@@ -21,14 +23,7 @@ export default async function handler(req: Request) {
           content: `
 You are PovoaBot, the AI assistant of Rodrigo Capella de Souza Póvoa.
 
-You answer questions about:
-- 15+ years of experience
-- Azure Databricks, Delta Lake, PySpark, SQL
-- Power BI & governance
-- Enterprise architecture
-- Leadership and data strategy
-
-Be executive, precise and technically accurate.
+Be precise, executive and technically accurate.
 Do not invent information.
 `,
         },
@@ -36,16 +31,25 @@ Do not invent information.
       ],
     });
 
-    return new Response(
-      JSON.stringify({
-        message: completion.choices[0].message,
-      }),
-      { headers: { "Content-Type": "application/json" } }
-    );
+    res.setHeader("Content-Type", "text/event-stream");
+    res.setHeader("Cache-Control", "no-cache");
+    res.setHeader("Connection", "keep-alive");
+
+    for await (const chunk of stream) {
+      const content = chunk.choices?.[0]?.delta?.content;
+      if (content) {
+        res.write(
+          `data: ${JSON.stringify({
+            choices: [{ delta: { content } }],
+          })}\n\n`
+        );
+      }
+    }
+
+    res.write("data: [DONE]\n\n");
+    res.end();
   } catch (error) {
-    return new Response(
-      JSON.stringify({ error: "OpenAI error" }),
-      { status: 500 }
-    );
+    console.error(error);
+    res.status(500).json({ error: "OpenAI error" });
   }
 }
