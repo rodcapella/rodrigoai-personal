@@ -1,144 +1,281 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { Zap, Target, TrendingUp, Code, Database, BarChart3, Cloud, Lock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const SideProjects = () => {
+interface SideProjectsProps {
+  theme?: 'dark' | 'light';
+  onToggleTheme?: () => void;
+}
+
+const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
   const projects = [
     {
-      title: "DataFlow Analytics",
-      description: "An open-source framework for building real-time data pipelines with minimal configuration. Supports multiple data sources and sinks.",
-      tags: ["Python", "Apache Spark", "Real-time"],
-      github: "https://github.com/rodcapella",
-      status: "Active"
+      name: "Enterprise Lakehouse Modernization",
+      context: "Automotive Intelligence sector",
+      description: "Designed and documented a scalable Bronze, Silver and Gold data lakehouse using Azure Databricks and Delta Lake aligned with DataOps and Data Mesh principles.",
+      impact: "Improved reporting reliability, governance maturity and analytical efficiency across multi-domain environments.",
+      stack: ["Azure", "Databricks", "Delta Lake", "PySpark", "Power BI"],
+      icon: Cloud,
+      color: "from-blue-500/20 to-blue-500/5"
     },
     {
-      title: "ML Model Registry",
-      description: "A centralized platform for managing, versioning, and deploying machine learning models. Includes experiment tracking and model governance.",
-      tags: ["Python", "FastAPI", "MLOps"],
-      github: "https://github.com/rodcapella",
-      status: "Active"
+      name: "Regulated Financial Analytics Automation",
+      context: "Financial institution environment",
+      description: "Automated risk and performance dashboards ensuring compliance and regulatory-grade data accuracy.",
+      impact: "Enhanced transparency and reporting efficiency within regulated financial frameworks.",
+      stack: ["Python", "Power BI", "SQL"],
+      icon: Lock,
+      color: "from-purple-500/20 to-purple-500/5"
     },
     {
-      title: "Azure Data Lakehouse",
-      description: "Reference architecture for building medallion-pattern data lakehouses on Azure Databricks with governance and quality frameworks.",
-      tags: ["Azure", "Databricks", "Delta Lake"],
-      github: "https://github.com/rodcapella",
-      status: "Active"
+      name: "Retail Data Platform Optimization",
+      context: "Large-scale retail environment",
+      description: "Built distributed ETL pipelines in Azure Databricks enabling near real-time analytics across hundreds of stores.",
+      impact: "Enabled data-driven daily decision-making for large retail operations.",
+      stack: ["Azure", "Databricks", "PySpark", "SQL"],
+      icon: TrendingUp,
+      color: "from-green-500/20 to-green-500/5"
+    }
+  ];
+
+  const projectCategories = [
+    {
+      icon: Database,
+      title: "Data Architecture",
+      description: "Designing scalable, governance-first lakehouse architectures using Bronze, Silver and Gold layers aligned with DataOps principles."
     },
     {
-      title: "Power BI Semantic Models",
-      description: "Collection of reusable semantic models and DAX patterns for enterprise analytics. Includes best practices documentation.",
-      tags: ["Power BI", "DAX", "Analytics"],
-      github: "https://github.com/rodcapella",
-      status: "Active"
+      icon: BarChart3,
+      title: "Analytics & BI",
+      description: "Building comprehensive analytics solutions and dashboards that drive data-driven decision-making across organizations."
     },
     {
-      title: "ETL Orchestration Tool",
-      description: "A lightweight orchestration tool for managing complex ETL workflows. Includes scheduling, monitoring, and error handling.",
-      tags: ["Python", "Airflow", "Docker"],
-      github: "https://github.com/rodcapella",
-      status: "Maintenance"
+      icon: Zap,
+      title: "ETL & Pipelines",
+      description: "Developing robust data pipelines and orchestration workflows that ensure data quality and reliability at scale."
     },
     {
-      title: "Data Quality Framework",
-      description: "Comprehensive framework for implementing data quality checks, validation rules, and data governance standards.",
-      tags: ["Python", "SQL", "Governance"],
-      github: "https://github.com/rodcapella",
-      status: "Active"
+      icon: Code,
+      title: "Engineering Excellence",
+      description: "Establishing engineering best practices, standards and processes that enable scalable team delivery."
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={onToggleTheme} />
       
-      <section id="side-projects" className="pt-32 pb-20 px-4">
-        <div className="container max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-gradient">
-              Side Projects
-            </h1>
-            
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              Beyond my professional work, I'm passionate about building tools and solutions that solve real problems in data engineering and analytics. 
-              Here are some of my side projects and open-source contributions.
-            </p>
+      <main className="pt-32 pb-20">
+        {/* Hero Section */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+                Parallel Projects
+              </h1>
+              
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                A collection of significant projects and initiatives that showcase expertise in data architecture, analytics, and engineering excellence. These projects represent the intersection of technical depth and strategic business impact.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: idx * 0.1 }}
-                  className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all flex flex-col"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-xl font-bold flex-1">{project.title}</h3>
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ml-2 ${
-                      project.status === 'Active' 
-                        ? 'bg-green-500/20 text-green-600' 
-                        : 'bg-yellow-500/20 text-yellow-600'
-                    }`}>
-                      {project.status}
-                    </span>
-                  </div>
-                  
-                  <p className="text-muted-foreground mb-6 flex-1">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map((tag, i) => (
-                      <span key={i} className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  <div className="flex items-center gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+        {/* Project Categories */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              <h2 className="text-3xl font-bold mb-12">Project Focus Areas</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {projectCategories.map((category, idx) => {
+                  const Icon = category.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                      className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20"
                     >
-                      <Github className="w-4 h-4" />
-                      <span className="text-sm font-medium">View Code</span>
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+                      <Icon className="w-8 h-8 text-primary mb-4" />
+                      <h3 className="text-lg font-bold mb-3">{category.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {category.description}
+                      </p>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
-            {/* Contribution Stats */}
+        {/* Featured Projects */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <h2 className="text-3xl font-bold mb-12">Featured Projects</h2>
+              
+              <div className="space-y-8">
+                {projects.map((project, idx) => {
+                  const Icon = project.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.4 + idx * 0.1 }}
+                      className={`bg-gradient-to-br ${project.color} p-8 rounded-lg border border-primary/20 hover:border-primary/40 transition-all`}
+                    >
+                      <div className="flex items-start gap-4 mb-6">
+                        <Icon className="w-10 h-10 text-primary flex-shrink-0 mt-1" />
+                        <div className="flex-1">
+                          <h3 className="text-2xl font-bold mb-1">{project.name}</h3>
+                          <p className="text-sm text-primary font-semibold">{project.context}</p>
+                        </div>
+                      </div>
+                      
+                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                        {project.description}
+                      </p>
+                      
+                      <div className="mb-6 p-4 bg-background/50 rounded-lg border border-primary/10">
+                        <h4 className="text-sm font-bold mb-2 text-foreground">Impact</h4>
+                        <p className="text-sm text-muted-foreground">
+                          {project.impact}
+                        </p>
+                      </div>
+                      
+                      <div>
+                        <h4 className="text-sm font-bold mb-3 text-foreground">Technology Stack</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.stack.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-medium border border-primary/30"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Project Philosophy */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <h2 className="text-3xl font-bold mb-8">Project Philosophy</h2>
+              
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p>
+                  Every project represents a deliberate approach to solving complex data challenges. The focus is not just on technical implementation, but on understanding the business context, defining clear success metrics, and ensuring that solutions are scalable, maintainable, and aligned with organizational goals.
+                </p>
+                
+                <p>
+                  Key principles guiding project execution include governance-first architecture design, data quality as a foundational concern, cross-functional collaboration, and continuous learning from implementation experiences. The goal is to deliver solutions that not only solve immediate problems but also establish patterns and practices that benefit the entire organization.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Key Achievements */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-16 bg-gradient-to-br from-primary/20 to-primary/5 p-8 rounded-xl border border-primary/20"
             >
-              <div className="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-4xl font-bold text-primary mb-2">15+</div>
-                  <p className="text-muted-foreground">Years of Experience</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary mb-2">50+</div>
-                  <p className="text-muted-foreground">Projects Delivered</p>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary mb-2">100+</div>
-                  <p className="text-muted-foreground">Professionals Mentored</p>
-                </div>
+              <h2 className="text-3xl font-bold mb-12">Key Achievements</h2>
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  {
+                    metric: "400+",
+                    description: "Retail stores supported with real-time analytics"
+                  },
+                  {
+                    metric: "99.9%",
+                    description: "Data reliability and governance compliance"
+                  },
+                  {
+                    metric: "5x",
+                    description: "Improvement in reporting efficiency"
+                  },
+                  {
+                    metric: "100%",
+                    description: "Regulatory compliance in financial environments"
+                  }
+                ].map((achievement, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 text-center"
+                  >
+                    <div className="text-3xl font-bold text-primary mb-2">
+                      {achievement.metric}
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {achievement.description}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="px-4">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20 text-center"
+            >
+              <h3 className="text-2xl font-bold mb-4">Interested in Collaboration?</h3>
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Whether you're looking to modernize your data infrastructure, build analytics capabilities, or explore innovative data solutions, let's discuss how we can work together on your next project.
+              </p>
+              <a
+                href="/#"
+                className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+              >
+                Get in Touch
+              </a>
+            </motion.div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>

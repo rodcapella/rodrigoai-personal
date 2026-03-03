@@ -1,91 +1,292 @@
 import { motion } from "framer-motion";
-import { Heart, Music, Gamepad2, MapPin } from "lucide-react";
+import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const Personal = () => {
-  const interests = [
-    {
-      icon: Heart,
-      title: "Lifestyle",
-      description: "Passionate about technology, innovation, and continuous learning. Always exploring new ideas and pushing boundaries.",
-      color: "from-red-500/20 to-red-500/5"
-    },
+interface PersonalProps {
+  theme?: 'dark' | 'light';
+  onToggleTheme?: () => void;
+}
+
+const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
+  const hobbies = [
     {
       icon: Music,
-      title: "Music & Culture",
-      description: "Enjoy exploring diverse music genres and cultural experiences. Music is a universal language that connects us all.",
-      color: "from-purple-500/20 to-purple-500/5"
+      title: "Rock & Heavy Metal",
+      description: "Deep passion for music, especially rock and heavy metal. Spends most days listening to favorite bands at high volume."
+    },
+    {
+      icon: Guitar,
+      title: "Electric Guitar",
+      description: "Electric guitar player influenced by classic and modern rock. Continuously exploring new techniques and musical styles."
+    },
+    {
+      icon: BookOpen,
+      title: "Author & Storyteller",
+      description: "Currently writing his first non-technical book exploring the intersection between music, society and history."
     },
     {
       icon: Gamepad2,
-      title: "Gaming",
-      description: "Casual gamer who appreciates strategic games and immersive experiences. Gaming teaches problem-solving and creativity.",
-      color: "from-blue-500/20 to-blue-500/5"
+      title: "Video Games",
+      description: "Video game enthusiast from the PlayStation generation — proudly on the dark side of the Force."
     },
     {
-      icon: MapPin,
-      title: "Travel",
-      description: "Love exploring new places, meeting people from different backgrounds, and experiencing diverse cultures around the world.",
-      color: "from-green-500/20 to-green-500/5"
+      icon: Film,
+      title: "Film & Series",
+      description: "Film and series lover with strong interest in storytelling and cinematography. Once considered studying cinema."
+    },
+    {
+      icon: Dumbbell,
+      title: "Sports & Fitness",
+      description: "Sports enthusiast — practices gym training and running regularly, and enjoys football, basketball, volleyball, martial arts and rugby."
     }
+  ];
+
+  const sportsTeams = [
+    { team: "Flamengo", country: "Brazil", emoji: "🇧🇷" },
+    { team: "FC Porto", country: "Portugal", emoji: "🇵🇹" }
+  ];
+
+  const personalValues = [
+    {
+      title: "Discipline",
+      description: "Structured approach to personal and professional growth"
+    },
+    {
+      title: "Loyalty",
+      description: "Commitment to relationships, teams and long-term partnerships"
+    },
+    {
+      title: "Intellectual Growth",
+      description: "Continuous learning and exploration of new concepts and technologies"
+    },
+    {
+      title: "Cultural Curiosity",
+      description: "Deep interest in understanding different perspectives and cultures"
+    }
+  ];
+
+  const aiExploration = [
+    "OpenAI ecosystem",
+    "Claude",
+    "Gemini",
+    "Perplexity",
+    "Kimi",
+    "Manus"
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={onToggleTheme} />
       
-      <section id="personal" className="pt-32 pb-20 px-4">
-        <div className="container max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6 text-gradient">
-              Personal
-            </h1>
-            
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              Beyond the code and data, I'm a person driven by curiosity, creativity, and a passion for making meaningful connections. 
-              Here's what makes me tick outside the professional realm.
-            </p>
+      <main className="pt-32 pb-20">
+        {/* Hero Section */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+                Personal
+              </h1>
+              
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                Beyond the code and data architectures, Rodrigo is a technology professional driven by structure, depth and long-term impact. He combines analytical rigor with cultural curiosity, balancing high-performance engineering with a strong personal identity rooted in music, sports and storytelling.
+              </p>
+            </motion.div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              {interests.map((interest, idx) => {
-                const Icon = interest.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: idx * 0.1 }}
-                    className={`bg-gradient-to-br ${interest.color} p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all`}
-                  >
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="text-xl font-bold mb-3">{interest.title}</h3>
-                    <p className="text-muted-foreground">{interest.description}</p>
-                  </motion.div>
-                );
-              })}
-            </div>
+        {/* Life Journey Section */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              <h2 className="text-3xl font-bold mb-8">Life & Relocation</h2>
+              
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p>
+                  In the end of 2019, Rodrigo made a significant life decision—to relocate to Portugal together with his family (wife, son and their dog), seeking improved quality of life, greater personal and family security, and more challenging professional opportunities. This move was driven by the desire to work on international and multi-domain projects while learning new concepts and technologies within more mature data environments.
+                </p>
+                
+                <p>
+                  Today, the family has grown and now includes a second dog. Portugal has become home, offering the perfect balance between professional growth and personal fulfillment. The relocation proved to be a transformative decision that shaped both his career trajectory and personal identity.
+                </p>
+                
+                <p>
+                  This journey reflects Rodrigo's philosophy: intentional decisions that align personal values with professional aspirations, creating a life of purpose and continuous evolution.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
 
+        {/* Passions & Hobbies */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-3xl font-bold mb-12">Passions & Hobbies</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {hobbies.map((hobby, idx) => {
+                  const Icon = hobby.icon;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.05 }}
+                      className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                    >
+                      <div className="flex items-start gap-4">
+                        <Icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="text-lg font-bold mb-2">{hobby.title}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {hobby.description}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Sports & Teams */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 rounded-xl border border-primary/20"
             >
-              <h2 className="text-2xl font-bold mb-4">Philosophy</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                I believe in the power of balance—between work and life, between ambition and contentment, between innovation and tradition. 
-                Life is a continuous journey of learning and growth, and every experience, whether personal or professional, shapes who we become. 
-                I'm committed to living authentically, pursuing my passions, and making a positive impact on the world around me.
+              <h2 className="text-3xl font-bold mb-8">Sports Allegiances</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {sportsTeams.map((team, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 rounded-lg border border-primary/20 text-center"
+                  >
+                    <div className="text-4xl mb-4">{team.emoji}</div>
+                    <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
+                    <p className="text-muted-foreground">{team.country}</p>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <p className="text-center text-muted-foreground mt-8">
+                Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
               </p>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        {/* Core Values */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <h2 className="text-3xl font-bold mb-12">Core Values</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {personalValues.map((value, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                    className="border-l-4 border-primary/30 pl-6"
+                  >
+                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {value.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* AI Exploration */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold mb-8">AI Ecosystem Exploration</h2>
+              
+              <div className="mb-8">
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Rodrigo actively studies and evaluates modern AI systems as part of an independent experimentation practice focused on applied intelligence and architectural integration. He analyzes behavioral patterns, architectural trade-offs, response reliability and integration potential within scalable data environments.
+                </p>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  He uses structured knowledge management tools such as Notion to document experiments, architectural patterns and long-term research, maintaining a systematic approach to understanding how AI can enhance data engineering and analytics workflows.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-bold mb-4">Platforms Explored</h3>
+                <div className="flex flex-wrap gap-3">
+                  {aiExploration.map((platform, idx) => (
+                    <motion.span
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 0.7 + idx * 0.05 }}
+                      className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm"
+                    >
+                      {platform}
+                    </motion.span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Philosophy Section */}
+        <section className="px-4">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20"
+            >
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                <Heart className="w-6 h-6 text-primary" />
+                Personal Philosophy
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Rodrigo values discipline, loyalty, intellectual growth and continuous evolution — both professionally and personally. He believes that true excellence comes from balancing technical depth with cultural awareness, that meaningful work requires both structure and creativity, and that the best solutions emerge when we understand not just the problem, but the human context behind it.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      </main>
 
       <Footer />
     </div>
