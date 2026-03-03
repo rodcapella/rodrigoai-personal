@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { Github, Linkedin, Menu, X, Moon, Sun } from "lucide-react";
 
 const links = [
-  { href: "#personal", label: "Personal" },
-  { href: "#professional", label: "Professional" },
-  { href: "#curiosities", label: "Curiosities" },
-  { href: "#side-projects", label: "Side Projects" },
+  { href: "/personal", label: "Personal" },
+  { href: "/professional", label: "Professional" },
+  { href: "/curiosities", label: "Curiosities" },
+  { href: "/side-projects", label: "Side Projects" },
 ];
 
 interface NavbarProps {
@@ -30,7 +30,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
       }`}
     >
       <div className="container flex items-center justify-between px-4">
-        <a href="#" className="font-display font-bold text-lg text-foreground flex items-center gap-2">
+        <a href="/" className="font-display font-bold text-lg text-foreground flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
             <span className="text-primary-foreground text-sm font-bold">R</span>
           </div>
