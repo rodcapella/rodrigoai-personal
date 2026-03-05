@@ -33,7 +33,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
       <div className="container flex items-center justify-between px-4">
         <a href="/" className="h-5 w-auto">
           <img
-            src="/logo.png"
+            src="/logo_fundo_transparente.png"
             alt="Rodrigo Póvoa Logo"
             className="h-6 w-auto transition-all duration-300 hover:scale-105"
           />
