@@ -170,21 +170,23 @@ const influences = [
               </motion.div>
         
               {/* Right Side Image */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-orange-500/20 blur-2xl rounded-2xl opacity-40" />
-                
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative flex justify-center items-center"
+            >
+              <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 to-orange-500/20 blur-3xl rounded-3xl opacity-40" />
+            
+              <div className="relative z-10 w-[320px] lg:w-[360px]">
                 <img
                   src="/ai-portrait.jpeg"
                   alt="AI & Data Professional"
-                  className="rounded-lg shadow-lg border border-primary/20"
+                  className="rounded-2xl shadow-2xl border border-primary/20"
                 />
-              </motion.div>
-        
+              </div>
+            </motion.div>
+      
             </div>
           </div>
         </section>
