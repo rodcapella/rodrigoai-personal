@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart, Target, Compass, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 interface PersonalProps {
   theme?: 'dark' | 'light';
@@ -9,6 +10,7 @@ interface PersonalProps {
 }
 
 const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
+
   const hobbies = [
     {
       icon: Music,
@@ -33,12 +35,12 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     {
       icon: Film,
       title: "Film & Series",
-      description: "Film and series lover with strong interest in storytelling and cinematography. Once considered studying cinema."
+      description: "Film and series lover with strong interest in storytelling and cinematography."
     },
     {
       icon: Dumbbell,
       title: "Sports & Fitness",
-      description: "Sports enthusiast — practices gym training and running regularly, and enjoys football, basketball, volleyball, martial arts and rugby."
+      description: "Sports enthusiast — practices gym training and running regularly."
     }
   ];
 
@@ -47,95 +49,32 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     { team: "FC Porto", country: "Portugal", emoji: "🔵⚪" }
   ];
 
-const longTermVision = [
-  "Building intelligent systems",
-  "Bridging data & decision layers",
-  "Leadership in data multi-functional teams",
-  "Creating sustainable and governed data platforms",
-  "Designing AI-native and AI-augmented architectures",
-  "Leveraging the full potential of modern AI ecosystems and tools"
-];
-  
-  const personalValues = [
-    {
-      title: "Discipline",
-      description: "Structured approach to personal and professional growth"
-    },
-    {
-      title: "Loyalty",
-      description: "Commitment to relationships, teams and long-term partnerships"
-    },
-    {
-      title: "Intellectual Growth",
-      description: "Continuous learning and exploration of new concepts and technologies"
-    },
-    {
-      title: "Cultural Curiosity",
-      description: "Deep interest in understanding different perspectives and cultures"
-    },
-    {
-      title: "Technology Enthusiasm",
-      description: "Strong enthusiasm for emerging technologies, constantly exploring new tools, platforms and architectural paradigms to stay ahead of innovation trends."
-    },
-    {
-      title: "Analytical Mindset",
-      description: "Highly analytical approach to problem-solving, combining structured reasoning, data-driven thinking and critical evaluation across technical and strategic domains."
-    }
+  const longTermVision = [
+    "Building intelligent systems",
+    "Bridging data & decision layers",
+    "Leadership in data multi-functional teams",
+    "Creating sustainable and governed data platforms",
+    "Designing AI-native architectures",
+    "Leveraging modern AI ecosystems"
   ];
 
-const influences = [
-  {
-    category: "Tech Leaders",
-    items: [
-      "Steve Jobs – Apple",
-      "Elon Musk – Tesla & SpaceX",
-      "Jeff Bezos – Amazon"
-    ]
-  },
-  {
-    category: "Sports Idols",
-    items: [
-      "Ayrton Senna",
-      "Zico",
-      "Michael Jordan"
-    ]
-  },
-  {
-    category: "Favorite Books",
-    items: [
-      "The Housemaid – Freida McFadden",
-      "The Catcher in the Rye – J.D. Salinger",
-      "A Song of Ice and Fire – George R. R. Martin"
-    ]
-  },
-  {
-    category: "Favorite Bands",
-    items: [
-      "Dream Theater",
-      "Iron Maiden",
-      "Metallica"
-    ]
-  },
-  {
-    category: "Favorite Phrases",
-    items: [
-      "Veni, vidi, vici.",
-      "\"If you are going through hell, keep going.\" – Winston Churchill",
-      "\"I have no special talent. I am only passionately curious.\" – Albert Einstein"
-    ]
-  },
-  {
-    category: "Areas of Study Outside Tech",
-    items: [
-      "History & Cultural Evolution",
-      "Global Economics",
-      "Entrepreneurship"
-    ]
-  }
-];
-  
+  const personalValues = [
+    { title: "Discipline", description: "Structured approach to personal and professional growth" },
+    { title: "Loyalty", description: "Commitment to relationships and long-term partnerships" },
+    { title: "Intellectual Growth", description: "Continuous learning and exploration" },
+    { title: "Cultural Curiosity", description: "Interest in different perspectives and cultures" },
+    { title: "Technology Enthusiasm", description: "Constant exploration of emerging technologies" },
+    { title: "Analytical Mindset", description: "Data-driven and structured reasoning approach" }
+  ];
+
+  const influences = [
+    { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
+    { category: "Sports Idols", items: ["Ayrton Senna", "Zico", "Michael Jordan"] },
+    { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] }
+  ];
+
   const aiExploration = [
-    "OpenAI ecosystem",
+    "OpenAI",
     "Claude",
     "Gemini",
     "Perplexity",
@@ -146,15 +85,83 @@ const influences = [
 
   return (
     <div className="min-h-screen bg-background">
+
+      <Helmet>
+        <title>Personal | Rodrigo Póvoa – Values, Vision & AI Exploration</title>
+
+        <meta
+          name="description"
+          content="Personal profile of Rodrigo Póvoa — exploring philosophy, leadership values, cultural influences, sports passion and AI ecosystem experimentation."
+        />
+
+        <link
+          rel="canonical"
+          href="https://rodrigoai-personal.vercel.app/personal"
+        />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Personal | Rodrigo Póvoa" />
+        <meta
+          property="og:description"
+          content="Personal philosophy, cultural influences and AI ecosystem exploration."
+        />
+        <meta
+          property="og:url"
+          content="https://rodrigoai-personal.vercel.app/personal"
+        />
+        <meta
+          property="og:image"
+          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Personal | Rodrigo Póvoa" />
+        <meta
+          name="twitter:description"
+          content="Personal values, relocation journey and AI ecosystem research."
+        />
+        <meta
+          name="twitter:image"
+          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+        />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Rodrigo Póvoa",
+            url: "https://rodrigoai-personal.vercel.app/personal",
+            jobTitle: "Data Analytics Engineer & Team Leader.",
+            description:
+              "Personal philosophy, leadership values and AI ecosystem exploration of Rodrigo Póvoa.",
+            knowsAbout: [
+              "Artificial Intelligence",
+              "Data Engineering",
+              "Leadership",
+              "Music Culture",
+              "AI Ecosystems",
+              "Technology Innovation"
+            ],
+            sameAs: [
+              "https://www.linkedin.com/in/rodrigocspovoa/",
+              "https://github.com/rodcapella"
+            ]
+          })}
+        </script>
+      </Helmet>
+
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      
+
       <main className="pt-32 pb-20">
-        {/* Hero Section */}
+
+        {/* HERO */}
         <section className="px-4 mb-20">
           <div className="container max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-        
-              {/* Left Side */}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -163,30 +170,27 @@ const influences = [
                 <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
                   Personal
                 </h1>
-        
+
                 <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                  Beyond the code and data architectures, Rodrigo is a technology professional driven by structure, depth and long-term impact. He combines analytical rigor with cultural curiosity, balancing high-performance engineering with a strong personal identity rooted in music, sports and storytelling.
+                  Beyond data architecture, I combine analytical rigor with cultural curiosity — balancing engineering excellence with music, sports and long-term vision.
                 </p>
               </motion.div>
-        
-              {/* Right Side Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative flex justify-center items-center"
-            >
-              <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 to-orange-500/20 blur-3xl rounded-3xl opacity-40" />
-            
-              <div className="relative z-10 w-[320px] lg:w-[360px]">
-                <img
-                  src="/ai-portrait.jpeg"
-                  alt="AI & Data Professional"
-                  className="rounded-2xl shadow-2xl border border-primary/20"
-                />
-              </div>
-            </motion.div>
-      
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative flex justify-center items-center"
+              >
+                <div className="relative z-10 w-[320px] lg:w-[360px]">
+                  <img
+                    src="/ai-portrait.jpeg"
+                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    className="rounded-2xl shadow-2xl border border-primary/20"
+                  />
+                </div>
+              </motion.div>
+
             </div>
           </div>
         </section>
