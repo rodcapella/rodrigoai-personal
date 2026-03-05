@@ -101,6 +101,26 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
           </div>
         </section>
 
+        {/* Philosophy Section */}
+        <section className="px-4">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20"
+            >
+              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                <Heart className="w-6 h-6 text-primary" />
+                Personal Philosophy
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Rodrigo values discipline, loyalty, intellectual growth and continuous evolution — both professionally and personally. He believes that true excellence comes from balancing technical depth with cultural awareness, that meaningful work requires both structure and creativity, and that the best solutions emerge when we understand not just the problem, but the human context behind it.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+        
         {/* Life Journey Section */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
@@ -210,22 +230,26 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
         {/* Core Values */}
         <section className="px-4 mb-20">
-          <div className="grid md:grid-cols-2 gap-8">
-            {personalValues.map((value, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
-              >
-                <h3 className="text-lg font-bold mb-2">{value.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+         <div className="grid md:grid-cols-2 gap-8">
+          {personalValues.map((value, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+              className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+            >
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Music className="w-8 h-8 text-primary" />
+                Core Values
+              </h2>
+              <h3 className="text-lg font-bold mb-2">{value.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {value.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
         </section>
 
         {/* AI Exploration */}
@@ -267,26 +291,6 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   ))}
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Philosophy Section */}
-        <section className="px-4">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20"
-            >
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <Heart className="w-6 h-6 text-primary" />
-                Personal Philosophy
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Rodrigo values discipline, loyalty, intellectual growth and continuous evolution — both professionally and personally. He believes that true excellence comes from balancing technical depth with cultural awareness, that meaningful work requires both structure and creativity, and that the best solutions emerge when we understand not just the problem, but the human context behind it.
-              </p>
             </motion.div>
           </div>
         </section>
