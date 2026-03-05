@@ -34,7 +34,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       description:
         "Applying AI to marketing, SEO, GEO and digital positioning strategies to create intelligent growth systems."
     }
-
+  ];
+  
   return (
     <div className="min-h-screen bg-background">
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
