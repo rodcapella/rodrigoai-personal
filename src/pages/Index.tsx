@@ -4,6 +4,8 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import WhatDrivesMe from "@/components/WhatDrivesMe";
+import AboutMyCareer from "@/components/AboutMyCareer";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -25,6 +27,8 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         <AboutSection />
         <ExpertiseSection />
         <ProjectsSection />
+        <WhatDrivesMe />
+        <AboutMyCareer />
         <ContactSection />
       </main>
       <Footer />

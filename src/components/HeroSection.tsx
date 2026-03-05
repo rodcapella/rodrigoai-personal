@@ -49,7 +49,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 className="px-8 py-3.5 rounded-lg border border-border text-foreground font-display font-semibold text-sm tracking-wide hover:border-primary/50 hover:text-primary transition-all flex items-center gap-2"
               >
                 <Bot className="w-4 h-4" />
-                Chat with RodrigoAI
+                Chat with PóvoaAI
               </button>
             </div>
           </motion.div>

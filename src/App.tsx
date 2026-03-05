@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Personal from "./pages/Personal";
 import Professional from "./pages/Professional";
-import Curiosities from "./pages/Curiosities";
+
 import SideProjects from "./pages/SideProjects";
 
 const queryClient = new QueryClient();
@@ -44,7 +44,7 @@ const App = () => {
               <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
               <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
               <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-              <Route path="/curiosities" element={<Curiosities theme={theme} onToggleTheme={toggleTheme} />} />
+
               <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

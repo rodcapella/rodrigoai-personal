@@ -4,7 +4,6 @@ import { Github, Linkedin, Menu, X, Moon, Sun } from "lucide-react";
 const links = [
   { href: "/personal", label: "Personal" },
   { href: "/professional", label: "Professional" },
-  { href: "/curiosities", label: "Curiosities" },
   { href: "/side-projects", label: "Side Projects" },
 ];
 

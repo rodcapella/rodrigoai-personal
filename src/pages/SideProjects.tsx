@@ -80,7 +80,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               </h1>
               
               <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                A collection of significant projects and initiatives that showcase expertise in data architecture, analytics, and engineering excellence. These projects represent the intersection of technical depth and strategic business impact.
+                Beyond professional engagements, I'm building SapienteAI - a studio dedicated to applied artificial intelligence, data engineering, and innovative analytics solutions. This is where I explore cutting-edge technologies and develop products that solve real-world challenges.
               </p>
             </motion.div>
           </div>
@@ -262,15 +262,17 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20 text-center"
             >
-              <h3 className="text-2xl font-bold mb-4">Interested in Collaboration?</h3>
+              <h3 className="text-2xl font-bold mb-4">Explore SapienteAI Studio</h3>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Whether you're looking to modernize your data infrastructure, build analytics capabilities, or explore innovative data solutions, let's discuss how we can work together on your next project.
+                SapienteAI is my innovation studio where I develop AI-powered solutions, data platforms, and analytics tools. Discover what we're building and how we can transform your data challenges into competitive advantages.
               </p>
               <a
-                href="/#"
+                href="https://sapiente-ai.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
               >
-                Get in Touch
+                Visit SapienteAI
               </a>
             </motion.div>
           </div>

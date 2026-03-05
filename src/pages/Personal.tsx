@@ -43,8 +43,8 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
   ];
 
   const sportsTeams = [
-    { team: "Flamengo", country: "Brazil", emoji: "🇧🇷" },
-    { team: "FC Porto", country: "Portugal", emoji: "🇵🇹" }
+    { team: "Flamengo", country: "Brazil", emoji: "🔴⚫" },
+    { team: "FC Porto", country: "Portugal", emoji: "🔵⚪" }
   ];
 
   const personalValues = [
@@ -68,11 +68,13 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
   const aiExploration = [
     "OpenAI ecosystem",
+    "ChatGPT",
     "Claude",
     "Gemini",
     "Perplexity",
     "Kimi",
-    "Manus"
+    "Manus",
+    "Lovable"
   ];
 
   return (
@@ -172,7 +174,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Sports Allegiances</h2>
+              <h2 className="text-3xl font-bold mb-8">Team Spirit</h2>
               
               <div className="grid md:grid-cols-2 gap-8">
                 {sportsTeams.map((team, idx) => (

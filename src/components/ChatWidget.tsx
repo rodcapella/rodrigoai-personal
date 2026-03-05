@@ -146,7 +146,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
                 <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50">
                   <img
                     src="/profile.jpg"
-                    alt="RodrigoAI"
+                    alt="PóvoaAI"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity">
@@ -154,7 +154,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
                   </div>
                 </div>
                 <div>
-                  <p className="font-display font-semibold text-sm text-foreground">RodrigoAI</p>
+                  <p className="font-display font-semibold text-sm text-foreground">PóvoaAI</p>
                   <p className="text-xs text-muted-foreground">AI Assistant</p>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
               {messages.length === 0 && (
                 <div className="space-y-3">
                   <p className="text-muted-foreground text-sm">
-                    Hi! I'm RodrigoAI. Ask me anything about Rodrigo's work and expertise.
+                    Hi! I'm PóvoaAI. Ask me anything about Rodrigo's work and expertise.
                   </p>
                   <div className="space-y-2">
                     {suggestedQuestions.map((q) => (
