@@ -35,7 +35,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
           <img
             src="/logo_fundo_transparente.png"
             alt="Rodrigo Póvoa Logo"
-            className="h-6 w-auto transition-all duration-300 hover:scale-105"
+            className="h-10 w-auto transition-all duration-300 hover:scale-105"
           />
         </a>
         
