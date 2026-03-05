@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -19,8 +18,9 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+
       <main>
-        <HeroSection />
+        <HeroSection onOpenChat={() => {}} />
         <AboutSection />
         <ExpertiseSection />
         <ProjectsSection />
@@ -28,6 +28,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         <AboutMyCareer />
         <ContactSection />
       </main>
+
       <Footer />
     </div>
   );
