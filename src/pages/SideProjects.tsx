@@ -49,16 +49,17 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                Parallel Projects
-              </h1>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                Parallel to corporate leadership roles, SapienteAI represents a structured exploration of artificial intelligence and advanced data systems.
-              
-                The core focus is to explore the full potential of modern AI ecosystems and translate that intelligence into scalable solutions across data engineering, automation, digital positioning and marketing strategy.
-              </p>
+            <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+              Parallel Projects
+            </h1>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              Parallel to corporate leadership roles, SapienteAI represents a structured exploration of artificial intelligence and advanced data systems.
+            </p>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mt-4">
+              The core focus is to explore the full potential of modern AI ecosystems and translate that intelligence into scalable solutions across data engineering, automation, digital positioning and marketing strategy.
+            </p>
             </motion.div>
           </div>
         </section>
