@@ -113,7 +113,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main>
-        <HeroSection onOpenChat={() => {}} />
+        <HeroSection />
         <AboutSection />
         <ExpertiseSection />
         <ProjectsSection />
