@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Briefcase, Globe, GraduationCap } from "lucide-react";
+import { Award, Briefcase, Globe, GraduationCap, Cpu} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -221,7 +221,8 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               </p>
               
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments.
+                Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
+                Throughout my career, I have operated across nearly every domain within the data ecosystem — from Data Engineering and advanced Analytics to Business Intelligence and strategic reporting — which enables me to manage diverse technical profiles, bridge cross-functional teams, and master complex topics across engineering, analytical and business-oriented data initiatives.
               </p>
             </motion.div>
           </div>
@@ -235,7 +236,10 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Core Competences</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Cpu className="w-8 h-8 text-primary" />
+                Core Competences
+              </h2>
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coreCompetences.map((competence, idx) => (
