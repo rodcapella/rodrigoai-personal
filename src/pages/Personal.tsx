@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart } from "lucide-react";
+import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart, Target, Compass, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -109,7 +109,10 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Life & Relocation</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Compass className="w-8 h-8 text-primary" />
+                Life & Relocation
+              </h2>
               
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
@@ -136,7 +139,10 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="text-3xl font-bold mb-12">Passions & Hobbies</h2>
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Music className="w-8 h-8 text-primary" />
+                Passions & Hobbies
+              </h2>
               
               <div className="grid md:grid-cols-2 gap-8">
                 {hobbies.map((hobby, idx) => {
@@ -174,7 +180,10 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Team Spirit</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Trophy className="w-8 h-8 text-primary" />
+                Team Spirit
+              </h2>
               
               <div className="grid md:grid-cols-2 gap-8">
                 {sportsTeams.map((team, idx) => (
@@ -201,31 +210,21 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
         {/* Core Values */}
         <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <h2 className="text-3xl font-bold mb-12">Core Values</h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {personalValues.map((value, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="border-l-4 border-primary/30 pl-6"
-                  >
-                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {personalValues.map((value, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+              >
+                <h3 className="text-lg font-bold mb-2">{value.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
@@ -237,7 +236,10 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-8">AI Ecosystem Exploration</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Sparkles className="w-8 h-8 text-primary" />
+                AI Ecosystem Exploration
+              </h2>
               
               <div className="mb-8">
                 <p className="text-muted-foreground leading-relaxed mb-6">
