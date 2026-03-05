@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Personal from "./pages/Personal";
 import Professional from "./pages/Professional";
+import Contact from "@/pages/Contact";
+<Route path="/contact" element={<Contact />} />
 
 import SideProjects from "./pages/SideProjects";
 
