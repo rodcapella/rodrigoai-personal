@@ -452,7 +452,7 @@ const influences = [
                 </p>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  He uses structured knowledge management tools such as Notion to document experiments, architectural patterns and long-term research, maintaining a systematic approach to understanding how AI can enhance data engineering and analytics workflows.
+                  I use structured knowledge management tools such as Notion to document experiments, architectural patterns and long-term research, maintaining a systematic approach to understanding how AI can enhance data engineering and analytics workflows.
                 </p>
               </div>
               
