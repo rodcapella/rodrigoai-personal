@@ -33,27 +33,22 @@ const App = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <div className="theme-provider" data-theme={theme}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
-              <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
-              <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-
-              <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </div>
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
-};
+return (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <div className="theme-provider" data-theme={theme}>
+        <Routes>
+          <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
 
 export default App;
