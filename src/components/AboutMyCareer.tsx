@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const AboutMyCareer = () => {
   const funFacts = [
-    "15+ years building data solutions across Brazil, USA, and Portugal",
+    "15+ years building data solutions across Brazil and Portugal",
     "Passionate about translating complex business problems into scalable technical solutions",
     "Experienced in leading teams through digital transformation initiatives",
     "Strong advocate for data-driven decision making and analytical excellence",
