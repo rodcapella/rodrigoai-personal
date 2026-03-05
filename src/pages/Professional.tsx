@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Briefcase, Globe } from "lucide-react";
+import { Award, Briefcase, Globe, GraduationCap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -318,7 +318,10 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Academic Background</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <GraduationCap className="w-8 h-8 text-primary" />
+                Academic Background
+              </h2>
               
               <div className="space-y-4">
                 {education.map((edu, idx) => (
@@ -359,10 +362,12 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 flex gap-3"
+                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
                   >
-                    <Award className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-muted-foreground text-sm">{cert}</p>
+                    <span className="text-primary font-bold mt-1">•</span>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {cert}
+                    </p>
                   </motion.div>
                 ))}
               </div>
