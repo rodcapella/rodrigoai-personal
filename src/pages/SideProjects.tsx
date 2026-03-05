@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Code, Database, BarChart3, Cpu, TrendingUp  } from "lucide-react";
+import { Zap, Code, Database, BarChart3, Cpu, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -34,7 +34,6 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       description:
         "Applying AI to marketing, SEO, GEO and digital positioning strategies to create intelligent growth systems."
     }
-];
 
   return (
     <div className="min-h-screen bg-background">
