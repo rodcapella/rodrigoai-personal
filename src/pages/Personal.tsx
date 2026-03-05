@@ -48,11 +48,13 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
   ];
 
 const longTermVision = [
-    "Building intelligent systems",
-    "Bridging data & decision layers",
-    "Leadership in data multi-functional teams",
-    "Creating sustainable and governed data platforms"
-  ];
+  "Building intelligent systems",
+  "Bridging data & decision layers",
+  "Leadership in data multi-functional teams",
+  "Creating sustainable and governed data platforms",
+  "Designing AI-native and AI-augmented architectures",
+  "Leveraging the full potential of modern AI ecosystems and tools"
+];
   
   const personalValues = [
     {
@@ -177,7 +179,7 @@ const influences = [
                 <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-orange-500/20 blur-2xl rounded-2xl opacity-40" />
                 
                 <img
-                  src="/ai-portrait.jpg"
+                  src="/ai-portrait.jpeg"
                   alt="AI & Data Professional"
                   className="rounded-lg shadow-lg border border-primary/20"
                 />
