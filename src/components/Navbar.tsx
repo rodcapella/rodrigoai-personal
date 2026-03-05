@@ -31,11 +31,12 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
       }`}
     >
       <div className="container flex items-center justify-between px-4">
-        <a href="/" className="font-display font-bold text-lg text-foreground flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-bold">R</span>
-          </div>
-          <span>Rodrigo<span className="text-primary">.</span>Póvoa</span>
+        <a href="/" className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="Rodrigo Póvoa Logo"
+            className="h-10 w-auto transition-all duration-300 hover:scale-105"
+          />
         </a>
         
         {/* Desktop Navigation */}
