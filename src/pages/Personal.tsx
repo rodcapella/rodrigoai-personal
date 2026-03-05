@@ -134,13 +134,12 @@ const influences = [
   
   const aiExploration = [
     "OpenAI ecosystem",
-    "ChatGPT",
     "Claude",
     "Gemini",
     "Perplexity",
     "Kimi",
     "Manus",
-    "Lovable"
+    "Notion"
   ];
 
   return (
@@ -160,32 +159,38 @@ const influences = [
                 Personal
               </h1>
               
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mt-4">
                 Beyond the code and data architectures, Rodrigo is a technology professional driven by structure, depth and long-term impact. He combines analytical rigor with cultural curiosity, balancing high-performance engineering with a strong personal identity rooted in music, sports and storytelling.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Philosophy Section */}
-        <section className="px-4">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20"
-            >
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <Heart className="w-6 h-6 text-primary" />
-                Personal Philosophy
-              </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. Throughout his career, he has held technical leadership and managerial roles, operating across diverse business domains including logistics, e-commerce, retail, financial services and digital media. Having worked end-to-end within the modern data ecosystem — from distributed data engineering pipelines and governance frameworks to advanced analytics and executive-level BI strategy — he combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
+      {/* Philosophy Section */}
+      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <div className="container max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <Heart className="w-8 h-8 text-primary" />
+              Personal Philosophy
+            </h2>
+            
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. 
               </p>
-            </motion.div>
-          </div>
-        </section>
+              
+              <p>
+                Throughout his career, he has held technical leadership and managerial roles across logistics, e-commerce, retail, financial services and digital media. He combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
+              </p>
+            </div>  
+          </motion.div>
+        </div>
+      </section>
         
         {/* Life Journey Section */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
@@ -193,7 +198,7 @@ const influences = [
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
                 <Compass className="w-8 h-8 text-primary" />
@@ -223,7 +228,7 @@ const influences = [
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
               <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
                 <Music className="w-8 h-8 text-primary" />
@@ -296,26 +301,42 @@ const influences = [
 
         {/* Core Values */}
         <section className="px-4 mb-20">
-         <div className="grid md:grid-cols-2 gap-8">
-          {personalValues.map((value, idx) => (
+          <div className="container max-w-4xl mx-auto">
             <motion.div
-              key={idx}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-              className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
               <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Music className="w-8 h-8 text-primary" />
+                <Hear className="w-8 h-8 text-primary" />
                 Core Values
               </h2>
-              <h3 className="text-lg font-bold mb-2">{value.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {value.description}
-              </p>
+        
+              <div className="grid md:grid-cols-2 gap-8">
+                {personalValues.map((value, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                  >
+                  <h3 className="text-lg font-bold mb-4">
+                      {section.category}
+                    </h3>
+                    <ul className="space-y-2">
+                      {section.items.map((item, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex gap-3">
+                          <span className="text-primary font-bold">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
-          ))}
-        </div>
+          </div>
         </section>
 
         {/* Influences */}
@@ -397,7 +418,7 @@ const influences = [
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
               <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
                 <Sparkles className="w-8 h-8 text-primary" />
@@ -423,7 +444,7 @@ const influences = [
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: 0.7 + idx * 0.05 }}
-                      className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm"
+                      className="px-4 py-2 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 font-medium text-sm"
                     >
                       {platform}
                     </motion.span>
