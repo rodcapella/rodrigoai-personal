@@ -143,7 +143,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               </div>
         
               <h3 className="text-2xl font-bold mb-4">
-                Explore SapienteAI Studio
+                Explore SapienteAI
               </h3>
         
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
