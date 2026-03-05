@@ -1,59 +1,21 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Personal from "./pages/Personal";
-import Professional from "./pages/Professional";
+import { Routes, Route } from "react-router-dom";
+
+import Index from "@/pages/Index";
+import Personal from "@/pages/Personal";
+import Professional from "@/pages/Professional";
+import SideProjects from "@/pages/SideProjects";
 import Contact from "@/pages/Contact";
-<Route path="/" element={<Index />} />
-<Route path="/contact" element={<Contact />} />
-
-import SideProjects from "./pages/SideProjects";
-
-const queryClient = new QueryClient();
 
 const App = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    const saved = localStorage.getItem('theme');
-    return (saved as 'dark' | 'light') || 'dark';
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-  };
-
-return (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <div className="theme-provider" data-theme={theme}>
-        <Routes>
-          <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
-          <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
-          <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-          <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-  
+  return (
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/personal" element={<Personal />} />
+      <Route path="/professional" element={<Professional />} />
+      <Route path="/side-projects" element={<SideProjects />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  );
 };
 
 export default App;
