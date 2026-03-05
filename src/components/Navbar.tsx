@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { Github, Linkedin, Menu, X, Moon, Sun } from "lucide-react";
+import { motion } from "framer-motion";
 
 const links = [
   { href: "/personal", label: "Personal" },
@@ -37,15 +39,35 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
         </a>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+       <div className="hidden md:flex items-center gap-8 relative">
           {links.map((link) => (
-            <a
+            <NavLink
               key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+              to={link.href}
+              className="relative text-sm font-medium transition-colors duration-300"
             >
-              {link.label}
-            </a>
+              {({ isActive }) => (
+                <div className="relative px-2 py-1">
+                  <span
+                    className={`transition-all duration-300 ${
+                      isActive
+                        ? "text-primary drop-shadow-[0_0_6px_rgba(59,130,246,0.8)]"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </span>
+        
+                  {isActive && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </div>
+              )}
+            </NavLink>
           ))}
         </div>
 
@@ -95,14 +117,20 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
         >
           <div className="container px-4 py-4 flex flex-col gap-4">
             {links.map((link) => (
-              <a
+              <NavLink
                 key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `font-medium transition-all duration-300 ${
+                    isActive
+                      ? "text-primary border-l-4 border-primary pl-2"
+                      : "text-muted-foreground hover:text-primary"
+                  }`
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
             <div className="flex items-center gap-4 pt-4 border-t border-primary/20">
               <button
