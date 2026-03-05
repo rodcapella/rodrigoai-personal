@@ -20,14 +20,14 @@ const ContactSection = () => {
 
           <div className="flex items-center justify-center gap-6">
             <a
-              href="mailto:hello@rodrigopovoa.com"
+              href="mailto:rodcapella@gmail.com"
               className="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm hover:bg-primary/90 transition-all glow-primary-sm"
             >
               <Mail className="w-4 h-4" />
               Get in Touch
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/rodcapella"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
@@ -35,7 +35,7 @@ const ContactSection = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/rodrigocspovoa"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
