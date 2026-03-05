@@ -50,5 +50,7 @@ return (
     </TooltipProvider>
   </QueryClientProvider>
 );
+  
+};
 
 export default App;
