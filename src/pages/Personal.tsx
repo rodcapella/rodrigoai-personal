@@ -47,6 +47,13 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     { team: "FC Porto", country: "Portugal", emoji: "🔵⚪" }
   ];
 
+const longTermVision = [
+    "Building intelligent systems",
+    "Bridging data & decision layers",
+    "Leadership in data multi-functional teams",
+    "Creating sustainable and governed data platforms"
+  ];
+  
   const personalValues = [
     {
       title: "Discipline",
@@ -63,9 +70,68 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     {
       title: "Cultural Curiosity",
       description: "Deep interest in understanding different perspectives and cultures"
+    },
+    {
+      title: "Technology Enthusiasm",
+      description: "Strong enthusiasm for emerging technologies, constantly exploring new tools, platforms and architectural paradigms to stay ahead of innovation trends."
+    },
+    {
+      title: "Analytical Mindset",
+      description: "Highly analytical approach to problem-solving, combining structured reasoning, data-driven thinking and critical evaluation across technical and strategic domains."
     }
   ];
 
+const influences = [
+  {
+    category: "Tech Leaders",
+    items: [
+      "Steve Jobs – Apple",
+      "Elon Musk – Tesla & SpaceX",
+      "Jeff Bezos – Amazon"
+    ]
+  },
+  {
+    category: "Sports Idols",
+    items: [
+      "Ayrton Senna",
+      "Zico",
+      "Michael Jordan"
+    ]
+  },
+  {
+    category: "Favorite Books",
+    items: [
+      "The Housemaid – Freida McFadden",
+      "The Catcher in the Rye – J.D. Salinger",
+      "A Song of Ice and Fire – George R. R. Martin"
+    ]
+  },
+  {
+    category: "Favorite Bands",
+    items: [
+      "Dream Theater",
+      "Iron Maiden",
+      "Metallica"
+    ]
+  },
+  {
+    category: "Favorite Phrases",
+    items: [
+      "Veni, vidi, vici.",
+      "\"If you are going through hell, keep going.\" – Winston Churchill",
+      "\"I have no special talent. I am only passionately curious.\" – Albert Einstein"
+    ]
+  },
+  {
+    category: "Areas of Study Outside Tech",
+    items: [
+      "History & Cultural Evolution",
+      "Global Economics",
+      "Entrepreneurship"
+    ]
+  }
+];
+  
   const aiExploration = [
     "OpenAI ecosystem",
     "ChatGPT",
@@ -114,8 +180,8 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                 <Heart className="w-6 h-6 text-primary" />
                 Personal Philosophy
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Rodrigo values discipline, loyalty, intellectual growth and continuous evolution — both professionally and personally. He believes that true excellence comes from balancing technical depth with cultural awareness, that meaningful work requires both structure and creativity, and that the best solutions emerge when we understand not just the problem, but the human context behind it.
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+                Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. Throughout his career, he has held technical leadership and managerial roles, operating across diverse business domains including logistics, e-commerce, retail, financial services and digital media. Having worked end-to-end within the modern data ecosystem — from distributed data engineering pipelines and governance frameworks to advanced analytics and executive-level BI strategy — he combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
               </p>
             </motion.div>
           </div>
@@ -252,6 +318,79 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         </div>
         </section>
 
+        {/* Influences */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <BookOpen className="w-8 h-8 text-primary" />
+                Influences
+              </h2>
+        
+              <div className="grid md:grid-cols-2 gap-8">
+                {influences.map((section, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                  >
+                    <h3 className="text-lg font-bold mb-4">
+                      {section.category}
+                    </h3>
+        
+                    <ul className="space-y-2">
+                      {section.items.map((item, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex gap-3">
+                          <span className="text-primary font-bold">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Long-Term Vision */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Target className="w-8 h-8 text-primary" />
+                Long-Term Vision
+              </h2>
+        
+              <div className="grid md:grid-cols-2 gap-8">
+                {longTermVision.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                  >
+                    <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+        
         {/* AI Exploration */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
