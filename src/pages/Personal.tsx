@@ -148,21 +148,42 @@ const influences = [
       
       <main className="pt-32 pb-20">
         {/* Hero Section */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                Personal
-              </h1>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mt-4">
-                Beyond the code and data architectures, Rodrigo is a technology professional driven by structure, depth and long-term impact. He combines analytical rigor with cultural curiosity, balancing high-performance engineering with a strong personal identity rooted in music, sports and storytelling.
-              </p>
-            </motion.div>
+        <section className="px-4 mb-24">
+          <div className="container max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+        
+              {/* Left Side */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+                  Personal
+                </h1>
+        
+                <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+                  Beyond the code and data architectures, Rodrigo is a technology professional driven by structure, depth and long-term impact. He combines analytical rigor with cultural curiosity, balancing high-performance engineering with a strong personal identity rooted in music, sports and storytelling.
+                </p>
+              </motion.div>
+        
+              {/* Right Side Image */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative"
+              >
+                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-orange-500/20 blur-2xl rounded-2xl opacity-40" />
+                
+                <img
+                  src="/ai-portrait.png"
+                  alt="AI & Data Professional"
+                  className="relative rounded-2xl shadow-2xl border border-primary/20 hover:scale-[1.02] transition-all duration-500"
+                />
+              </motion.div>
+        
+            </div>
           </div>
         </section>
 
