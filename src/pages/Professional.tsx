@@ -9,6 +9,14 @@ interface ProfessionalProps {
 }
 
 const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
+    
+  const summaryPoints = [
+    "Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI (Power Query, DAX, M and semantic modeling) within modern data stack environments.",
+    "Delivered enterprise data modernization programs improving analytical efficiency and maturity of governance across multi-domain environments. Proven track record in translating business goals into scalable data solutions that accelerate decision-making and insight delivery.",
+    "Expert in building governed and secure data platforms, implementing Data Governance, GDPR-compliant architectures and scalable distributed data pipelines.",
+    "Strong background in defining data architecture standards, leading engineering teams, mentoring engineers and aligning technical strategy with business goals."
+  ];
+  
   const experiences = [
     {
       title: "Senior Data Engineer",
@@ -87,7 +95,72 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
         "Tuned SQL, T-SQL and PL/SQL queries for multiple databases including SQL Server, Oracle, MySQL, PostgreSQL and Google BigQuery."
       ],
       stack: ["SQL", "SQL Server", "Azure", "Databricks", "Python", "PySpark", "Hadoop", "GitHub", "Jira", "SCRUM", "Confluence"]
-    }
+    },
+    {
+  title: "BI Specialist",
+  company: "Holos Media – Digital Media Agency",
+  location: "Brazil",
+  period: "Jan 2019 – Oct 2019",
+  highlights: [
+    "Developed Tableau dashboards and PL/SQL routines on Oracle Database for marketing performance analysis.",
+    "Migrated legacy QlikView dashboards to Tableau, improving visualization performance and analytical clarity.",
+    "Supported reporting needs for media and marketing departments with data-driven insights."
+  ],
+  stack: ["SQL", "PL/SQL", "Oracle", "Qlik View", "Tableau"]
+},
+{
+  title: "IT Specialist",
+  company: "Som Livre",
+  location: "Brazil",
+  period: "Jan 2017 – Dec 2018",
+  highlights: [
+    "Led the design and implementation of enterprise BI and Data Warehouse solutions in the Microsoft ecosystem.",
+    "Integrated Power BI, SSIS, SSRS and SSAS to modernize financial and operational reporting.",
+    "Acted as Product Owner for the Royalties ERP system, managing backlog prioritization and cross-team alignment.",
+    "Optimized PL/SQL and T-SQL routines improving reporting performance and reliability."
+  ],
+  stack: ["SQL", "SQL Server", "MySQL", "T-SQL", "Power BI", "SSIS", "SSAS", "SSRS", "SCRUM"]
+},
+{
+  title: "BI Team Leader",
+  company: "Celular Direto",
+  location: "Brazil",
+  period: "Mar 2016 – Dec 2016",
+  highlights: [
+    "Founded and structured the Business Intelligence area from the ground up.",
+    "Designed the BI platform integrating CRM, ERP and operational systems into centralized analytical data models.",
+    "Implemented scalable ETL pipelines ensuring data consistency and performance.",
+    "Built executive dashboards in Qlik Sense providing leadership with actionable insights.",
+    "Hired, mentored and led a team of BI developers establishing scalable delivery capability."
+  ],
+  stack: ["SQL", "SQL Server", "MySQL", "PL/SQL", "Qlik Sense", "SCRUM"]
+},
+{
+  title: "System Analyst & BI Analyst",
+  company: "B2W Digital Group",
+  location: "Brazil",
+  period: "Jan 2014 – Mar 2016",
+  highlights: [
+    "Led technical design for vendor accounts payable BI systems using SQL Server, SSIS, SSRS and SSAS.",
+    "Built dynamic Tableau dashboards integrating MongoDB and SQL Server.",
+    "Automated reporting solutions using PL/SQL routines.",
+    "Optimized advanced T-SQL queries significantly improving data processing efficiency."
+  ],
+  stack: ["SQL", "Oracle", "SQL Server", "T-SQL", "SSIS", "SSAS", "SSRS", "Tableau", "SCRUM"]
+},
+{
+  title: "Early Career (Trainee to BI Team Leader)",
+  company: "Multiple Organizations (Wilson Sons, FGV, Delphos Tecnologia em Seguros)",
+  location: "Brazil",
+  period: "2007 – 2014",
+  highlights: [
+    "Progressively advanced from Trainee to BI Team Leader delivering data and analytics solutions.",
+    "Built strong foundations in data modeling, PL/SQL development and ETL processes.",
+    "Delivered enterprise dashboards and automation projects enhancing finance and operations decision-making.",
+    "Led small technical teams and contributed to governance and reporting modernization initiatives."
+  ],
+  stack: ["Oracle", "IBM Cognos", "SQL Server", "PL/SQL", "ETL", "Data Modeling"]
+}
   ];
 
   const coreCompetences = [
@@ -112,9 +185,9 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
   ];
 
   const languages = [
-    { language: "Portuguese", level: "Native", flag: "🇧🇷" },
-    { language: "English", level: "Advanced (C1 – improving towards C2 proficiency)", flag: "🇬🇧" },
-    { language: "Spanish", level: "Basic (A1 equivalent)", flag: "🇪🇸" }
+    { language: "Portuguese", level: "Native"},
+    { language: "English", level: "Advanced (C1 – improving towards C2 proficiency)"},
+    { language: "Spanish", level: "Basic (A1 equivalent)"}
   ];
 
   const education = [
