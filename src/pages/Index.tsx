@@ -9,13 +9,16 @@ import AboutMyCareer from "@/components/AboutMyCareer";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
+/*
 const ChatWidget = lazy(() => import("@/components/ChatWidget"));
+*/
 
 interface IndexProps {
   theme?: 'dark' | 'light';
   onToggleTheme?: () => void;
 }
 
+/*
 const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
   const [chatOpen, setChatOpen] = useState(false);
 
@@ -38,5 +41,6 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
     </div>
   );
 };
+*/
 
 export default Index;
