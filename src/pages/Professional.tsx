@@ -2,6 +2,13 @@ import { motion } from "framer-motion";
 import { Award, Briefcase, Globe, GraduationCap, Cpu} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
+
+<Helmet>
+  <title>Professional Experience | Rodrigo Póvoa</title>
+  <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
+  <link rel="canonical" href="https://rodrigoai-personal.vercel.app/professional" />
+</Helmet>
 
 interface ProfessionalProps {
   theme?: 'dark' | 'light';
