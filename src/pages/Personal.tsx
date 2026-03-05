@@ -308,7 +308,7 @@ const influences = [
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Hear className="w-8 h-8 text-primary" />
+                <Heart className="w-8 h-8 text-primary" />
                 Core Values
               </h2>
         
@@ -321,17 +321,13 @@ const influences = [
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
                     className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
                   >
-                  <h3 className="text-lg font-bold mb-4">
-                      {section.category}
+                    <h3 className="text-lg font-bold mb-2">
+                      {value.title}
                     </h3>
-                    <ul className="space-y-2">
-                      {section.items.map((item, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex gap-3">
-                          <span className="text-primary font-bold">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+        
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {value.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
