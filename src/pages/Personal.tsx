@@ -148,7 +148,7 @@ const influences = [
       
       <main className="pt-32 pb-20">
         {/* Hero Section */}
-        <section className="px-4 mb-24">
+        <section className="px-4 mb-20">
           <div className="container max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
         
@@ -177,9 +177,9 @@ const influences = [
                 <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-orange-500/20 blur-2xl rounded-2xl opacity-40" />
                 
                 <img
-                  src="/ai-portrait.png"
+                  src="/ai-portrait.jpg"
                   alt="AI & Data Professional"
-                  className="relative rounded-2xl shadow-2xl border border-primary/20 hover:scale-[1.02] transition-all duration-500"
+                  className="rounded-lg shadow-lg border border-primary/20"
                 />
               </motion.div>
         
@@ -214,7 +214,7 @@ const influences = [
       </section>
         
         {/* Life Journey Section */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -244,7 +244,7 @@ const influences = [
         </section>
 
         {/* Passions & Hobbies */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -285,7 +285,7 @@ const influences = [
         </section>
 
         {/* Sports & Teams */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -321,7 +321,7 @@ const influences = [
         </section>
 
         {/* Core Values */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -430,7 +430,7 @@ const influences = [
         </section>
         
         {/* AI Exploration */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
