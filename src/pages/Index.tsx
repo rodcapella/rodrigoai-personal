@@ -153,6 +153,12 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         </script>
       </Helmet>
 
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://rodrigopovoa.com/" }
+        ]}
+      />
+      
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main>
