@@ -343,21 +343,18 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               </h2>
         
               <div className="grid md:grid-cols-2 gap-8">
-                {personalValues.map((value, idx) => {
-                  const layers = ["layer-yellow", "layer-blue", "layer-purple"];
-                
-                  return (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                      className={`glass ${layers[idx % 3]} rounded-xl p-6`}
-                    >
+                {personalValues.map((value, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                    className={`glass ${["layer-yellow","layer-blue","layer-purple"][idx % 3]} rounded-xl p-6`}
+                  >
                     <h3 className="text-lg font-bold mb-2">
                       {value.title}
                     </h3>
-        
+                
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
