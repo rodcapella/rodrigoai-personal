@@ -71,7 +71,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
     { category: "Sports Idols", items: ["Ayrton Senna", "Zico", "Michael Jordan"] },
     { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] },
-    { category: "Global Leaders",  items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"]
+    { category: "Global Leaders", items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"] }
   ];
 
   const aiExploration = [
@@ -274,7 +274,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 + idx * 0.05 }}
-                      className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                      className="glass rounded-xl p-6"
                     >
                       <div className="flex items-start gap-4">
                         <Icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
@@ -313,7 +313,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
-                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 rounded-lg border border-primary/20 text-center"
+                    className="glass rounded-xl p-8 text-center"
                   >
                     <div className="text-4xl mb-4">{team.emoji}</div>
                     <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
@@ -343,14 +343,17 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               </h2>
         
               <div className="grid md:grid-cols-2 gap-8">
-                {personalValues.map((value, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
-                  >
+                {personalValues.map((value, idx) => {
+                  const layers = ["layer-yellow", "layer-blue", "layer-purple"];
+                
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                      className={`glass ${layers[idx % 3]} rounded-xl p-6`}
+                    >
                     <h3 className="text-lg font-bold mb-2">
                       {value.title}
                     </h3>
@@ -366,7 +369,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         </section>
 
         {/* Influences */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -381,7 +384,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               <div className="grid md:grid-cols-2 gap-8">
                 {influences.map((section, idx) => {
                   const layers = ["layer-yellow", "layer-blue", "layer-purple"];
-              
+        
                   return (
                     <motion.div
                       key={idx}
@@ -393,7 +396,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       <h3 className="text-lg font-bold mb-4">
                         {section.category}
                       </h3>
-              
+        
                       <ul className="space-y-2">
                         {section.items.map((item, i) => (
                           <li key={i} className="text-sm text-muted-foreground flex gap-3">
@@ -406,6 +409,8 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   );
                 })}
               </div>
+            </motion.div>
+          </div>
         </section>
 
         {/* Long-Term Vision */}
@@ -428,7 +433,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
-                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                    className="glass rounded-xl p-6"
                   >
                     <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                       {item}
