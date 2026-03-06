@@ -4,13 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Personal from "./pages/Personal";
-import Professional from "./pages/Professional";
 
-import SideProjects from "./pages/SideProjects";
-import Contact from "./pages/Contact";
+import { lazy, Suspense } from "react";
+const Index = lazy(() => import("./pages/Index"));
+const Professional = lazy(() => import("./pages/Professional"));
+const Personal = lazy(() => import("./pages/Personal"));
+const Contact = lazy(() => import("./pages/Contact"));
+const SideProjects = lazy(() => import("./pages/SideProjects"));
 
 const queryClient = new QueryClient();
 
@@ -41,16 +41,10 @@ const App = () => {
         <Sonner />
         <div className="theme-provider" data-theme={theme}>
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
-              <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
-              <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-
-              <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
-              <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-muted-foreground">
+              Loading...
+            </div>}>
+             </Suspense>  
           </BrowserRouter>
         </div>
         <Analytics />
