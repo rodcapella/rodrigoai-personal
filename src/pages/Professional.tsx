@@ -207,6 +207,13 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
         <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
         <link rel="canonical" href="https://rodrigoai-personal.vercel.app/professional" />
       </Helmet>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://rodrigopovoa.com/" },
+          { name: "Professional", url: "https://rodrigopovoa.com/professional" }
+        ]}
+      />
+      
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
       
       <main className="pt-32 pb-20">
