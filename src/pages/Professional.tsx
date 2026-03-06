@@ -4,12 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 
-<Helmet>
-  <title>Professional Experience | Rodrigo Póvoa</title>
-  <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
-  <link rel="canonical" href="https://rodrigoai-personal.vercel.app/professional" />
-</Helmet>
-
 interface ProfessionalProps {
   theme?: 'dark' | 'light';
   onToggleTheme?: () => void;
@@ -208,6 +202,11 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Professional Experience | Rodrigo Póvoa</title>
+        <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
+        <link rel="canonical" href="https://rodrigoai-personal.vercel.app/professional" />
+      </Helmet>
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
       
       <main className="pt-32 pb-20">
@@ -220,7 +219,7 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                Professional
+                Professional Experience & Technical Leadership
               </h1>
               
               <p className="text-lg text-primary font-semibold mb-4">
@@ -402,20 +401,24 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               </h2>
               
               <div className="grid md:grid-cols-3 gap-6">
-              {coreCompetences.map((competence, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                  className={`flex items-start gap-3 p-4 rounded-xl glass ${
-                    ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
-                  }`}
-                >
-                  <span className="font-bold mt-1">•</span>
-                  <p className="text-muted-foreground">{competence}</p>
-                </motion.div>
-              ))}
+                {languages.map((lang, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                    className={`p-6 rounded-xl glass ${
+                      ["layer-yellow", "layer-blue", "layer-purple"][idx % 3]
+                    }`}
+                  >
+                    <h3 className="font-semibold text-foreground mb-1">
+                      {lang.language}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {lang.level}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           </div>
