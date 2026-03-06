@@ -70,7 +70,8 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
   const influences = [
     { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
     { category: "Sports Idols", items: ["Ayrton Senna", "Zico", "Michael Jordan"] },
-    { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] }
+    { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] },
+    { category: "Global Leaders",  items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"]
   ];
 
   const aiExploration = [
@@ -378,28 +379,32 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               </h2>
         
               <div className="grid md:grid-cols-2 gap-8">
-                {influences.map((section, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
-                  >
-                    <h3 className="text-lg font-bold mb-4">
-                      {section.category}
-                    </h3>
-        
-                    <ul className="space-y-2">
-                      {section.items.map((item, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex gap-3">
-                          <span className="text-primary font-bold">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
+                {influences.map((section, idx) => {
+                  const layers = ["layer-yellow", "layer-blue", "layer-purple"];
+              
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
+                      className={`glass rounded-xl p-6 ${layers[idx % 3]}`}
+                    >
+                      <h3 className="text-lg font-bold mb-4">
+                        {section.category}
+                      </h3>
+              
+                      <ul className="space-y-2">
+                        {section.items.map((item, i) => (
+                          <li key={i} className="text-sm text-muted-foreground flex gap-3">
+                            <span className="text-primary font-bold">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
