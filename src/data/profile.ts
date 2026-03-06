@@ -1,22 +1,37 @@
 export const profile = {
   name: "Rodrigo Póvoa",
-  title: "Data Analytics Engineer & Team Leader.",
+
+  title: "Technical Data Leader | Data Analytics Engineer",
+
   summary:
-    "I design and build intelligent data systems that scale. With deep expertise in AI architecture, data engineering, and governance, I help organizations transform raw data into strategic assets through robust pipelines, scalable infrastructure, and production-grade machine learning systems.",
+    "Technical Data Leader specialized in designing enterprise data ecosystems, structuring governance frameworks and leading analytics teams in complex environments. I operate at the intersection of architecture, engineering and business strategy — transforming fragmented data landscapes into scalable, governed and decision-driven platforms.",
+
   core_skills: [
-    "Data Architecture & Modeling",
-    "Cloud Infrastructure (Azure)",
-    "Data Governance & Quality",
-    "ETL/ELT Orchestration",
-    "Real-time Streaming Systems",
-    "Python, SQL, Databricks, PySpark",
+    "Enterprise Data Architecture & Lakehouse Design",
+    "Data Governance & Quality Frameworks",
+    "Azure & Distributed Data Engineering",
+    "Analytics Platform Strategy",
+    "BI Capability Building & KPI Structuring",
+    "Technical Leadership & Team Development"
   ],
-  github_focus:
-    "Open-source contributions focused on data engineering tools, frameworks and developer productivity utilities.",
-  hobbies: [
-    "Contributing to open-source data tools",
-    "Exploring edge computing and IoT data systems",
+
+  technical_stack: [
+    "Azure",
+    "Databricks",
+    "Delta Lake",
+    "PySpark",
+    "SQL",
+    "Power BI",
+    "ElasticSearch",
+    "Hadoop"
   ],
+
+  leadership_focus:
+    "Proven experience in building analytics capabilities from the ground up, leading multidisciplinary teams and delivering large-scale data initiatives that align technical execution with strategic business goals.",
+
+  impact_orientation:
+    "Focused on turning data into organizational leverage — ensuring platforms are not only technically robust, but also governed, scalable and aligned with executive decision-making.",
+
   positioning_statement:
-    "I bridge the gap between raw data and intelligent systems. My focus is building production-grade AI and data infrastructure that doesn't just work — it scales, governs, and evolves.",
+    "I lead the design of intelligent data infrastructures that scale with the organization — combining technical depth, governance discipline and strategic clarity."
 };
