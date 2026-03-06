@@ -22,16 +22,17 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               Data Engineer • Analytics • Team Leader
             </p>
             
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 tracking-tight">
-              Building intelligent
+            <motion.h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
+              Designing Enterprise Data Platforms
               <br />
-              <span className="text-gradient">data solutions.</span>
-            </h1>
+              That Scale, Govern and Drive Decisions.
+            </motion.h1>
             
-            <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-12 leading-relaxed">
-              15+ years of experience designing production-grade data infrastructure,
-              analytics platforms, and AI-driven systems that drive business value.
-            </p>
+            <motion.p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
+              Technical Data Leader specialized in building governed analytics ecosystems,
+              structuring scalable data architectures and leading teams to transform
+              fragmented data into strategic infrastructure.
+            </motion.p>
             
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
@@ -72,20 +73,6 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               {/* LinkedIn-style accent light */}
               <div className="absolute -top-2 -right-2 w-12 h-12 bg-primary/20 rounded-full blur-xl" />
             </div>
-
-            {/* Bot Avatar Indicator */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="relative"
-            >
-              {/* LinkedIn-style bot avatar */}
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center shadow-lg border-3 border-background hover:shadow-xl transition-shadow">
-                <Bot className="w-8 h-8 text-primary-foreground" />
-              </div>
-              {/* Online status indicator */}
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-3 border-background animate-pulse" />
-            </motion.div>
           </motion.div>
         </div>
       </div>
