@@ -253,6 +253,13 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           </a>
         </motion.div>
       </div>
-    </section>
-
-export default SideProjects;
+      </section>
+      
+              </main>
+      
+              <Footer />
+            </div>
+          );
+      };
+      
+      export default SideProjects;
