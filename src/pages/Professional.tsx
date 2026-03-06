@@ -255,9 +255,11 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+                    className={`flex items-start gap-3 p-4 rounded-xl glass ${
+                      ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
+                    }`}
                   >
-                    <span className="text-primary font-bold mt-1">•</span>
+                    <span className="font-bold mt-1">•</span>
                     <p className="text-muted-foreground">{competence}</p>
                   </motion.div>
                 ))}
@@ -400,19 +402,20 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               </h2>
               
               <div className="grid md:grid-cols-3 gap-6">
-                {languages.map((lang, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.7 + idx * 0.1 }}
-                    className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 text-center"
-                  >
-                    <div className="text-4xl mb-3">{lang.flag}</div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{lang.language}</h3>
-                    <p className="text-sm text-muted-foreground">{lang.level}</p>
-                  </motion.div>
-                ))}
+              {coreCompetences.map((competence, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                  className={`flex items-start gap-3 p-4 rounded-xl glass ${
+                    ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
+                  }`}
+                >
+                  <span className="font-bold mt-1">•</span>
+                  <p className="text-muted-foreground">{competence}</p>
+                </motion.div>
+              ))}
               </div>
             </motion.div>
           </div>
