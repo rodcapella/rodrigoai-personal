@@ -10,6 +10,7 @@ import Personal from "./pages/Personal";
 import Professional from "./pages/Professional";
 
 import SideProjects from "./pages/SideProjects";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => {
               <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
 
               <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
+              <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

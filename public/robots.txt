@@ -1,8 +1,28 @@
+# robots.txt for rodrigoai-personal
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Crawl delay (in seconds)
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://rodrigopovoa.com/sitemap.xml
+Sitemap: https://rodrigopovoa.com/sitemap-pt.xml
+
+# Specific rules for search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
@@ -10,5 +30,12 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

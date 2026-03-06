@@ -39,10 +39,10 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
-                href="#professional"
+                href="/contact"
                 className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide hover:bg-primary/90 transition-all glow-primary-sm hover:glow-primary"
               >
-                Explore My Work
+                Get in Touch
               </a>
               <button
                 onClick={onOpenChat}

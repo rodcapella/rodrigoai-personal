@@ -20,7 +20,7 @@ const ContactSection = () => {
 
           <div className="flex items-center justify-center gap-6">
             <a
-              href="mailto:hello@rodrigopovoa.com"
+              href="/contact"
               className="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm hover:bg-primary/90 transition-all glow-primary-sm"
             >
               <Mail className="w-4 h-4" />
