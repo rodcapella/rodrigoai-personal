@@ -388,7 +388,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                      className={`glass rounded-xl p-6 ${layers[idx % 3]}`}
+                      className={`glass ${layers[idx % 3]} rounded-xl p-6`}
                     >
                       <h3 className="text-lg font-bold mb-4">
                         {section.category}
@@ -406,8 +406,6 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   );
                 })}
               </div>
-            </motion.div>
-          </div>
         </section>
 
         {/* Long-Term Vision */}
