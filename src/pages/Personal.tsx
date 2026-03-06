@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart } from "lucide-react";
+import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart, Target, Compass, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 interface PersonalProps {
   theme?: 'dark' | 'light';
@@ -9,6 +10,7 @@ interface PersonalProps {
 }
 
 const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
+
   const hobbies = [
     {
       icon: Music,
@@ -33,12 +35,12 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     {
       icon: Film,
       title: "Film & Series",
-      description: "Film and series lover with strong interest in storytelling and cinematography. Once considered studying cinema."
+      description: "Film and series lover with strong interest in storytelling and cinematography."
     },
     {
       icon: Dumbbell,
       title: "Sports & Fitness",
-      description: "Sports enthusiast — practices gym training and running regularly, and enjoys football, basketball, volleyball, martial arts and rugby."
+      description: "Sports enthusiast — practices gym training and running regularly."
     }
   ];
 
@@ -47,69 +49,190 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     { team: "FC Porto", country: "Portugal", emoji: "🔵⚪" }
   ];
 
+  const longTermVision = [
+    "Building intelligent systems",
+    "Bridging data & decision layers",
+    "Leadership in data multi-functional teams",
+    "Creating sustainable and governed data platforms",
+    "Designing AI-native architectures",
+    "Leveraging modern AI ecosystems"
+  ];
+
   const personalValues = [
-    {
-      title: "Discipline",
-      description: "Structured approach to personal and professional growth"
-    },
-    {
-      title: "Loyalty",
-      description: "Commitment to relationships, teams and long-term partnerships"
-    },
-    {
-      title: "Intellectual Growth",
-      description: "Continuous learning and exploration of new concepts and technologies"
-    },
-    {
-      title: "Cultural Curiosity",
-      description: "Deep interest in understanding different perspectives and cultures"
-    }
+    { title: "Discipline", description: "Structured approach to personal and professional growth" },
+    { title: "Loyalty", description: "Commitment to relationships and long-term partnerships" },
+    { title: "Intellectual Growth", description: "Continuous learning and exploration" },
+    { title: "Cultural Curiosity", description: "Interest in different perspectives and cultures" },
+    { title: "Technology Enthusiasm", description: "Constant exploration of emerging technologies" },
+    { title: "Analytical Mindset", description: "Data-driven and structured reasoning approach" }
+  ];
+
+  const influences = [
+    { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
+    { category: "Sports Idols", items: ["Ayrton Senna", "Zico", "Michael Jordan"] },
+    { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] }
   ];
 
   const aiExploration = [
-    "OpenAI ecosystem",
-    "ChatGPT",
+    "OpenAI",
     "Claude",
     "Gemini",
     "Perplexity",
     "Kimi",
     "Manus",
-    "Lovable"
+    "Notion"
   ];
 
   return (
     <div className="min-h-screen bg-background">
+
+      <Helmet>
+        <title>Personal | Rodrigo Póvoa – Values, Vision & AI Exploration</title>
+
+        <meta
+          name="description"
+          content="Personal profile of Rodrigo Póvoa — exploring philosophy, leadership values, cultural influences, sports passion and AI ecosystem experimentation."
+        />
+
+        <link
+          rel="canonical"
+          href="https://rodrigoai-personal.vercel.app/personal"
+        />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Personal | Rodrigo Póvoa" />
+        <meta
+          property="og:description"
+          content="Personal philosophy, cultural influences and AI ecosystem exploration."
+        />
+        <meta
+          property="og:url"
+          content="https://rodrigoai-personal.vercel.app/personal"
+        />
+        <meta
+          property="og:image"
+          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+        />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Personal | Rodrigo Póvoa" />
+        <meta
+          name="twitter:description"
+          content="Personal values, relocation journey and AI ecosystem research."
+        />
+        <meta
+          name="twitter:image"
+          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+        />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Rodrigo Póvoa",
+            url: "https://rodrigoai-personal.vercel.app/personal",
+            jobTitle: "Data Analytics Engineer & Team Leader.",
+            description:
+              "Personal philosophy, leadership values and AI ecosystem exploration of Rodrigo Póvoa.",
+            knowsAbout: [
+              "Artificial Intelligence",
+              "Data Engineering",
+              "Leadership",
+              "Music Culture",
+              "AI Ecosystems",
+              "Technology Innovation"
+            ],
+            sameAs: [
+              "https://www.linkedin.com/in/rodrigocspovoa/",
+              "https://github.com/rodcapella"
+            ]
+          })}
+        </script>
+      </Helmet>
+
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      
+
       <main className="pt-32 pb-20">
-        {/* Hero Section */}
+
+        {/* HERO */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+                  Personal
+                </h1>
+
+                <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+                  Beyond data architecture, I combine analytical rigor with cultural curiosity — balancing engineering excellence with music, sports and long-term vision.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative flex justify-center items-center"
+              >
+                <div className="relative z-10 w-[320px] lg:w-[360px]">
+                  <img
+                    src="/ai-portrait.jpeg"
+                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    className="rounded-2xl shadow-2xl border border-primary/20"
+                  />
+                </div>
+              </motion.div>
+
+            </div>
+          </div>
+        </section>
+
+      {/* Philosophy Section */}
+      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <div className="container max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <Heart className="w-8 h-8 text-primary" />
+              Personal Philosophy
+            </h2>
+            
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. 
+              </p>
+              
+              <p>
+                Throughout his career, he has held technical leadership and managerial roles across logistics, e-commerce, retail, financial services and digital media. He combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
+              </p>
+            </div>  
+          </motion.div>
+        </div>
+      </section>
+        
+        {/* Life Journey Section */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                Personal
-              </h1>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                Beyond the code and data architectures, Rodrigo is a technology professional driven by structure, depth and long-term impact. He combines analytical rigor with cultural curiosity, balancing high-performance engineering with a strong personal identity rooted in music, sports and storytelling.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Life Journey Section */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              <h2 className="text-3xl font-bold mb-8">Life & Relocation</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Compass className="w-8 h-8 text-primary" />
+                Life & Relocation
+              </h2>
               
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
@@ -129,14 +252,17 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         </section>
 
         {/* Passions & Hobbies */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <h2 className="text-3xl font-bold mb-12">Passions & Hobbies</h2>
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Music className="w-8 h-8 text-primary" />
+                Passions & Hobbies
+              </h2>
               
               <div className="grid md:grid-cols-2 gap-8">
                 {hobbies.map((hobby, idx) => {
@@ -167,14 +293,17 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         </section>
 
         {/* Sports & Teams */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Team Spirit</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Trophy className="w-8 h-8 text-primary" />
+                Team Spirit
+              </h2>
               
               <div className="grid md:grid-cols-2 gap-8">
                 {sportsTeams.map((team, idx) => (
@@ -200,26 +329,32 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         </section>
 
         {/* Core Values */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <h2 className="text-3xl font-bold mb-12">Core Values</h2>
-              
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Heart className="w-8 h-8 text-primary" />
+                Core Values
+              </h2>
+        
               <div className="grid md:grid-cols-2 gap-8">
                 {personalValues.map((value, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="border-l-4 border-primary/30 pl-6"
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
                   >
-                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <h3 className="text-lg font-bold mb-2">
+                      {value.title}
+                    </h3>
+        
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
                   </motion.div>
@@ -229,15 +364,91 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
           </div>
         </section>
 
-        {/* AI Exploration */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        {/* Influences */}
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-8">AI Ecosystem Exploration</h2>
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <BookOpen className="w-8 h-8 text-primary" />
+                Influences
+              </h2>
+        
+              <div className="grid md:grid-cols-2 gap-8">
+                {influences.map((section, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                  >
+                    <h3 className="text-lg font-bold mb-4">
+                      {section.category}
+                    </h3>
+        
+                    <ul className="space-y-2">
+                      {section.items.map((item, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex gap-3">
+                          <span className="text-primary font-bold">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Long-Term Vision */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Target className="w-8 h-8 text-primary" />
+                Long-Term Vision
+              </h2>
+        
+              <div className="grid md:grid-cols-2 gap-8">
+                {longTermVision.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
+                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg border border-primary/20 hover:border-primary/40 transition-all"
+                  >
+                    <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+        
+        {/* AI Exploration */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Sparkles className="w-8 h-8 text-primary" />
+                AI Ecosystem Exploration
+              </h2>
               
               <div className="mb-8">
                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -245,7 +456,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                 </p>
                 
                 <p className="text-muted-foreground leading-relaxed">
-                  He uses structured knowledge management tools such as Notion to document experiments, architectural patterns and long-term research, maintaining a systematic approach to understanding how AI can enhance data engineering and analytics workflows.
+                  I use structured knowledge management tools such as Notion to document experiments, architectural patterns and long-term research, maintaining a systematic approach to understanding how AI can enhance data engineering and analytics workflows.
                 </p>
               </div>
               
@@ -258,33 +469,13 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: 0.7 + idx * 0.05 }}
-                      className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium text-sm"
+                      className="px-4 py-2 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 font-medium text-sm"
                     >
                       {platform}
                     </motion.span>
                   ))}
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Philosophy Section */}
-        <section className="px-4">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="bg-gradient-to-r from-primary/20 to-primary/5 p-12 rounded-lg border border-primary/20"
-            >
-              <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
-                <Heart className="w-6 h-6 text-primary" />
-                Personal Philosophy
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Rodrigo values discipline, loyalty, intellectual growth and continuous evolution — both professionally and personally. He believes that true excellence comes from balancing technical depth with cultural awareness, that meaningful work requires both structure and creativity, and that the best solutions emerge when we understand not just the problem, but the human context behind it.
-              </p>
             </motion.div>
           </div>
         </section>

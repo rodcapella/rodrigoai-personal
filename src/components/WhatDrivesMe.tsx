@@ -24,7 +24,7 @@ const WhatDrivesMe = () => {
     {
       icon: Rocket,
       title: "Side Projects",
-      description: "Always tinkering with new ideas and experimental projects. Some of my side projects have evolved into production systems.",
+      description: "Always tinkering with new ideas and experimental projects. Some of my side projects have evolved into inovvation.",
       color: "from-purple-500/20 to-purple-500/5"
     }
   ];

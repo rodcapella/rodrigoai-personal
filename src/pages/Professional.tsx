@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
-import { Award, Briefcase, Globe } from "lucide-react";
+import { Award, Briefcase, Globe, GraduationCap, Cpu} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
+
+<Helmet>
+  <title>Professional Experience | Rodrigo Póvoa</title>
+  <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
+  <link rel="canonical" href="https://rodrigoai-personal.vercel.app/professional" />
+</Helmet>
 
 interface ProfessionalProps {
   theme?: 'dark' | 'light';
@@ -9,6 +16,14 @@ interface ProfessionalProps {
 }
 
 const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
+    
+  const summaryPoints = [
+    "Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI (Power Query, DAX, M and semantic modeling) within modern data stack environments.",
+    "Delivered enterprise data modernization programs improving analytical efficiency and maturity of governance across multi-domain environments. Proven track record in translating business goals into scalable data solutions that accelerate decision-making and insight delivery.",
+    "Expert in building governed and secure data platforms, implementing Data Governance, GDPR-compliant architectures and scalable distributed data pipelines.",
+    "Strong background in defining data architecture standards, leading engineering teams, mentoring engineers and aligning technical strategy with business goals."
+  ];
+  
   const experiences = [
     {
       title: "Senior Data Engineer",
@@ -87,7 +102,72 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
         "Tuned SQL, T-SQL and PL/SQL queries for multiple databases including SQL Server, Oracle, MySQL, PostgreSQL and Google BigQuery."
       ],
       stack: ["SQL", "SQL Server", "Azure", "Databricks", "Python", "PySpark", "Hadoop", "GitHub", "Jira", "SCRUM", "Confluence"]
-    }
+    },
+    {
+  title: "BI Specialist",
+  company: "Holos Media – Digital Media Agency",
+  location: "Brazil",
+  period: "Jan 2019 – Oct 2019",
+  highlights: [
+    "Developed Tableau dashboards and PL/SQL routines on Oracle Database for marketing performance analysis.",
+    "Migrated legacy QlikView dashboards to Tableau, improving visualization performance and analytical clarity.",
+    "Supported reporting needs for media and marketing departments with data-driven insights."
+  ],
+  stack: ["SQL", "PL/SQL", "Oracle", "Qlik View", "Tableau"]
+},
+{
+  title: "IT Specialist",
+  company: "Som Livre",
+  location: "Brazil",
+  period: "Jan 2017 – Dec 2018",
+  highlights: [
+    "Led the design and implementation of enterprise BI and Data Warehouse solutions in the Microsoft ecosystem.",
+    "Integrated Power BI, SSIS, SSRS and SSAS to modernize financial and operational reporting.",
+    "Acted as Product Owner for the Royalties ERP system, managing backlog prioritization and cross-team alignment.",
+    "Optimized PL/SQL and T-SQL routines improving reporting performance and reliability."
+  ],
+  stack: ["SQL", "SQL Server", "MySQL", "T-SQL", "Power BI", "SSIS", "SSAS", "SSRS", "SCRUM"]
+},
+{
+  title: "BI Team Leader",
+  company: "Celular Direto",
+  location: "Brazil",
+  period: "Mar 2016 – Dec 2016",
+  highlights: [
+    "Founded and structured the Business Intelligence area from the ground up.",
+    "Designed the BI platform integrating CRM, ERP and operational systems into centralized analytical data models.",
+    "Implemented scalable ETL pipelines ensuring data consistency and performance.",
+    "Built executive dashboards in Qlik Sense providing leadership with actionable insights.",
+    "Hired, mentored and led a team of BI developers establishing scalable delivery capability."
+  ],
+  stack: ["SQL", "SQL Server", "MySQL", "PL/SQL", "Qlik Sense", "SCRUM"]
+},
+{
+  title: "System Analyst & BI Analyst",
+  company: "B2W Digital Group",
+  location: "Brazil",
+  period: "Jan 2014 – Mar 2016",
+  highlights: [
+    "Led technical design for vendor accounts payable BI systems using SQL Server, SSIS, SSRS and SSAS.",
+    "Built dynamic Tableau dashboards integrating MongoDB and SQL Server.",
+    "Automated reporting solutions using PL/SQL routines.",
+    "Optimized advanced T-SQL queries significantly improving data processing efficiency."
+  ],
+  stack: ["SQL", "Oracle", "SQL Server", "T-SQL", "SSIS", "SSAS", "SSRS", "Tableau", "SCRUM"]
+},
+{
+  title: "Early Career (Trainee to BI Team Leader)",
+  company: "Multiple Organizations (Wilson Sons, FGV, Delphos Tecnologia em Seguros)",
+  location: "Brazil",
+  period: "2007 – 2014",
+  highlights: [
+    "Progressively advanced from Trainee to BI Team Leader delivering data and analytics solutions.",
+    "Built strong foundations in data modeling, PL/SQL development and ETL processes.",
+    "Delivered enterprise dashboards and automation projects enhancing finance and operations decision-making.",
+    "Led small technical teams and contributed to governance and reporting modernization initiatives."
+  ],
+  stack: ["Oracle", "IBM Cognos", "SQL Server", "PL/SQL", "ETL", "Data Modeling"]
+}
   ];
 
   const coreCompetences = [
@@ -112,9 +192,9 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
   ];
 
   const languages = [
-    { language: "Portuguese", level: "Native", flag: "🇧🇷" },
-    { language: "English", level: "Advanced (C1 – improving towards C2 proficiency)", flag: "🇬🇧" },
-    { language: "Spanish", level: "Basic (A1 equivalent)", flag: "🇪🇸" }
+    { language: "Portuguese", level: "Native"},
+    { language: "English", level: "Advanced (C1 – improving towards C2 proficiency)"},
+    { language: "Spanish", level: "Basic (A1 equivalent)"}
   ];
 
   const education = [
@@ -148,7 +228,8 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               </p>
               
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments.
+                Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
+                Throughout my career, I have operated across nearly every domain within the data ecosystem — from Data Engineering and advanced Analytics to Business Intelligence and strategic reporting — which enables me to manage diverse technical profiles, bridge cross-functional teams, and master complex topics across engineering, analytical and business-oriented data initiatives.
               </p>
             </motion.div>
           </div>
@@ -162,7 +243,10 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Core Competences</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Cpu className="w-8 h-8 text-primary" />
+                Core Competences
+              </h2>
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coreCompetences.map((competence, idx) => (
@@ -245,7 +329,10 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <h2 className="text-3xl font-bold mb-8">Academic Background</h2>
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <GraduationCap className="w-8 h-8 text-primary" />
+                Academic Background
+              </h2>
               
               <div className="space-y-4">
                 {education.map((edu, idx) => (
@@ -286,10 +373,12 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 flex gap-3"
+                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
                   >
-                    <Award className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-muted-foreground text-sm">{cert}</p>
+                    <span className="text-primary font-bold mt-1">•</span>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {cert}
+                    </p>
                   </motion.div>
                 ))}
               </div>

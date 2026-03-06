@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, MessageSquare, Bot } from "lucide-react";
 
-interface HeroSectionProps {
-  onOpenChat: () => void;
-}
-
 const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -44,13 +40,6 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               >
                 Get in Touch
               </a>
-              <button
-                onClick={onOpenChat}
-                className="px-8 py-3.5 rounded-lg border border-border text-foreground font-display font-semibold text-sm tracking-wide hover:border-primary/50 hover:text-primary transition-all flex items-center gap-2"
-              >
-                <Bot className="w-4 h-4" />
-                Chat with PóvoaAI
-              </button>
             </div>
           </motion.div>
 

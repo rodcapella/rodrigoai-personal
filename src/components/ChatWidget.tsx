@@ -1,3 +1,4 @@
+/*
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X, Send, Bot } from "lucide-react";
@@ -252,3 +253,5 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
 };
 
 export default ChatWidget;
+
+*/

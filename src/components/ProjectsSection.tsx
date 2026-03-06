@@ -17,7 +17,7 @@ const ProjectsSection = () => {
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {profile.projects.map((project, i) => (
+          {profile.projects?.map((project, i) => (
             <motion.div
               key={project.name}
               initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
+                {project.stack?.map((tech) => (
                   <span
                     key={tech}
                     className="text-xs px-2.5 py-1 rounded-md bg-muted text-muted-foreground font-medium"

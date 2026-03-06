@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { Github, Linkedin, Menu, X, Moon, Sun } from "lucide-react";
+import { motion } from "framer-motion";
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "/personal", label: "Personal" },
   { href: "/professional", label: "Professional" },
   { href: "/side-projects", label: "Side Projects" },
 ];
 
 interface NavbarProps {
-  theme?: 'dark' | 'light';
+  theme?: "dark" | "light";
   onToggleTheme?: () => void;
 }
 
-const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
+const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -29,27 +32,74 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
       }`}
     >
       <div className="container flex items-center justify-between px-4">
-        <a href="/" className="font-display font-bold text-lg text-foreground flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-bold">R</span>
-          </div>
-          <span>Rodrigo<span className="text-primary">.</span>Póvoa</span>
-        </a>
-        
+
+        {/* Logo */}
+        <NavLink to="/" className="h-5 w-auto">
+          <img
+            src="/logo_fundo_transparente.png"
+            alt="Rodrigo Póvoa Logo"
+           className="h-14 md:h-18 w-auto transition-all duration-300 hover:scale-105"
+          />
+        </NavLink>
+
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 relative">
           {links.map((link) => (
-            <a
+            <NavLink
               key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
+              to={link.href}
+              className="relative text-sm font-medium transition-colors duration-300"
             >
-              {link.label}
-            </a>
+              {({ isActive }) => (
+                <div className="relative px-2 py-1">
+                  <span
+                    className={`transition-all duration-300 ${
+                      isActive
+                        ? "text-primary drop-shadow-[0_0_6px_rgba(59,130,246,0.8)]"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </span>
+
+                  {isActive && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  )}
+                </div>
+              )}
+            </NavLink>
           ))}
+
+          {/* Pulsing Contact Button */}
+          <motion.div
+            animate={{
+              boxShadow: [
+                "0 0 8px rgba(59,130,246,0.4)",
+                "0 0 18px rgba(59,130,246,0.9)",
+                "0 0 8px rgba(59,130,246,0.4)",
+              ],
+            }}
+            transition={{
+              duration: 2.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="ml-4 rounded-lg"
+          >
+            <NavLink
+              to="/contact"
+              className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
+            >
+              Contact
+            </NavLink>
+          </motion.div>
         </div>
 
-        {/* Social Links & Theme Toggle */}
+        {/* Social + Theme */}
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={onToggleTheme}
@@ -57,23 +107,27 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
             title="Toggle theme"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
           </button>
+
           <a
             href="https://www.linkedin.com/in/rodrigocspovoa"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
-            title="LinkedIn"
           >
             <Linkedin className="w-5 h-5" />
           </a>
+
           <a
             href="https://github.com/rodcapella"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors"
-            title="GitHub"
           >
             <Github className="w-5 h-5" />
           </a>
@@ -95,40 +149,30 @@ const Navbar = ({ theme = 'dark', onToggleTheme }: NavbarProps) => {
         >
           <div className="container px-4 py-4 flex flex-col gap-4">
             {links.map((link) => (
-              <a
+              <NavLink
                 key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
+                className={({ isActive }) =>
+                  `font-medium transition-all duration-300 ${
+                    isActive
+                      ? "text-primary border-l-4 border-primary pl-2"
+                      : "text-muted-foreground hover:text-primary"
+                  }`
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
-            <div className="flex items-center gap-4 pt-4 border-t border-primary/20">
-              <button
-                onClick={onToggleTheme}
-                className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
-                title="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-              <a
-                href="https://www.linkedin.com/in/rodrigocspovoa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com/rodcapella"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
+
+            {/* Mobile Contact */}
+            <NavLink
+              to="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mt-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center font-medium"
+            >
+              Contact
+            </NavLink>
           </div>
         </div>
       </div>
