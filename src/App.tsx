@@ -2,10 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { PersonSchema } from "@/components/seo/PersonSchema";
 
-import { lazy, Suspense } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 const Index = lazy(() => import("./pages/Index"));
 const Professional = lazy(() => import("./pages/Professional"));
 const Personal = lazy(() => import("./pages/Personal"));
@@ -31,7 +33,7 @@ const App = () => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (
@@ -39,14 +41,30 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+
+        {/* Structured Data */}
+        <PersonSchema />
+
         <div className="theme-provider" data-theme={theme}>
           <BrowserRouter>
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-muted-foreground">
-              Loading...
-            </div>}>
-             </Suspense>  
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center text-muted-foreground">
+                  Loading...
+                </div>
+              }
+            >
+              <Routes>
+                <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
+              </Routes>
+            </Suspense>
           </BrowserRouter>
         </div>
+
         <Analytics />
       </TooltipProvider>
     </QueryClientProvider>
