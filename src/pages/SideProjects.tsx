@@ -130,7 +130,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+              <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 SapienteAI
               </h1>
         
@@ -155,7 +155,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
               Design Philosophy
             </h2>
       
@@ -184,7 +184,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
               Project Focus Areas
             </h2>
       
@@ -203,7 +203,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                       layers[idx % 4]
                     }`}
                   >
-                    <Icon className="w-8 h-8 mb-4" />
+                    <Icon className="w-8 h-8 mb-4 text-primary" />
                     <h3 className="text-lg font-bold mb-3">
                       {category.title}
                     </h3>
@@ -225,7 +225,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="glass layer-blue rounded-2xl p-12 text-center"
+          className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm"
         >
           <div className="flex justify-center mb-6">
             <img
