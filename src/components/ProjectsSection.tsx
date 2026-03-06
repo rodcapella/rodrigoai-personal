@@ -1,6 +1,31 @@
 import { motion } from "framer-motion";
-import { profile } from "@/data/profile";
-import { ExternalLink } from "lucide-react";
+
+const projects = [
+  {
+    name: "Celular Direto",
+    description:
+      "Led the creation of the Business Intelligence area from the ground up. Designed governance structures, data models, KPI frameworks and reporting standards. Built the analytical foundation that enabled executive-level decision making and operational visibility across the company.",
+    stack: ["BI Strategy", "Data Modeling", "KPI Framework", "Qlik Sense", "Analytics Governance"]
+  },
+  {
+    name: "Sonae MC",
+    description:
+      "Worked as Senior Data Engineer handling large-scale data environments across Azure and Hadoop ecosystems. Developed scalable data pipelines, optimized distributed processing workloads and contributed to high-volume data transformation initiatives within enterprise-grade infrastructure.",
+    stack: ["Azure", "Hadoop", "PySpark", "SQL", "Big Data Engineering", "Python", "Databricks"]
+  },
+  {
+    name: "ARPA",
+    description:
+      "Managed projects and analytics teams within an Operations Analytics division. Delivered cross-technology initiatives integrating ElasticSearch and Power BI, enabling operational monitoring, performance analysis and strategic reporting across distinct business domains.",
+    stack: ["Project Leadership", "ElasticSearch", "Power BI", "Operational Analytics", "Team Management", "Python", "SQL"]
+  },
+  {
+    name: "TIP4Y",
+    description:
+      "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Bronze/Silver/Gold layers, implemented governance and quality validation frameworks, and delivered curated analytics through Power BI for business consumption.",
+    stack: ["Azure", "Databricks", "Delta Lake", "Lakehouse Architecture", "Power BI", "PySpark"]
+  }
+];
 
 const ProjectsSection = () => {
   return (
@@ -12,12 +37,16 @@ const ProjectsSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">Work</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-16">Selected Projects</h2>
+          <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">
+            Experience
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-16">
+            Strategic Projects
+          </h2>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {profile.projects?.map((project, i) => (
+          {projects.map((project, i) => (
             <motion.div
               key={project.name}
               initial={{ opacity: 0, y: 20 }}
@@ -26,17 +55,16 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glass rounded-xl p-6 hover:border-primary/30 transition-all group"
             >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {project.name}
-                </h3>
-                <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
+                {project.name}
+              </h3>
+
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {project.description}
               </p>
+
               <div className="flex flex-wrap gap-2">
-                {project.stack?.map((tech) => (
+                {project.stack.map((tech) => (
                   <span
                     key={tech}
                     className="text-xs px-2.5 py-1 rounded-md bg-muted text-muted-foreground font-medium"
