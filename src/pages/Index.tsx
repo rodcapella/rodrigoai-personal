@@ -20,6 +20,49 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
     <div className="min-h-screen bg-background">
 
       <Helmet>
+         <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Rodrigo Póvoa",
+              "url": "https://rodrigopovoa.com",
+              "image": "https://rodrigopovoa.com/og-image.png",
+              "jobTitle": "Technical Data Leader & Data Analytics Engineer",
+              "description": "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Aveiro",
+                "addressCountry": "Portugal"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/in/rodrigocspovoa",
+                "https://github.com/rodcapella"
+              ],
+              "knowsAbout": [
+                "Enterprise Data Architecture",
+                "Data Governance",
+                "Azure",
+                "Databricks",
+                "Delta Lake",
+                "Power BI",
+                "Distributed Data Systems",
+                "Analytics Strategy"
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Tips4y and SapienteAI"
+              },
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "Technical Data Leader",
+                "occupationLocation": {
+                  "@type": "Country",
+                  "name": "Portugal"
+                },
+                "skills": "Data Architecture, Lakehouse Design, Azure Data Engineering, Governance Frameworks, BI Strategy"
+              }
+            })}
+          </script>
         <title>
           Rodrigo Póvoa | AI Architect & Data Analytics Engineer
         </title>
