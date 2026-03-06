@@ -111,35 +111,81 @@
 }
 
 @layer utilities {
+
+  /* Glow utilities */
   .glow-primary {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3), 0 0 60px hsl(var(--glow-primary) / 0.1);
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3),
+                0 0 60px hsl(var(--glow-primary) / 0.1);
   }
 
   .glow-secondary {
-    box-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.3), 0 0 60px hsl(var(--glow-secondary) / 0.1);
+    box-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.3),
+                0 0 60px hsl(var(--glow-secondary) / 0.1);
   }
 
   .glow-primary-sm {
-    box-shadow: 0 0 10px hsl(var(--glow-primary) / 0.2), 0 0 30px hsl(var(--glow-primary) / 0.05);
+    box-shadow: 0 0 10px hsl(var(--glow-primary) / 0.2),
+                0 0 30px hsl(var(--glow-primary) / 0.05);
   }
 
+  /* Glass */
   .glass {
     background: hsl(var(--glass-bg) / 0.8);
     backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--glass-border) / 0.5);
   }
 
+  /* Grid pattern */
   .grid-pattern {
-    background-image: 
+    background-image:
       linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
+  /* Gradient text */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
 
+  /* Layer color system (What Drives Me style) */
+  .layer-yellow {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 200, 0, 0.15),
+      rgba(255, 200, 0, 0.03)
+    );
+    border: 1px solid rgba(255, 200, 0, 0.2);
+  }
+
+  .layer-blue {
+    background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.15),
+      rgba(59, 130, 246, 0.03)
+    );
+    border: 1px solid rgba(59, 130, 246, 0.25);
+  }
+
+  .layer-green {
+    background: linear-gradient(
+      135deg,
+      rgba(34, 197, 94, 0.15),
+      rgba(34, 197, 94, 0.03)
+    );
+    border: 1px solid rgba(34, 197, 94, 0.25);
+  }
+
+  .layer-purple {
+    background: linear-gradient(
+      135deg,
+      rgba(168, 85, 247, 0.15),
+      rgba(168, 85, 247, 0.03)
+    );
+    border: 1px solid rgba(168, 85, 247, 0.25);
+  }
+
+  /* Animations */
   .fade-in {
     animation: fadeIn 0.6s ease-out forwards;
   }
