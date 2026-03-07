@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet-async";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
