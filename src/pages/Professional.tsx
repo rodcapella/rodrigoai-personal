@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Award, Briefcase, Globe, GraduationCap, Cpu} from "lucide-react";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
