@@ -5,6 +5,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { PersonSchema } from "@/components/seo/PersonSchema";
 import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -40,31 +41,29 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-
-        {/* Structured Data */}
-        <PersonSchema />
-        <WebSiteSchema />
-        
-        <div className="theme-provider" data-theme={theme}>
-          <BrowserRouter>
-            <Suspense
-              fallback={
-                <div className="min-h-screen flex items-center justify-center text-muted-foreground">
-                  Loading...
-                </div>
-              }
-            >
-              <Routes>
-                <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-        </div>
-
+    
+        <ErrorBoundary>
+          <div className="theme-provider" data-theme={theme}>
+            <BrowserRouter>
+              <Suspense
+                fallback={
+                  <div className="min-h-screen flex items-center justify-center text-muted-foreground">
+                    Loading...
+                  </div>
+                }
+              >
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/professional" element={<Professional />} />
+                  <Route path="/personal" element={<Personal />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/side-projects" element={<SideProjects />} />
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </div>
+        </ErrorBoundary>
+    
         <Analytics />
       </TooltipProvider>
     </QueryClientProvider>
