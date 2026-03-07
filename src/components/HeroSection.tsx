@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowDown, MessageSquare, Bot } from "lucide-react";
 
+interface HeroSectionProps {
+  onOpenChat: () => void;
+}
+
 const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
