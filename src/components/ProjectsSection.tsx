@@ -2,25 +2,25 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    name: "Celular Direto",
+    name: "Celular Direto - Brazil",
     description:
       "Led the creation of the Business Intelligence area from the ground up. Designed governance structures, data models, KPI frameworks and reporting standards. Built the analytical foundation that enabled executive-level decision making and operational visibility across the company.",
     stack: ["BI Strategy", "Data Modeling", "KPI Framework", "Qlik Sense", "Analytics Governance"]
   },
   {
-    name: "Sonae MC",
+    name: "Sonae MC - Portugal",
     description:
       "Worked as Senior Data Engineer handling large-scale data environments across Azure and Hadoop ecosystems. Developed scalable data pipelines, optimized distributed processing workloads and contributed to high-volume data transformation initiatives within enterprise-grade infrastructure.",
     stack: ["Azure", "Hadoop", "PySpark", "SQL", "Big Data Engineering", "Python", "Databricks"]
   },
   {
-    name: "ARPA",
+    name: "ARPA Elastic Solutions - Portugal",
     description:
       "Managed projects and analytics teams within an Operations Analytics division. Delivered cross-technology initiatives integrating ElasticSearch and Power BI, enabling operational monitoring, performance analysis and strategic reporting across distinct business domains.",
     stack: ["Project Leadership", "ElasticSearch", "Power BI", "Operational Analytics", "Team Management", "Python", "SQL"]
   },
   {
-    name: "TIP4Y",
+    name: "TIP4Y - Automotive Intelligence - Portugal",
     description:
       "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Bronze/Silver/Gold layers, implemented governance and quality validation frameworks, and delivered curated analytics through Power BI for business consumption.",
     stack: ["Azure", "Databricks", "Delta Lake", "Lakehouse Architecture", "Power BI", "PySpark"]
@@ -67,7 +67,7 @@ const ProjectsSection = () => {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="text-xs px-2.5 py-1 rounded-md bg-muted text-muted-foreground font-medium"
+                    className="text-xs px-2.5 py-1 rounded-md bg-primary/10 text-primary border border-primary/25 font-medium"
                   >
                     {tech}
                   </span>
