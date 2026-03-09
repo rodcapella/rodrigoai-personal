@@ -136,12 +136,14 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 </h1>
           
                 <p className="text-xl text-primary font-semibold mb-6">
-                  AI Innovation Studio & Strategic Data Experimentation Lab
+                  AI Innovation Studio & Strategic Data Experimentation Lab - Structured technology for innovation and sustainable growth.
                 </p>
           
                 <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                  SapienteAI is my independent innovation studio dedicated to exploring how artificial intelligence reshapes enterprise data architecture, automation and digital strategy.
-                  <br /><br />
+                  Sapiente.AI is my independent innovation studio dedicated to exploring how artificial intelligence reshapes enterprise data architecture, automation and digital strategy.
+                  <br /><br />            
+                  Sapiente.AI is a technology innovation lab that develops proprietary products and acts as a strategic partner in the digital transformation of organizations.
+                  <br /><br />   
                   It operates as a structured experimentation environment where AI-native systems, governance frameworks and scalable data platforms are designed, tested and refined beyond client-driven constraints.
                 </p>
               </motion.div>
@@ -178,7 +180,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                SapienteAI is grounded in the belief that artificial intelligence should not be treated as a feature layer — but as an architectural paradigm.
+                Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as an new architectural paradigm.
               </p>
       
               <p>
@@ -186,7 +188,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               </p>
       
               <p>
-                The goal is not experimentation for novelty, but structured innovation — bridging enterprise data discipline with AI-native thinking.
+                The goal is not experimentation for novelty, but structured innovation. Bridging enterprise data discipline with AI-native thinking.
               </p>
             </div>
           </motion.div>
@@ -246,14 +248,14 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         >
           <div className="flex justify-center mb-6">
             <img
-              src="/banner_sapienteai.png"
+              src="/banner_SapienteAI.png"
               alt="SapienteAI Banner"
               className="h-50 w-auto opacity-90"
             />
           </div>
     
           <h3 className="text-2xl font-bold mb-4">
-            Explore SapienteAI
+            Explore Sapiente.AI
           </h3>
     
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -266,7 +268,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all glow-primary-sm"
           >
-            Visit SapienteAI website
+            Visit Sapiente.AI website
           </a>
         </motion.div>
       </div>
