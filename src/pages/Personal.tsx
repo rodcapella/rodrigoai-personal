@@ -187,7 +187,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               >
                 <div className="relative z-10 w-[160px] lg:w-[180px]">
                   <img
-                    src="/ai-portrait.jpeg"
+                    src="/rodrigo_flamengo_porto.png"
                     alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
                     className="rounded-2xl shadow-2xl border border-primary/20"
                   />
