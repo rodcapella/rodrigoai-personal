@@ -23,7 +23,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-6">
-              Data Engineer • Analytics • Team Leader
+              Data Analytics Engineer • Team Leader
             </p>
             
             <motion.h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
