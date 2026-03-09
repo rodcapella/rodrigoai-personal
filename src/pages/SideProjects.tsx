@@ -143,8 +143,6 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   Sapiente.AI is my independent innovation studio dedicated to exploring how artificial intelligence reshapes enterprise data architecture, automation and digital strategy.
                   <br /><br />            
                   Sapiente.AI is a technology innovation lab that develops proprietary products and acts as a strategic partner in the digital transformation of organizations.
-                  <br /><br />   
-                  It operates as a structured experimentation environment where AI-native systems, governance frameworks and scalable data platforms are designed, tested and refined beyond client-driven constraints.
                 </p>
               </motion.div>
               
@@ -182,11 +180,12 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               <p>
                 Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as an new architectural paradigm.
               </p>
-      
+              <p>
+              It operates as a structured experimentation environment where AI-native systems, governance frameworks and scalable data platforms are designed, tested and refined beyond client-driven constraints.
+                </p>
               <p>
                 Every initiative explores how AI can be embedded into data platforms, governance models and automation pipelines in a way that enhances scalability, reliability and strategic decision-making.
               </p>
-      
               <p>
                 The goal is not experimentation for novelty, but structured innovation. Bridging enterprise data discipline with AI-native thinking.
               </p>
