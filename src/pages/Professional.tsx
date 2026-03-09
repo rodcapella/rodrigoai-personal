@@ -214,10 +214,43 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
           { name: "Professional", url: "https://rodrigopovoa.com/professional" }
         ]}
       />
-      
+
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      
-      <main className="pt-32 pb-20">
+
+      <main>
+        {/* Header with Image */}
+        <section className="px-4 mb-20 pt-32">
+          <div className="container max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h1 className="text-4xl md:text-5xl font-bold mb-6">Professional Journey</h1>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Explore my professional experience, expertise, and the impact I've made across various organizations.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative flex justify-center items-center"
+              >
+                <div className="relative z-10 w-[160px] lg:w-[180px]">
+                  <img
+                    src="/ai-portrait.jpeg"
+                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    className="rounded-2xl shadow-2xl border border-primary/20"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Hero Section */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">

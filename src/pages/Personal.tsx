@@ -183,7 +183,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative flex justify-center items-center"
               >
-                <div className="relative z-10 w-[320px] lg:w-[360px]">
+                <div className="relative z-10 w-[160px] lg:w-[180px]">
                   <img
                     src="/ai-portrait.jpeg"
                     alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."

@@ -51,11 +51,11 @@ const App = () => {
                 }
               >
                 <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/professional" element={<Professional />} />
-                  <Route path="/personal" element={<Personal />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/side-projects" element={<SideProjects />} />
+                  <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
+                  <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
+                  <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
+                  <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
+                  <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
                 </Routes>
           </Suspense>
         </div>

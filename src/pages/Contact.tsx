@@ -182,52 +182,35 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
           </div>
         </section>
 
-        {/* Contact Info Cards */}
+        {/* Header with Image */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {[
-                {
-                  icon: Mail,
-                  title: "Email",
-                  value: "rodcapella@gmail.com",
-                  href: "mailto:rodcapella@gmail.com"
-                },
-                {
-                  icon: Phone,
-                  title: "Phone",
-                  value: "Available upon request",
-                  href: "#"
-                },
-                {
-                  icon: MapPin,
-                  title: "Location",
-                  value: "Portugal 🇵🇹",
-                  href: "#"
-                }
-              ].map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                    className="bg-gradient-to-br from-primary/10 to-primary/5 p-8 rounded-xl border border-primary/20 text-center"
-                  >
-                    <Icon className="w-8 h-8 text-primary mx-auto mb-4" />
-                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                    {item.href !== "#" ? (
-                      <a href={item.href} className="text-muted-foreground hover:text-primary transition-colors">
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-muted-foreground">{item.value}</p>
-                    )}
-                  </motion.div>
-                );
-              })}
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Feel free to reach out with any questions or opportunities. I'm always interested in discussing data architecture, AI innovations, and collaboration possibilities.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative flex justify-center items-center"
+              >
+                <div className="relative z-10 w-[160px] lg:w-[180px]">
+                  <img
+                    src="/ai-portrait.jpeg"
+                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    className="rounded-2xl shadow-2xl border border-primary/20"
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>

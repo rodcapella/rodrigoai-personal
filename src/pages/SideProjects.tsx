@@ -125,25 +125,42 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         {/* HERO */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
-                SapienteAI
-              </h1>
-        
-              <p className="text-xl text-primary font-semibold mb-6">
-                AI Innovation Studio & Strategic Data Experimentation Lab
-              </p>
-        
-              <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                SapienteAI is my independent innovation studio dedicated to exploring how artificial intelligence reshapes enterprise data architecture, automation and digital strategy.
-                <br /><br />
-                It operates as a structured experimentation environment where AI-native systems, governance frameworks and scalable data platforms are designed, tested and refined beyond client-driven constraints.
-              </p>
-            </motion.div>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                  SapienteAI
+                </h1>
+          
+                <p className="text-xl text-primary font-semibold mb-6">
+                  AI Innovation Studio & Strategic Data Experimentation Lab
+                </p>
+          
+                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+                  SapienteAI is my independent innovation studio dedicated to exploring how artificial intelligence reshapes enterprise data architecture, automation and digital strategy.
+                  <br /><br />
+                  It operates as a structured experimentation environment where AI-native systems, governance frameworks and scalable data platforms are designed, tested and refined beyond client-driven constraints.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative flex justify-center items-center"
+              >
+                <div className="relative z-10 w-[160px] lg:w-[180px]">
+                  <img
+                    src="/ai-portrait.jpeg"
+                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    className="rounded-2xl shadow-2xl border border-primary/20"
+                  />
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
