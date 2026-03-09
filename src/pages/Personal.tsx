@@ -30,7 +30,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     {
       icon: Gamepad2,
       title: "Video Games",
-      description: "Video game enthusiast from the PlayStation generation — proudly on the dark side of the Force."
+      description: "Video game enthusiast since Atari. Nowadays. it is from the PlayStation generation — proudly on the dark side of the Force."
     },
     {
       icon: Film,
@@ -54,7 +54,6 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     "Bridging data & decision layers",
     "Leadership in data multi-functional teams",
     "Creating sustainable and governed data platforms",
-    "Designing AI-native architectures",
     "Leveraging modern AI ecosystems"
   ];
 
@@ -113,7 +112,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         />
         <meta
           property="og:image"
-          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+          content="https://rodrigoai-personal.vercel.app/rodrigo_flamengo_porto.png"
         />
 
         {/* Twitter */}
@@ -125,7 +124,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+          content="https://rodrigoai-personal.vercel.app/rodrigo_flamengo_porto.png"
         />
 
         {/* Structured Data */}
@@ -349,7 +348,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className={`glass ${["layer-yellow","layer-blue","layer-purple"][idx % 3]} rounded-xl p-6`}
+                    className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
                   >
                     <h3 className="text-lg font-bold mb-2">
                       {value.title}
@@ -388,7 +387,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                      className={`glass ${layers[idx % 3]} rounded-xl p-6`}
+                      className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
                     >
                       <h3 className="text-lg font-bold mb-4">
                         {section.category}
@@ -430,7 +429,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
-                    className="glass rounded-xl p-6"
+                    className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
                   >
                     <p className="text-sm text-muted-foreground leading-relaxed font-medium">
                       {item}
