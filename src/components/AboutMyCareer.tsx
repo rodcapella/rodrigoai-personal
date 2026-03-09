@@ -4,10 +4,11 @@ const AboutMyCareer = () => {
   const funFacts = [
     "15+ years building data solutions across Brazil and Portugal",
     "Passionate about translating complex business problems into scalable technical solutions",
-    "Experienced in leading teams through digital transformation initiatives",
     "Strong advocate for data-driven decision making and analytical excellence",
+    "Believe that great data architecture is like great engineering—elegant, scalable, and purposeful",
     "Committed to establishing data governance best practices and compliance standards",
-    "Believe that great data architecture is like great engineering—elegant, scalable, and purposeful"
+    "Skilled at designing analytics products, dashboards, and reports that transform data into actionable insights",
+    "Experienced in leading teams through digital transformation initiatives"
   ];
 
   return (
