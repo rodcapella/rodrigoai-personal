@@ -54,23 +54,26 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     "Bridging data & decision layers",
     "Leadership in data multi-functional teams",
     "Creating sustainable and governed data platforms",
-    "Leveraging modern AI ecosystems"
+    "Leveraging modern AI ecosystems",
+    "Combining human capability development with AI ecosystems to unlock the next level of productivity and quality"
   ];
 
   const personalValues = [
+    { title: "Analytical Mindset", description: "Data-driven and structured reasoning approach" },
     { title: "Discipline", description: "Structured approach to personal and professional growth" },
     { title: "Loyalty", description: "Commitment to relationships and long-term partnerships" },
     { title: "Intellectual Growth", description: "Continuous learning and exploration" },
     { title: "Cultural Curiosity", description: "Interest in different perspectives and cultures" },
-    { title: "Technology Enthusiasm", description: "Constant exploration of emerging technologies" },
-    { title: "Analytical Mindset", description: "Data-driven and structured reasoning approach" }
+    { title: "Technology Enthusiasm", description: "Constant exploration of emerging technologies" }
   ];
 
   const influences = [
     { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
+    { category: "Global Leaders", items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"] },
     { category: "Sports Idols", items: ["Ayrton Senna", "Zico", "Michael Jordan"] },
     { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] },
-    { category: "Global Leaders", items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"] }
+    { category: "Favorite Films", items: ["The Godfather", "The Shawshank Redemption", "Lord of the Rings"] },
+    { category: "Favorite Books", items: ["The Housemaid", "The Catcher in the Rye", "A Song of Ice and Fire"] },
   ];
 
   const aiExploration = [
