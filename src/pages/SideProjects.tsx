@@ -154,8 +154,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               >
                 <div className="relative z-10 w-[160px] lg:w-[180px]">
                   <img
-                    src="/ai-portrait.jpeg"
-                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    src="/logo_sapienteai.png"
+                    alt="SapienteAI Logo."
                     className="rounded-2xl shadow-2xl border border-primary/20"
                   />
                 </div>
@@ -246,9 +246,9 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         >
           <div className="flex justify-center mb-6">
             <img
-              src="/logo_sapienteai.png"
-              alt="SapienteAI Logo"
-              className="h-14 w-auto opacity-90"
+              src="/banner_sapienteai.png"
+              alt="SapienteAI Banner"
+              className="h-50 w-auto opacity-90"
             />
           </div>
     
@@ -266,7 +266,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all glow-primary-sm"
           >
-            Visit SapienteAI
+            Visit SapienteAI website
           </a>
         </motion.div>
       </div>
