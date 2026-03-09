@@ -33,15 +33,6 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
     >
       <div className="container flex items-center justify-between px-4">
 
-        {/* Logo */}
-        <NavLink to="/" className="h-5 w-auto">
-          <img
-            src="/logo_fundo_transparente.png"
-            alt="Rodrigo Póvoa Logo"
-           className="h-14 md:h-18 w-auto transition-all duration-300 hover:scale-105"
-          />
-        </NavLink>
-
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8 relative">
           {links.map((link) => (
