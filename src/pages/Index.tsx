@@ -65,17 +65,17 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
             })}
           </script>
         <title>
-          Rodrigo Póvoa | AI Architect & Data Analytics Engineer
+          Rodrigo Póvoa | Technical Data Leader & Data Analytics Engineer
         </title>
 
         <meta
           name="description"
-          content="Rodrigo Póvoa is an AI Architect and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
+          content="Rodrigo Póvoa is an Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
         />
 
         <meta
           name="keywords"
-          content="Architect Portugal, Data Analytics Engineer Europe, Data Engineering Leader, AI-native Architecture, Intelligent Automation, Data Governance Architect, SapienteAI"
+          content="Data Architect Portugal, Data Analytics Engineer Europe, Data Engineering Leader, Data Analyst Leader, Intelligent Automation, Data Governance, SapienteAI"
         />
 
         <meta name="robots" content="index, follow" />
@@ -93,7 +93,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         />
         <meta
           property="og:description"
-          content="Building intelligent systems, scalable data architectures and AI-native platforms aligned with governance and business impact."
+          content="Building intelligent systems, scalable data architectures and platforms aligned with governance and business impact."
         />
         <meta
           property="og:url"
@@ -109,7 +109,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Rodrigo Póvoa | AI Architect"
+          content="Rodrigo Póvoa | Data Analytics Engineer & Team Leader."
         />
         <meta
           name="twitter:description"
@@ -134,7 +134,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
               name: "SapienteAI"
             },
             description:
-              "Data Analytics Engineer & Team Leader designing AI-native and scalable data systems.",
+              "Data Analytics Engineer & Team Leader designing scalable data systems.",
             knowsAbout: [
               "Artificial Intelligence",
               "Data Engineering",
