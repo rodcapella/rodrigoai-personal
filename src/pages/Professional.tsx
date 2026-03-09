@@ -168,7 +168,7 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
   const coreCompetences = [
     "Team Leadership, Agile Delivery and cross-functional collaboration",
     "Azure (Databricks, Delta Lake and Medallion Architecture)",
-    "Python & PySpark data pipelines",
+    "Python & PySpark & T-SQL & PL/SQL data pipelines",
     "Dimensional & semantic data modelling",
     "ELT / ETL orchestration",
     "Power BI dashboard development, semantic modeling and advanced analytics",
@@ -259,17 +259,15 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                Professional Experience & Technical Leadership
-              </h1>
-              
               <p className="text-lg text-primary font-semibold mb-4">
                 Data Analytics Engineer & Team Leader | Azure Databricks | Python | PySpark | SQL | Power BI | Data Architecture & Insights
               </p>
               
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
                 Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
-                Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
+              </p>
+              <p> 
+              Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
               </p>
             </motion.div>
           </div>
