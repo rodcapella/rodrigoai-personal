@@ -152,7 +152,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
     } catch (error) {
       console.error('Contact form error:', error);
       setSubmitStatus('error');
-      setSubmitMessage("Failed to send message. Please try again or email me directly.");
+      setSubmitMessage("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -386,40 +386,6 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                   * Required fields. Your information will only be used to respond to your inquiry.
                 </p>
               </form>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Alternative Contact Methods */}
-        <section className="px-4 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <h2 className="text-2xl font-bold mb-4">Prefer Direct Contact?</h2>
-              <p className="text-muted-foreground mb-6">
-                You can also reach me directly via email or connect on social media.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href="mailto:rodcapella@gmail.com"
-                  className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
-                >
-                  Email Me
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/rodrigocspovoa"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-lg border border-border hover:border-primary/50 text-muted-foreground hover:text-primary transition-all"
-                >
-                  LinkedIn
-                </a>
-              </div>
             </motion.div>
           </div>
         </section>
