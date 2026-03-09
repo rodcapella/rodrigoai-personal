@@ -8,10 +8,10 @@ export const profile = {
 
   core_skills: [
     "Enterprise Data Architecture & Lakehouse Design",
-    "Data Governance & Quality Frameworks",
     "Azure & Distributed Data Engineering",
     "Analytics Platform Strategy",
     "BI Capability Building & KPI Structuring",
+    "Data Governance, GDPR Compliance and Quality Frameworks",
     "Technical Leadership & Team Development"
   ],
 
@@ -30,8 +30,8 @@ export const profile = {
     "Proven experience in building analytics capabilities from the ground up, leading multidisciplinary teams and delivering large-scale data initiatives that align technical execution with strategic business goals.",
 
   impact_orientation:
-    "Focused on turning data into organizational leverage — ensuring platforms are not only technically robust, but also governed, scalable and aligned with executive decision-making.",
+    "Focused on turning data into organizational leverage, ensuring platforms are not only technically robust, but also governed, scalable and aligned with executive decision-making.",
 
   positioning_statement:
-    "I lead the design of intelligent data infrastructures that scale with the organization — combining technical depth, governance discipline and strategic clarity."
+    "I lead the design of intelligent data infrastructures that scale with the organization: combining technical depth, governance discipline and strategic clarity."
 };
