@@ -195,7 +195,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
               >
                 <div className="relative z-10 w-[160px] lg:w-[180px]">
                   <img
-                    src="/ai-portrait.jpeg"
+                    src="/rodrigo_contact_image.png"
                     alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
                     className="rounded-2xl shadow-2xl border border-primary/20"
                   />
