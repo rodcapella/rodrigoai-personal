@@ -163,11 +163,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Leadership Philosophy */}
-<<<<<<< HEAD
         <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-          <div className="container max-w-4xl mx-auto">
-=======
-        <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -181,7 +177,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 Three pillars guide everything I do:
               </p>
             </motion.div>
->>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
 
             <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
               <Brain className="text-primary" />
@@ -191,8 +186,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             <div className="grid md:grid-cols-3 gap-6">
 
               {leadershipPillars.map((pillar, idx) => (
-<<<<<<< HEAD
-
                 <div key={idx} className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6">
 
                   <h3 className="font-bold mb-2">
@@ -205,7 +198,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
 
                 </div>
 
-=======
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -217,20 +209,13 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   <h4 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h4>
                   <p className="text-muted-foreground">{pillar.description}</p>
                 </motion.div>
->>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
-              ))}
-
             </div>
 
           </div>
 
         </section>
 
-<<<<<<< HEAD
        {/* DIFFERENTIATORS */}
-        <section className="px-4 mb-24">
-=======
-        {/* Three Levels of Mastery */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
@@ -245,7 +230,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 What sets me apart from other data leaders:
               </p>
             </motion.div>
->>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
 
           <div className="container max-w-4xl mx-auto">
 
