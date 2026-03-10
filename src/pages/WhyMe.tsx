@@ -55,32 +55,29 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
   const leadershipPillars = [
     {
       title: "Engineering First",
-      description: "Principles over tools. Scalability over quick wins.",
-      color: "from-blue-500/20 to-blue-500/5"
+      description: "Principles over tools. Scalability over quick wins."
     },
     {
       title: "Data Drives Decisions",
-      description: "Platforms are strategic infrastructure, not technical projects.",
-      color: "from-purple-500/20 to-purple-500/5"
+      description: "Platforms are strategic infrastructure."
     },
     {
       title: "Human-Centered AI",
-      description: "Technology amplifies capability, not replaces people.",
-      color: "from-cyan-500/20 to-cyan-500/5"
+      description: "Technology amplifies capability."
     }
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Why Me? | Rodrigo Póvoa – Tech Leader & AI Entrepreneur</title>
+        <title>Why Me? | Rodrigo Póvoa</title>
         <meta
           name="description"
-          content="Discover what sets Rodrigo apart: 15+ years building data systems, three levels of mastery, and SapienteAI—the next generation of AI-native data platforms."
+          content="Discover what sets Rodrigo apart: 15+ years building data systems, three levels of mastery, and Sapiente.AI — the next generation of AI-native data platforms."
         />
         <meta
           name="keywords"
-          content="Data Leadership, AI Architecture, SapienteAI, Data Engineering, Tech Leader, AI Innovation"
+          content="Data Leadership, AI Architecture, Sapiente.AI, Data Engineering, Tech Leader, AI Innovation"
         />
         <link rel="canonical" href="https://rodrigoai-personal.vercel.app/why-me" />
 
@@ -89,10 +86,10 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         <meta property="og:title" content="Why Me? | Rodrigo Póvoa – Tech Leader & AI Entrepreneur" />
         <meta
           property="og:description"
-          content="15+ years building data systems. Three levels of mastery. SapienteAI—AI-native data platforms."
+          content="15+ years building data systems. Three levels of mastery. Sapiente.AI — AI-native data platforms."
         />
         <meta property="og:url" content="https://rodrigoai-personal.vercel.app/why-me" />
-        <meta property="og:image" content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg" />
+        <meta property="og:image" content="https://rodrigoai-personal.vercel.app/rodrigo_why_me.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -101,12 +98,48 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           name="twitter:description"
           content="Data architecture defines organizational intelligence. Here's why that matters."
         />
-        <meta name="twitter:image" content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg" />
+        <meta name="twitter:image" content="https://rodrigoai-personal.vercel.app/rodrigo_why_me.png" />
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="pt-32 pb-20">
+<<<<<<< HEAD
+       {/* HERO PADRONIZADO */}
+        <section className="px-4 mb-24">
+
+          <div className="container max-w-4xl mx-auto">
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+
+              <motion.div>
+
+                <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                  Why Work With Me
+                </h1>
+
+                <p className="text-muted-foreground leading-relaxed">
+                  15+ years building data systems taught me one thing:
+                  <span className="text-primary font-semibold">
+                    {" "}data architecture defines organizational intelligence.
+                  </span>
+                </p>
+
+              </motion.div>
+
+              <div className="flex justify-center">
+
+                <img
+                  src="/rodrigo_why_me.png"
+                  alt="Why Me?"
+                  className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
+                />
+
+              </div>
+
+            </div>
+
+=======
         {/* Hero Section */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
@@ -123,7 +156,9 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 15+ years building data systems taught me one thing: <span className="text-primary font-semibold">data architecture defines organizational intelligence</span>. Without a solid foundation, AI doesn't solve problems—it amplifies them. SapienteAI is my answer to this challenge.
               </p>
             </motion.div>
+>>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
           </div>
+
         </section>
 
         {/* Header with Image */}
@@ -149,6 +184,10 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Leadership Philosophy */}
+<<<<<<< HEAD
+        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+          <div className="container max-w-4xl mx-auto">
+=======
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
@@ -163,9 +202,31 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 Three pillars guide everything I do:
               </p>
             </motion.div>
+>>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
+
+            <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
+              <Brain className="text-primary" />
+              Leadership Philosophy
+            </h2>
 
             <div className="grid md:grid-cols-3 gap-6">
+
               {leadershipPillars.map((pillar, idx) => (
+<<<<<<< HEAD
+
+                <div key={idx} className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6">
+
+                  <h3 className="font-bold mb-2">
+                    {pillar.title}
+                  </h3>
+
+                  <p className="text-muted-foreground text-sm">
+                    {pillar.description}
+                  </p>
+
+                </div>
+
+=======
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -177,11 +238,19 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   <h4 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h4>
                   <p className="text-muted-foreground">{pillar.description}</p>
                 </motion.div>
+>>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
               ))}
+
             </div>
+
           </div>
+
         </section>
 
+<<<<<<< HEAD
+       {/* DIFFERENTIATORS */}
+        <section className="px-4 mb-24">
+=======
         {/* Three Levels of Mastery */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
@@ -197,34 +266,60 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 What sets me apart from other data leaders:
               </p>
             </motion.div>
+>>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
+
+          <div className="container max-w-4xl mx-auto">
+
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+              <Zap className="text-primary" />
+              Differentiators
+            </h2>
 
             <div className="space-y-6">
+
               {differentiators.map((diff, idx) => {
+
                 const Icon = diff.icon;
+
                 return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8 border border-primary/10 hover:border-primary/20 transition-all"
-                  >
-                    <div className="flex gap-6">
-                      <div className="flex-shrink-0">
-                        <Icon className="w-8 h-8 text-primary mt-1" />
+
+                  <div key={idx} className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8">
+
+                    <div className="flex gap-4">
+
+                      <Icon className="text-primary w-6 h-6 mt-1" />
+
+                      <div>
+
+                        <h3 className="font-bold text-lg mb-2">
+                          {diff.title}
+                        </h3>
+
+                        <p className="text-muted-foreground">
+                          {diff.description}
+                        </p>
+
                       </div>
+<<<<<<< HEAD
+
+=======
                       <div className="flex-1">
                         <h4 className="text-lg font-bold mb-2">{diff.title}</h4>
                         <p className="text-muted-foreground mb-3 leading-relaxed">{diff.description}</p>
                         <p className="text-sm text-primary font-semibold italic">{diff.highlight}</p>
                       </div>
+>>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
                     </div>
-                  </motion.div>
+
+                  </div>
+
                 );
               })}
+
             </div>
+
           </div>
+
         </section>
 
         {/* SapienteAI - The Next Chapter */}
@@ -251,7 +346,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 My 15 years building data systems revealed a critical insight: <span className="text-primary font-semibold">the next generation of data platforms must be AI-native from inception</span>. Most companies try to bolt AI onto legacy architectures. That doesn't work.
               </p>
               <p className="text-lg leading-relaxed">
-                SapienteAI is where I explore this frontier—combining deep data engineering expertise with AI innovation to build the platforms enterprises need to compete in the AI era.
+                Sapiente.AI is where I explore this frontier—combining deep data engineering expertise with AI innovation to build the platforms enterprises need to compete in the AI era.
               </p>
             </motion.div>
 
@@ -332,7 +427,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
                   <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
                   <p className="text-muted-foreground">
-                    SapienteAI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
+                    Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
                   </p>
                 </div>
                 <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
