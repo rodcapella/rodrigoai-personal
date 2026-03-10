@@ -155,6 +155,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         {/* Leadership Philosophy */}
         <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
           <div className="container max-w-4xl mx-auto">
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -176,18 +177,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             <div className="grid md:grid-cols-3 gap-6">
 
               {leadershipPillars.map((pillar, idx) => (
-                <div key={idx} className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6">
-
-                  <h3 className="font-bold mb-2">
-                    {pillar.title}
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm">
-                    {pillar.description}
-                  </p>
-
-                </div>
-
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
@@ -196,14 +185,20 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`bg-gradient-to-br ${pillar.color} rounded-xl p-6 border border-primary/10 hover:border-primary/20 transition-all`}
                 >
-                  <h4 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h4>
-                  <p className="text-muted-foreground">{pillar.description}</p>
+                  <h4 className="font-bold text-lg mb-2 text-foreground">
+                    {pillar.title}
+                  </h4>
+
+                  <p className="text-muted-foreground">
+                    {pillar.description}
+                  </p>
+
                 </motion.div>
-              ))}  
+              ))}
+
             </div>
 
           </div>
-
         </section>
 
        {/* DIFFERENTIATORS */}
