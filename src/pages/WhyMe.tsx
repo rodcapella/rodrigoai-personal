@@ -106,38 +106,28 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
       <main className="pt-32 pb-20">
        {/* HERO PADRONIZADO */}
         <section className="px-4 mb-20">
-
           <div className="container max-w-4xl mx-auto">
-
             <div className="grid md:grid-cols-2 gap-12 items-center">
-
               <motion.div>
-
                 <h1 className="text-5xl md:text-6xl font-bold mb-6">
                   Why Work With Me
                 </h1>
-
                 <p className="text-muted-foreground leading-relaxed">
                   15+ years building data systems taught me one thing:
                   <span className="text-primary font-semibold">
                     {" "}data architecture defines organizational intelligence.
                   </span>
                 </p>
-
               </motion.div>
-
               <div className="flex justify-center">
-
                 <img
                   src="/rodrigo_why_me.png"
                   alt="Why Me?"
                   className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
                 />
-
               </div>
-
             </div>
-
+          </div>
         </section>
 
         {/* Header with Image */}
@@ -209,6 +199,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   <h4 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h4>
                   <p className="text-muted-foreground">{pillar.description}</p>
                 </motion.div>
+              ))}  
             </div>
 
           </div>
