@@ -237,27 +237,11 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     <div className="flex gap-4">
 
                       <Icon className="text-primary w-6 h-6 mt-1" />
-
-                      <div>
-
-                        <h3 className="font-bold text-lg mb-2">
-                          {diff.title}
-                        </h3>
-
-                        <p className="text-muted-foreground">
-                          {diff.description}
-                        </p>
-
-                      </div>
-<<<<<<< HEAD
-
-=======
                       <div className="flex-1">
                         <h4 className="text-lg font-bold mb-2">{diff.title}</h4>
                         <p className="text-muted-foreground mb-3 leading-relaxed">{diff.description}</p>
                         <p className="text-sm text-primary font-semibold italic">{diff.highlight}</p>
                       </div>
->>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
                     </div>
 
                   </div>
@@ -400,7 +384,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               transition={{ duration: 0.6 }}
             >
               <p className="text-lg text-muted-foreground mb-8">
-                Whether you're building AI-ready data platforms, exploring innovation, or scaling data leadership—I'm here to help.
+                Whether you're building AI-ready data platforms, exploring innovation, or scaling data leadership. I'm here to help.
               </p>
               <a
                 href="/contact"
