@@ -329,7 +329,7 @@ const techStack = [
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
                 Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
               </p>
-              <br>
+              <br />
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
               Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
               </p>
