@@ -165,15 +165,78 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
 }
   ];
 
+const techStack = [
+  {
+    category: "Languages & Processing",
+    items: [
+      { name: "SQL", years: 15 },
+      { name: "T-SQL", years: 7 },
+      { name: "PL/SQL", years: 7 },
+      { name: "Python", years: 5 },
+      { name: "PySpark", years: 3 },
+    ],
+  },
+  {
+    category: "Data Engineering & Platforms",
+    items: [
+      { name: "ELT / ETL Pipelines", years: 15 },
+      { name: "Azure", years: 3 },
+      { name: "Azure Databricks", years: 3 },
+      { name: "Delta Lake", years: 3 },
+      { name: "Hive", years: 3 },
+      { name: "Hadoop Ecosystem", years: 2 },
+      { name: "ElasticSearch", years: 2 },
+    ],
+  },
+  {
+    category: "Databases",
+    items: [
+      { name: "Oracle", years: 10 },
+      { name: "SQL Server", years: 8 },
+      { name: "MySQL", years: 5 },
+      { name: "PostgreSQL", years: 2 },
+      { name: "BigQuery", years: 1 },
+      { name: "MongoDB", years: 1 },
+    ],
+  },
+  {
+    category: "BI & Analytics Platforms",
+    items: [
+      { name: "IBM Cognos", years: 7 },
+      { name: "Power BI", years: 5 },
+      { name: "Tableau", years: 3 },
+      { name: "MicroStrategy", years: 2 },
+      { name: "Kibana", years: 2 },
+      { name: "Qlik Sense", years: 1 },
+      { name: "QlikView", years: 1 },
+    ],
+  },
+  {
+    category: "Microsoft BI Stack",
+    items: [
+      { name: "SSIS", years: 4 },
+      { name: "SSAS", years: 4 },
+      { name: "SSRS", years: 4 },
+    ],
+  },
+  {
+    category: "Data Architecture & Governance",
+    items: [
+      { name: "Dimensional Modeling", years: 12 },
+      { name: "Data Architecture", years: 6 },
+      { name: "Semantic Modeling", years: 5 },
+      { name: "Data Governance", years: 4 },
+    ],
+  },
+];
+  
   const coreCompetences = [
-    "Team Leadership, Agile Delivery and cross-functional collaboration",
-    "Azure (Databricks, Delta Lake and Medallion Architecture)",
-    "Python & PySpark & T-SQL & PL/SQL data pipelines",
-    "Dimensional & semantic data modelling",
-    "ELT / ETL orchestration",
-    "Power BI dashboard development, semantic modeling and advanced analytics",
-    "Data governance, quality & lineage frameworks",
-    "SQL tuning & query optimization for analytical workloads"
+  "Data Engineering Leadership",
+  "Data Platform Architecture",
+  "Agile Delivery & Team Leadership",
+  "Data Strategy & Analytics Enablement",
+  "Data Governance & Compliance"
+
   ];
 
   const certifications = [
@@ -265,8 +328,7 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
               
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
                 Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
-              </p>
-              <p> 
+              <br></br>
               Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
               </p>
             </motion.div>
@@ -306,6 +368,47 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
           </div>
         </section>
 
+        {/* Core Technology */}
+        <section className="px-4 mb-24">
+          <div className="container max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold mb-16">
+              Core Technology Stack & Experience Depth
+            </h2>
+        
+            <div className="grid md:grid-cols-2 gap-8">
+              {techStack.map((group, idx) => (
+                <div
+                  key={group.category}
+                  className={`glass ${
+                    ["layer-blue", "layer-purple", "layer-yellow"][idx % 3]
+                  } rounded-xl p-8`}
+                >
+                  <h3 className="text-lg font-semibold mb-6">
+                    {group.category}
+                  </h3>
+        
+                  <div className="space-y-3">
+                    {group.items.map((tech) => (
+                      <div
+                        key={tech.name}
+                        className="flex justify-between items-center"
+                      >
+                        <span className="text-sm text-foreground">
+                          {tech.name}
+                        </span>
+        
+                        <span className="text-xs px-3 py-1 rounded-md bg-orange-500/10 text-orange-500 border border-orange-500/30 font-semibold">
+                          {tech.years} yrs
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
         {/* Professional Experience */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
