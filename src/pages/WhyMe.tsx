@@ -107,27 +107,50 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="pt-32 pb-20">
-        {/* Header Section */}
+        {/* Hero Section */}
         <section className="px-4 mb-20">
-          <div className="container max-w-5xl mx-auto">
+          <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+              <h2 className="text-3xl font-bold mb-6">
                 Why Me?
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mb-8">
+              </h2>
+
+              <p className="text-muted-foreground max-w-2xl">
                 15+ years building data systems taught me one thing: <span className="text-primary font-semibold">data architecture defines organizational intelligence</span>. Without a solid foundation, AI doesn't solve problems—it amplifies them. SapienteAI is my answer to this challenge.
               </p>
             </motion.div>
           </div>
         </section>
 
+        {/* Header with Image */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">          
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative flex justify-center items-center"
+              >
+                <div className="relative z-10 w-[160px] lg:w-[180px]">
+                  <img
+                    src="/rodrigo_contact_image.png"
+                    alt="Rodrigo Póvoa – Tech Leader & AI Entrepreneur"
+                    className="rounded-2xl shadow-2xl border border-primary/20"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Leadership Philosophy */}
-        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-          <div className="container max-w-5xl mx-auto">
+        <section className="px-4 mb-24">
+          <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +158,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               transition={{ duration: 0.6 }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">My Leadership Philosophy</h2>
+              <h3 className="text-2xl font-bold mb-4">My Leadership Philosophy</h3>
               <p className="text-muted-foreground mb-8">
                 Three pillars guide everything I do:
               </p>
@@ -151,7 +174,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`bg-gradient-to-br ${pillar.color} rounded-xl p-6 border border-primary/10 hover:border-primary/20 transition-all`}
                 >
-                  <h3 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h3>
+                  <h4 className="font-bold text-lg mb-2 text-foreground">{pillar.title}</h4>
                   <p className="text-muted-foreground">{pillar.description}</p>
                 </motion.div>
               ))}
@@ -160,8 +183,8 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Three Levels of Mastery */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-5xl mx-auto">
+        <section className="px-4 mb-24">
+          <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +192,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               transition={{ duration: 0.6 }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">My Differentiators</h2>
+              <h3 className="text-2xl font-bold mb-4">My Differentiators</h3>
               <p className="text-muted-foreground">
                 What sets me apart from other data leaders:
               </p>
@@ -192,7 +215,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                         <Icon className="w-8 h-8 text-primary mt-1" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold mb-2">{diff.title}</h3>
+                        <h4 className="text-lg font-bold mb-2">{diff.title}</h4>
                         <p className="text-muted-foreground mb-3 leading-relaxed">{diff.description}</p>
                         <p className="text-sm text-primary font-semibold italic">{diff.highlight}</p>
                       </div>
@@ -205,7 +228,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* SapienteAI - The Next Chapter */}
-        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+        <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -214,7 +237,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               transition={{ duration: 0.6 }}
               className="mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">SapienteAI: The Next Generation</h2>
+              <h3 className="text-2xl font-bold mb-4">SapienteAI: The Next Generation</h3>
             </motion.div>
 
             <motion.div
@@ -245,7 +268,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10 hover:border-primary/20 transition-all"
                   >
                     <Icon className="w-8 h-8 text-primary mb-4" />
-                    <h3 className="font-bold text-lg mb-3">{point.title}</h3>
+                    <h4 className="font-bold text-lg mb-3">{point.title}</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4">{point.description}</p>
                     <div className="pt-4 border-t border-primary/10">
                       <p className="text-xs text-primary font-semibold uppercase tracking-wide">{point.metric}</p>
@@ -258,7 +281,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Vision */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -267,7 +290,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20"
             >
-              <h2 className="text-3xl font-bold mb-8">My Vision</h2>
+              <h3 className="text-2xl font-bold mb-8">My Vision</h3>
               <div className="grid md:grid-cols-3 gap-8">
                 <div>
                   <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
@@ -290,7 +313,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* What This Means For You */}
-        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+        <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -298,22 +321,22 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold mb-8">What This Means For You</h2>
+              <h3 className="text-2xl font-bold mb-8">What This Means For You</h3>
               <div className="space-y-6">
                 <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
-                  <h3 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h3>
+                  <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
                   <p className="text-muted-foreground">
                     I help structure architectures that scale, govern, and deliver real business impact. Not just technology—strategic infrastructure.
                   </p>
                 </div>
                 <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
-                  <h3 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h3>
+                  <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
                   <p className="text-muted-foreground">
                     SapienteAI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
                   </p>
                 </div>
                 <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
-                  <h3 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h3>
+                  <h4 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h4>
                   <p className="text-muted-foreground">
                     I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
                   </p>
@@ -324,7 +347,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* CTA */}
-        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+        <section className="px-4">
           <div className="container max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
