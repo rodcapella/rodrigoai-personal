@@ -14,6 +14,7 @@ const Professional = lazy(() => import("./pages/Professional"));
 const Personal = lazy(() => import("./pages/Personal"));
 const Contact = lazy(() => import("./pages/Contact"));
 const SideProjects = lazy(() => import("./pages/SideProjects"));
+const WhyMe = lazy(() => import("./pages/WhyMe"));
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => {
                   <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
                   <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
                   <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
+                  <Route path="/why-me" element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />} />
                 </Routes>
           </Suspense>
         </div>
