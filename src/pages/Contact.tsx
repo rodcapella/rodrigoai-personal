@@ -51,8 +51,8 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
     // Name validation
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
+    } else if (formData.name.trim().length < 3) {
+      newErrors.name = "Name must be at least 3 characters";
     }
 
     // Email validation
@@ -77,8 +77,8 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
     // Message validation
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
+    } else if (formData.message.trim().length < 5) {
+      newErrors.message = "Message must be at least 5 characters";
     }
 
     // Spam detection: check for excessive links or suspicious patterns
@@ -171,12 +171,13 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                Get in Touch
-              </h1>
-              
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                Whether you're interested in discussing data architecture, exploring collaboration opportunities, or just want to say hello, I'd love to hear from you.
+              <h2 className="text-3xl font-bold mb-6">
+                Let’s Connect
+              </h2>
+
+              <p className="text-muted-foreground max-w-2xl">
+                Interested in data architecture, scalable analytics, or collaboration opportunities? 
+                I’m always open to meaningful conversations.
               </p>
             </motion.div>
           </div>
@@ -185,18 +186,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
         {/* Header with Image */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Feel free to reach out with any questions or opportunities. I'm always interested in discussing data architecture, AI innovations, and collaboration possibilities.
-                </p>
-              </motion.div>
-              
+            <div className="grid md:grid-cols-2 gap-12 items-center">          
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}

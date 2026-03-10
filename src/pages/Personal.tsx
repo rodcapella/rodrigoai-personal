@@ -162,7 +162,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
         {/* HERO */}
         <section className="px-4 mb-20">
-          <div className="container max-w-6xl mx-auto">
+          <div className="container max-w-4xl ou max-w-5xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
 
               <motion.div

@@ -109,7 +109,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
       <main className="pt-32 pb-20">
         {/* Header Section */}
         <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
+          <div className="container max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -126,8 +126,8 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Leadership Philosophy */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
+        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+          <div className="container max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -160,8 +160,8 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Three Levels of Mastery */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
+        <section className="px-4 mb-20">
+          <div className="container max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +205,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* SapienteAI - The Next Chapter */}
-        <section className="px-4 mb-24">
+        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -258,7 +258,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* Vision */}
-        <section className="px-4 mb-24">
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -290,7 +290,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* What This Means For You */}
-        <section className="px-4 mb-24">
+        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -324,7 +324,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         </section>
 
         {/* CTA */}
-        <section className="px-4 mb-20">
+        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
           <div className="container max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

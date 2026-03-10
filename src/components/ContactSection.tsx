@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-32 relative">
+    <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
       <div className="container max-w-3xl px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

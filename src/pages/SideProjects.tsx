@@ -53,7 +53,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
         <meta
           name="keywords"
-          content="AI Innovation Studio, SapienteAI, AI-native Architecture, AI Systems Exploration, Intelligent Automation, AI Data Platforms, AI Digital Strategy"
+          content="AI Innovation Studio, Sapiente.AI, SapienteAI, Sapiente, AI-native Architecture, AI Systems Exploration, Intelligent Automation, AI Data Platforms, AI Digital Strategy"
         />
 
         <link
@@ -65,7 +65,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="AI Projects | SapienteAI Innovation Studio"
+          content="AI Projects | Sapiente.AI Innovation Studio"
         />
         <meta
           property="og:description"
@@ -84,7 +84,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="SapienteAI – AI Innovation Projects"
+          content="Sapiente.AI – AI Innovation Projects"
         />
         <meta
           name="twitter:description"
@@ -165,7 +165,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         </section>
 
       {/* Project Philosophy */}
-      <section className="px-4 mb-24">
+      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
         <div className="container max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -195,7 +195,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       </section>
         
       {/* Project Focus Areas */}
-      <section className="px-4 mb-24">
+      <section className="px-4 mb-20">
         <div className="container max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -237,7 +237,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       </section>
 
     {/* CTA Section */}
-    <section className="px-4 mb-24">
+    <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
       <div className="container max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

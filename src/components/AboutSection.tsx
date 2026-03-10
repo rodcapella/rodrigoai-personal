@@ -3,7 +3,7 @@ import { profile } from "@/data/profile";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-32 relative">
+    <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
       <div className="container max-w-4xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

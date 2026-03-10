@@ -30,7 +30,7 @@ const WhatDrivesMe = () => {
   ];
 
   return (
-    <section className="px-4 py-20 bg-gradient-to-r from-primary/5 to-transparent">
+    <section className="px-4 py-20">
       <div className="container max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -47,11 +47,16 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
                 "Delta Lake",
                 "Power BI",
                 "Distributed Data Systems",
-                "Analytics Strategy"
+                "Analytics Strategy",
+                "SQL",
+                "PL/SQL",
+                "PySpark",
+                "Python",
+                "T-SQL"
               ],
               "worksFor": {
                 "@type": "Organization",
-                "name": "Tips4y and SapienteAI"
+                "name": "Tips4y and Sapiente.AI"
               },
               "hasOccupation": {
                 "@type": "Occupation",
@@ -75,7 +80,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
         <meta
           name="keywords"
-          content="Data Architect Portugal, Data Analytics Engineer Europe, Data Engineering Leader, Data Analyst Leader, Intelligent Automation, Data Governance, SapienteAI"
+          content="Data Architect Portugal, Data Analytics Engineer Europe, Data Engineering Leader, Data Analyst Leader, Intelligent Automation, Data Governance, Sapiente.AI, SapienteAI, Sapiente, Data Platform"
         />
 
         <meta name="robots" content="index, follow" />
