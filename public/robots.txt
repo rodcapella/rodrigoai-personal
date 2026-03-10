@@ -12,8 +12,8 @@ Disallow: /*.xml$
 Crawl-delay: 1
 
 # Sitemaps
-Sitemap: https://rodrigopovoa.com/sitemap.xml
-Sitemap: https://rodrigopovoa.com/sitemap-pt.xml
+Sitemap: https://rpovoadata.tech/sitemap.xml
+Sitemap: https://rpovoadata.tech/sitemap-pt.xml
 
 # Specific rules for search engines
 User-agent: Googlebot

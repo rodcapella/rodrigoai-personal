@@ -19,7 +19,7 @@ This repository contains the personal portfolio of **Rodrigo Póvoa**, Data Anal
 The website presents:
 
 - Professional experience
-- AI-native side projects (SapienteAI)
+- AI-native side projects (Sapiente.AI)
 - Architecture mindset
 - Contact channel for strategic collaborations
 - SEO structured positioning

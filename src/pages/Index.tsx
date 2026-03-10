@@ -26,8 +26,8 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Rodrigo Póvoa",
-              "url": "https://rodrigopovoa.com",
-              "image": "https://rodrigopovoa.com/og-image.png",
+              "url": "https://rpovoadata.tech",
+              "image": "https://rpovoadata.tech/og-image.png",
               "jobTitle": "Technical Data Leader & Data Analytics Engineer",
               "description": "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
               "address": {
@@ -136,7 +136,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
             jobTitle: "Data Analytics Engineer & Team Leader.",
             worksFor: {
               "@type": "Organization",
-              name: "SapienteAI"
+              name: "Sapiente.AI"
             },
             description:
               "Data Analytics Engineer & Team Leader designing scalable data systems.",
@@ -161,7 +161,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://rodrigopovoa.com/" }
+          { name: "Home", url: "https://rpovoadata.tech/" }
         ]}
       />
       

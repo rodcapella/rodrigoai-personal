@@ -273,8 +273,8 @@ const techStack = [
       </Helmet>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://rodrigopovoa.com/" },
-          { name: "Professional", url: "https://rodrigopovoa.com/professional" }
+          { name: "Home", url: "https://rpovoadata.tech/" },
+          { name: "Professional", url: "https://rpovoadata.tech/professional" }
         ]}
       />
 

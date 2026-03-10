@@ -43,7 +43,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
       <Helmet>
         <title>
-          AI Projects | Rodrigo Póvoa – SapienteAI Innovation Studio
+          AI Projects | Rodrigo Póvoa – Sapiente.AI Innovation Studio
         </title>
 
         <meta
@@ -100,7 +100,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CreativeWork",
-            name: "SapienteAI Innovation Studio",
+            name: "Sapiente.AI Innovation Studio",
             creator: {
               "@type": "Person",
               name: "Rodrigo Póvoa"
@@ -122,44 +122,98 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="pt-32 pb-20">
-        {/* HERO */}
+         {/* HERO */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
+
                 <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
                   Sapiente.AI
                 </h1>
-          
+
                 <p className="text-xl text-primary font-semibold mb-6">
-                  AI Innovation Studio & Strategic Data Experimentation Lab - Structured technology for innovation and sustainable growth.
+                  AI Innovation Studio & Strategic Data Experimentation Lab
                 </p>
-          
+
                 <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                  Sapiente.AI is my independent innovation studio focused on exploring how artificial intelligence is transforming enterprise data architecture, automation, and digital strategy.
-                  <br /><br />
-                  It operates both as a technology lab for building proprietary products and as a strategic partner helping organizations navigate their digital transformation.
+                  Sapiente.AI is my independent innovation studio focused on exploring how artificial intelligence
+                  is transforming enterprise data architecture, automation and digital strategy.
                 </p>
+
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative flex justify-center items-center"
+                transition={{ duration: 0.8 }}
+                className="flex justify-center"
               >
-                <div className="relative z-10 w-[160px] lg:w-[180px]">
-                  <img
-                    src="/logo_sapienteai.png"
-                    alt="SapienteAI Logo."
-                    className="rounded-2xl shadow-2xl border border-primary/20"
-                  />
-                </div>
+
+                <img
+                  src="/logo_sapienteai.png"
+                  alt="SapienteAI Logo"
+                  className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
+                />
+
               </motion.div>
+
+            </div>
+          </div>
+        </section>
+
+{/* SapienteAI - The Next Generation */}
+        <section className="px-4 mb-24">
+          <div className="container max-w-4xl mx-auto">
+
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+              SapienteAI: The Next Generation
+            </h2>
+
+            <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 mb-12">
+
+              <p className="text-lg leading-relaxed mb-6">
+                My 15 years building data systems revealed a critical insight:
+                <span className="text-primary font-semibold"> the next generation of data platforms must be AI-native from inception.</span>
+              </p>
+
+              <p className="text-lg leading-relaxed">
+                SapienteAI is where I explore this frontier—combining deep data engineering expertise with AI innovation
+                to build the platforms enterprises need to compete in the AI era.
+              </p>
+
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+
+              {sapientePoints.map((point, idx) => {
+                const Icon = point.icon;
+
+                return (
+                  <motion.div
+                    key={idx}
+                    className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
+                  >
+
+                    <Icon className="w-8 h-8 text-primary mb-4" />
+
+                    <h4 className="font-bold text-lg mb-3">
+                      {point.title}
+                    </h4>
+
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {point.description}
+                    </p>
+
+                  </motion.div>
+                );
+              })}
+
             </div>
           </div>
         </section>

@@ -8,7 +8,7 @@ export const PersonSchema = () => (
         "@type": "Person",
         name: "Rodrigo Póvoa",
         jobTitle: "Data Analytics Engineer & Team Leader",
-        url: "https://rodrigopovoa.com",
+        url: "https://rpovoadata.tech",
         sameAs: [
           "https://linkedin.com/in/rodrigocspovoa",
           "https://github.com/rodcapella"
