@@ -104,9 +104,8 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="pt-32 pb-20">
-<<<<<<< HEAD
        {/* HERO PADRONIZADO */}
-        <section className="px-4 mb-24">
+        <section className="px-4 mb-20">
 
           <div className="container max-w-4xl mx-auto">
 
@@ -138,26 +137,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               </div>
 
             </div>
-
-=======
-        {/* Hero Section */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl font-bold mb-6">
-                Why Me?
-              </h2>
-
-              <p className="text-muted-foreground max-w-2xl">
-                15+ years building data systems taught me one thing: <span className="text-primary font-semibold">data architecture defines organizational intelligence</span>. Without a solid foundation, AI doesn't solve problems—it amplifies them. SapienteAI is my answer to this challenge.
-              </p>
-            </motion.div>
->>>>>>> 20433c42a7a47d9fe3b857aad6b269b32e0705cc
-          </div>
 
         </section>
 
