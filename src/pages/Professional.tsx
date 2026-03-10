@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Briefcase, Globe, GraduationCap, Cpu} from "lucide-react";
+import { Award, Briefcase, Globe, GraduationCap, Cpu, Layers} from "lucide-react";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -235,8 +235,8 @@ const techStack = [
   "Data Platform Architecture",
   "Agile Delivery & Team Leadership",
   "Data Strategy & Analytics Enablement",
-  "Data Governance & Compliance"
-
+  "Data Governance & Compliance",
+  "AI-Augmented Data Solutions"
   ];
 
   const certifications = [
@@ -328,7 +328,9 @@ const techStack = [
               
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
                 Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
-              <br></br>
+              </p>
+              <br>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
               Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
               </p>
             </motion.div>
@@ -369,9 +371,10 @@ const techStack = [
         </section>
 
         {/* Core Technology */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-16">
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+              <Layers className="w-8 h-8 text-primary" />
               Core Technology Stack & Experience Depth
             </h2>
         
@@ -380,8 +383,8 @@ const techStack = [
                 <div
                   key={group.category}
                   className={`glass ${
-                    ["layer-blue", "layer-purple", "layer-yellow"][idx % 3]
-                  } rounded-xl p-8`}
+                    ["layer-blue", "layer-purple", "layer-yellow", "layer-green"][idx % 4]
+                  } rounded-xl p-6`}
                 >
                   <h3 className="text-lg font-semibold mb-6">
                     {group.category}
@@ -410,7 +413,7 @@ const techStack = [
         </section>
         
         {/* Professional Experience */}
-        <section className="px-4 mb-20">
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
