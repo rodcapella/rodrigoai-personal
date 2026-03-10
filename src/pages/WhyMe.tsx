@@ -204,6 +204,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
        {/* DIFFERENTIATORS */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -217,42 +218,41 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               </p>
             </motion.div>
 
-          <div className="container max-w-4xl mx-auto">
-
             <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
               <Zap className="text-primary" />
               Differentiators
             </h2>
 
             <div className="space-y-6">
-
               {differentiators.map((diff, idx) => {
-
                 const Icon = diff.icon;
 
                 return (
-
-                  <div key={idx} className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8">
-
+                  <div
+                    key={idx}
+                    className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8"
+                  >
                     <div className="flex gap-4">
-
                       <Icon className="text-primary w-6 h-6 mt-1" />
+
                       <div className="flex-1">
                         <h4 className="text-lg font-bold mb-2">{diff.title}</h4>
-                        <p className="text-muted-foreground mb-3 leading-relaxed">{diff.description}</p>
-                        <p className="text-sm text-primary font-semibold italic">{diff.highlight}</p>
+
+                        <p className="text-muted-foreground mb-3 leading-relaxed">
+                          {diff.description}
+                        </p>
+
+                        <p className="text-sm text-primary font-semibold italic">
+                          {diff.highlight}
+                        </p>
                       </div>
                     </div>
-
                   </div>
-
                 );
               })}
-
             </div>
 
           </div>
-
         </section>
 
         {/* SapienteAI - The Next Chapter */}
