@@ -45,6 +45,15 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
   // Phone validation regex (international format)
   const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
 
+  // Maximum field lengths
+  const maxLengths = {
+    name: 80,
+    email: 120,
+    phone: 25,
+    subject: 150,
+    message: 2000
+  };
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -53,6 +62,8 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       newErrors.name = "Name is required";
     } else if (formData.name.trim().length < 3) {
       newErrors.name = "Name must be at least 3 characters";
+    } else if (formData.name.length > maxLengths.name) {
+      newErrors.name = `Name cannot exceed ${maxLengths.name} characters`;
     }
 
     // Email validation
@@ -60,11 +71,17 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       newErrors.email = "Email is required";
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
+    } else if (formData.email.length > maxLengths.email) {
+      newErrors.email = `Email cannot exceed ${maxLengths.email} characters`;
     }
 
-    // Phone validation (optional but if provided, must be valid)
-    if (formData.phone.trim() && !phoneRegex.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid phone number";
+    // Phone validation
+    if (formData.phone.trim()) {
+      if (!phoneRegex.test(formData.phone)) {
+        newErrors.phone = "Please enter a valid phone number";
+      } else if (formData.phone.length > maxLengths.phone) {
+        newErrors.phone = `Phone cannot exceed ${maxLengths.phone} characters`;
+      }
     }
 
     // Subject validation
@@ -72,6 +89,8 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       newErrors.subject = "Subject is required";
     } else if (formData.subject.trim().length < 3) {
       newErrors.subject = "Subject must be at least 3 characters";
+    } else if (formData.subject.length > maxLengths.subject) {
+      newErrors.subject = `Subject cannot exceed ${maxLengths.subject} characters`;
     }
 
     // Message validation
@@ -79,12 +98,25 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 5) {
       newErrors.message = "Message must be at least 5 characters";
+    } else if (formData.message.length > maxLengths.message) {
+      newErrors.message = `Message cannot exceed ${maxLengths.message} characters`;
     }
 
     // Spam detection: check for excessive links or suspicious patterns
     const linkCount = (formData.message.match(/https?:\/\//gi) || []).length;
     if (linkCount > 5) {
       newErrors.message = "Message contains too many links";
+    }
+
+    const totalSize =
+      formData.name.length +
+      formData.email.length +
+      formData.phone.length +
+      formData.subject.length +
+      formData.message.length;
+
+    if (totalSize > 2500) {
+      newErrors.message = "Message payload too large";
     }
 
     setErrors(newErrors);
@@ -159,49 +191,81 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-black text-white dark:bg-white dark:text-black">
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Rodrigo Póvoa",
+            "url": "https://www.rpovoadata.tech",
+            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
+            "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
+            "sameAs": [
+              "https://www.linkedin.com/in/rodrigopovoa",
+              "https://github.com/rodcapella"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "professional inquiries",
+              "email": "contact@rpovoadata.tech",
+              "availableLanguage": [
+                "English",
+                "Portuguese"
+              ]
+            }
+          })
+        }}
+      />
       
-      <main className="pt-32 pb-20">
+      {/* SEO Structured Data */}
+      <script type="application/ld+json">...</script>
+      <script type="application/ld+json">...</script>
+      
+      <main className="pt-36 pb-24">
         {/* Hero Section */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl font-bold mb-6">
-                Let’s Connect
-              </h2>
+        <section className="px-4 mb-24">
+          <div className="container max-w-5xl mx-auto">
 
-              <p className="text-muted-foreground max-w-2xl">
-                Interested in data architecture, scalable analytics, or collaboration opportunities? 
-                I’m always open to meaningful conversations.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+            <div className="grid md:grid-cols-2 gap-16 items-center">
 
-        {/* Header with Image */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">          
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <h2 className="text-4xl font-bold mb-6">
+                  Let’s Connect
+                </h2>
+
+                <p className="text-muted-foreground max-w-lg">
+                  Interested in data architecture, scalable analytics, or collaboration opportunities?
+                  I’m always open to meaningful conversations about data platforms,
+                  AI enablement and modern analytics ecosystems.
+                </p>
+              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative flex justify-center items-center"
+                className="flex justify-center md:justify-end"
               >
-                <div className="relative z-10 w-[160px] lg:w-[180px]">
+                <div className="w-[220px]">
                   <img
                     src="/rodrigo_contact_image.png"
-                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader"
                     className="rounded-2xl shadow-2xl border border-primary/20"
                   />
                 </div>
               </motion.div>
+
             </div>
+
           </div>
         </section>
 
@@ -224,10 +288,13 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     type="text"
                     id="name"
                     name="name"
+                    maxLength={maxLengths.name}
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className={`w-full px-4 py-3 rounded-lg bg-background border transition-all ${
+                    className={`w-full px-4 py-3 rounded-lg border transition-all 
+                    bg-black text-white dark:bg-white dark:text-black
+                    ${
                       errors.name ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
                     } focus:outline-none`}
                   />
@@ -250,7 +317,10 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className={`w-full px-4 py-3 rounded-lg bg-background border transition-all ${
+                    maxLength={maxLengths.email}
+                    className={`w-full px-4 py-3 rounded-lg border transition-all 
+                    bg-black text-white dark:bg-white dark:text-black
+                    ${
                       errors.email ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
                     } focus:outline-none`}
                   />
@@ -270,10 +340,13 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     type="tel"
                     id="phone"
                     name="phone"
+                    maxLength={maxLengths.phone}
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+1 (555) 123-4567"
-                    className={`w-full px-4 py-3 rounded-lg bg-background border transition-all ${
+                    className={`w-full px-4 py-3 rounded-lg border transition-all 
+                    bg-black text-white dark:bg-white dark:text-black
+                    ${
                       errors.phone ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
                     } focus:outline-none`}
                   />
@@ -293,10 +366,13 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     type="text"
                     id="subject"
                     name="subject"
+                    maxLength={maxLengths.subject}
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="What is this about?"
-                    className={`w-full px-4 py-3 rounded-lg bg-background border transition-all ${
+                    className={`w-full px-4 py-3 rounded-lg border transition-all 
+                    bg-black text-white dark:bg-white dark:text-black
+                    ${
                       errors.subject ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
                     } focus:outline-none`}
                   />
@@ -317,9 +393,12 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
+                    maxLength={maxLengths.message}
                     placeholder="Your message here..."
                     rows={6}
-                    className={`w-full px-4 py-3 rounded-lg bg-background border transition-all resize-none ${
+                    className={`w-full px-4 py-3 rounded-lg border transition-all resize-none 
+                    bg-black text-white dark:bg-white dark:text-black
+                    ${
                       errors.message ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
                     } focus:outline-none`}
                   />

@@ -142,8 +142,36 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
-      <main className="pt-32 pb-20">
-     {/* HERO */}
+      {/* SEO Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Rodrigo Póvoa",
+            "url": "https://www.rpovoadata.tech",
+            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
+            "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
+            "sameAs": [
+              "https://www.linkedin.com/in/rodrigopovoa",
+              "https://github.com/rodcapella"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "professional inquiries",
+              "email": "contact@rpovoadata.tech",
+              "availableLanguage": [
+                "English",
+                "Portuguese"
+              ]
+            }
+          })
+        }}
+      />
+
+      <main className="pt-36 pb-24">
+      {/* HERO */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
