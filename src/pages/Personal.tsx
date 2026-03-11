@@ -30,7 +30,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     {
       icon: Gamepad2,
       title: "Video Games",
-      description: "Video game enthusiast since Atari. Nowadays. it is from the PlayStation generation — proudly on the dark side of the Force."
+      description: "Video game enthusiast since Atari. Nowadays. it is from the PlayStation generation, proudly on the dark side of the Force."
     },
     {
       icon: Film,
@@ -40,7 +40,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
     {
       icon: Dumbbell,
       title: "Sports & Fitness",
-      description: "Sports enthusiast — practices gym training and running regularly."
+      description: "Sports enthusiast: practices gym training, basketball and running regularly."
     }
   ];
 
@@ -204,7 +204,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   </h1>
 
                   <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                    Beyond data architecture, I combine analytical rigor with cultural curiosity — balancing engineering excellence with music, sports and long-term vision.
+                    Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with: music, sports and long-term vision.
                   </p>
                 </m.div>
 
@@ -272,7 +272,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  In the end of 2019, Rodrigo made a significant life decision—to relocate to Portugal together with his family (wife, son and their dog), seeking improved quality of life, greater personal and family security, and more challenging professional opportunities. This move was driven by the desire to work on international and multi-domain projects while learning new concepts and technologies within more mature data environments.
+                  In the end of 2019, Rodrigo made a significant life decision to relocate to Portugal together with his family (wife, son and their dog), seeking improved quality of life, greater personal and family security, and more challenging professional opportunities. This move was driven by the desire to work on international and multi-domain projects while learning new concepts and technologies within more mature data environments.
                 </p>
                 
                 <p>
@@ -393,9 +393,6 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     className="glass rounded-xl p-6 hover:scale-[1.02] transition-all"
                   >
                     <div className="flex items-start gap-4">
-
-                      <Heart className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
-
                       <div>
                         <h3 className="text-lg font-bold mb-2">
                           {value.title}

@@ -285,13 +285,13 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
                     <p className="text-muted-foreground">
-                      I help structure architectures that scale, govern, and deliver real business impact. Not just technology—strategic infrastructure.
+                      I help structure architectures that scale, govern, and deliver real business impact. Not just technology, but strategic infrastructure.
                     </p>
                   </div>
                   <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
                     <p className="text-muted-foreground">
-                      Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
+                      Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory.
                     </p>
                   </div>
                   <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
@@ -300,6 +300,35 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                       I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
                     </p>
                   </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                    <h4 className="font-bold text-lg mb-2">If Your Data Platform Feels Fragile</h4>
+                    <p className="text-muted-foreground">
+                      Many organizations struggle with unreliable pipelines, inconsistent metrics, and low trust in dashboards.I help redesign data architecture, governance, and modeling foundations to restore confidence in data.
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                    <h4 className="font-bold text-lg mb-2">If You Want to Turn Data Into Strategic Assets</h4>
+                    <p className="text-muted-foreground">
+                      Data should not be an operational byproduct. I help organizations treat data as products—with ownership, quality standards, governance, and measurable business impact.
+                  </div>                  
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                    <h4 className="font-bold text-lg mb-2">If You're Integrating AI Into Your Organization</h4>
+                    <p className="text-muted-foreground">
+                      AI initiatives often fail due to weak data foundations. I help align data engineering, governance, and AI architecture so AI can move beyond prototypes into scalable production systems.
+                  </div>       
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                    <h4 className="font-bold text-lg mb-2">If You Value Practical Innovation</h4>
+                    <p className="text-muted-foreground">
+                      Many AI ideas stay theoretical. My work focuses on building real systems and prototypes, testing new architectures and approaches in practical environments before they reach enterprise scale.
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                    <h4 className="font-bold text-lg mb-2">If You Want to Work With Someone Who Understands Both Technology and Strategy</h4>
+                    <p className="text-muted-foreground">
+                      My background combines hands-on engineering, architecture design, and strategic leadership, allowing me to bridge the gap between technical execution and business outcomes.
+                    </p>
+                  </div>
+
                 </div>
               </m.div>
             </div>

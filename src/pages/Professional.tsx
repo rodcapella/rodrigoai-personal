@@ -305,294 +305,296 @@ const techStack = [
       />
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+      <LazyMotion features={domAnimation}> 
+        <main>
+          {/* Header with Image */}
+          <section className="px-4 mb-20 pt-32">
+            <div className="container max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h1 className="text-4xl md:text-5xl font-bold mb-6">Professional Journey</h1>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Explore my professional experience, expertise, and the impact I've made across various organizations.
+                  </p>
+                </m.div>
+                
+                <m.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="relative flex justify-center items-center"
+                >
+                  <div className="relative z-10 w-[160px] lg:w-[180px]">
+                    <img
+                      src="/ai-portrait.jpeg"
+                      alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                      className="rounded-2xl shadow-2xl border border-primary/20"
+                    />
+                  </div>
+                </m.div>
+              </div>
+            </div>
+          </section>
 
-      <main>
-        {/* Header with Image */}
-        <section className="px-4 mb-20 pt-32">
-          <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Hero Section */}
+          <section className="px-4 mb-20">
+            <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">Professional Journey</h1>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Explore my professional experience, expertise, and the impact I've made across various organizations.
+                <p className="text-lg text-primary font-semibold mb-4">
+                  Data Analytics Engineer & Team Leader | Azure Databricks | Python | PySpark | SQL | Power BI | Data Architecture & Insights
+                </p>
+                
+                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+                  Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
+                </p>
+                <br />
+                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+                Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. This expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
                 </p>
               </m.div>
-              
+            </div>
+          </section>
+
+          {/* Core Competences */}
+          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
               <m.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative flex justify-center items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
               >
-                <div className="relative z-10 w-[160px] lg:w-[180px]">
-                  <img
-                    src="/ai-portrait.jpeg"
-                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
-                    className="rounded-2xl shadow-2xl border border-primary/20"
-                  />
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <Cpu className="w-8 h-8 text-primary" />
+                  Core Competences
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  {coreCompetences.map((competence, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                      className={`flex items-start gap-3 p-4 rounded-xl glass hover:scale-[1.02] transition-all ${
+                        ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
+                      }`}
+                    >
+                      <span className="font-bold mt-1">•</span>
+                      <p className="text-muted-foreground">{competence}</p>
+                    </m.div>
+                  ))}
                 </div>
               </m.div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Hero Section */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <p className="text-lg text-primary font-semibold mb-4">
-                Data Analytics Engineer & Team Leader | Azure Databricks | Python | PySpark | SQL | Power BI | Data Architecture & Insights
-              </p>
-              
-              <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
-              </p>
-              <br />
-              <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-              Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. This expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
-              </p>
-            </m.div>
-          </div>
-        </section>
-
-        {/* Core Competences */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Cpu className="w-8 h-8 text-primary" />
-                Core Competences
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-4">
-                {coreCompetences.map((competence, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                    className={`flex items-start gap-3 p-4 rounded-xl glass hover:scale-[1.02] transition-all ${
-                      ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
-                    }`}
-                  >
-                    <span className="font-bold mt-1">•</span>
-                    <p className="text-muted-foreground">{competence}</p>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-          </div>
-        </section>
-
-        {/* Core Technology */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Layers className="w-8 h-8 text-primary" />
-              Core Technology Stack & Experience Depth
-            </h2>
-        
-            <div className="grid md:grid-cols-2 gap-8">
-              {techStack.map((group, idx) => (
-                <div
-                  key={group.category}
-                  className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-                >
-                  <h3 className="text-lg font-semibold mb-6">
-                    {group.category}
-                  </h3>
-        
-                  <div className="space-y-3">
-                    {group.items.map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="flex justify-between items-center"
-                      >
-                        <span className="text-sm text-foreground">
-                          {tech.name}
-                        </span>
-        
-                        <span className="text-xs px-3 py-1 rounded-md bg-orange-500/10 text-orange-500 border border-orange-500/30 font-semibold">
-                          {tech.years} yrs
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        
-        {/* Professional Experience */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
+          {/* Core Technology */}
+          <section className="px-4 mb-20">
+            <div className="container max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Briefcase className="w-8 h-8 text-primary" />
-                Professional Experience
+                <Layers className="w-8 h-8 text-primary" />
+                Core Technology Stack & Experience Depth
               </h2>
-              
-              <div className="space-y-8">
-                {experiences.map((exp, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
-                    className="border-l-4 border-primary pl-6 pb-8"
-                  >
-                    <h3 className="text-2xl font-bold text-primary mb-1">{exp.title}</h3>
-                    <p className="text-lg font-semibold text-foreground mb-1">{exp.company}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{exp.location} • {exp.period}</p>
-                    
-                    <ul className="space-y-2 mb-6">
-                      {exp.highlights.map((highlight, i) => (
-                        <li key={i} className="text-muted-foreground text-sm leading-relaxed flex gap-3">
-                          <span className="text-primary font-bold flex-shrink-0">•</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <div>
-                      <p className="text-sm font-semibold text-foreground mb-3">Tech Stack:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.stack.map((tech, i) => (
-                          <span
-                            key={i}
-                            className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-medium border border-orange-500/30"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-          </div>
-        </section>
-
-        {/* Academic Background */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <GraduationCap className="w-8 h-8 text-primary" />
-                Academic Background
-              </h2>
-              
-              <div className="space-y-4">
-                {education.map((edu, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 + idx * 0.05 }}
+          
+              <div className="grid md:grid-cols-2 gap-8">
+                {techStack.map((group, idx) => (
+                  <div
+                    key={group.category}
                     className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
                   >
-                    <h3 className="text-lg font-bold text-foreground mb-2">{edu.degree}</h3>
-                    <p className="text-muted-foreground">{edu.institution}</p>
-                    <p className="text-sm text-muted-foreground">{edu.location} • {edu.year}</p>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-          </div>
-        </section>
-
-        {/* Certifications */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Award className="w-8 h-8 text-primary" />
-                Certifications & Courses
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {certifications.map((cert, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-                  >
-                    <span className="text-primary font-bold mt-1">•</span>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {cert}
-                    </p>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-          </div>
-        </section>
-
-        {/* Languages */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Globe className="w-8 h-8 text-primary" />
-                Languages
-              </h2>
-              
-              <div className="grid md:grid-cols-3 gap-6">
-                {languages.map((lang, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                    className={`p-6 rounded-xl glass ${
-                      ["layer-yellow", "layer-blue", "layer-purple"][idx % 3]
-                    }`}
-                  >
-                    <h3 className="font-semibold text-foreground mb-1">
-                      {lang.language}
+                    <h3 className="text-lg font-semibold mb-6">
+                      {group.category}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {lang.level}
-                    </p>
-                  </m.div>
+          
+                    <div className="space-y-3">
+                      {group.items.map((tech) => (
+                        <div
+                          key={tech.name}
+                          className="flex justify-between items-center"
+                        >
+                          <span className="text-sm text-foreground">
+                            {tech.name}
+                          </span>
+          
+                          <span className="text-xs px-3 py-1 rounded-md bg-orange-500/10 text-orange-500 border border-orange-500/30 font-semibold">
+                            {tech.years} yrs
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
-            </m.div>
-          </div>
-        </section>
-      </main>
+            </div>
+          </section>
+          
+          {/* Professional Experience */}
+          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                  <Briefcase className="w-8 h-8 text-primary" />
+                  Professional Experience
+                </h2>
+                
+                <div className="space-y-8">
+                  {experiences.map((exp, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
+                      className="border-l-4 border-primary pl-6 pb-8"
+                    >
+                      <h3 className="text-2xl font-bold text-primary mb-1">{exp.title}</h3>
+                      <p className="text-lg font-semibold text-foreground mb-1">{exp.company}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{exp.location} • {exp.period}</p>
+                      
+                      <ul className="space-y-2 mb-6">
+                        {exp.highlights.map((highlight, i) => (
+                          <li key={i} className="text-muted-foreground text-sm leading-relaxed flex gap-3">
+                            <span className="text-primary font-bold flex-shrink-0">•</span>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <div>
+                        <p className="text-sm font-semibold text-foreground mb-3">Tech Stack:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.stack.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-medium border border-orange-500/30"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </section>
+
+          {/* Academic Background */}
+          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <GraduationCap className="w-8 h-8 text-primary" />
+                  Academic Background
+                </h2>
+                
+                <div className="space-y-4">
+                  {education.map((edu, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 + idx * 0.05 }}
+                      className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+                    >
+                      <h3 className="text-lg font-bold text-foreground mb-2">{edu.degree}</h3>
+                      <p className="text-muted-foreground">{edu.institution}</p>
+                      <p className="text-sm text-muted-foreground">{edu.location} • {edu.year}</p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </section>
+
+          {/* Certifications */}
+          <section className="px-4 mb-20">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <Award className="w-8 h-8 text-primary" />
+                  Certifications & Courses
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  {certifications.map((cert, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                      className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+                    >
+                      <span className="text-primary font-bold mt-1">•</span>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {cert}
+                      </p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </section>
+
+          {/* Languages */}
+          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <Globe className="w-8 h-8 text-primary" />
+                  Languages
+                </h2>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  {languages.map((lang, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                      className={`p-6 rounded-xl glass ${
+                        ["layer-yellow", "layer-blue", "layer-purple"][idx % 3]
+                      }`}
+                    >
+                      <h3 className="font-semibold text-foreground mb-1">
+                        {lang.language}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {lang.level}
+                      </p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </section>
+        </main>
+      </LazyMotion>
 
       <Footer />
     </div>
