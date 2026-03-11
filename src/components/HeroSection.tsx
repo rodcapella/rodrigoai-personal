@@ -27,13 +27,13 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 Data Analytics Engineer • Team Leader
               </p>
               
-              <motion.h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
+              <m.h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
                 Designing Enterprise Data Platforms
                 <br />
                 That Scale, Govern and Drive Decisions.
               </motion.h1>
               
-              <motion.p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
+              <m.p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
                 Technical Data Leader specialized in building governed analytics ecosystems,
                 structuring scalable data architectures and leading teams to transform
                 fragmented data into strategic infrastructure.

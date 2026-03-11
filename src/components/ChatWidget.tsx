@@ -119,7 +119,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
       {/* Floating button */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
+          <m.button
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
