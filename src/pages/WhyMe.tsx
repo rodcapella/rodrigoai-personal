@@ -315,6 +315,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     <h4 className="font-bold text-lg mb-2">If You're Integrating AI Into Your Organization</h4>
                     <p className="text-muted-foreground">
                       AI initiatives often fail due to weak data foundations. I help align data engineering, governance, and AI architecture so AI can move beyond prototypes into scalable production systems.
+                    </p>
                   </div>       
                   <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You Value Practical Innovation</h4>
