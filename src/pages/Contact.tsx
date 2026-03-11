@@ -221,7 +221,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "professional inquiries",
-              "email": "contact@rpovoadata.tech",
+              "email": "contato@rpovoadata.tech",
               "availableLanguage": [
                 "English",
                 "Portuguese"

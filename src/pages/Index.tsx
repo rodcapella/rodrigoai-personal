@@ -125,38 +125,47 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
           content="https://www.rpovoadata.tech/ai-portrait.jpeg"
         />
 
-        {/* Structured Data */}
+        {/* SEO Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Rodrigo Póvoa",
+              "url": "https://www.rpovoadata.tech",
+              "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
+              "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
+              "sameAs": [
+                "https://www.linkedin.com/in/rodrigopovoa",
+                "https://github.com/rodcapella"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "professional inquiries",
+                "email": "contato@rpovoadata.tech",
+                "availableLanguage": [
+                  "English",
+                  "Portuguese"
+                ]
+              }
+            })
+          }}
+        />
+
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "https://schema.org",
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Rodrigo Póvoa",
+          "url": "https://www.rpovoadata.tech",
+          "author": {
             "@type": "Person",
-            name: "Rodrigo Póvoa",
-            url: "https://www.rpovoadata.tech/",
-            image: "https://www.rpovoadata.tech/ai-portrait.jpeg",
-            jobTitle: "Data Analytics Engineer & Team Leader.",
-            worksFor: {
-              "@type": "Organization",
-              name: "Sapiente.AI"
-            },
-            description:
-              "Data Analytics Engineer & Team Leader designing scalable data systems.",
-            knowsAbout: [
-              "Artificial Intelligence",
-              "Data Engineering",
-              "Analytics Architecture",
-              "Cloud Data Platforms",
-              "Delta Lake",
-              "Databricks",
-              "AI-native Systems",
-              "Data Governance",
-              "Automation"
-            ],
-            sameAs: [
-              "https://www.linkedin.com/in/rodrigocspovoa/",
-              "https://github.com/rodcapella"
-            ]
+            "name": "Rodrigo Póvoa"
+          }
           })}
-        </script>
+          </script>
+
       </Helmet>
 
       <BreadcrumbSchema
@@ -166,36 +175,8 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
       />
       
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      
-      {/* SEO Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Rodrigo Póvoa",
-            "url": "https://www.rpovoadata.tech",
-            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
-            "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
-            "sameAs": [
-              "https://www.linkedin.com/in/rodrigopovoa",
-              "https://github.com/rodcapella"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "professional inquiries",
-              "email": "contact@rpovoadata.tech",
-              "availableLanguage": [
-                "English",
-                "Portuguese"
-              ]
-            }
-          })
-        }}
-      />
 
-      <main>
+      <main id="main-content">
         <HeroSection />
         <AboutSection />
         <ExpertiseSection />

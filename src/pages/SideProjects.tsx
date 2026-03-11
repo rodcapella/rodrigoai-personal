@@ -159,228 +159,232 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+      <LazyMotion features={domAnimation}>
+        <main className="pt-36 pb-24">
+        {/* HERO */}
+          <section className="px-4 mb-24">
+            <div className="container max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
 
-      <main className="pt-36 pb-24">
-      {/* HERO */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
 
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
+                  <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                    Sapiente.AI
+                  </h1>
 
-                <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
-                  Sapiente.AI
-                </h1>
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                  Enterprise AI Architecture Experiments
+                  </h2>
 
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-                Enterprise AI Architecture Experiments
-                </h2>
+                  <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+                    Sapiente.AI is my independent innovation studio focused on exploring how artificial intelligence
+                    is transforming enterprise data architecture, automation and digital strategy.
+                  </p>
 
-                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                  Sapiente.AI is my independent innovation studio focused on exploring how artificial intelligence
-                  is transforming enterprise data architecture, automation and digital strategy.
+                </m.div>
+
+                <m.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="flex justify-center"
+                >
+
+                  <img
+                    src="/logo_sapienteai.png"
+                    alt="SapienteAI Logo"
+                    className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
+                  />
+
+                </m.div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* SapienteAI - The Next Generation */}
+          <section className="px-4 mb-24">
+            <div className="container max-w-4xl mx-auto">
+
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                Sapiente.AI: The Next Generation
+              </h2>
+
+              <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 mb-12">
+
+                <p className="text-lg leading-relaxed mb-6">
+                  My 15 years building data systems revealed a critical insight:
+                  <span className="text-primary font-semibold"> the next generation of data platforms must be AI-native from inception.</span>
                 </p>
 
-              </m.div>
+                <p className="text-lg leading-relaxed">
+                  Sapiente.AI is where I explore this frontier—combining deep data engineering expertise with AI innovation
+                  to build the platforms enterprises need to compete in the AI era.
+                </p>
 
-              <m.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="flex justify-center"
-              >
+              </div>
 
-                <img
-                  src="/logo_sapienteai.png"
-                  alt="SapienteAI Logo"
-                  className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
-                />
+              <div className="grid md:grid-cols-3 gap-6">
 
-              </m.div>
+                {sapientePoints.map((point, idx) => {
+                  const Icon = point.icon;
 
+                  return (
+                    <m.div
+                      key={idx}
+                      className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
+                    >
+
+                      <Icon className="w-8 h-8 text-primary mb-4" />
+
+                      <h4 className="font-bold text-lg mb-3">
+                        {point.title}
+                      </h4>
+
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {point.description}
+                      </p>
+
+                    </m.div>
+                  );
+                })}
+
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* SapienteAI - The Next Generation */}
-        <section className="px-4 mb-24">
+        {/* Project Philosophy */}
+        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
           <div className="container max-w-4xl mx-auto">
-
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-              Sapiente.AI: The Next Generation
-            </h2>
-
-            <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 mb-12">
-
-              <p className="text-lg leading-relaxed mb-6">
-                My 15 years building data systems revealed a critical insight:
-                <span className="text-primary font-semibold"> the next generation of data platforms must be AI-native from inception.</span>
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                Design Philosophy
+              </h2>
+        
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p>
+                Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
               </p>
-
-              <p className="text-lg leading-relaxed">
-                Sapiente.AI is where I explore this frontier—combining deep data engineering expertise with AI innovation
-                to build the platforms enterprises need to compete in the AI era.
+              <p>
+                It operates as a structured experimentation environment where AI-native systems, governance frameworks, and scalable data platforms are designed, tested, and refined beyond the constraints of client-driven projects.
               </p>
-
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-
-              {sapientePoints.map((point, idx) => {
-                const Icon = point.icon;
-
-                return (
-                  <m.div
-                    key={idx}
-                    className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
-                  >
-
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-
-                    <h4 className="font-bold text-lg mb-3">
-                      {point.title}
-                    </h4>
-
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {point.description}
-                    </p>
-
-                  </m.div>
-                );
-              })}
-
-            </div>
+              <p>
+                Each initiative explores how AI can be embedded into data ecosystems, governance models, and automation pipelines to enhance scalability, reliability, and strategic decision-making.
+              </p>
+              <p>
+                The goal is not experimentation for novelty, but disciplined innovation—bridging enterprise data rigor with AI-native thinking.
+              </p>
+              </div>
+            </m.div>
           </div>
         </section>
-
-      {/* Project Philosophy */}
-      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-        <div className="container max-w-4xl mx-auto">
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-              Design Philosophy
-            </h2>
-      
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p>
-              Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
-            </p>
-            <p>
-              It operates as a structured experimentation environment where AI-native systems, governance frameworks, and scalable data platforms are designed, tested, and refined beyond the constraints of client-driven projects.
-            </p>
-            <p>
-              Each initiative explores how AI can be embedded into data ecosystems, governance models, and automation pipelines to enhance scalability, reliability, and strategic decision-making.
-            </p>
-            <p>
-              The goal is not experimentation for novelty, but disciplined innovation—bridging enterprise data rigor with AI-native thinking.
-            </p>
-            </div>
-          </m.div>
-        </div>
-      </section>
+          
+        {/* Project Focus Areas */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                Project Focus Areas
+              </h2>
         
-      {/* Project Focus Areas */}
-      <section className="px-4 mb-20">
-        <div className="container max-w-4xl mx-auto">
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-              Project Focus Areas
-            </h2>
-      
-            <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-2 gap-8">
               {projectCategories.map((category, idx) => {
+
                 const Icon = category.icon;
                 const layers = ["layer-yellow", "layer-blue", "layer-green", "layer-purple"];
-      
+
                 return (
                   <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                    className={`glass rounded-xl p-6 ${
-                      layers[idx % 4]
-                    }`}
+                    className={`glass ${layers[idx % 4]} rounded-xl p-6 hover:scale-[1.02] transition-all`}
                   >
+
                     <Icon className="w-8 h-8 mb-4 text-primary" />
+
                     <h3 className="text-lg font-bold mb-3">
                       {category.title}
                     </h3>
+
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {category.description}
                     </p>
+
                   </m.div>
                 );
               })}
+
             </div>
+            </m.div>
+          </div>
+        </section>
+        
+        {/* SEO invisível */}
+        <section className="px-4 mb-24">
+          <div className="container max-w-4xl mx-auto">
+            <div className="sr-only">
+              <h2>Artificial Intelligence Architecture Research</h2>
+              <p>
+                This research lab explores modern AI architectures including AI-native
+                data platforms, automation pipelines, enterprise data governance
+                integrated with machine learning systems and large language models.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      {/* CTA Section */}
+      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+        <div className="container max-w-4xl mx-auto">
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm hover:scale-[1.01] transition-all"
+          >
+            <div className="flex justify-center mb-6">
+              <img
+                src="/banner_SapienteAI.png"
+                alt="SapienteAI Banner"
+                className="h-48 w-auto opacity-90"
+              />
+            </div>
+      
+            <h3 className="text-2xl font-bold mb-4">
+              Explore Sapiente.AI
+            </h3>
+      
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              A structured AI experimentation lab focused on scalable architectures, governed automation systems and intelligent digital infrastructure.
+            </p>
+      
+            <a
+              href="https://sapienteai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all glow-primary-sm"
+            >
+              Visit Sapiente.AI website
+            </a>
           </m.div>
         </div>
-      </section>
-      
-      {/* SEO invisível */}
-      <section className="px-4 mb-24">
-        <div className="container max-w-4xl mx-auto">
-          <div className="sr-only">
-            <h2>Artificial Intelligence Architecture Research</h2>
-            <p>
-              This research lab explores modern AI architectures including AI-native
-              data platforms, automation pipelines, enterprise data governance
-              integrated with machine learning systems and large language models.
-            </p>
-          </div>
-        </div>
-      </section>
-
-    {/* CTA Section */}
-    <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-      <div className="container max-w-4xl mx-auto">
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm"
-        >
-          <div className="flex justify-center mb-6">
-            <img
-              src="/banner_SapienteAI.png"
-              alt="SapienteAI Banner"
-              className="h-48 w-auto opacity-90"
-            />
-          </div>
-    
-          <h3 className="text-2xl font-bold mb-4">
-            Explore Sapiente.AI
-          </h3>
-    
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            A structured AI experimentation lab focused on scalable architectures, governed automation systems and intelligent digital infrastructure.
-          </p>
-    
-          <a
-            href="https://sapienteai.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all glow-primary-sm"
-          >
-            Visit Sapiente.AI website
-          </a>
-        </m.div>
-      </div>
-      </section>
-      
-              </main>
+        </section>
+      </main>
+    </LazyMotion>
       
               <Footer />
             </div>

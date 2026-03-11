@@ -14,7 +14,7 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
     
   const summaryPoints = [
     "Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI (Power Query, DAX, M and semantic modeling) within modern data stack environments.",
-    "Delivered enterprise data modernization programs improving analytical efficiency and maturity of governance across multi-domain environments. Proven track record in translating business goals into scalable data solutions that accelerate decision-making and insight delivery.",
+    "Delivered enterprise data modernization programs improving analytical efficiency and reducing manual reporting workloads across multiple business domains. and maturity of governance across multi-domain environments. Proven track record in translating business goals into scalable data solutions that accelerate decision-making and insight delivery.",
     "Expert in building governed and secure data platforms, implementing Data Governance, GDPR-compliant architectures and scalable distributed data pipelines.",
     "Strong background in defining data architecture standards, leading engineering teams, mentoring engineers and aligning technical strategy with business goals."
   ];
@@ -266,9 +266,36 @@ const techStack = [
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Professional Experience | Rodrigo Póvoa</title>
+        <title>Professional Experience | Data Architect & Analytics Engineer | Rodrigo Póvoa</title>
         <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
         <link rel="canonical" href="https://www.rpovoadata.tech/professional" />
+              {/* SEO Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Rodrigo Póvoa",
+              "url": "https://www.rpovoadata.tech",
+              "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
+              "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
+              "sameAs": [
+                "https://www.linkedin.com/in/rodrigopovoa",
+                "https://github.com/rodcapella"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "professional inquiries",
+                "email": "contato@rpovoadata.tech",
+                "availableLanguage": [
+                  "English",
+                  "Portuguese"
+                ]
+              }
+            })
+          }}
+        />
       </Helmet>
       <BreadcrumbSchema
         items={[
@@ -278,34 +305,6 @@ const techStack = [
       />
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      
-      {/* SEO Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Rodrigo Póvoa",
-            "url": "https://www.rpovoadata.tech",
-            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
-            "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
-            "sameAs": [
-              "https://www.linkedin.com/in/rodrigopovoa",
-              "https://github.com/rodcapella"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "professional inquiries",
-              "email": "contact@rpovoadata.tech",
-              "availableLanguage": [
-                "English",
-                "Portuguese"
-              ]
-            }
-          })
-        }}
-      />
 
       <main>
         {/* Header with Image */}
@@ -358,7 +357,7 @@ const techStack = [
               </p>
               <br />
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-              Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
+              Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. This expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
               </p>
             </m.div>
           </div>
@@ -384,7 +383,7 @@ const techStack = [
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                    className={`flex items-start gap-3 p-4 rounded-xl glass ${
+                    className={`flex items-start gap-3 p-4 rounded-xl glass hover:scale-[1.02] transition-all ${
                       ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
                     }`}
                   >

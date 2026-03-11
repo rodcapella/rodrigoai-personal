@@ -176,7 +176,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "professional inquiries",
-              "email": "contact@rpovoadata.tech",
+              "email": "contato@rpovoadata.tech",
               "availableLanguage": [
                 "English",
                 "Portuguese"
@@ -191,7 +191,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         {/* HERO */}
         <LazyMotion features={domAnimation}>
           <section className="px-4 mb-20">
-            <div className="container max-w-4xl ou max-w-5xl">
+            <div className="container max-w-4xl mx-auto">
               <div className="grid md:grid-cols-2 gap-12 items-center">
 
                 <m.div
@@ -311,7 +311,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 + idx * 0.05 }}
-                      className="glass rounded-xl p-6"
+                      className="glass rounded-xl p-6 hover:scale-[1.02] transition-all"
                     >
                       <div className="flex items-start gap-4">
                         <Icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
@@ -390,15 +390,23 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
+                    className="glass rounded-xl p-6 hover:scale-[1.02] transition-all"
                   >
-                    <h3 className="text-lg font-bold mb-2">
-                      {value.title}
-                    </h3>
-                
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
+                    <div className="flex items-start gap-4">
+
+                      <Heart className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
+
+                      <div>
+                        <h3 className="text-lg font-bold mb-2">
+                          {value.title}
+                        </h3>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {value.description}
+                        </p>
+                      </div>
+
+                    </div>
                   </m.div>
                 ))}
               </div>
@@ -431,7 +439,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                      className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
+                      className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6 hover:scale-[1.02] transition-all`}
                     >
                       <h3 className="text-lg font-bold mb-4">
                         {section.category}
@@ -456,37 +464,48 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
       {/* Long-Term Vision */}
       <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Target className="w-8 h-8 text-primary" />
-                Long-Term Vision
-              </h2>
-        
-              <div className="grid md:grid-cols-2 gap-8">
-                {longTermVision.map((item, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
-                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-                  >
-                    <span className="text-primary font-bold mt-1">•</span>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {item}
-                    </p>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-          </div>
-        </section>
+      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+        <div className="container max-w-4xl mx-auto">
+
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+              <Target className="w-8 h-8 text-primary" />
+              Long-Term Vision
+            </h2>
+
+            <div className="space-y-4">
+
+              {longTermVision.map((item, idx) => (
+
+                <m.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
+                  className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-xl border border-primary/20 flex items-start gap-4"
+                >
+
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item}
+                  </p>
+
+                </m.div>
+
+              ))}
+
+            </div>
+
+          </m.div>
+
+        </div>
+      </section>
       </LazyMotion>
 
       {/* AI Exploration */}
