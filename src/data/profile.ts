@@ -9,10 +9,14 @@ export const profile = {
   core_skills: [
     "Enterprise Data Architecture & Lakehouse Design",
     "Azure & Distributed Data Engineering",
+    "Databricks, Delta Lake & Modern Data Platform Architecture",
     "Analytics Platform Strategy",
+    "Data Modeling (Kimball, Data Vault, Lakehouse Patterns)",
     "BI Capability Building & KPI Structuring",
+    "Scalable Data Pipelines & ELT Architecture",
     "Data Governance, GDPR Compliance and Quality Frameworks",
-    "Technical Leadership & Team Development"
+    "Technical Leadership & Team Development",
+    "Cross-Functional Stakeholder Alignment"
   ],
 
   technical_stack: [

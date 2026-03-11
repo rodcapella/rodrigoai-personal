@@ -58,7 +58,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
         <link
           rel="canonical"
-          href="https://rodrigoai-personal.vercel.app/side-projects"
+          href="https://rpovoadata.tech/side-projects"
         />
 
         {/* Open Graph */}
@@ -73,11 +73,11 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           property="og:url"
-          content="https://rodrigoai-personal.vercel.app/side-projects"
+          content="https://rpovoadata.tech/side-projects"
         />
         <meta
           property="og:image"
-          content="https://rodrigoai-personal.vercel.app/logo_sapienteai.png"
+          content="https://rpovoadata.tech/logo_sapienteai.png"
         />
 
         {/* Twitter */}
@@ -92,7 +92,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rodrigoai-personal.vercel.app/logo_sapienteai.png"
+          content="https://rpovoadata.tech/logo_sapienteai.png"
         />
 
         {/* Structured Data */}
@@ -105,7 +105,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               "@type": "Person",
               name: "Rodrigo Póvoa"
             },
-            url: "https://rodrigoai-personal.vercel.app/side-projects",
+            url: "https://rpovoadata.tech/side-projects",
             description:
               "Independent AI experimentation studio focused on AI-native architectures, automation systems and intelligent data platforms.",
             about: [
@@ -167,12 +167,12 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           </div>
         </section>
 
-{/* SapienteAI - The Next Generation */}
+        {/* SapienteAI - The Next Generation */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
 
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-              SapienteAI: The Next Generation
+              Sapiente.AI: The Next Generation
             </h2>
 
             <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 mb-12">
@@ -183,7 +183,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               </p>
 
               <p className="text-lg leading-relaxed">
-                SapienteAI is where I explore this frontier—combining deep data engineering expertise with AI innovation
+                Sapiente.AI is where I explore this frontier—combining deep data engineering expertise with AI innovation
                 to build the platforms enterprises need to compete in the AI era.
               </p>
 

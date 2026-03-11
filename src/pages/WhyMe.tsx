@@ -79,7 +79,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           name="keywords"
           content="Data Leadership, AI Architecture, Sapiente.AI, Data Engineering, Tech Leader, AI Innovation"
         />
-        <link rel="canonical" href="https://rodrigoai-personal.vercel.app/why-me" />
+        <link rel="canonical" href="https://rpovoadata.tech/why-me" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -88,8 +88,8 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           property="og:description"
           content="15+ years building data systems. Three levels of mastery. Sapiente.AI — AI-native data platforms."
         />
-        <meta property="og:url" content="https://rodrigoai-personal.vercel.app/why-me" />
-        <meta property="og:image" content="https://rodrigoai-personal.vercel.app/rodrigo_why_me.png" />
+        <meta property="og:url" content="https://rpovoadata.tech/why-me" />
+        <meta property="og:image" content="https://rpovoadata.tech/rodrigo_why_me.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -98,7 +98,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           name="twitter:description"
           content="Data architecture defines organizational intelligence. Here's why that matters."
         />
-        <meta name="twitter:image" content="https://rodrigoai-personal.vercel.app/rodrigo_why_me.png" />
+        <meta name="twitter:image" content="https://rpovoadata.tech/rodrigo_why_me.png" />
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
@@ -130,44 +130,9 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           </div>
         </section>
 
-        {/* Header with Image */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">          
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative flex justify-center items-center"
-              >
-                <div className="relative z-10 w-[160px] lg:w-[180px]">
-                  <img
-                    src="/rodrigo_contact_image.png"
-                    alt="Rodrigo Póvoa – Tech Leader & AI Entrepreneur"
-                    className="rounded-2xl shadow-2xl border border-primary/20"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
         {/* Leadership Philosophy */}
         <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
           <div className="container max-w-4xl mx-auto">
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="mb-12"
-            >
-              <h3 className="text-2xl font-bold mb-4">My Leadership Philosophy</h3>
-              <p className="text-muted-foreground mb-8">
-                Three pillars guide everything I do:
-              </p>
-            </motion.div>
 
             <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
               <Brain className="text-primary" />
@@ -205,22 +170,9 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="mb-12"
-            >
-              <h3 className="text-2xl font-bold mb-4">My Differentiators</h3>
-              <p className="text-muted-foreground">
-                What sets me apart from other data leaders:
-              </p>
-            </motion.div>
-
             <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
               <Zap className="text-primary" />
-              Differentiators
+             What sets me apart from other data leaders:
             </h2>
 
             <div className="space-y-6">
@@ -252,59 +204,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               })}
             </div>
 
-          </div>
-        </section>
-
-        {/* SapienteAI - The Next Chapter */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="mb-12"
-            >
-              <h3 className="text-2xl font-bold mb-4">SapienteAI: The Next Generation</h3>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 mb-8"
-            >
-              <p className="text-lg leading-relaxed mb-6">
-                My 15 years building data systems revealed a critical insight: <span className="text-primary font-semibold">the next generation of data platforms must be AI-native from inception</span>. Most companies try to bolt AI onto legacy architectures. That doesn't work.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Sapiente.AI is where I explore this frontier—combining deep data engineering expertise with AI innovation to build the platforms enterprises need to compete in the AI era.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {sapienteAIPoints.map((point, idx) => {
-                const Icon = point.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10 hover:border-primary/20 transition-all"
-                  >
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-                    <h4 className="font-bold text-lg mb-3">{point.title}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">{point.description}</p>
-                    <div className="pt-4 border-t border-primary/10">
-                      <p className="text-xs text-primary font-semibold uppercase tracking-wide">{point.metric}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
           </div>
         </section>
 

@@ -87,7 +87,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
         <link
           rel="canonical"
-          href="https://rodrigoai-personal.vercel.app/"
+          href="https://rpovoadata.tech/"
         />
 
         {/* Open Graph */}
@@ -102,11 +102,11 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         />
         <meta
           property="og:url"
-          content="https://rodrigoai-personal.vercel.app/"
+          content="https://rpovoadata.tech/"
         />
         <meta
           property="og:image"
-          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+          content="https://rpovoadata.tech/ai-portrait.jpeg"
         />
         <meta property="og:site_name" content="Rodrigo Póvoa" />
 
@@ -122,7 +122,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rodrigoai-personal.vercel.app/ai-portrait.jpeg"
+          content="https://rpovoadata.tech/ai-portrait.jpeg"
         />
 
         {/* Structured Data */}
@@ -131,8 +131,8 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Rodrigo Póvoa",
-            url: "https://rodrigoai-personal.vercel.app/",
-            image: "https://rodrigoai-personal.vercel.app/ai-portrait.jpeg",
+            url: "https://rpovoadata.tech/",
+            image: "https://rpovoadata.tech/ai-portrait.jpeg",
             jobTitle: "Data Analytics Engineer & Team Leader.",
             worksFor: {
               "@type": "Organization",

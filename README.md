@@ -8,7 +8,7 @@ Built to scale. Designed with intelligence.
 ## 🌍 Live Project
 
 Production URL:  
-👉 https://rodrigoai-personal.vercel.app
+👉 https://rpovoadata.tech
 
 ---
 

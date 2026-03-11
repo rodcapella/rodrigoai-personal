@@ -179,11 +179,10 @@ const techStack = [
   {
     category: "Data Engineering & Platforms",
     items: [
-      { name: "ELT / ETL Pipelines", years: 15 },
+      { name: "ELT / ETL Data Pipelines", years: 15 },
       { name: "Azure", years: 3 },
       { name: "Azure Databricks", years: 3 },
       { name: "Delta Lake", years: 3 },
-      { name: "Hive", years: 3 },
       { name: "Hadoop Ecosystem", years: 2 },
       { name: "ElasticSearch", years: 2 },
     ],
@@ -202,7 +201,7 @@ const techStack = [
   {
     category: "BI & Analytics Platforms",
     items: [
-      { name: "IBM Cognos", years: 7 },
+      { name: "IBM Cognos", years: 5 },
       { name: "Power BI", years: 5 },
       { name: "Tableau", years: 3 },
       { name: "MicroStrategy", years: 2 },
@@ -225,7 +224,7 @@ const techStack = [
       { name: "Dimensional Modeling", years: 12 },
       { name: "Data Architecture", years: 6 },
       { name: "Semantic Modeling", years: 5 },
-      { name: "Data Governance", years: 4 },
+      { name: "Data Governance & Compliance", years: 3 },
     ],
   },
 ];
@@ -269,7 +268,7 @@ const techStack = [
       <Helmet>
         <title>Professional Experience | Rodrigo Póvoa</title>
         <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
-        <link rel="canonical" href="https://rodrigoai-personal.vercel.app/professional" />
+        <link rel="canonical" href="https://rpovoadata.tech/professional" />
       </Helmet>
       <BreadcrumbSchema
         items={[
@@ -382,9 +381,7 @@ const techStack = [
               {techStack.map((group, idx) => (
                 <div
                   key={group.category}
-                  className={`glass ${
-                    ["layer-blue", "layer-purple", "layer-yellow", "layer-green"][idx % 4]
-                  } rounded-xl p-6`}
+                  className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
                 >
                   <h3 className="text-lg font-semibold mb-6">
                     {group.category}

@@ -99,7 +99,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
         <link
           rel="canonical"
-          href="https://rodrigoai-personal.vercel.app/personal"
+          href="https://rpovoadata.tech/personal"
         />
 
         {/* Open Graph */}
@@ -111,11 +111,11 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         />
         <meta
           property="og:url"
-          content="https://rodrigoai-personal.vercel.app/personal"
+          content="https://rpovoadata.tech/personal"
         />
         <meta
           property="og:image"
-          content="https://rodrigoai-personal.vercel.app/rodrigo_flamengo_porto.png"
+          content="https://rpovoadata.tech/rodrigo_flamengo_porto.png"
         />
 
         {/* Twitter */}
@@ -127,7 +127,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rodrigoai-personal.vercel.app/rodrigo_flamengo_porto.png"
+          content="https://rpovoadata.tech/rodrigo_flamengo_porto.png"
         />
 
         {/* Structured Data */}
@@ -136,7 +136,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Rodrigo Póvoa",
-            url: "https://rodrigoai-personal.vercel.app/personal",
+            url: "https://rpovoadata.tech/personal",
             jobTitle: "Data Analytics Engineer & Team Leader.",
             description:
               "Personal philosophy, leadership values and AI ecosystem exploration of Rodrigo Póvoa.",
@@ -295,42 +295,6 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
           </div>
         </section>
 
-        {/* Sports & Teams */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Trophy className="w-8 h-8 text-primary" />
-                Team Spirit
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {sportsTeams.map((team, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
-                    className="glass rounded-xl p-8 text-center"
-                  >
-                    <div className="text-4xl mb-4">{team.emoji}</div>
-                    <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
-                    <p className="text-muted-foreground">{team.country}</p>
-                  </motion.div>
-                ))}
-              </div>
-              
-              <p className="text-center text-muted-foreground mt-8">
-                Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
         {/* Core Values */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
@@ -363,6 +327,42 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   </motion.div>
                 ))}
               </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Sports & Teams */}
+        <section className="px-4 mb-20">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                <Trophy className="w-8 h-8 text-primary" />
+                Team Spirit
+              </h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {sportsTeams.map((team, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
+                    className="glass rounded-xl p-8 text-center"
+                  >
+                    <div className="text-4xl mb-4">{team.emoji}</div>
+                    <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
+                    <p className="text-muted-foreground">{team.country}</p>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <p className="text-center text-muted-foreground mt-8">
+                Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
+              </p>
             </motion.div>
           </div>
         </section>
@@ -432,9 +432,10 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
-                    className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
+                    className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
                   >
-                    <p className="text-sm text-muted-foreground leading-relaxed font-medium">
+                    <span className="text-primary font-bold mt-1">•</span>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {item}
                     </p>
                   </motion.div>
