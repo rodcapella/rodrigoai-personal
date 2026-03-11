@@ -7,7 +7,7 @@ export const WebSiteSchema = () => (
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "Rodrigo Póvoa",
-        url: "https://rpovoadata.tech",
+        url: "https://www.rpovoadata.tech",
         description:
           "Personal website of Rodrigo Póvoa, Data Analytics Engineer & Team Leader specialized in AI-native data systems.",
         inLanguage: "en",

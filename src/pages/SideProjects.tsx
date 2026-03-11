@@ -64,7 +64,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
       <Helmet>
         <title>
-          AI Projects | Rodrigo Póvoa – Sapiente.AI Innovation Studio
+          Rodrigo Póvoa – Sapiente.AI Innovation Studio
         </title>
 
         <meta
@@ -79,7 +79,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
         <link
           rel="canonical"
-          href="https://rpovoadata.tech/side-projects"
+          href="https://www.rpovoadata.tech/side-projects"
         />
 
         {/* Open Graph */}
@@ -94,11 +94,11 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           property="og:url"
-          content="https://rpovoadata.tech/side-projects"
+          content="https://www.rpovoadata.tech/side-projects"
         />
         <meta
           property="og:image"
-          content="https://rpovoadata.tech/logo_sapienteai.png"
+          content="https://www.rpovoadata.tech/logo_sapienteai.png"
         />
 
         {/* Twitter */}
@@ -113,62 +113,52 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rpovoadata.tech/logo_sapienteai.png"
+          content="https://www.rpovoadata.tech/logo_sapienteai.png"
         />
 
         {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "CreativeWork",
+            "@type": "ResearchProject",
             name: "Sapiente.AI Innovation Studio",
             creator: {
               "@type": "Person",
               name: "Rodrigo Póvoa"
             },
-            url: "https://rpovoadata.tech/side-projects",
+            url: "https://www.rpovoadata.tech/side-projects",
             description:
-              "Independent AI experimentation studio focused on AI-native architectures, automation systems and intelligent data platforms.",
-            about: [
+              "Independent AI experimentation studio exploring AI-native architectures, automation systems and intelligent data platforms.",
+            keywords: [
               "Artificial Intelligence",
               "AI-native Architecture",
               "Automation Systems",
               "AI-Augmented Data Platforms",
-              "Digital Strategy"
+              "Digital Strategy",
+              "AI",
+              "IA",
+              "Inteligência Artificial",
+              "Branding"
+            ],
+            about: [
+              {
+                "@type": "Thing",
+                name: "Artificial Intelligence"
+              },
+              {
+                "@type": "Thing",
+                name: "Data Architecture"
+              },
+              {
+                "@type": "Thing",
+                name: "Automation Systems"
+              }
             ]
           })}
-        </script>
+          </script>
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-
-      {/* SEO Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Rodrigo Póvoa",
-            "url": "https://www.rpovoadata.tech",
-            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
-            "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
-            "sameAs": [
-              "https://www.linkedin.com/in/rodrigopovoa",
-              "https://github.com/rodcapella"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "professional inquiries",
-              "email": "contact@rpovoadata.tech",
-              "availableLanguage": [
-                "English",
-                "Portuguese"
-              ]
-            }
-          })
-        }}
-      />
 
       <main className="pt-36 pb-24">
       {/* HERO */}
@@ -186,9 +176,9 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   Sapiente.AI
                 </h1>
 
-                <p className="text-xl text-primary font-semibold mb-6">
-                  AI Innovation Studio & Strategic Data Experimentation Lab
-                </p>
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                Enterprise AI Architecture Experiments
+                </h2>
 
                 <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
                   Sapiente.AI is my independent innovation studio focused on exploring how artificial intelligence
@@ -336,6 +326,20 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               })}
             </div>
           </motion.div>
+        </div>
+      </section>
+      
+      {/* SEO invisível */}
+      <section className="px-4 mb-24">
+        <div className="container max-w-4xl mx-auto">
+          <div className="sr-only">
+            <h2>Artificial Intelligence Architecture Research</h2>
+            <p>
+              This research lab explores modern AI architectures including AI-native
+              data platforms, automation pipelines, enterprise data governance
+              integrated with machine learning systems and large language models.
+            </p>
+          </div>
         </div>
       </section>
 

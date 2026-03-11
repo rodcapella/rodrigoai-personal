@@ -79,7 +79,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           name="keywords"
           content="Data Leadership, AI Architecture, Sapiente.AI, Data Engineering, Tech Leader, AI Innovation"
         />
-        <link rel="canonical" href="https://rpovoadata.tech/why-me" />
+        <link rel="canonical" href="https://www.rpovoadata.tech/why-me" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -88,8 +88,8 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           property="og:description"
           content="15+ years building data systems. Three levels of mastery. Sapiente.AI — AI-native data platforms."
         />
-        <meta property="og:url" content="https://rpovoadata.tech/why-me" />
-        <meta property="og:image" content="https://rpovoadata.tech/rodrigo_why_me.png" />
+        <meta property="og:url" content="https://www.rpovoadata.tech/why-me" />
+        <meta property="og:image" content="https://www.rpovoadata.tech/rodrigo_why_me.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -98,7 +98,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           name="twitter:description"
           content="Data architecture defines organizational intelligence. Here's why that matters."
         />
-        <meta name="twitter:image" content="https://rpovoadata.tech/rodrigo_why_me.png" />
+        <meta name="twitter:image" content="https://www.rpovoadata.tech/rodrigo_why_me.png" />
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />

@@ -99,7 +99,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
 
         <link
           rel="canonical"
-          href="https://rpovoadata.tech/personal"
+          href="https://www.rpovoadata.tech/personal"
         />
 
         {/* Open Graph */}
@@ -111,11 +111,11 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         />
         <meta
           property="og:url"
-          content="https://rpovoadata.tech/personal"
+          content="https://www.rpovoadata.tech/personal"
         />
         <meta
           property="og:image"
-          content="https://rpovoadata.tech/rodrigo_flamengo_porto.png"
+          content="https://www.rpovoadata.tech/rodrigo_flamengo_porto.png"
         />
 
         {/* Twitter */}
@@ -127,7 +127,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rpovoadata.tech/rodrigo_flamengo_porto.png"
+          content="https://www.rpovoadata.tech/rodrigo_flamengo_porto.png"
         />
 
         {/* Structured Data */}
@@ -136,7 +136,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Rodrigo Póvoa",
-            url: "https://rpovoadata.tech/personal",
+            url: "https://www.rpovoadata.tech/personal",
             jobTitle: "Data Analytics Engineer & Team Leader.",
             description:
               "Personal philosophy, leadership values and AI ecosystem exploration of Rodrigo Póvoa.",

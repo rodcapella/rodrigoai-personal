@@ -268,12 +268,12 @@ const techStack = [
       <Helmet>
         <title>Professional Experience | Rodrigo Póvoa</title>
         <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
-        <link rel="canonical" href="https://rpovoadata.tech/professional" />
+        <link rel="canonical" href="https://www.rpovoadata.tech/professional" />
       </Helmet>
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://rpovoadata.tech/" },
-          { name: "Professional", url: "https://rpovoadata.tech/professional" }
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          { name: "Professional", url: "https://www.rpovoadata.tech/professional" }
         ]}
       />
 

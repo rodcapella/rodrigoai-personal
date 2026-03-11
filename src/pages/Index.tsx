@@ -26,8 +26,8 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Rodrigo Póvoa",
-              "url": "https://rpovoadata.tech",
-              "image": "https://rpovoadata.tech/og-image.png",
+              "url": "https://www.rpovoadata.tech",
+              "image": "https://www.rpovoadata.tech/og-image.png",
               "jobTitle": "Technical Data Leader & Data Analytics Engineer",
               "description": "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
               "address": {
@@ -87,7 +87,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
         <link
           rel="canonical"
-          href="https://rpovoadata.tech/"
+          href="https://www.rpovoadata.tech/"
         />
 
         {/* Open Graph */}
@@ -102,11 +102,11 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         />
         <meta
           property="og:url"
-          content="https://rpovoadata.tech/"
+          content="https://www.rpovoadata.tech/"
         />
         <meta
           property="og:image"
-          content="https://rpovoadata.tech/ai-portrait.jpeg"
+          content="https://www.rpovoadata.tech/ai-portrait.jpeg"
         />
         <meta property="og:site_name" content="Rodrigo Póvoa" />
 
@@ -122,7 +122,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://rpovoadata.tech/ai-portrait.jpeg"
+          content="https://www.rpovoadata.tech/ai-portrait.jpeg"
         />
 
         {/* Structured Data */}
@@ -131,8 +131,8 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
             "@context": "https://schema.org",
             "@type": "Person",
             name: "Rodrigo Póvoa",
-            url: "https://rpovoadata.tech/",
-            image: "https://rpovoadata.tech/ai-portrait.jpeg",
+            url: "https://www.rpovoadata.tech/",
+            image: "https://www.rpovoadata.tech/ai-portrait.jpeg",
             jobTitle: "Data Analytics Engineer & Team Leader.",
             worksFor: {
               "@type": "Organization",
@@ -161,7 +161,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
       <BreadcrumbSchema
         items={[
-          { name: "Home", url: "https://rpovoadata.tech/" }
+          { name: "Home", url: "https://www.rpovoadata.tech/" }
         ]}
       />
       
