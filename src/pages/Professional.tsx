@@ -509,7 +509,7 @@ const techStack = [
                 Certifications & Courses
               </h2>
               
-              <div className="space-y-3">
+              <div className="grid md:grid-cols-2 gap-8">
                 {certifications.map((cert, idx) => (
                   <motion.div
                     key={idx}

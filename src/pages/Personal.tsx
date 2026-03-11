@@ -295,42 +295,6 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
           </div>
         </section>
 
-        {/* Core Values */}
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Heart className="w-8 h-8 text-primary" />
-                Core Values
-              </h2>
-        
-              <div className="grid md:grid-cols-2 gap-8">
-                {personalValues.map((value, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
-                  >
-                    <h3 className="text-lg font-bold mb-2">
-                      {value.title}
-                    </h3>
-                
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
         {/* Sports & Teams */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
@@ -363,6 +327,42 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               <p className="text-center text-muted-foreground mt-8">
                 Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
               </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Core Values */}
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Heart className="w-8 h-8 text-primary" />
+                Core Values
+              </h2>
+        
+              <div className="grid md:grid-cols-2 gap-8">
+                {personalValues.map((value, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                    className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6`}
+                  >
+                    <h3 className="text-lg font-bold mb-2">
+                      {value.title}
+                    </h3>
+                
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {value.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>

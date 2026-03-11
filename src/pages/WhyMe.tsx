@@ -272,28 +272,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </motion.div>
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="px-4">
-          <div className="container max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-            >
-              <p className="text-lg text-muted-foreground mb-8">
-                Whether you're building AI-ready data platforms, exploring innovation, or scaling data leadership. I'm here to help.
-              </p>
-              <a
-                href="/contact"
-                className="inline-block px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm tracking-wide hover:bg-primary/90 transition-all glow-primary-sm hover:glow-primary"
-              >
-                Let's Talk
-              </a>
-            </motion.div>
-          </div>
-        </section>
       </main>
 
       <Footer />
