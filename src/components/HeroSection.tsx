@@ -31,13 +31,13 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 Designing Enterprise Data Platforms
                 <br />
                 That Scale, Govern and Drive Decisions.
-              </motion.h1>
+              </m.h1>
               
               <m.p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
                 Technical Data Leader specialized in building governed analytics ecosystems,
                 structuring scalable data architectures and leading teams to transform
                 fragmented data into strategic infrastructure.
-              </motion.p>
+              </m.p>
               
               <div className="flex flex-col sm:flex-row items-start gap-4">
                 <a
