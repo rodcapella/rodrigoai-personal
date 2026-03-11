@@ -136,7 +136,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div>
+              <m.div>
                 <h1 className="text-5xl md:text-6xl font-bold mb-6">
                   Why Work With Me
                 </h1>
@@ -146,7 +146,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     {" "}data architecture defines organizational intelligence.
                   </span>
                 </p>
-              </motion.div>
+              </m.div>
               <div className="flex justify-center">
                 <img
                   src="/rodrigo_why_me.png"
@@ -170,7 +170,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             <div className="grid md:grid-cols-3 gap-6">
 
               {leadershipPillars.map((pillar, idx) => (
-                <motion.div
+                <m.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +186,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     {pillar.description}
                   </p>
 
-                </motion.div>
+                </m.div>
               ))}
 
             </div>
@@ -238,7 +238,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         {/* Vision */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -263,14 +263,14 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   <p className="text-muted-foreground">Technology multiplies human capability and creativity</p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* What This Means For You */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -297,7 +297,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>

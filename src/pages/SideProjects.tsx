@@ -166,7 +166,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           <div className="container max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -185,9 +185,9 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   is transforming enterprise data architecture, automation and digital strategy.
                 </p>
 
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
@@ -200,7 +200,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
                 />
 
-              </motion.div>
+              </m.div>
 
             </div>
           </div>
@@ -234,7 +234,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 const Icon = point.icon;
 
                 return (
-                  <motion.div
+                  <m.div
                     key={idx}
                     className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
                   >
@@ -249,7 +249,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                       {point.description}
                     </p>
 
-                  </motion.div>
+                  </m.div>
                 );
               })}
 
@@ -260,7 +260,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       {/* Project Philosophy */}
       <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
         <div className="container max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -283,14 +283,14 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               The goal is not experimentation for novelty, but disciplined innovation—bridging enterprise data rigor with AI-native thinking.
             </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
         
       {/* Project Focus Areas */}
       <section className="px-4 mb-20">
         <div className="container max-w-4xl mx-auto">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -305,7 +305,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 const layers = ["layer-yellow", "layer-blue", "layer-green", "layer-purple"];
       
                 return (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -321,11 +321,11 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {category.description}
                     </p>
-                  </motion.div>
+                  </m.div>
                 );
               })}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
       
@@ -346,7 +346,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
     {/* CTA Section */}
     <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
       <div className="container max-w-4xl mx-auto">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -376,7 +376,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           >
             Visit Sapiente.AI website
           </a>
-        </motion.div>
+        </m.div>
       </div>
       </section>
       

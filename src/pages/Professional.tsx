@@ -312,7 +312,7 @@ const techStack = [
         <section className="px-4 mb-20 pt-32">
           <div className="container max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -321,9 +321,9 @@ const techStack = [
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Explore my professional experience, expertise, and the impact I've made across various organizations.
                 </p>
-              </motion.div>
+              </m.div>
               
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -336,7 +336,7 @@ const techStack = [
                     className="rounded-2xl shadow-2xl border border-primary/20"
                   />
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </div>
         </section>
@@ -344,7 +344,7 @@ const techStack = [
         {/* Hero Section */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -360,14 +360,14 @@ const techStack = [
               <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
               Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. These expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Core Competences */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -379,7 +379,7 @@ const techStack = [
               
               <div className="grid md:grid-cols-2 gap-4">
                 {coreCompetences.map((competence, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -390,10 +390,10 @@ const techStack = [
                   >
                     <span className="font-bold mt-1">•</span>
                     <p className="text-muted-foreground">{competence}</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
@@ -440,7 +440,7 @@ const techStack = [
         {/* Professional Experience */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -452,7 +452,7 @@ const techStack = [
               
               <div className="space-y-8">
                 {experiences.map((exp, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -485,17 +485,17 @@ const techStack = [
                         ))}
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Academic Background */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -507,7 +507,7 @@ const techStack = [
               
               <div className="space-y-4">
                 {education.map((edu, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -517,17 +517,17 @@ const techStack = [
                     <h3 className="text-lg font-bold text-foreground mb-2">{edu.degree}</h3>
                     <p className="text-muted-foreground">{edu.institution}</p>
                     <p className="text-sm text-muted-foreground">{edu.location} • {edu.year}</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Certifications */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -539,7 +539,7 @@ const techStack = [
               
               <div className="grid md:grid-cols-2 gap-8">
                 {certifications.map((cert, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -550,17 +550,17 @@ const techStack = [
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {cert}
                     </p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
 
         {/* Languages */}
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -572,7 +572,7 @@ const techStack = [
               
               <div className="grid md:grid-cols-3 gap-6">
                 {languages.map((lang, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -587,10 +587,10 @@ const techStack = [
                     <p className="text-sm text-muted-foreground">
                       {lang.level}
                     </p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       </main>

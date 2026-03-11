@@ -189,73 +189,78 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
       <main className="pt-36 pb-24">
 
         {/* HERO */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl ou max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        <LazyMotion features={domAnimation}>
+          <section className="px-4 mb-20">
+            <div className="container max-w-4xl ou max-w-5xl">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                  Personal
-                </h1>
+                <m.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
+                    Personal
+                  </h1>
 
-                <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                  Beyond data architecture, I combine analytical rigor with cultural curiosity — balancing engineering excellence with music, sports and long-term vision.
-                </p>
-              </motion.div>
+                  <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+                    Beyond data architecture, I combine analytical rigor with cultural curiosity — balancing engineering excellence with music, sports and long-term vision.
+                  </p>
+                </m.div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative flex justify-center items-center"
-              >
-                <div className="relative z-10 w-[160px] lg:w-[180px]">
-                  <img
-                    src="/rodrigo_flamengo_porto.png"
-                    alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
-                    className="rounded-2xl shadow-2xl border border-primary/20"
-                  />
-                </div>
-              </motion.div>
+                <m.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="relative flex justify-center items-center"
+                >
+                  <div className="relative z-10 w-[160px] lg:w-[180px]">
+                    <img
+                      src="/rodrigo_flamengo_porto.png"
+                      alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
+                      className="rounded-2xl shadow-2xl border border-primary/20"
+                    />
+                  </div>
+                </m.div>
 
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+      </LazyMotion>
 
       {/* Philosophy Section */}
-      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-        <div className="container max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-          >
-            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-              <Heart className="w-8 h-8 text-primary" />
-              Personal Philosophy
-            </h2>
-            
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. 
-              </p>
+      <LazyMotion features={domAnimation}>
+        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <div className="container max-w-4xl mx-auto">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
+              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                <Heart className="w-8 h-8 text-primary" />
+                Personal Philosophy
+              </h2>
               
-              <p>
-                Throughout his career, he has held technical leadership and managerial roles across logistics, e-commerce, retail, financial services and digital media. He combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
-              </p>
-            </div>  
-          </motion.div>
-        </div>
-      </section>
-        
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. 
+                </p>
+                
+                <p>
+                  Throughout his career, he has held technical leadership and managerial roles across logistics, e-commerce, retail, financial services and digital media. He combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
+                </p>
+              </div>  
+            </m.div>
+          </div>
+        </section>
+      </LazyMotion>
+
         {/* Life Journey Section */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -278,14 +283,16 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   This journey reflects Rodrigo's philosophy: intentional decisions that align personal values with professional aspirations, creating a life of purpose and continuous evolution.
                 </p>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
+      </LazyMotion>
 
-        {/* Passions & Hobbies */}
+      {/* Passions & Hobbies */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -299,7 +306,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                 {hobbies.map((hobby, idx) => {
                   const Icon = hobby.icon;
                   return (
-                    <motion.div
+                    <m.div
                       key={idx}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -315,18 +322,20 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                           </p>
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
+      </LazyMotion>
 
-        {/* Sports & Teams */}
+      {/* Sports & Teams */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -338,7 +347,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
               
               <div className="grid md:grid-cols-2 gap-8">
                 {sportsTeams.map((team, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -348,21 +357,23 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     <div className="text-4xl mb-4">{team.emoji}</div>
                     <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
                     <p className="text-muted-foreground">{team.country}</p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
               
               <p className="text-center text-muted-foreground mt-8">
                 Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </section>
+      </LazyMotion>
 
-        {/* Core Values */}
+      {/* Core Values */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -374,7 +385,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         
               <div className="grid md:grid-cols-2 gap-8">
                 {personalValues.map((value, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -388,17 +399,19 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
+      </LazyMotion>
 
-        {/* Influences */}
+      {/* Influences */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -413,7 +426,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                   const layers = ["layer-yellow", "layer-blue", "layer-purple"];
         
                   return (
-                    <motion.div
+                    <m.div
                       key={idx}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -432,18 +445,20 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                           </li>
                         ))}
                       </ul>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
+      </LazyMotion>
 
-        {/* Long-Term Vision */}
+      {/* Long-Term Vision */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -455,7 +470,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
         
               <div className="grid md:grid-cols-2 gap-8">
                 {longTermVision.map((item, idx) => (
-                  <motion.div
+                  <m.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -466,17 +481,19 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     <p className="text-muted-foreground text-sm leading-relaxed">
                       {item}
                     </p>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
-        
-        {/* AI Exploration */}
+      </LazyMotion>
+
+      {/* AI Exploration */}
+      <LazyMotion features={domAnimation}>
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -500,7 +517,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                 <h3 className="text-lg font-bold mb-4">Platforms Explored</h3>
                 <div className="flex flex-wrap gap-3">
                   {aiExploration.map((platform, idx) => (
-                    <motion.span
+                    <m.span
                       key={idx}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -508,13 +525,14 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       className="px-4 py-2 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 font-medium text-sm"
                     >
                       {platform}
-                    </motion.span>
+                    </m.span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </section>
+      </LazyMotion>
       </main>
 
       <Footer />

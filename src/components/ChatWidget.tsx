@@ -134,7 +134,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
       {/* Chat panel */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -189,7 +189,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
               )}
 
               {messages.map((msg, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -204,7 +204,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
                   >
                     {msg.content}
                   </div>
-                </motion.div>
+                </m.div>
               ))}
 
               {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
@@ -245,7 +245,7 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
                 </button>
               </form>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>
