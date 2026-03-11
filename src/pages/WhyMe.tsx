@@ -310,6 +310,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     <h4 className="font-bold text-lg mb-2">If You Want to Turn Data Into Strategic Assets</h4>
                     <p className="text-muted-foreground">
                       Data should not be an operational byproduct. I help organizations treat data as products—with ownership, quality standards, governance, and measurable business impact.
+                    </p>
                   </div>                  
                   <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Integrating AI Into Your Organization</h4>
