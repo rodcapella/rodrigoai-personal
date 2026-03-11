@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { ArrowDown, MessageSquare, Bot } from "lucide-react";
 
 interface HeroSectionProps {

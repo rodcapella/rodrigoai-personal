@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -221,7 +221,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
           })
         }}
       />
-      
+
       {/* SEO Structured Data */}
       <script type="application/ld+json">...</script>
       <script type="application/ld+json">...</script>

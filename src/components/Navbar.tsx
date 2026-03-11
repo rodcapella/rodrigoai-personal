@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Github, Linkedin, Menu, X, Moon, Sun } from "lucide-react";
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 
 const links = [
   { href: "/", label: "Home" },
@@ -10,6 +10,14 @@ const links = [
   { href: "/personal", label: "Personal" },
   { href: "/side-projects", label: "Side Projects" },
 ];
+
+const preloadMap: Record<string, () => Promise<any>> = {
+  "/professional": () => import("../pages/Professional"),
+  "/personal": () => import("../pages/Personal"),
+  "/why-me": () => import("../pages/WhyMe"),
+  "/side-projects": () => import("../pages/SideProjects"),
+  "/contact": () => import("../pages/Contact"),
+}
 
 interface NavbarProps {
   theme?: "dark" | "light";
@@ -40,6 +48,8 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
             <NavLink
               key={link.href}
               to={link.href}
+              onMouseEnter={() => preloadMap[link.href]?.()}
+              onTouchStart={() => preloadMap[link.href]?.()}
               className="relative text-sm font-medium transition-colors duration-300"
             >
               {({ isActive }) => (
@@ -67,7 +77,8 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
           ))}
 
           {/* Pulsing Contact Button */}
-          <motion.div
+         <LazyMotion features={domAnimation}>
+          <m.div
             animate={{
               boxShadow: [
                 "0 0 8px rgba(59,130,246,0.4)",
@@ -84,15 +95,18 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
           >
             <NavLink
               to="/contact"
+              onMouseEnter={() => preloadMap["/contact"]?.()}
+              onTouchStart={() => preloadMap["/contact"]?.()}
               className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
             >
               Contact
             </NavLink>
-          </motion.div>
+          </m.div>
+        </LazyMotion>
         </div>
 
         {/* Social + Theme */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="flex items-center gap-4">
           <button
             onClick={onToggleTheme}
             className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"

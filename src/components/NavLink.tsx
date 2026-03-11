@@ -3,9 +3,10 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface NavLinkCompatProps extends Omit<NavLinkProps, "className"> {
-  className?: string;
-  activeClassName?: string;
-  pendingClassName?: string;
+  className?: string
+  activeClassName?: string
+  pendingClassName?: string
+  preload?: () => void
 }
 
 const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
@@ -14,6 +15,8 @@ const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
       <RouterNavLink
         ref={ref}
         to={to}
+        onMouseEnter={preload}
+        onTouchStart={preload}
         className={({ isActive, isPending }) =>
           cn(className, isActive && activeClassName, isPending && pendingClassName)
         }

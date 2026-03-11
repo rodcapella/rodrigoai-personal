@@ -10,11 +10,22 @@ import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const Index = lazy(() => import("./pages/Index"));
-const Professional = lazy(() => import("./pages/Professional"));
-const Personal = lazy(() => import("./pages/Personal"));
-const Contact = lazy(() => import("./pages/Contact"));
-const SideProjects = lazy(() => import("./pages/SideProjects"));
-const WhyMe = lazy(() => import("./pages/WhyMe"));
+Index.preload = () => import("./pages/Index")
+
+const Professional = lazy(() => import("./pages/Professional"))
+;(Professional as any).preload = () => import("./pages/Professional")
+
+const Personal = lazy(() => import("./pages/Personal"))
+;(Personal as any).preload = () => import("./pages/Personal")
+
+const WhyMe = lazy(() => import("./pages/WhyMe"))
+;(WhyMe as any).preload = () => import("./pages/WhyMe")
+
+const SideProjects = lazy(() => import("./pages/SideProjects"))
+;(SideProjects as any).preload = () => import("./pages/SideProjects")
+
+const Contact = lazy(() => import("./pages/Contact"))
+;(Contact as any).preload = () => import("./pages/Contact")
 
 const queryClient = new QueryClient();
 
@@ -62,7 +73,7 @@ const App = () => {
           </Suspense>
         </div>
     
-        <Analytics />
+        {import.meta.env.PROD && <Analytics />}
       </TooltipProvider>
     </QueryClientProvider>
   );

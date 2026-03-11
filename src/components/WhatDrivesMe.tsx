@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Lightbulb, BookOpen, Zap, Rocket } from "lucide-react";
 
 const WhatDrivesMe = () => {
@@ -24,7 +24,7 @@ const WhatDrivesMe = () => {
     {
       icon: Rocket,
       title: "Side Projects",
-      description: "Always tinkering with new ideas and experimental projects. Some of my side projects have evolved into inovvation.",
+      description: "Always tinkering with new ideas and experimental projects. Some of my side projects have evolved into innovation.",
       color: "from-purple-500/20 to-purple-500/5"
     }
   ];

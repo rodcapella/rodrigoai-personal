@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Layers, Zap, Users, Target, Brain, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";

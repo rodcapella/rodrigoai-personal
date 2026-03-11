@@ -1,15 +1,50 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
 
 export default defineConfig({
-  plugins: [
-    react(),
-  ],
-
+  plugins: [react()],
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src")
     }
+  },
+
+  optimizeDeps: {
+    include: ["lucide-react"]
+  },
+
+  build: {
+    chunkSizeWarningLimit: 800,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          
+          react: [
+            "react",
+            "react-dom",
+            "react-router-dom"
+          ],
+
+          motion: [
+            "framer-motion"
+          ],
+
+          icons: [
+            "lucide-react"
+          ],
+
+          query: [
+            "@tanstack/react-query"
+          ],
+
+          analytics: [
+            "@vercel/analytics"
+          ]
+
+        }
+      }
+    }
   }
-});
+})
