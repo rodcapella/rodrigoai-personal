@@ -38,6 +38,27 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
     }
   ];
 
+  const sapientePoints = [
+    {
+      icon: Database,
+      title: "AI-Native Data Platforms",
+      description:
+        "Architecting data platforms designed from inception to support AI workloads, governance and scalable analytics."
+    },
+    {
+      icon: Cpu,
+      title: "Automation Architectures",
+      description:
+        "Designing automation systems that integrate AI models with operational data pipelines."
+    },
+    {
+      icon: TrendingUp,
+      title: "AI Strategic Enablement",
+      description:
+        "Exploring how organizations can embed AI into data ecosystems and decision frameworks."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -122,7 +143,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="pt-32 pb-20">
-         {/* HERO */}
+     {/* HERO */}
         <section className="px-4 mb-24">
           <div className="container max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -303,7 +324,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             <img
               src="/banner_SapienteAI.png"
               alt="SapienteAI Banner"
-              className="h-50 w-auto opacity-90"
+              className="h-48 w-auto opacity-90"
             />
           </div>
     
