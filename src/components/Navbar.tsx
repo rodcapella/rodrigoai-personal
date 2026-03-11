@@ -35,154 +35,154 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass py-3 border-b border-primary/20" : "py-5"
-      }`}
-    >
-      <div className="container flex items-center justify-between px-4">
+    <LazyMotion features={domAnimation}>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? "glass py-3 border-b border-primary/20" : "py-5"
+        }`}
+      >
+        <div className="container flex items-center justify-between px-4">
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 relative">
-          {links.map((link) => (
-            <NavLink
-              key={link.href}
-              to={link.href}
-              onMouseEnter={() => preloadMap[link.href]?.()}
-              onTouchStart={() => preloadMap[link.href]?.()}
-              className="relative text-sm font-medium transition-colors duration-300"
-            >
-              {({ isActive }) => (
-                <div className="relative px-2 py-1">
-                  <span
-                    className={`transition-all duration-300 ${
-                      isActive
-                        ? "text-primary drop-shadow-[0_0_6px_rgba(59,130,246,0.8)]"
-                        : "text-muted-foreground hover:text-primary"
-                    }`}
-                  >
-                    {link.label}
-                  </span>
-
-                  {isActive && (
-                    <m.div
-                      layoutId="navbar-indicator"
-                      className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]"
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </div>
-              )}
-            </NavLink>
-          ))}
-
-          {/* Pulsing Contact Button */}
-         <LazyMotion features={domAnimation}>
-          <m.div
-            animate={{
-              boxShadow: [
-                "0 0 8px rgba(59,130,246,0.4)",
-                "0 0 18px rgba(59,130,246,0.9)",
-                "0 0 8px rgba(59,130,246,0.4)",
-              ],
-            }}
-            transition={{
-              duration: 2.8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="ml-4 rounded-lg"
-          >
-            <NavLink
-              to="/contact"
-              onMouseEnter={() => preloadMap["/contact"]?.()}
-              onTouchStart={() => preloadMap["/contact"]?.()}
-              className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
-            >
-              Contact
-            </NavLink>
-          </m.div>
-        </LazyMotion>
-        </div>
-
-        {/* Social + Theme */}
-        <div className="flex items-center gap-4">
-          <button
-            onClick={onToggleTheme}
-            className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
-            title="Toggle theme"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? (
-              <Sun className="w-5 h-5" />
-            ) : (
-              <Moon className="w-5 h-5" />
-            )}
-          </button>
-
-          <a
-            href="https://www.linkedin.com/in/rodrigocspovoa"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-
-          <a
-            href="https://github.com/rodcapella"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Github className="w-5 h-5" />
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-foreground"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-
-        {/* Mobile Menu */}
-        <div
-          className={`absolute top-full left-0 right-0 bg-background border-b border-primary/20 md:hidden transition-all duration-300 ${
-            mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
-        >
-          <div className="container px-4 py-4 flex flex-col gap-4">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8 relative">
             {links.map((link) => (
               <NavLink
                 key={link.href}
                 to={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `font-medium transition-all duration-300 ${
-                    isActive
-                      ? "text-primary border-l-4 border-primary pl-2"
-                      : "text-muted-foreground hover:text-primary"
-                  }`
-                }
+                onMouseEnter={() => preloadMap[link.href]?.()}
+                onTouchStart={() => preloadMap[link.href]?.()}
+                className="relative text-sm font-medium transition-colors duration-300"
               >
-                {link.label}
+                {({ isActive }) => (
+                  <div className="relative px-2 py-1">
+                    <span
+                      className={`transition-all duration-300 ${
+                        isActive
+                          ? "text-primary drop-shadow-[0_0_6px_rgba(59,130,246,0.8)]"
+                          : "text-muted-foreground hover:text-primary"
+                      }`}
+                    >
+                      {link.label}
+                    </span>
+
+                    {isActive && (
+                      <m.div
+                        layoutId="navbar-indicator"
+                        className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]"
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </div>
+                )}
               </NavLink>
             ))}
 
-            {/* Mobile Contact */}
-            <NavLink
-              to="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center font-medium"
+            {/* Pulsing Contact Button */}
+            <m.div
+              animate={{
+                boxShadow: [
+                  "0 0 8px rgba(59,130,246,0.4)",
+                  "0 0 18px rgba(59,130,246,0.9)",
+                  "0 0 8px rgba(59,130,246,0.4)",
+                ],
+              }}
+              transition={{
+                duration: 2.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="ml-4 rounded-lg"
             >
-              Contact
-            </NavLink>
+              <NavLink
+                to="/contact"
+                onMouseEnter={() => preloadMap["/contact"]?.()}
+                onTouchStart={() => preloadMap["/contact"]?.()}
+                className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
+              >
+                Contact
+              </NavLink>
+            </m.div>
+          </div>
+
+          {/* Social + Theme */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={onToggleTheme}
+              className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
+              title="Toggle theme"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
+
+            <a
+              href="https://www.linkedin.com/in/rodrigocspovoa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+
+            <a
+              href="https://github.com/rodcapella"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-foreground"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+
+          {/* Mobile Menu */}
+          <div
+            className={`absolute top-full left-0 right-0 bg-background border-b border-primary/20 md:hidden transition-all duration-300 ${
+              mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+            }`}
+          >
+            <div className="container px-4 py-4 flex flex-col gap-4">
+              {links.map((link) => (
+                <NavLink
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `font-medium transition-all duration-300 ${
+                      isActive
+                        ? "text-primary border-l-4 border-primary pl-2"
+                        : "text-muted-foreground hover:text-primary"
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+
+              {/* Mobile Contact */}
+              <NavLink
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center font-medium"
+              >
+                Contact
+              </NavLink>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </LazyMotion>
   );
 };
 
