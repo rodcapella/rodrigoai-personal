@@ -282,19 +282,19 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               >
                 <h3 className="text-2xl font-bold mb-8">What This Means For You</h3>
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all"
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
                     <p className="text-muted-foreground">
                       I help structure architectures that scale, govern, and deliver real business impact. Not just technology—strategic infrastructure.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all"
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
                     <p className="text-muted-foreground">
                       Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all"
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h4>
                     <p className="text-muted-foreground">
                       I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
