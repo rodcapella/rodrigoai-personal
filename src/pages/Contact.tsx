@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { lazy } from "react";
+
+const Mail = lazy(() => import("lucide-react").then(m => ({ default: m.Mail })));
+const Phone = lazy(() => import("lucide-react").then(m => ({ default: m.Phone })));
+const MapPin = lazy(() => import("lucide-react").then(m => ({ default: m.MapPin })));
+const Send = lazy(() => import("lucide-react").then(m => ({ default: m.Send })));
+const CheckCircle = lazy(() => import("lucide-react").then(m => ({ default: m.CheckCircle })));
+const AlertCircle = lazy(() => import("lucide-react").then(m => ({ default: m.AlertCircle })));
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
 
 interface ContactProps {
   theme?: 'dark' | 'light';
@@ -191,7 +200,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
   };
 
   return (
-    <div className="bg-black text-white dark:bg-white dark:text-black">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       {/* SEO Structured Data */}
@@ -226,15 +235,15 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       <script type="application/ld+json">...</script>
       <script type="application/ld+json">...</script>
       
-      <main className="pt-36 pb-24">
+      <LazyMotion features={domAnimation}>
+        <main className="pt-36 pb-24">
         {/* Hero Section */}
-        <LazyMotion features={domAnimation}>
           <section className="px-4 mb-24">
             <div className="container max-w-5xl mx-auto">
 
               <div className="grid md:grid-cols-2 gap-16 items-center">
 
-                <m.div
+                <div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
@@ -248,9 +257,9 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     I’m always open to meaningful conversations about data platforms,
                     AI enablement and modern analytics ecosystems.
                   </p>
-                </m.div>
+                </div>
 
-                <m.div
+                <div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
@@ -263,19 +272,17 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       className="rounded-2xl shadow-2xl border border-primary/20"
                     />
                   </div>
-                </m.div>
+                </div>
 
               </div>
 
             </div>
           </section>
-        </LazyMotion>
 
         {/* Contact Form */}
-        <LazyMotion features={domAnimation}>
-          <section className="px-4 mb-20">
+        <section className="px-4 mb-20">
             <div className="container max-w-2xl mx-auto">
-              <m.div
+              <div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -414,25 +421,25 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
 
                   {/* Status Messages */}
                   {submitStatus === 'success' && (
-                    <m.div
+                    <div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="p-4 rounded-lg bg-green-500/10 border border-green-500/30 flex items-start gap-3"
                     >
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                       <p className="text-green-600 dark:text-green-400">{submitMessage}</p>
-                    </m.div>
+                    </div>
                   )}
 
                   {submitStatus === 'error' && (
-                    <m.div
+                    <div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 flex items-start gap-3"
                     >
                       <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                       <p className="text-red-600 dark:text-red-400">{submitMessage}</p>
-                    </m.div>
+                    </div>
                   )}
 
                   {/* Submit Button */}
@@ -448,7 +455,9 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4" />
+                        <Suspense fallback={null}>
+                          <Send className="w-4 h-4" />
+                        </Suspense>
                         Send Message
                       </>
                     )}
@@ -458,11 +467,11 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     * Required fields. Your information will only be used to respond to your inquiry.
                   </p>
                 </form>
-              </m.div>
+              </div>
             </div>
           </section>
-        </LazyMotion>
-      </main>
+        </main>
+      </LazyMotion>
 
       <Footer />
     </div>
