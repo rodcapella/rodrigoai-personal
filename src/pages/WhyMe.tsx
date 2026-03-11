@@ -55,15 +55,18 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
   const leadershipPillars = [
     {
       title: "Engineering First",
-      description: "Principles over tools. Scalability over quick wins."
+      description: "Principles over tools. Scalability over quick wins.",
+      color: "from-primary/10 to-primary/5"
     },
     {
       title: "Data Drives Decisions",
-      description: "Platforms are strategic infrastructure."
+      description: "Platforms are strategic infrastructure.",
+      color: "from-primary/10 to-primary/5"
     },
     {
       title: "Human-Centered AI",
-      description: "Technology amplifies capability."
+      description: "Technology amplifies capability.",
+      color: "from-primary/10 to-primary/5"
     }
   ];
 
@@ -131,176 +134,178 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         }}
       />
 
-      <main className="pt-36 pb-24">
-       {/* HERO PADRONIZADO */}
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <m.div>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                  Why Work With Me
-                </h1>
-                <p className="text-muted-foreground leading-relaxed">
-                  15+ years building data systems taught me one thing:
-                  <span className="text-primary font-semibold">
-                    {" "}data architecture defines organizational intelligence.
-                  </span>
-                </p>
-              </m.div>
-              <div className="flex justify-center">
-                <img
-                  src="/rodrigo_why_me.png"
-                  alt="Why Me?"
-                  className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
-                />
+      <LazyMotion features={domAnimation}>
+        <main className="pt-36 pb-24">
+        {/* HERO PADRONIZADO */}
+          <section className="px-4 mb-20">
+            <div className="container max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <m.div>
+                  <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                    Why Work With Me
+                  </h1>
+                  <p className="text-muted-foreground leading-relaxed">
+                    15+ years building data systems taught me one thing:
+                    <span className="text-primary font-semibold">
+                      {" "}data architecture defines organizational intelligence.
+                    </span>
+                  </p>
+                </m.div>
+                <div className="flex justify-center">
+                  <img
+                    src="/rodrigo_why_me.png"
+                    alt="Why Me?"
+                    className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Leadership Philosophy */}
-        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-          <div className="container max-w-4xl mx-auto">
+          {/* Leadership Philosophy */}
+          <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
+            <div className="container max-w-4xl mx-auto">
 
-            <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
-              <Brain className="text-primary" />
-              Leadership Philosophy
-            </h2>
+              <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
+                <Brain className="text-primary" />
+                Leadership Philosophy
+              </h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-3 gap-6">
 
-              {leadershipPillars.map((pillar, idx) => (
-                <m.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className={`bg-gradient-to-br ${pillar.color} rounded-xl p-6 border border-primary/10 hover:border-primary/20 transition-all`}
-                >
-                  <h4 className="font-bold text-lg mb-2 text-foreground">
-                    {pillar.title}
-                  </h4>
+                {leadershipPillars.map((pillar, idx) => (
+                  <m.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className={`bg-gradient-to-br ${pillar.color} rounded-xl p-6 border border-primary/10 hover:border-primary/20 transition-all`}
+                  >
+                    <h4 className="font-bold text-lg mb-2 text-foreground">
+                      {pillar.title}
+                    </h4>
 
-                  <p className="text-muted-foreground">
-                    {pillar.description}
-                  </p>
+                    <p className="text-muted-foreground">
+                      {pillar.description}
+                    </p>
 
-                </m.div>
-              ))}
+                  </m.div>
+                ))}
+
+              </div>
 
             </div>
+          </section>
 
-          </div>
-        </section>
+        {/* DIFFERENTIATORS */}
+          <section className="px-4 mb-24">
+            <div className="container max-w-4xl mx-auto">
 
-       {/* DIFFERENTIATORS */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Zap className="text-primary" />
+              What sets me apart from other data leaders:
+              </h2>
 
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Zap className="text-primary" />
-             What sets me apart from other data leaders:
-            </h2>
+              <div className="space-y-6">
+                {differentiators.map((diff, idx) => {
+                  const Icon = diff.icon;
 
-            <div className="space-y-6">
-              {differentiators.map((diff, idx) => {
-                const Icon = diff.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8"
+                    >
+                      <div className="flex gap-4">
+                        <Icon className="text-primary w-6 h-6 mt-1" />
 
-                return (
-                  <div
-                    key={idx}
-                    className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8"
-                  >
-                    <div className="flex gap-4">
-                      <Icon className="text-primary w-6 h-6 mt-1" />
+                        <div className="flex-1">
+                          <h4 className="text-lg font-bold mb-2">{diff.title}</h4>
 
-                      <div className="flex-1">
-                        <h4 className="text-lg font-bold mb-2">{diff.title}</h4>
+                          <p className="text-muted-foreground mb-3 leading-relaxed">
+                            {diff.description}
+                          </p>
 
-                        <p className="text-muted-foreground mb-3 leading-relaxed">
-                          {diff.description}
-                        </p>
-
-                        <p className="text-sm text-primary font-semibold italic">
-                          {diff.highlight}
-                        </p>
+                          <p className="text-sm text-primary font-semibold italic">
+                            {diff.highlight}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+
             </div>
+          </section>
 
-          </div>
-        </section>
+          {/* Vision */}
+          <section className="px-4 mb-24">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20"
+              >
+                <h3 className="text-2xl font-bold mb-8">My Vision</h3>
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div>
+                    <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
+                    <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
+                    <p className="text-muted-foreground">From reactive analytics to proactive intelligence</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Governance</p>
+                    <p className="text-xl font-semibold mb-2">Data as Products</p>
+                    <p className="text-muted-foreground">Clear ownership, accountability, and trust</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Impact</p>
+                    <p className="text-xl font-semibold mb-2">AI Amplifies Humans</p>
+                    <p className="text-muted-foreground">Technology multiplies human capability and creativity</p>
+                  </div>
+                </div>
+              </m.div>
+            </div>
+          </section>
 
-        {/* Vision */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20"
-            >
-              <h3 className="text-2xl font-bold mb-8">My Vision</h3>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div>
-                  <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
-                  <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
-                  <p className="text-muted-foreground">From reactive analytics to proactive intelligence</p>
+          {/* What This Means For You */}
+          <section className="px-4 mb-24">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+              >
+                <h3 className="text-2xl font-bold mb-8">What This Means For You</h3>
+                <div className="space-y-6">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
+                    <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
+                    <p className="text-muted-foreground">
+                      I help structure architectures that scale, govern, and deliver real business impact. Not just technology—strategic infrastructure.
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
+                    <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
+                    <p className="text-muted-foreground">
+                      Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
+                    </p>
+                  </div>
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
+                    <h4 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h4>
+                    <p className="text-muted-foreground">
+                      I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Governance</p>
-                  <p className="text-xl font-semibold mb-2">Data as Products</p>
-                  <p className="text-muted-foreground">Clear ownership, accountability, and trust</p>
-                </div>
-                <div>
-                  <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Impact</p>
-                  <p className="text-xl font-semibold mb-2">AI Amplifies Humans</p>
-                  <p className="text-muted-foreground">Technology multiplies human capability and creativity</p>
-                </div>
-              </div>
-            </m.div>
-          </div>
-        </section>
-
-        {/* What This Means For You */}
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="text-2xl font-bold mb-8">What This Means For You</h3>
-              <div className="space-y-6">
-                <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
-                  <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
-                  <p className="text-muted-foreground">
-                    I help structure architectures that scale, govern, and deliver real business impact. Not just technology—strategic infrastructure.
-                  </p>
-                </div>
-                <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
-                  <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
-                  <p className="text-muted-foreground">
-                    Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory—all grounded in real enterprise experience.
-                  </p>
-                </div>
-                <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10">
-                  <h4 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h4>
-                  <p className="text-muted-foreground">
-                    I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
-                  </p>
-                </div>
-              </div>
-            </m.div>
-          </div>
-        </section>
-      </main>
+              </m.div>
+            </div>
+          </section>
+        </main>
+      </LazyMotion>
 
       <Footer />
     </div>
