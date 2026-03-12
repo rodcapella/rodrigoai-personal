@@ -31,7 +31,7 @@ const ProjectsSection = () => {
   return (
     <LazyMotion features={domAnimation}>
       <section id="projects" className="py-32 relative">
-        <div className="container max-w-5xl px-4">
+        <div className="container max-w-4xl mx-auto"">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

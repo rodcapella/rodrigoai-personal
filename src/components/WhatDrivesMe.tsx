@@ -1,5 +1,11 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Lightbulb, BookOpen, Zap, Rocket } from "lucide-react";
+
+import dynamic from "next/dynamic"
+
+const BookOpen = dynamic(() => import("lucide-react").then(m => m.BookOpen))
+const Zap = dynamic(() => import("lucide-react").then(m => m.Zap))
+const Rocket = dynamic(() => import("lucide-react").then(m => m.Rocket))
+const Lightbulb = dynamic(() => import("lucide-react").then(m => m.Lightbulb))
 
 const WhatDrivesMe = () => {
   const facts = [

@@ -1,11 +1,16 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+
+import dynamic from "next/dynamic"
+
+const Github = dynamic(() => import("lucide-react").then(m => m.Github))
+const Linkedin = dynamic(() => import("lucide-react").then(m => m.Linkedin))
+const Mail = dynamic(() => import("lucide-react").then(m => m.Mail))
 
 const ContactSection = () => {
   return (
     <LazyMotion features={domAnimation}>
       <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-        <div className="container max-w-3xl px-4 text-center">
+        <div className="container max-w-4xl mx-auto">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -15,8 +20,7 @@ const ContactSection = () => {
             <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">Contact</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">Let's Build Something</h2>
             <p className="text-muted-foreground text-lg mb-12">
-              Interested in working together on data infrastructure or AI systems?
-              Let's connect.
+              Building modern data platforms, AI systems, or intelligent digital products? Let’s connect and explore what’s possible.
             </p>
 
             <div className="flex items-center justify-center gap-6">

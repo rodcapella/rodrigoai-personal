@@ -1,46 +1,75 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { profile } from "@/data/profile";
-import { Cpu, Database, Cloud, Shield, Workflow, Zap, Code, Rocket } from "lucide-react";
+import Section from "@/components/layout/Section";
+import SectionTitle from "@/components/layout/SectionTitle";
+import { Card, CardContent } from "@/components/ui/card";
+
+import dynamic from "next/dynamic"
+
+const Cpu = dynamic(() => import("lucide-react").then(m => m.Cpu))
+const Zap = dynamic(() => import("lucide-react").then(m => m.Zap))
+const Database = dynamic(() => import("lucide-react").then(m => m.Database))
+const Cloud = dynamic(() => import("lucide-react").then(m => m.Cloud))
+const Shield = dynamic(() => import("lucide-react").then(m => m.Shield))
+const Workflow = dynamic(() => import("lucide-react").then(m => m.Workflow))
+const Rocket = dynamic(() => import("lucide-react").then(m => m.Rocket))
+const Code = dynamic(() => import("lucide-react").then(m => m.Code))
 
 const icons = [Database, Cpu, Cloud, Shield, Workflow, Zap, Code, Rocket];
 
 const ExpertiseSection = () => {
   return (
     <LazyMotion features={domAnimation}>
-      <section id="expertise" className="py-32 relative">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="container max-w-5xl px-4 relative z-10">
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">Expertise</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16">Core Skills</h2>
-          </m.div>
+      <Section variant="highlight" className="relative" id="expertise">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {profile.core_skills.map((skill, i) => {
-              const Icon = icons[i % icons.length];
-              return (
-                <m.div
-                  key={skill}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  className="glass rounded-lg p-5 hover:border-primary/30 transition-all group"
+        {/* background pattern */}
+        <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
+
+        <m.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">
+            Expertise
+          </p>
+
+          <SectionTitle>
+            Core Skills
+          </SectionTitle>
+        </m.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {profile.core_skills.map((skill, i) => {
+            const Icon = icons[i % icons.length];
+
+            return (
+              <m.div
+                key={skill}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+              >
+                <Card
+                  variant="glass"
+                  hover
+                  className="group p-5"
                 >
-                  <Icon className="w-5 h-5 text-primary mb-3 group-hover:text-secondary transition-colors" />
-                  <p className="text-foreground text-sm font-medium">{skill}</p>
-                </m.div>
-              );
-            })}
-          </div>
+                  <CardContent className="p-0">
+                    <Icon className="w-5 h-5 text-primary mb-3 group-hover:text-secondary transition-colors" />
+                    <p className="text-foreground text-sm font-medium">
+                      {skill}
+                    </p>
+                  </CardContent>
+                </Card>
+              </m.div>
+            );
+          })}
         </div>
-      </section>
-    </LazyMotion>  
+      </Section>
+    </LazyMotion>
   );
 };
 

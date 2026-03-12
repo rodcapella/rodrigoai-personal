@@ -1,6 +1,9 @@
 import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet-async";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+
+import Section from "@/components/layout/Section";
+
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
@@ -21,54 +24,55 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
     <div className="min-h-screen bg-background">
 
       <Helmet>
-         <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Rodrigo Póvoa",
-              "url": "https://www.rpovoadata.tech",
-              "image": "https://www.rpovoadata.tech/og-image.png",
-              "jobTitle": "Technical Data Leader & Data Analytics Engineer",
-              "description": "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Aveiro",
-                "addressCountry": "Portugal"
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Rodrigo Póvoa",
+            "url": "https://www.rpovoadata.tech",
+            "image": "https://www.rpovoadata.tech/og-image.png",
+            "jobTitle": "Technical Data Leader & Data Analytics Engineer",
+            "description": "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Aveiro",
+              "addressCountry": "Portugal"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/rodrigocspovoa",
+              "https://github.com/rodcapella"
+            ],
+            "knowsAbout": [
+              "Enterprise Data Architecture",
+              "Data Governance",
+              "Azure",
+              "Databricks",
+              "Delta Lake",
+              "Power BI",
+              "Distributed Data Systems",
+              "Analytics Strategy",
+              "SQL",
+              "PL/SQL",
+              "PySpark",
+              "Python",
+              "T-SQL"
+            ],
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Tips4y and Sapiente.AI"
+            },
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Technical Data Leader",
+              "occupationLocation": {
+                "@type": "Country",
+                "name": "Portugal"
               },
-              "sameAs": [
-                "https://www.linkedin.com/in/rodrigocspovoa",
-                "https://github.com/rodcapella"
-              ],
-              "knowsAbout": [
-                "Enterprise Data Architecture",
-                "Data Governance",
-                "Azure",
-                "Databricks",
-                "Delta Lake",
-                "Power BI",
-                "Distributed Data Systems",
-                "Analytics Strategy",
-                "SQL",
-                "PL/SQL",
-                "PySpark",
-                "Python",
-                "T-SQL"
-              ],
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Tips4y and Sapiente.AI"
-              },
-              "hasOccupation": {
-                "@type": "Occupation",
-                "name": "Technical Data Leader",
-                "occupationLocation": {
-                  "@type": "Country",
-                  "name": "Portugal"
-                },
-                "skills": "Data Architecture, Lakehouse Design, Azure Data Engineering, Governance Frameworks, BI Strategy"
-              }
-            })}
-          </script>
+              "skills": "Data Architecture, Lakehouse Design, Azure Data Engineering, Governance Frameworks, BI Strategy"
+            }
+          })}
+        </script>
+
         <title>
           Rodrigo Póvoa | Technical Data Leader & Data Analytics Engineer
         </title>
@@ -125,47 +129,6 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
           content="https://www.rpovoadata.tech/ai-portrait.jpeg"
         />
 
-        {/* SEO Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Rodrigo Póvoa",
-              "url": "https://www.rpovoadata.tech",
-              "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
-              "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
-              "sameAs": [
-                "https://www.linkedin.com/in/rodrigopovoa",
-                "https://github.com/rodcapella"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "professional inquiries",
-                "email": "contato@rpovoadata.tech",
-                "availableLanguage": [
-                  "English",
-                  "Portuguese"
-                ]
-              }
-            })
-          }}
-        />
-
-        <script type="application/ld+json">
-          {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "Rodrigo Póvoa",
-          "url": "https://www.rpovoadata.tech",
-          "author": {
-            "@type": "Person",
-            "name": "Rodrigo Póvoa"
-          }
-          })}
-          </script>
-
       </Helmet>
 
       <BreadcrumbSchema
@@ -173,20 +136,41 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
           { name: "Home", url: "https://www.rpovoadata.tech/" }
         ]}
       />
-      
+
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main id="main-content">
+
         <HeroSection />
-        <AboutSection />
-        <ExpertiseSection />
-        <ProjectsSection />
-        <WhatDrivesMe />
-        <AboutMyCareer />
-        <ContactSection />
+
+        <Section>
+          <AboutSection />
+        </Section>
+
+        <Section>
+          <ExpertiseSection />
+        </Section>
+
+        <Section>
+          <ProjectsSection />
+        </Section>
+
+        <Section>
+          <WhatDrivesMe />
+        </Section>
+
+        <Section>
+          <AboutMyCareer />
+        </Section>
+
+        <Section>
+          <ContactSection />
+        </Section>
+
       </main>
 
       <Footer />
+
     </div>
   );
 };

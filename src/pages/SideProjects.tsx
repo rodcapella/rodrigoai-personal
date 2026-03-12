@@ -1,8 +1,14 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Zap, Database, Cpu, TrendingUp } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+
+import { lazy } from "react";
+
+const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })));
+const Database = lazy(() => import("lucide-react").then(m => ({ default: m.Database })));
+const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })));
+const TrendingUp = lazy(() => import("lucide-react").then(m => ({ default: m.TrendingUp })));
 
 interface SideProjectsProps {
   theme?: 'dark' | 'light';
@@ -311,7 +317,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                    className={`glass ${layers[idx % 4]} rounded-xl p-6 hover:scale-[1.02] transition-all`}
+                    className={`glass ${layers[idx % 4]} rounded-xl p-6 hover:-translate-y-1 transition-all`}
                   >
 
                     <Icon className="w-8 h-8 mb-4 text-primary" />

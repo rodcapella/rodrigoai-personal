@@ -1,14 +1,48 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Award, Briefcase, Globe, GraduationCap, Cpu, Layers} from "lucide-react";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import Section from "@/components/layout/Section";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import PageHero from "@/components/layout/PageHero"
+
+import { lazy } from "react";
+
+const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
+const Briefcase = lazy(() => import("lucide-react").then(m => ({ default: m.Briefcase })));
+const Globe = lazy(() => import("lucide-react").then(m => ({ default: m.Globe })));
+const GraduationCap = lazy(() => import("lucide-react").then(m => ({ default: m.GraduationCap })));
+const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })));
+const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })));
 
 interface ProfessionalProps {
   theme?: 'dark' | 'light';
   onToggleTheme?: () => void;
 }
+
+const maxYears = 20;
+
+const ExperienceBar = ({ years }: { years: number }) => {
+  const width = (years / maxYears) * 100;
+
+  return (
+    <div className="flex items-center gap-3 w-full">
+
+      <div className="flex-1 h-2 rounded bg-muted overflow-hidden">
+        <div
+          className="h-full bg-primary/70 transition-all"
+          style={{ width: `${width}%` }}
+        />
+      </div>
+
+      <span className="text-xs font-semibold text-orange-500 min-w-[45px] text-right">
+        {years} yrs
+      </span>
+
+    </div>
+  );
+};
 
 const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
     
@@ -99,70 +133,70 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
       stack: ["SQL", "SQL Server", "Azure", "Databricks", "Python", "PySpark", "Hadoop", "GitHub", "Jira", "SCRUM", "Confluence"]
     },
     {
-  title: "BI Specialist",
-  company: "Holos Media – Digital Media Agency",
-  location: "Brazil",
-  period: "Jan 2019 – Oct 2019",
-  highlights: [
-    "Developed Tableau dashboards and PL/SQL routines on Oracle Database for marketing performance analysis.",
-    "Migrated legacy QlikView dashboards to Tableau, improving visualization performance and analytical clarity.",
-    "Supported reporting needs for media and marketing departments with data-driven insights."
-  ],
-  stack: ["SQL", "PL/SQL", "Oracle", "Qlik View", "Tableau"]
-},
-{
-  title: "IT Specialist",
-  company: "Som Livre",
-  location: "Brazil",
-  period: "Jan 2017 – Dec 2018",
-  highlights: [
-    "Led the design and implementation of enterprise BI and Data Warehouse solutions in the Microsoft ecosystem.",
-    "Integrated Power BI, SSIS, SSRS and SSAS to modernize financial and operational reporting.",
-    "Acted as Product Owner for the Royalties ERP system, managing backlog prioritization and cross-team alignment.",
-    "Optimized PL/SQL and T-SQL routines improving reporting performance and reliability."
-  ],
-  stack: ["SQL", "SQL Server", "MySQL", "T-SQL", "Power BI", "SSIS", "SSAS", "SSRS", "SCRUM"]
-},
-{
-  title: "BI Team Leader",
-  company: "Celular Direto",
-  location: "Brazil",
-  period: "Mar 2016 – Dec 2016",
-  highlights: [
-    "Founded and structured the Business Intelligence area from the ground up.",
-    "Designed the BI platform integrating CRM, ERP and operational systems into centralized analytical data models.",
-    "Implemented scalable ETL pipelines ensuring data consistency and performance.",
-    "Built executive dashboards in Qlik Sense providing leadership with actionable insights.",
-    "Hired, mentored and led a team of BI developers establishing scalable delivery capability."
-  ],
-  stack: ["SQL", "SQL Server", "MySQL", "PL/SQL", "Qlik Sense", "SCRUM"]
-},
-{
-  title: "System Analyst & BI Analyst",
-  company: "B2W Digital Group",
-  location: "Brazil",
-  period: "Jan 2014 – Mar 2016",
-  highlights: [
-    "Led technical design for vendor accounts payable BI systems using SQL Server, SSIS, SSRS and SSAS.",
-    "Built dynamic Tableau dashboards integrating MongoDB and SQL Server.",
-    "Automated reporting solutions using PL/SQL routines.",
-    "Optimized advanced T-SQL queries significantly improving data processing efficiency."
-  ],
-  stack: ["SQL", "Oracle", "SQL Server", "T-SQL", "SSIS", "SSAS", "SSRS", "Tableau", "SCRUM"]
-},
-{
-  title: "Early Career (Trainee to BI Team Leader)",
-  company: "Multiple Organizations (Wilson Sons, FGV, Delphos Tecnologia em Seguros)",
-  location: "Brazil",
-  period: "2007 – 2014",
-  highlights: [
-    "Progressively advanced from Trainee to BI Team Leader delivering data and analytics solutions.",
-    "Built strong foundations in data modeling, PL/SQL development and ETL processes.",
-    "Delivered enterprise dashboards and automation projects enhancing finance and operations decision-making.",
-    "Led small technical teams and contributed to governance and reporting modernization initiatives."
-  ],
-  stack: ["Oracle", "IBM Cognos", "SQL Server", "PL/SQL", "ETL", "Data Modeling"]
-}
+      title: "BI Specialist",
+      company: "Holos Media – Digital Media Agency",
+      location: "Brazil",
+      period: "Jan 2019 – Oct 2019",
+      highlights: [
+        "Developed Tableau dashboards and PL/SQL routines on Oracle Database for marketing performance analysis.",
+        "Migrated legacy QlikView dashboards to Tableau, improving visualization performance and analytical clarity.",
+        "Supported reporting needs for media and marketing departments with data-driven insights."
+      ],
+      stack: ["SQL", "PL/SQL", "Oracle", "Qlik View", "Tableau"]
+    },
+    {
+      title: "IT Specialist",
+      company: "Som Livre",
+      location: "Brazil",
+      period: "Jan 2017 – Dec 2018",
+      highlights: [
+        "Led the design and implementation of enterprise BI and Data Warehouse solutions in the Microsoft ecosystem.",
+        "Integrated Power BI, SSIS, SSRS and SSAS to modernize financial and operational reporting.",
+        "Acted as Product Owner for the Royalties ERP system, managing backlog prioritization and cross-team alignment.",
+        "Optimized PL/SQL and T-SQL routines improving reporting performance and reliability."
+      ],
+      stack: ["SQL", "SQL Server", "MySQL", "T-SQL", "Power BI", "SSIS", "SSAS", "SSRS", "SCRUM"]
+    },
+    {
+      title: "BI Team Leader",
+      company: "Celular Direto",
+      location: "Brazil",
+      period: "Mar 2016 – Dec 2016",
+      highlights: [
+        "Founded and structured the Business Intelligence area from the ground up.",
+        "Designed the BI platform integrating CRM, ERP and operational systems into centralized analytical data models.",
+        "Implemented scalable ETL pipelines ensuring data consistency and performance.",
+        "Built executive dashboards in Qlik Sense providing leadership with actionable insights.",
+        "Hired, mentored and led a team of BI developers establishing scalable delivery capability."
+      ],
+      stack: ["SQL", "SQL Server", "MySQL", "PL/SQL", "Qlik Sense", "SCRUM"]
+    },
+    {
+      title: "System Analyst & BI Analyst",
+      company: "B2W Digital Group",
+      location: "Brazil",
+      period: "Jan 2014 – Mar 2016",
+      highlights: [
+        "Led technical design for vendor accounts payable BI systems using SQL Server, SSIS, SSRS and SSAS.",
+        "Built dynamic Tableau dashboards integrating MongoDB and SQL Server.",
+        "Automated reporting solutions using PL/SQL routines.",
+        "Optimized advanced T-SQL queries significantly improving data processing efficiency."
+      ],
+      stack: ["SQL", "Oracle", "SQL Server", "T-SQL", "SSIS", "SSAS", "SSRS", "Tableau", "SCRUM"]
+    },
+    {
+      title: "Early Career (Trainee to BI Team Leader)",
+      company: "Multiple Organizations (Wilson Sons, FGV, Delphos Tecnologia em Seguros)",
+      location: "Brazil",
+      period: "2007 – 2014",
+      highlights: [
+        "Progressively advanced from Trainee to BI Team Leader delivering data and analytics solutions.",
+        "Built strong foundations in data modeling, PL/SQL development and ETL processes.",
+        "Delivered enterprise dashboards and automation projects enhancing finance and operations decision-making.",
+        "Led small technical teams and contributed to governance and reporting modernization initiatives."
+      ],
+      stack: ["Oracle", "IBM Cognos", "SQL Server", "PL/SQL", "ETL", "Data Modeling"]
+    }
   ];
 
 const techStack = [
@@ -307,41 +341,15 @@ const techStack = [
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
       <LazyMotion features={domAnimation}> 
         <main>
-          {/* Header with Image */}
-          <section className="px-4 mb-20 pt-32">
-            <div className="container max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <h1 className="text-4xl md:text-5xl font-bold mb-6">Professional Journey</h1>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Explore my professional experience, expertise, and the impact I've made across various organizations.
-                  </p>
-                </m.div>
-                
-                <m.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative flex justify-center items-center"
-                >
-                  <div className="relative z-10 w-[160px] lg:w-[180px]">
-                    <img
-                      src="/ai-portrait.jpeg"
-                      alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
-                      className="rounded-2xl shadow-2xl border border-primary/20"
-                    />
-                  </div>
-                </m.div>
-              </div>
-            </div>
-          </section>
+          <PageHero
+            title="Professional Journey"
+            subtitle="Explore my professional experience, expertise and the impact I've delivered across multiple organizations and industries."
+            image="/ai-portrait.jpeg"
+          />
+          </Section>
 
           {/* Hero Section */}
-          <section className="px-4 mb-20">
+          <Section className="mb-20">
             <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
@@ -361,10 +369,10 @@ const techStack = [
                 </p>
               </m.div>
             </div>
-          </section>
+          </Section>
 
           {/* Core Competences */}
-          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <Section className="mb-20">
             <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
@@ -383,7 +391,7 @@ const techStack = [
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                      className={`flex items-start gap-3 p-4 rounded-xl glass hover:scale-[1.02] transition-all ${
+                      className={`flex items-start gap-3 p-4 rounded-xl glass hover:-translate-y-1 transition-all ${
                         ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
                       }`}
                     >
@@ -394,18 +402,18 @@ const techStack = [
                 </div>
               </m.div>
             </div>
-          </section>
+          </Section>
 
           {/* Core Technology */}
-          <section className="px-4 mb-20">
+          <Section className="mb-20">
             <div className="container max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
                 <Layers className="w-8 h-8 text-primary" />
                 Core Technology Stack & Experience Depth
               </h2>
-          
+
               <div className="grid md:grid-cols-2 gap-8">
-                {techStack.map((group, idx) => (
+                {techStack.map((group) => (
                   <div
                     key={group.category}
                     className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
@@ -413,31 +421,46 @@ const techStack = [
                     <h3 className="text-lg font-semibold mb-6">
                       {group.category}
                     </h3>
-          
-                    <div className="space-y-3">
-                      {group.items.map((tech) => (
-                        <div
-                          key={tech.name}
-                          className="flex justify-between items-center"
-                        >
-                          <span className="text-sm text-foreground">
-                            {tech.name}
-                          </span>
-          
-                          <span className="text-xs px-3 py-1 rounded-md bg-orange-500/10 text-orange-500 border border-orange-500/30 font-semibold">
-                            {tech.years} yrs
-                          </span>
-                        </div>
-                      ))}
+
+                    <div className="space-y-5">
+                      {group.items.map((tech) => {
+
+                        const maxYears = 15
+                        const width = (tech.years / maxYears) * 100
+
+                        return (
+                          <div key={tech.name} className="space-y-2">
+
+                            <div className="flex justify-between text-sm">
+                              <span className="text-foreground">
+                                {tech.name}
+                              </span>
+
+                              <span className="text-orange-500 font-semibold text-xs">
+                                {tech.years} yrs
+                              </span>
+                            </div>
+
+                            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                              <div
+                                className="h-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700 ease-out"
+                                style={{ width: `${width}%` }}
+                              />
+                            </div>
+
+                          </div>
+                        )
+                      })}
                     </div>
+
                   </div>
                 ))}
               </div>
             </div>
-          </section>
+          </Section>
           
           {/* Professional Experience */}
-          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
             <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
@@ -490,10 +513,10 @@ const techStack = [
                 </div>
               </m.div>
             </div>
-          </section>
+          </Section>
 
           {/* Academic Background */}
-          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
             <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
@@ -522,10 +545,10 @@ const techStack = [
                 </div>
               </m.div>
             </div>
-          </section>
+          </Section>
 
           {/* Certifications */}
-          <section className="px-4 mb-20">
+          <Section className="mb-20">
             <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
@@ -555,10 +578,10 @@ const techStack = [
                 </div>
               </m.div>
             </div>
-          </section>
+          </Section>
 
           {/* Languages */}
-          <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
             <div className="container max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
@@ -592,7 +615,7 @@ const techStack = [
                 </div>
               </m.div>
             </div>
-          </section>
+          </Section>
         </main>
       </LazyMotion>
 

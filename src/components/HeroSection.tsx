@@ -1,5 +1,10 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { ArrowDown, MessageSquare, Bot } from "lucide-react";
+import Section from "@/components/layout/Section"
+import dynamic from "next/dynamic"
+
+const ArrowDown = dynamic(() => import("lucide-react").then(m => m.ArrowDown))
+const Bot = dynamic(() => import("lucide-react").then(m => m.Bot))
+const MessageSquare = dynamic(() => import("lucide-react").then(m => m.MessageSquare))
 
 interface HeroSectionProps {
   onOpenChat: () => void;
@@ -8,7 +13,7 @@ interface HeroSectionProps {
 const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
   return (
     <LazyMotion features={domAnimation}> 
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <Section variant="hero">
         {/* Grid background */}
         <div className="absolute inset-0 grid-pattern opacity-40" />
         

@@ -1,8 +1,21 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Music, Gamepad2, Film, Dumbbell, Trophy, BookOpen, Guitar, Heart, Target, Compass, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+
+import { lazy } from "react";
+
+const Music = lazy(() => import("lucide-react").then(m => ({ default: m.Music })));
+const Gamepad2 = lazy(() => import("lucide-react").then(m => ({ default: m.Gamepad2 })));
+const Film = lazy(() => import("lucide-react").then(m => ({ default: m.Film })));
+const Dumbbell = lazy(() => import("lucide-react").then(m => ({ default: m.Dumbbell })));
+const Trophy = lazy(() => import("lucide-react").then(m => ({ default: m.Trophy })));
+const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
+const Guitar = lazy(() => import("lucide-react").then(m => ({ default: m.Guitar })));
+const Heart = lazy(() => import("lucide-react").then(m => ({ default: m.Heart })));
+const Target = lazy(() => import("lucide-react").then(m => ({ default: m.Target })));
+const Compass = lazy(() => import("lucide-react").then(m => ({ default: m.Compass })));
+const Sparkles = lazy(() => import("lucide-react").then(m => ({ default: m.Sparkles })));
 
 interface PersonalProps {
   theme?: 'dark' | 'light';
@@ -187,45 +200,12 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
       />
 
       <main className="pt-36 pb-24">
-
         {/* HERO */}
         <LazyMotion features={domAnimation}>
-          <section className="px-4 mb-20">
-            <div className="container max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <h1 className="font-display text-5xl md:text-6xl font-bold mb-6">
-                    Personal
-                  </h1>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                    Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with: music, sports and long-term vision.
-                  </p>
-                </m.div>
-
-                <m.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="relative flex justify-center items-center"
-                >
-                  <div className="relative z-10 w-[160px] lg:w-[180px]">
-                    <img
-                      src="/rodrigo_flamengo_porto.png"
-                      alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader."
-                      className="rounded-2xl shadow-2xl border border-primary/20"
-                    />
-                  </div>
-                </m.div>
-
-              </div>
-            </div>
-          </section>
+          <PageHero
+            title="Personal"
+            subtitle="Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with: music, sports and long-term vision."
+          />
       </LazyMotion>
 
       {/* Philosophy Section */}
@@ -311,7 +291,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 + idx * 0.05 }}
-                      className="glass rounded-xl p-6 hover:scale-[1.02] transition-all"
+                      className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
                     >
                       <div className="flex items-start gap-4">
                         <Icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
@@ -390,7 +370,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="glass rounded-xl p-6 hover:scale-[1.02] transition-all"
+                    className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
                   >
                     <div className="flex items-start gap-4">
                       <div>
@@ -436,7 +416,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                      className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6 hover:scale-[1.02] transition-all`}
+                      className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6 hover:-translate-y-1 transition-all`}
                     >
                       <h3 className="text-lg font-bold mb-4">
                         {section.category}

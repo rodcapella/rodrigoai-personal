@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
+import Section from "@/components/layout/Section";
 import { lazy } from "react";
 
 const Mail = lazy(() => import("lucide-react").then(m => ({ default: m.Mail })));
@@ -237,63 +238,34 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       
       <LazyMotion features={domAnimation}>
         <main className="pt-36 pb-24">
-        {/* Hero Section */}
-          <section className="px-4 mb-24">
-            <div className="container max-w-5xl mx-auto">
 
-              <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* HERO */}
+          <PageHero
+            title="Let’s Connect"
+            subtitle="Interested in data architecture, scalable analytics or collaboration opportunities? I'm always open to meaningful conversations."
+            image="/rodrigo_contact_image.png"
+          />
 
-                <div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <h2 className="text-4xl font-bold mb-6">
-                    Let’s Connect
-                  </h2>
+          {/* CONTACT FORM */}
+          <Section>
 
-                  <p className="text-muted-foreground max-w-lg">
-                    Interested in data architecture, scalable analytics, or collaboration opportunities?
-                    I’m always open to meaningful conversations about data platforms,
-                    AI enablement and modern analytics ecosystems.
-                  </p>
-                </div>
+            <div className="max-w-2xl mx-auto">
 
-                <div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="flex justify-center md:justify-end"
-                >
-                  <div className="w-[220px]">
-                    <img
-                      src="/rodrigo_contact_image.png"
-                      alt="Rodrigo Póvoa – Data Analytics Engineer & Team Leader"
-                      className="rounded-2xl shadow-2xl border border-primary/20"
-                    />
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </section>
-
-        {/* Contact Form */}
-        <section className="px-4 mb-20">
-            <div className="container max-w-2xl mx-auto">
-              <div
+              <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
+
                 <form onSubmit={handleSubmit} className="space-y-6">
+
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Full Name *
                     </label>
+
                     <input
                       type="text"
                       id="name"
@@ -305,9 +277,12 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       className={`w-full px-4 py-3 rounded-lg border transition-all 
                       bg-black text-white dark:bg-white dark:text-black
                       ${
-                        errors.name ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
+                        errors.name
+                          ? "border-red-500"
+                          : "border-border hover:border-primary/50 focus:border-primary"
                       } focus:outline-none`}
                     />
+
                     {errors.name && (
                       <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
                         <AlertCircle className="w-4 h-4" /> {errors.name}
@@ -320,6 +295,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email Address *
                     </label>
+
                     <input
                       type="email"
                       id="email"
@@ -331,9 +307,12 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       className={`w-full px-4 py-3 rounded-lg border transition-all 
                       bg-black text-white dark:bg-white dark:text-black
                       ${
-                        errors.email ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
+                        errors.email
+                          ? "border-red-500"
+                          : "border-border hover:border-primary/50 focus:border-primary"
                       } focus:outline-none`}
                     />
+
                     {errors.email && (
                       <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
                         <AlertCircle className="w-4 h-4" /> {errors.email}
@@ -346,6 +325,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     <label htmlFor="phone" className="block text-sm font-medium mb-2">
                       Phone Number (Optional)
                     </label>
+
                     <input
                       type="tel"
                       id="phone"
@@ -357,9 +337,12 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       className={`w-full px-4 py-3 rounded-lg border transition-all 
                       bg-black text-white dark:bg-white dark:text-black
                       ${
-                        errors.phone ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
+                        errors.phone
+                          ? "border-red-500"
+                          : "border-border hover:border-primary/50 focus:border-primary"
                       } focus:outline-none`}
                     />
+
                     {errors.phone && (
                       <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
                         <AlertCircle className="w-4 h-4" /> {errors.phone}
@@ -372,6 +355,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     <label htmlFor="subject" className="block text-sm font-medium mb-2">
                       Subject *
                     </label>
+
                     <input
                       type="text"
                       id="subject"
@@ -383,9 +367,12 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       className={`w-full px-4 py-3 rounded-lg border transition-all 
                       bg-black text-white dark:bg-white dark:text-black
                       ${
-                        errors.subject ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
+                        errors.subject
+                          ? "border-red-500"
+                          : "border-border hover:border-primary/50 focus:border-primary"
                       } focus:outline-none`}
                     />
+
                     {errors.subject && (
                       <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
                         <AlertCircle className="w-4 h-4" /> {errors.subject}
@@ -398,6 +385,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message *
                     </label>
+
                     <textarea
                       id="message"
                       name="message"
@@ -409,9 +397,12 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                       className={`w-full px-4 py-3 rounded-lg border transition-all resize-none 
                       bg-black text-white dark:bg-white dark:text-black
                       ${
-                        errors.message ? 'border-red-500' : 'border-border hover:border-primary/50 focus:border-primary'
+                        errors.message
+                          ? "border-red-500"
+                          : "border-border hover:border-primary/50 focus:border-primary"
                       } focus:outline-none`}
                     />
+
                     {errors.message && (
                       <p className="text-red-500 text-sm mt-1 flex items-center gap-1">
                         <AlertCircle className="w-4 h-4" /> {errors.message}
@@ -419,57 +410,23 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                     )}
                   </div>
 
-                  {/* Status Messages */}
-                  {submitStatus === 'success' && (
-                    <div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="p-4 rounded-lg bg-green-500/10 border border-green-500/30 flex items-start gap-3"
-                    >
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                      <p className="text-green-600 dark:text-green-400">{submitMessage}</p>
-                    </div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 flex items-start gap-3"
-                    >
-                      <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
-                      <p className="text-red-600 dark:text-red-400">{submitMessage}</p>
-                    </div>
-                  )}
-
                   {/* Submit Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full px-8 py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Suspense fallback={null}>
-                          <Send className="w-4 h-4" />
-                        </Suspense>
-                        Send Message
-                      </>
-                    )}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
 
-                  <p className="text-xs text-muted-foreground text-center">
-                    * Required fields. Your information will only be used to respond to your inquiry.
-                  </p>
                 </form>
-              </div>
+
+              </m.div>
+
             </div>
-          </section>
+
+          </Section>
+
         </main>
       </LazyMotion>
 

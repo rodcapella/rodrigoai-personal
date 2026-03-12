@@ -1,8 +1,16 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Layers, Zap, Users, Target, Brain, Lightbulb } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+import dynamic from "next/dynamic"
+
+const Layers = dynamic(() => import("lucide-react").then(m => m.Layers))
+const Zap = dynamic(() => import("lucide-react").then(m => m.Zap))
+const Users = dynamic(() => import("lucide-react").then(m => m.Users))
+const Target = dynamic(() => import("lucide-react").then(m => m.Target))
+const Brain = dynamic(() => import("lucide-react").then(m => m.Brain))
+const Lightbulb = dynamic(() => import("lucide-react").then(m => m.Lightbulb))
 
 interface WhyMeProps {
   theme?: 'dark' | 'light';
@@ -180,7 +188,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className={`bg-gradient-to-br ${pillar.color} rounded-xl p-6 border border-primary/10 hover:border-primary/20 hover:scale-[1.02] transition-all`}
+                    className={`bg-gradient-to-br ${pillar.color} rounded-xl p-6 border border-primary/10 hover:border-primary/20 hover:-translate-y-1 transition-all`}
                   >
                     <h4 className="font-bold text-lg mb-2 text-foreground">
                       {pillar.title}
@@ -214,7 +222,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   return (
                     <div
                       key={idx}
-                      className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8 hover:scale-[1.02] transition-all"
+                      className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-8 hover:-translate-y-1 transition-all"
                     >
                       <div className="flex gap-4">
                         <Icon className="text-primary w-6 h-6 mt-1" />
@@ -282,49 +290,49 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               >
                 <h3 className="text-2xl font-bold mb-8">What This Means For You</h3>
                 <div className="space-y-6">
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
                     <p className="text-muted-foreground">
                       I help structure architectures that scale, govern, and deliver real business impact. Not just technology, but strategic infrastructure.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
                     <p className="text-muted-foreground">
                       Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h4>
                     <p className="text-muted-foreground">
                       I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If Your Data Platform Feels Fragile</h4>
                     <p className="text-muted-foreground">
                       Many organizations struggle with unreliable pipelines, inconsistent metrics, and low trust in dashboards.I help redesign data architecture, governance, and modeling foundations to restore confidence in data.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You Want to Turn Data Into Strategic Assets</h4>
                     <p className="text-muted-foreground">
                       Data should not be an operational byproduct. I help organizations treat data as products—with ownership, quality standards, governance, and measurable business impact.
                     </p>
                   </div>                  
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You're Integrating AI Into Your Organization</h4>
                     <p className="text-muted-foreground">
                       AI initiatives often fail due to weak data foundations. I help align data engineering, governance, and AI architecture so AI can move beyond prototypes into scalable production systems.
                     </p>
                   </div>       
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You Value Practical Innovation</h4>
                     <p className="text-muted-foreground">
                       Many AI ideas stay theoretical. My work focuses on building real systems and prototypes, testing new architectures and approaches in practical environments before they reach enterprise scale.
                     </p>
                   </div>
-                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:scale-[1.02] transition-all">
+                  <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                     <h4 className="font-bold text-lg mb-2">If You Want to Work With Someone Who Understands Both Technology and Strategy</h4>
                     <p className="text-muted-foreground">
                       My background combines hands-on engineering, architecture design, and strategic leadership, allowing me to bridge the gap between technical execution and business outcomes.

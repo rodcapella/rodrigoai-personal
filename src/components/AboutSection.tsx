@@ -1,11 +1,12 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { profile } from "@/data/profile";
+import Section from "@/components/layout/Section"
 
 const AboutSection = () => {
   return (
     <LazyMotion features={domAnimation}>
-      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-        <div className="container max-w-4xl px-4">
+      <Section variant="hero">
+        <div className="container max-w-4xl mx-auto">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
