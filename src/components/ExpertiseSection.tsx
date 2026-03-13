@@ -4,18 +4,16 @@ import Section from "@/components/layout/Section";
 import SectionTitle from "@/components/layout/SectionTitle";
 import { Card, CardContent } from "@/components/ui/card";
 
-import dynamic from "next/dynamic"
+import { lazy, Suspense } from "react"
 
-const Cpu = dynamic(() => import("lucide-react").then(m => m.Cpu))
-const Zap = dynamic(() => import("lucide-react").then(m => m.Zap))
-const Database = dynamic(() => import("lucide-react").then(m => m.Database))
-const Cloud = dynamic(() => import("lucide-react").then(m => m.Cloud))
-const Shield = dynamic(() => import("lucide-react").then(m => m.Shield))
-const Workflow = dynamic(() => import("lucide-react").then(m => m.Workflow))
-const Rocket = dynamic(() => import("lucide-react").then(m => m.Rocket))
-const Code = dynamic(() => import("lucide-react").then(m => m.Code))
-
-const icons = [Database, Cpu, Cloud, Shield, Workflow, Zap, Code, Rocket];
+const Database = lazy(() => import("lucide-react").then(m => ({ default: m.Database })))
+const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })))
+const Rocket = lazy(() => import("lucide-react").then(m => ({ default: m.Rocket })))
+const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })))
+const Cloud = lazy(() => import("lucide-react").then(m => ({ default: m.Cloud })))
+const Shield = lazy(() => import("lucide-react").then(m => ({ default: m.Shield })))
+const Workflow = lazy(() => import("lucide-react").then(m => ({ default: m.Workflow })))
+const Code = lazy(() => import("lucide-react").then(m => ({ default: m.Code })))
 
 const ExpertiseSection = () => {
   return (

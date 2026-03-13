@@ -1,10 +1,10 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Section from "@/components/layout/Section"
-import dynamic from "next/dynamic"
+import { lazy, Suspense } from "react"
 
-const ArrowDown = dynamic(() => import("lucide-react").then(m => m.ArrowDown))
-const Bot = dynamic(() => import("lucide-react").then(m => m.Bot))
-const MessageSquare = dynamic(() => import("lucide-react").then(m => m.MessageSquare))
+const ArrowDown = lazy(() => import("lucide-react").then(m => ({ default: m.ArrowDown })))
+const Bot = lazy(() => import("lucide-react").then(m => ({ default: m.Bot })))
+const MessageSquare = lazy(() => import("lucide-react").then(m => ({ default: m.MessageSquare })))
 
 interface HeroSectionProps {
   onOpenChat: () => void;

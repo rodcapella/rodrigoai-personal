@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
-import dynamic from "next/dynamic"
+import { lazy, Suspense } from "react"
 
-const Github = dynamic(() => import("lucide-react").then(m => m.Github))
-const Linkedin = dynamic(() => import("lucide-react").then(m => m.Linkedin))
-const Sun = dynamic(() => import("lucide-react").then(m => m.Sun))
-const Moon = dynamic(() => import("lucide-react").then(m => m.Moon))
-const Menu = dynamic(() => import("lucide-react").then(m => m.Menu))
-const X = dynamic(() => import("lucide-react").then(m => m.X))
+const Github = lazy(() => import("lucide-react").then(m => ({ default: m.Github })))
+const Linkedin = lazy(() => import("lucide-react").then(m => ({ default: m.Linkedin })))
+const Sun = lazy(() => import("lucide-react").then(m => ({ default: m.Sun })))
+const Moon = lazy(() => import("lucide-react").then(m => ({ default: m.Moon })))
+const Menu = lazy(() => import("lucide-react").then(m => ({ default: m.Menu })))
+const X = lazy(() => import("lucide-react").then(m => ({ default: m.X })))
 
 const links = [
   { href: "/", label: "Home" },
