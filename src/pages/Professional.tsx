@@ -39,15 +39,6 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
     "Experienced in leading teams, mentoring engineers and aligning technical strategy with business goals."
   ]
 
-  const coreCompetences = [
-    "Data Engineering Leadership",
-    "Data Platform Architecture",
-    "Agile Delivery & Team Leadership",
-    "Data Strategy & Analytics Enablement",
-    "Data Governance & Compliance",
-    "AI-Augmented Data Solutions"
-  ]
-
   const experiences = [
     {
       title: "Senior Data Engineer",
