@@ -22,7 +22,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
           transition={{ duration: 0.8 }}
         >
 
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
             <Globe className="w-8 h-8 text-primary" />
             Languages
           </h2>
@@ -41,7 +41,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
                 }`}
               >
 
-                <h3 className="font-semibold text-foreground mb-1">
+                <h3 className="text-xl font-semibold mb-4">
                   {lang.language}
                 </h3>
 

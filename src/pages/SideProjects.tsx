@@ -1,6 +1,7 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
 
 import { lazy } from "react";
@@ -182,7 +183,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                     Sapiente.AI
                   </h1>
 
-                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                  <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
                   Enterprise AI Architecture Experiments
                   </h2>
 
@@ -213,25 +214,27 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           </section>
 
           {/* SapienteAI - The Next Generation */}
-          <section className="px-4 mb-24">
+          <section className="px-4 mb-20">
             <div className="container max-w-4xl mx-auto">
 
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-                Sapiente.AI: The Next Generation
-              </h2>
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+              <Cpu className="w-6 h-6 text-primary" />
+              Sapiente.AI: The Next Generation
+            </h2>
 
-              <div className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent rounded-2xl p-8 border border-primary/20 mb-12">
-
-                <p className="text-lg leading-relaxed mb-6">
-                  My 15 years building data systems revealed a critical insight:
-                  <span className="text-primary font-semibold"> the next generation of data platforms must be AI-native from inception.</span>
-                </p>
-
+              <div className="mb-12 space-y-6 max-w-3xl">
                 <p className="text-lg leading-relaxed">
-                  Sapiente.AI is where I explore this frontier—combining deep data engineering expertise with AI innovation
-                  to build the platforms enterprises need to compete in the AI era.
+                  My 15 years building data systems revealed a critical insight:
+                  <span className="text-primary font-semibold">
+                    {" "}the next generation of data platforms must be AI-native from inception.
+                  </span>
                 </p>
 
+                <p className="text-muted-foreground leading-relaxed">
+                  Sapiente.AI is where I explore this frontier—combining deep data engineering
+                  expertise with AI innovation to build the platforms enterprises need to
+                  compete in the AI era.
+                </p>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
@@ -271,8 +274,9 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-                Design Philosophy
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Cpu className="w-6 h-6 text-primary" />
+                Sapiente.AI: The Next Generation
               </h2>
         
               <div className="space-y-6 text-muted-foreground leading-relaxed">
@@ -301,7 +305,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Zap className="w-6 h-6 text-primary" />
                 Project Focus Areas
               </h2>
         
@@ -340,7 +345,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         </section>
         
         {/* SEO invisível */}
-        <section className="px-4 mb-24">
+        <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
             <div className="sr-only">
               <h2>Artificial Intelligence Architecture Research</h2>
@@ -370,7 +375,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               />
             </div>
       
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-xl font-semibold mb-4">
               Explore Sapiente.AI
             </h3>
       

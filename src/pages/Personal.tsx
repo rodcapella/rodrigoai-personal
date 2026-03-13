@@ -1,109 +1,62 @@
-import { LazyMotion, domAnimation, m } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Helmet } from "react-helmet-async";
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
+import PageHero from "@/components/layout/PageHero"
+import { Helmet } from "react-helmet-async"
 
-import { lazy } from "react";
-
-const Music = lazy(() => import("lucide-react").then(m => ({ default: m.Music })));
-const Gamepad2 = lazy(() => import("lucide-react").then(m => ({ default: m.Gamepad2 })));
-const Film = lazy(() => import("lucide-react").then(m => ({ default: m.Film })));
-const Dumbbell = lazy(() => import("lucide-react").then(m => ({ default: m.Dumbbell })));
-const Trophy = lazy(() => import("lucide-react").then(m => ({ default: m.Trophy })));
-const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
-const Guitar = lazy(() => import("lucide-react").then(m => ({ default: m.Guitar })));
-const Heart = lazy(() => import("lucide-react").then(m => ({ default: m.Heart })));
-const Target = lazy(() => import("lucide-react").then(m => ({ default: m.Target })));
-const Compass = lazy(() => import("lucide-react").then(m => ({ default: m.Compass })));
-const Sparkles = lazy(() => import("lucide-react").then(m => ({ default: m.Sparkles })));
+import { Suspense, lazy } from "react"
 
 interface PersonalProps {
-  theme?: 'dark' | 'light';
-  onToggleTheme?: () => void;
+  theme?: "dark" | "light"
+  onToggleTheme?: () => void
 }
 
-const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
+const PersonalPhilosophy = lazy(
+  () => import("@/components/layout/personal/PersonalPhilosophy")
+)
 
-  const hobbies = [
-    {
-      icon: Music,
-      title: "Rock & Heavy Metal",
-      description: "Deep passion for music, especially rock and heavy metal. Spends most days listening to favorite bands at high volume."
-    },
-    {
-      icon: Guitar,
-      title: "Electric Guitar",
-      description: "Electric guitar player influenced by classic and modern rock. Continuously exploring new techniques and musical styles."
-    },
-    {
-      icon: BookOpen,
-      title: "Author & Storyteller",
-      description: "Currently writing his first non-technical book exploring the intersection between music, society and history."
-    },
-    {
-      icon: Gamepad2,
-      title: "Video Games",
-      description: "Video game enthusiast since Atari. Nowadays. it is from the PlayStation generation, proudly on the dark side of the Force."
-    },
-    {
-      icon: Film,
-      title: "Film & Series",
-      description: "Film and series lover with strong interest in storytelling and cinematography."
-    },
-    {
-      icon: Dumbbell,
-      title: "Sports & Fitness",
-      description: "Sports enthusiast: practices gym training, basketball and running regularly."
-    }
-  ];
+const LifeRelocation = lazy(
+  () => import("@/components/layout/personal/LifeRelocation")
+)
 
-  const sportsTeams = [
-    { team: "Flamengo", country: "Brazil", emoji: "🔴⚫" },
-    { team: "FC Porto", country: "Portugal", emoji: "🔵⚪" }
-  ];
+const HobbiesSection = lazy(
+  () => import("@/components/layout/personal/HobbiesSection")
+)
 
-  const longTermVision = [
-    "Building intelligent systems",
-    "Bridging data & decision layers",
-    "Leadership in data multi-functional teams",
-    "Creating sustainable and governed data platforms",
-    "Leveraging modern AI ecosystems",
-    "Combining human capability development with AI ecosystems to unlock the next level of productivity and quality"
-  ];
+const SportsSection = lazy(
+  () => import("@/components/layout/personal/SportsSection")
+)
 
-  const personalValues = [
-    { title: "Analytical Mindset", description: "Data-driven and structured reasoning approach" },
-    { title: "Discipline", description: "Structured approach to personal and professional growth" },
-    { title: "Loyalty", description: "Commitment to relationships and long-term partnerships" },
-    { title: "Intellectual Growth", description: "Continuous learning and exploration" },
-    { title: "Cultural Curiosity", description: "Interest in different perspectives and cultures" },
-    { title: "Technology Enthusiasm", description: "Constant exploration of emerging technologies" }
-  ];
+const ValuesSection = lazy(
+  () => import("@/components/layout/personal/ValuesSection")
+)
 
-  const influences = [
-    { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
-    { category: "Global Leaders", items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"] },
-    { category: "Sports Idols", items: ["Ayrton Senna", "Zico", "Michael Jordan"] },
-    { category: "Favorite Bands", items: ["Dream Theater", "Iron Maiden", "Metallica"] },
-    { category: "Favorite Films", items: ["The Godfather", "The Shawshank Redemption", "Lord of the Rings"] },
-    { category: "Favorite Books", items: ["The Housemaid", "The Catcher in the Rye", "A Song of Ice and Fire"] },
-  ];
+const InfluencesSection = lazy(
+  () => import("@/components/layout/personal/InfluencesSection")
+)
 
-  const aiExploration = [
-    "OpenAI",
-    "Claude",
-    "Gemini",
-    "Perplexity",
-    "Kimi",
-    "Manus",
-    "Notion"
-  ];
+const VisionSection = lazy(
+  () => import("@/components/layout/personal/VisionSection")
+)
 
+const AIExplorationSection = lazy(
+  () => import("@/components/layout/personal/AIExplorationSection")
+)
+
+const SectionLoader = () => (
+  <div className="py-20 flex justify-center">
+    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+)
+
+const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
   return (
     <div className="min-h-screen bg-background">
 
       <Helmet>
-        <title>Personal | Rodrigo Póvoa – Values, Vision & AI Exploration</title>
+
+        <title>
+          Personal | Rodrigo Póvoa – Values, Vision & AI Exploration
+        </title>
 
         <meta
           name="description"
@@ -150,7 +103,7 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
             "@type": "Person",
             name: "Rodrigo Póvoa",
             url: "https://www.rpovoadata.tech/personal",
-            jobTitle: "Data Analytics Engineer & Team Leader.",
+            jobTitle: "Data Analytics Engineer & Team Leader",
             description:
               "Personal philosophy, leadership values and AI ecosystem exploration of Rodrigo Póvoa.",
             knowsAbout: [
@@ -167,373 +120,56 @@ const Personal = ({ theme = 'dark', onToggleTheme }: PersonalProps) => {
             ]
           })}
         </script>
+
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      
-      {/* SEO Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Rodrigo Póvoa",
-            "url": "https://www.rpovoadata.tech",
-            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
-            "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
-            "sameAs": [
-              "https://www.linkedin.com/in/rodrigopovoa",
-              "https://github.com/rodcapella"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "professional inquiries",
-              "email": "contato@rpovoadata.tech",
-              "availableLanguage": [
-                "English",
-                "Portuguese"
-              ]
-            }
-          })
-        }}
-      />
 
       <main className="pt-36 pb-24">
-        {/* HERO */}
-        <LazyMotion features={domAnimation}>
-          <PageHero
-            title="Personal"
-            subtitle="Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with: music, sports and long-term vision."
-          />
-      </LazyMotion>
 
-      {/* Philosophy Section */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-            >
-              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                <Heart className="w-8 h-8 text-primary" />
-                Personal Philosophy
-              </h2>
-              
-              <div className="space-y-6 text-muted-foreground leading-relaxed">
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  Rodrigo is a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams. 
-                </p>
-                
-                <p>
-                  Throughout his career, he has held technical leadership and managerial roles across logistics, e-commerce, retail, financial services and digital media. He combines deep technical mastery with a holistic understanding of how data drives operational efficiency, strategic decision-making and long-term business impact.
-                </p>
-              </div>  
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
+        <PageHero
+          title="Personal"
+          subtitle="Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with music, sports and long-term vision."
+        />
 
-        {/* Life Journey Section */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Compass className="w-8 h-8 text-primary" />
-                Life & Relocation
-              </h2>
-              
-              <div className="space-y-6 text-muted-foreground leading-relaxed">
-                <p>
-                  In the end of 2019, Rodrigo made a significant life decision to relocate to Portugal together with his family (wife, son and their dog), seeking improved quality of life, greater personal and family security, and more challenging professional opportunities. This move was driven by the desire to work on international and multi-domain projects while learning new concepts and technologies within more mature data environments.
-                </p>
-                
-                <p>
-                  Today, the family has grown and now includes a second dog. Portugal has become home, offering the perfect balance between professional growth and personal fulfillment. The relocation proved to be a transformative decision that shaped both his career trajectory and personal identity.
-                </p>
-                
-                <p>
-                  This journey reflects Rodrigo's philosophy: intentional decisions that align personal values with professional aspirations, creating a life of purpose and continuous evolution.
-                </p>
-              </div>
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
+        <Suspense fallback={<SectionLoader />}>
+          <PersonalPhilosophy />
+        </Suspense>
 
-      {/* Passions & Hobbies */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Music className="w-8 h-8 text-primary" />
-                Passions & Hobbies
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {hobbies.map((hobby, idx) => {
-                  const Icon = hobby.icon;
-                  return (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.05 }}
-                      className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
-                    >
-                      <div className="flex items-start gap-4">
-                        <Icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="text-lg font-bold mb-2">{hobby.title}</h3>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {hobby.description}
-                          </p>
-                        </div>
-                      </div>
-                    </m.div>
-                  );
-                })}
-              </div>
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
+        <Suspense fallback={<SectionLoader />}>
+          <LifeRelocation />
+        </Suspense>
 
-      {/* Sports & Teams */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Trophy className="w-8 h-8 text-primary" />
-                Team Spirit
-              </h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {sportsTeams.map((team, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.5 + idx * 0.1 }}
-                    className="glass rounded-xl p-8 text-center"
-                  >
-                    <div className="text-4xl mb-4">{team.emoji}</div>
-                    <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
-                    <p className="text-muted-foreground">{team.country}</p>
-                  </m.div>
-                ))}
-              </div>
-              
-              <p className="text-center text-muted-foreground mt-8">
-                Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
-              </p>
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
+        <Suspense fallback={<SectionLoader />}>
+          <HobbiesSection />
+        </Suspense>
 
-      {/* Core Values */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Heart className="w-8 h-8 text-primary" />
-                Core Values
-              </h2>
-        
-              <div className="grid md:grid-cols-2 gap-8">
-                {personalValues.map((value, idx) => (
-                  <m.div
-                    key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                    className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div>
-                        <h3 className="text-lg font-bold mb-2">
-                          {value.title}
-                        </h3>
+        <Suspense fallback={<SectionLoader />}>
+          <SportsSection />
+        </Suspense>
 
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {value.description}
-                        </p>
-                      </div>
+        <Suspense fallback={<SectionLoader />}>
+          <ValuesSection />
+        </Suspense>
 
-                    </div>
-                  </m.div>
-                ))}
-              </div>
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
+        <Suspense fallback={<SectionLoader />}>
+          <InfluencesSection />
+        </Suspense>
 
-      {/* Influences */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-24">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <BookOpen className="w-8 h-8 text-primary" />
-                Influences
-              </h2>
-        
-              <div className="grid md:grid-cols-2 gap-8">
-                {influences.map((section, idx) => {
-                  const layers = ["layer-yellow", "layer-blue", "layer-purple"];
-        
-                  return (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.7 + idx * 0.05 }}
-                      className={`glass ${["layer-yellow","layer-blue","layer-purple","layer-green"][idx % 4]} rounded-xl p-6 hover:-translate-y-1 transition-all`}
-                    >
-                      <h3 className="text-lg font-bold mb-4">
-                        {section.category}
-                      </h3>
-        
-                      <ul className="space-y-2">
-                        {section.items.map((item, i) => (
-                          <li key={i} className="text-sm text-muted-foreground flex gap-3">
-                            <span className="text-primary font-bold">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </m.div>
-                  );
-                })}
-              </div>
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
+        <Suspense fallback={<SectionLoader />}>
+          <VisionSection />
+        </Suspense>
 
-      {/* Long-Term Vision */}
-      <LazyMotion features={domAnimation}>
-      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-        <div className="container max-w-4xl mx-auto">
+        <Suspense fallback={<SectionLoader />}>
+          <AIExplorationSection />
+        </Suspense>
 
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Target className="w-8 h-8 text-primary" />
-              Long-Term Vision
-            </h2>
-
-            <div className="space-y-4">
-
-              {longTermVision.map((item, idx) => (
-
-                <m.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + idx * 0.05 }}
-                  className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-xl border border-primary/20 flex items-start gap-4"
-                >
-
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item}
-                  </p>
-
-                </m.div>
-
-              ))}
-
-            </div>
-
-          </m.div>
-
-        </div>
-      </section>
-      </LazyMotion>
-
-      {/* AI Exploration */}
-      <LazyMotion features={domAnimation}>
-        <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Sparkles className="w-8 h-8 text-primary" />
-                AI Ecosystem Exploration
-              </h2>
-              
-              <div className="mb-8">
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Rodrigo actively studies and evaluates modern AI systems as part of an independent experimentation practice focused on applied intelligence and architectural integration. He analyzes behavioral patterns, architectural trade-offs, response reliability and integration potential within scalable data environments.
-                </p>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  I use structured knowledge management tools such as Notion to document experiments, architectural patterns and long-term research, maintaining a systematic approach to understanding how AI can enhance data engineering and analytics workflows.
-                </p>
-              </div>
-              
-              <div>
-                <h3 className="text-lg font-bold mb-4">Platforms Explored</h3>
-                <div className="flex flex-wrap gap-3">
-                  {aiExploration.map((platform, idx) => (
-                    <m.span
-                      key={idx}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: 0.7 + idx * 0.05 }}
-                      className="px-4 py-2 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 font-medium text-sm"
-                    >
-                      {platform}
-                    </m.span>
-                  ))}
-                </div>
-              </div>
-            </m.div>
-          </div>
-        </section>
-      </LazyMotion>
       </main>
 
       <Footer />
-    </div>
-  );
-};
 
-export default Personal;
+    </div>
+  )
+}
+
+export default Personal

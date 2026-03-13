@@ -17,7 +17,7 @@ export default function CertificationsSection({ certifications }: Certifications
           transition={{ duration: 0.8 }}
         >
 
-          <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
             <Award className="w-8 h-8 text-primary" />
             Certifications & Courses
           </h2>

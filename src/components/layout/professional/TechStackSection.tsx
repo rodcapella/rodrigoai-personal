@@ -8,7 +8,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
   return (
     <div className="container max-w-4xl mx-auto">
 
-      <h2 className="text-3xl font-bold mb-12">
+      <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
         Core Technology Stack & Experience Depth
       </h2>
 
@@ -21,7 +21,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
             className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
           >
 
-            <h3 className="text-lg font-semibold mb-6">
+            <h3 className="text-xl font-semibold mb-4">
               {group.category}
             </h3>
 

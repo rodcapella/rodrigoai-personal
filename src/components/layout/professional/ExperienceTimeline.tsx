@@ -43,7 +43,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                 className="border-l-4 border-primary pl-6 pb-6"
               >
 
-                <h3 className="text-xl font-bold text-primary mb-1">
+                <h3 className="text-xl font-semibold mb-4">
                   {exp.title}
                 </h3>
 

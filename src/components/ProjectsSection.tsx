@@ -41,7 +41,7 @@ const ProjectsSection = () => {
             <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">
               Experience
             </p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-16">
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
               Strategic Projects
             </h2>
           </m.div>

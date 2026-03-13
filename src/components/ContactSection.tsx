@@ -18,7 +18,9 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">Contact</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">Let's Build Something</h2>
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+              Let's Build Something
+            </h2>
             <p className="text-muted-foreground text-lg mb-12">
               Building modern data platforms, AI systems, or intelligent digital products? Let’s connect and explore what’s possible.
             </p>

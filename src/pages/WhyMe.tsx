@@ -2,6 +2,7 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageHero from "@/components/layout/PageHero"
 
 import { lazy, Suspense } from "react"
 
@@ -146,36 +147,17 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
         <LazyMotion features={domAnimation}>
           <main className="pt-36 pb-24">
           {/* HERO PADRONIZADO */}
-            <section className="px-4 mb-20">
-              <div className="container max-w-4xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <m.div>
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                      Why Work With Me
-                    </h1>
-                    <p className="text-muted-foreground leading-relaxed">
-                      15+ years building data systems taught me one thing:
-                      <span className="text-primary font-semibold">
-                        {" "}data architecture defines organizational intelligence.
-                      </span>
-                    </p>
-                  </m.div>
-                  <div className="flex justify-center">
-                    <img
-                      src="/rodrigo_why_me.png"
-                      alt="Why Me?"
-                      className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
+            <PageHero
+              title="Why Work With Me"
+              subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+              image="/rodrigo_why_me.png"
+            />
 
             {/* Leadership Philosophy */}
             <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
               <div className="container max-w-4xl mx-auto">
 
-                <h2 className="text-3xl font-bold mb-10 flex items-center gap-3">
+                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
                   <Brain className="text-primary" />
                   Leadership Philosophy
                 </h2>
@@ -208,7 +190,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
           {/* DIFFERENTIATORS */}
-            <section className="px-4 mb-24">
+            <section className="px-4 mb-20">
               <div className="container max-w-4xl mx-auto">
 
                 <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
@@ -249,16 +231,19 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
             {/* Vision */}
-            <section className="px-4 mb-24">
+            <section className="px-4 mb-20">
               <div className="container max-w-4xl mx-auto">
                 <m.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
-                  className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 border border-primary/20"
+                  className="bg-transparent rounded-2xl p-8 border border-primary/10"
                 >
-                  <h3 className="text-2xl font-bold mb-8">My Vision</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    <Lightbulb className="text-primary w-6 h-6" />
+                    My Vision
+                  </h3>
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
                       <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
@@ -281,7 +266,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
             {/* What This Means For You */}
-            <section className="px-4 mb-24">
+            <section className="px-4 mb-20">
               <div className="container max-w-4xl mx-auto">
                 <m.div
                   initial={{ opacity: 0, y: 20 }}
@@ -289,7 +274,10 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h3 className="text-2xl font-bold mb-8">What This Means For You</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    <Users className="text-primary w-6 h-6" />
+                    What This Means For You
+                  </h3>
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                       <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>

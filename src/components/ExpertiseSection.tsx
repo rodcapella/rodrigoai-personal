@@ -44,9 +44,10 @@ const ExpertiseSection = () => {
             Expertise
           </p>
 
-          <SectionTitle>
+          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+            <Cpu className="w-6 h-6 text-primary" />
             Core Skills
-          </SectionTitle>
+          </h2>
         </m.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -64,7 +65,7 @@ const ExpertiseSection = () => {
                 <Card
                   variant="glass"
                   hover
-                  className="group p-5"
+                  className="group p-5 bg-transparent border border-primary/10"
                 >
                   <CardContent className="p-0">
                     <Icon className="w-5 h-5 text-primary mb-3 group-hover:text-secondary transition-colors" />
