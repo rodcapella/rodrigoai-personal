@@ -25,7 +25,7 @@ const AboutSection = () => {
             </p>
           </m.div>
         </div>
-      </section>
+      </Section>
     </LazyMotion>
   );
 };

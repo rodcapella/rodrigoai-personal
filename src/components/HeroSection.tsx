@@ -98,7 +98,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             <ArrowDown className="w-5 h-5 animate-bounce" />
           </a>
         </m.div>
-      </section>
+      </Section>
     </LazyMotion>  
   );
 };
