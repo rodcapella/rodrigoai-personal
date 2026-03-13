@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 import Section from "@/components/layout/Section";
+import HeroSection from "@/components/HeroSection";
+import Footer from "@/components/Footer";
 
 import { lazy, Suspense } from "react";
 
@@ -12,9 +14,6 @@ const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
 const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
 const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
-const HeroSection = lazy(() => import("@/components/HeroSection"));
-
-import Footer from "@/components/Footer";
 
 interface IndexProps {
   theme?: 'dark' | 'light';
@@ -39,7 +38,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
             "@type": "Person",
             "name": "Rodrigo Póvoa",
             "url": "https://www.rpovoadata.tech",
-            "image": "https://www.rpovoadata.tech/og-image.png",
+            "image": "https://www.rpovoadata.tech/ai-portrait.jpeg",
             "jobTitle": "Technical Data Leader & Data Analytics Engineer",
             "description": "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
             "address": {
@@ -51,36 +50,76 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
               "https://www.linkedin.com/in/rodrigocspovoa",
               "https://github.com/rodcapella"
             ],
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Federal Fluminense University"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Tips4y"
+            },
             "knowsAbout": [
               "Enterprise Data Architecture",
               "Data Governance",
-              "Azure",
-              "Databricks",
+              "Azure Databricks",
               "Delta Lake",
+              "Data Engineering",
               "Power BI",
-              "Distributed Data Systems",
-              "Analytics Strategy",
-              "SQL",
-              "PL/SQL",
               "PySpark",
-              "Python",
-              "T-SQL"
+              "Distributed Data Systems",
+              "Analytics Strategy"
             ],
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Tips4y and Sapiente.AI"
-            },
             "hasOccupation": {
               "@type": "Occupation",
               "name": "Technical Data Leader",
               "occupationLocation": {
                 "@type": "Country",
                 "name": "Portugal"
-              },
-              "skills": "Data Architecture, Lakehouse Design, Azure Data Engineering, Governance Frameworks, BI Strategy"
+              }
             }
           })}
         </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Who is Rodrigo Póvoa?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rodrigo Póvoa is a Technical Data Leader and Data Analytics Engineer with more than 15 years of experience designing enterprise data platforms, lakehouse architectures and scalable analytics systems."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What technologies does Rodrigo Póvoa specialize in?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rodrigo specializes in Azure Databricks, Delta Lake, PySpark, SQL, Power BI, data governance frameworks and modern lakehouse architectures."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is Rodrigo Póvoa's experience in data engineering?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rodrigo has more than 15 years of experience building data platforms, engineering pipelines and analytics solutions across industries including finance, retail, automotive intelligence and digital media."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where does Rodrigo Póvoa work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rodrigo currently works as a Senior Data Engineer at Tips4y in Portugal and leads research AI initiatives through Sapiente.AI."
+                }
+              }
+            ]
+          })}
+          </script>
 
         <title>
           Rodrigo Póvoa | Technical Data Leader & Data Analytics Engineer
@@ -88,7 +127,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
         <meta
           name="description"
-          content="Rodrigo Póvoa is an Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
+          content="Rodrigo Póvoa is a Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
         />
 
         <meta
@@ -117,10 +156,9 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
           property="og:url"
           content="https://www.rpovoadata.tech/"
         />
-        <meta
-          property="og:image"
-          content="https://www.rpovoadata.tech/ai-portrait.jpeg"
-        />
+        <meta property="og:image" content="https://www.rpovoadata.tech/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Rodrigo Póvoa" />
 
         {/* Twitter */}
@@ -138,6 +176,10 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
           content="https://www.rpovoadata.tech/ai-portrait.jpeg"
         />
 
+        <meta name="author" content="Rodrigo Póvoa" />
+        <meta name="creator" content="Rodrigo Póvoa" />
+
+       <link rel="preload" as="image" href="/ai-portrait.jpeg" />   
       </Helmet>
 
       <BreadcrumbSchema
@@ -150,9 +192,7 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
       <main id="main-content">
 
-        <Suspense fallback={<SectionLoader />}>
-          <HeroSection />
-        </Suspense>
+        <HeroSection />
 
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />

@@ -15,6 +15,17 @@ const Shield = lazy(() => import("lucide-react").then(m => ({ default: m.Shield 
 const Workflow = lazy(() => import("lucide-react").then(m => ({ default: m.Workflow })))
 const Code = lazy(() => import("lucide-react").then(m => ({ default: m.Code })))
 
+const icons = [
+  Database,
+  Zap,
+  Rocket,
+  Cpu,
+  Cloud,
+  Shield,
+  Workflow,
+  Code
+]
+
 const ExpertiseSection = () => {
   return (
     <LazyMotion features={domAnimation}>
