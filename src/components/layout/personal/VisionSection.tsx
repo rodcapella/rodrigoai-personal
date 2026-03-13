@@ -28,11 +28,9 @@ export default function VisionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Target className="w-8 h-8 text-primary" />
+            <SectionTitle icon={<Target className="w-8 h-8 text-primary" />}>
               Long-Term Vision
-            </h2>
+            </SectionTitle>
 
             <div className="space-y-4">
 

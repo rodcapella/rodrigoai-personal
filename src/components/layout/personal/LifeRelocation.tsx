@@ -20,11 +20,10 @@ export default function LifeRelocation() {
             transition={{ duration: 0.8 }}
           >
 
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Compass className="w-8 h-8 text-primary" />
-              Life & Relocation
-            </h2>
-
+          <SectionTitle icon={<Compass className="w-8 h-8 text-primary" />}>
+            Life & Relocation
+          </SectionTitle>
+          
             <div className="space-y-6 text-muted-foreground leading-relaxed">
 
               <p>

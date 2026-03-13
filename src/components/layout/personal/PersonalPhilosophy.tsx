@@ -19,11 +19,9 @@ export default function PersonalPhilosophy() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Heart className="w-8 h-8 text-primary" />
+            <SectionTitle icon={<Heart className="w-8 h-8 text-primary" />}>
               Personal Philosophy
-            </h2>
+            </SectionTitle>
 
             <div className="space-y-6 text-muted-foreground leading-relaxed">
 

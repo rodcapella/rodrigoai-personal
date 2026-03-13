@@ -44,11 +44,9 @@ export default function HobbiesSection() {
             <div className="container max-w-4xl mx-auto">
 
             <m.div>
-
-                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                    <Music className="w-8 h-8 text-primary" />
-                    Passions & Hobbies
-                </h2>
+                <SectionTitle icon={<Music className="w-8 h-8 text-primary" />}>
+                  Passions & Hobbies
+                </SectionTitle>
 
                 <div className="grid md:grid-cols-2 gap-8">
 

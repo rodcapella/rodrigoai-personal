@@ -29,11 +29,9 @@ export default function AIExplorationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Sparkles className="w-8 h-8 text-primary" />
+            <SectionTitle icon={<Sparkles className="w-8 h-8 text-primary" />}>
               AI Ecosystem Exploration
-            </h2>
+            </SectionTitle>
 
             <div className="mb-8 space-y-6">
 
