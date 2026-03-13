@@ -1,5 +1,4 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import { Award, Briefcase, Globe, GraduationCap, Cpu, Layers} from "lucide-react";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import Section from "@/components/layout/Section";
 import Navbar from "@/components/Navbar";
@@ -53,6 +52,391 @@ const Professional = ({ theme = 'dark', onToggleTheme }: ProfessionalProps) => {
     "Strong background in defining data architecture standards, leading engineering teams, mentoring engineers and aligning technical strategy with business goals."
   ];
   
+  
+
+  const languages = [
+    { language: "Portuguese", level: "Native"},
+    { language: "English", level: "Advanced (C1 – improving towards C2 proficiency)"},
+    { language: "Spanish", level: "Basic (A1 equivalent)"}
+  ];
+
+  const education = [
+    {
+      degree: "Bachelor of Computer Science",
+      institution: "UFF (Federal Fluminense University)",
+      location: "Brazil",
+      year: "2011"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Professional Experience | Data Architect & Analytics Engineer | Rodrigo Póvoa</title>
+        <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
+        <link rel="canonical" href="https://www.rpovoadata.tech/professional" />
+              {/* SEO Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Rodrigo Póvoa",
+              "url": "https://www.rpovoadata.tech",
+              "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
+              "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
+              "sameAs": [
+                "https://www.linkedin.com/in/rodrigopovoa",
+                "https://github.com/rodcapella"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "professional inquiries",
+                "email": "contato@rpovoadata.tech",
+                "availableLanguage": [
+                  "English",
+                  "Portuguese"
+                ]
+              }
+            })
+          }}
+        />
+      </Helmet>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          { name: "Professional", url: "https://www.rpovoadata.tech/professional" }
+        ]}
+      />
+
+      <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+      <LazyMotion features={domAnimation}> 
+        <main>
+          <PageHero
+            title="Professional Journey"
+            subtitle="Explore my professional experience, expertise and the impact I've delivered across multiple organizations and industries."
+            image="/ai-portrait.jpeg"
+          />
+
+          {/* Hero Section */}
+          <Section className="mb-20">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <p className="text-lg text-primary font-semibold mb-4">
+                  Data Analytics Engineer & Team Leader | Azure Databricks | Python | PySpark | SQL | Power BI | Data Architecture & Insights
+                </p>
+                
+                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+                  Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
+                </p>
+                <br />
+                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
+                Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. This expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
+                </p>
+              </m.div>
+            </div>
+          </Section>
+
+          {/* Core Competences */}
+          <Section className="mb-20">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <Cpu className="w-8 h-8 text-primary" />
+                  Core Competences
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  {coreCompetences.map((competence, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                      className={`flex items-start gap-3 p-4 rounded-xl glass hover:-translate-y-1 transition-all ${
+                        ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
+                      }`}
+                    >
+                      <span className="font-bold mt-1">•</span>
+                      <p className="text-muted-foreground">{competence}</p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </Section>
+
+          {/* Core Technology */}
+          <Section className="mb-20">
+            <div className="container max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                <Layers className="w-8 h-8 text-primary" />
+                Core Technology Stack & Experience Depth
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {techStack.map((group) => (
+                  <div
+                    key={group.category}
+                    className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+                  >
+                    <h3 className="text-lg font-semibold mb-6">
+                      {group.category}
+                    </h3>
+
+                    <div className="space-y-5">
+                      {group.items.map((tech) => {
+                        const width = (tech.years / maxYears) * 100
+
+                        return (
+                          <div key={tech.name} className="space-y-2">
+
+                            <div className="flex justify-between text-sm">
+                              <span className="text-foreground">
+                                {tech.name}
+                              </span>
+
+                              <span className="text-orange-500 font-semibold text-xs">
+                                {tech.years} yrs
+                              </span>
+                            </div>
+
+                            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                              <div
+                                className="h-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700 ease-out"
+                                style={{ width: `${width}%` }}
+                              />
+                            </div>
+
+                          </div>
+                        )
+                      })}
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Section>
+          
+          {/* Professional Experience */}
+          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+                  <Briefcase className="w-8 h-8 text-primary" />
+                  Professional Experience
+                </h2>
+                
+                <div className="space-y-8">
+                  {experiences.map((exp, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
+                      className="border-l-4 border-primary pl-6 pb-8"
+                    >
+                      <h3 className="text-2xl font-bold text-primary mb-1">{exp.title}</h3>
+                      <p className="text-lg font-semibold text-foreground mb-1">{exp.company}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{exp.location} • {exp.period}</p>
+                      
+                      <ul className="space-y-2 mb-6">
+                        {exp.highlights.map((highlight, i) => (
+                          <li key={i} className="text-muted-foreground text-sm leading-relaxed flex gap-3">
+                            <span className="text-primary font-bold flex-shrink-0">•</span>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <div>
+                        <p className="text-sm font-semibold text-foreground mb-3">Tech Stack:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.stack.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-medium border border-orange-500/30"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </Section>
+
+          {/* Academic Background */}
+          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <GraduationCap className="w-8 h-8 text-primary" />
+                  Academic Background
+                </h2>
+                
+                <div className="space-y-4">
+                  {education.map((edu, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 + idx * 0.05 }}
+                      className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+                    >
+                      <h3 className="text-lg font-bold text-foreground mb-2">{edu.degree}</h3>
+                      <p className="text-muted-foreground">{edu.institution}</p>
+                      <p className="text-sm text-muted-foreground">{edu.location} • {edu.year}</p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </Section>
+
+          {/* Certifications */}
+          <Section className="mb-20">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <Award className="w-8 h-8 text-primary" />
+                  Certifications & Courses
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  {certifications.map((cert, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
+                      className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+                    >
+                      <span className="text-primary font-bold mt-1">•</span>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {cert}
+                      </p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </Section>
+
+          {/* Languages */}
+          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <div className="container max-w-4xl mx-auto">
+              <m.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
+                  <Globe className="w-8 h-8 text-primary" />
+                  Languages
+                </h2>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  {languages.map((lang, idx) => (
+                    <m.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
+                      className={`p-6 rounded-xl glass ${
+                        ["layer-yellow", "layer-blue", "layer-purple"][idx % 3]
+                      }`}
+                    >
+                      <h3 className="font-semibold text-foreground mb-1">
+                        {lang.language}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {lang.level}
+                      </p>
+                    </m.div>
+                  ))}
+                </div>
+              </m.div>
+            </div>
+          </Section>
+        </main>
+      </LazyMotion>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Professional;
+
+
+import { LazyMotion, domAnimation } from "framer-motion"
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema"
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
+import { Helmet } from "react-helmet-async"
+import PageHero from "@/components/layout/PageHero"
+import Section from "@/components/layout/Section"
+
+import ProfessionalIntro from "@/components/professional/ProfessionalIntro"
+import CoreCompetencesSection from "@/components/professional/CoreCompetencesSection"
+import TechStackSection from "@/components/professional/TechStackSection"
+import ExperienceTimeline from "@/components/professional/ExperienceTimeline"
+import EducationSection from "@/components/professional/EducationSection"
+import CertificationsSection from "@/components/professional/CertificationsSection"
+import LanguagesSection from "@/components/professional/LanguagesSection"
+
+interface ProfessionalProps {
+  theme?: "dark" | "light"
+  onToggleTheme?: () => void
+}
+
+const maxYears = 20
+
+const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
+
+  const summaryPoints = [
+    "Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains.",
+    "Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments.",
+    "Strong experience designing governed data platforms and scalable distributed pipelines.",
+    "Experienced in leading teams, mentoring engineers and aligning technical strategy with business goals."
+  ]
+
+  const coreCompetences = [
+    "Data Engineering Leadership",
+    "Data Platform Architecture",
+    "Agile Delivery & Team Leadership",
+    "Data Strategy & Analytics Enablement",
+    "Data Governance & Compliance",
+    "AI-Augmented Data Solutions"
+  ]
+
   const experiences = [
     {
       title: "Senior Data Engineer",
@@ -283,15 +667,15 @@ const techStack = [
   ];
 
   const languages = [
-    { language: "Portuguese", level: "Native"},
-    { language: "English", level: "Advanced (C1 – improving towards C2 proficiency)"},
-    { language: "Spanish", level: "Basic (A1 equivalent)"}
+    { language: "Portuguese", level: "Native" },
+    { language: "English", level: "Advanced (C1)" },
+    { language: "Spanish", level: "Basic" }
   ];
 
   const education = [
     {
       degree: "Bachelor of Computer Science",
-      institution: "UFF (Federal Fluminense University)",
+      institution: "Federal Fluminense University",
       location: "Brazil",
       year: "2011"
     }
@@ -299,38 +683,15 @@ const techStack = [
 
   return (
     <div className="min-h-screen bg-background">
+
       <Helmet>
-        <title>Professional Experience | Data Architect & Analytics Engineer | Rodrigo Póvoa</title>
-        <meta name="description" content="15+ years of experience in data engineering, AI architecture and cross-functional leadership across logistics, finance and digital media." />
-        <link rel="canonical" href="https://www.rpovoadata.tech/professional" />
-              {/* SEO Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Rodrigo Póvoa",
-              "url": "https://www.rpovoadata.tech",
-              "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
-              "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
-              "sameAs": [
-                "https://www.linkedin.com/in/rodrigopovoa",
-                "https://github.com/rodcapella"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "professional inquiries",
-                "email": "contato@rpovoadata.tech",
-                "availableLanguage": [
-                  "English",
-                  "Portuguese"
-                ]
-              }
-            })
-          }}
+        <title>Professional Experience | Rodrigo Póvoa</title>
+        <meta
+          name="description"
+          content="15+ years experience in data engineering, analytics platforms and architecture."
         />
       </Helmet>
+
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://www.rpovoadata.tech/" },
@@ -339,289 +700,51 @@ const techStack = [
       />
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      <LazyMotion features={domAnimation}> 
+
+      <LazyMotion features={domAnimation}>
         <main>
+
           <PageHero
             title="Professional Journey"
-            subtitle="Explore my professional experience, expertise and the impact I've delivered across multiple organizations and industries."
+            subtitle="Explore my professional experience and the impact delivered across multiple organizations."
             image="/ai-portrait.jpeg"
           />
+
+          <Section>
+            <ProfessionalIntro summaryPoints={summaryPoints} />
           </Section>
 
-          {/* Hero Section */}
-          <Section className="mb-20">
-            <div className="container max-w-4xl mx-auto">
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                <p className="text-lg text-primary font-semibold mb-4">
-                  Data Analytics Engineer & Team Leader | Azure Databricks | Python | PySpark | SQL | Power BI | Data Architecture & Insights
-                </p>
-                
-                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                  Data Analytics Engineer & Team Leader with 15+ years of experience leading data initiatives across engineering and analytics domains. Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI within modern data stack environments. 
-                </p>
-                <br />
-                <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                Throughout my career, I have operated across nearly every domain within the data ecosystem, from Data Engineering and advanced Analytics to Business Intelligence (BI) and strategic reporting. This expertise enables me to manage diverse technical profiles, bridge cross-functional teams and master complex topics across: engineering, analytical and business-oriented data initiatives.
-                </p>
-              </m.div>
-            </div>
+          <Section>
+            <CoreCompetencesSection competences={coreCompetences} />
           </Section>
 
-          {/* Core Competences */}
-          <Section className="mb-20">
-            <div className="container max-w-4xl mx-auto">
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-              >
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                  <Cpu className="w-8 h-8 text-primary" />
-                  Core Competences
-                </h2>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  {coreCompetences.map((competence, idx) => (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                      className={`flex items-start gap-3 p-4 rounded-xl glass hover:-translate-y-1 transition-all ${
-                        ["layer-yellow", "layer-blue", "layer-green", "layer-purple"][idx % 4]
-                      }`}
-                    >
-                      <span className="font-bold mt-1">•</span>
-                      <p className="text-muted-foreground">{competence}</p>
-                    </m.div>
-                  ))}
-                </div>
-              </m.div>
-            </div>
+          <Section>
+            <TechStackSection techStack={techStack} maxYears={maxYears} />
           </Section>
 
-          {/* Core Technology */}
-          <Section className="mb-20">
-            <div className="container max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Layers className="w-8 h-8 text-primary" />
-                Core Technology Stack & Experience Depth
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                {techStack.map((group) => (
-                  <div
-                    key={group.category}
-                    className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-                  >
-                    <h3 className="text-lg font-semibold mb-6">
-                      {group.category}
-                    </h3>
-
-                    <div className="space-y-5">
-                      {group.items.map((tech) => {
-
-                        const maxYears = 15
-                        const width = (tech.years / maxYears) * 100
-
-                        return (
-                          <div key={tech.name} className="space-y-2">
-
-                            <div className="flex justify-between text-sm">
-                              <span className="text-foreground">
-                                {tech.name}
-                              </span>
-
-                              <span className="text-orange-500 font-semibold text-xs">
-                                {tech.years} yrs
-                              </span>
-                            </div>
-
-                            <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                              <div
-                                className="h-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700 ease-out"
-                                style={{ width: `${width}%` }}
-                              />
-                            </div>
-
-                          </div>
-                        )
-                      })}
-                    </div>
-
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Section>
-          
-          {/* Professional Experience */}
-          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-            <div className="container max-w-4xl mx-auto">
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                  <Briefcase className="w-8 h-8 text-primary" />
-                  Professional Experience
-                </h2>
-                
-                <div className="space-y-8">
-                  {experiences.map((exp, idx) => (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
-                      className="border-l-4 border-primary pl-6 pb-8"
-                    >
-                      <h3 className="text-2xl font-bold text-primary mb-1">{exp.title}</h3>
-                      <p className="text-lg font-semibold text-foreground mb-1">{exp.company}</p>
-                      <p className="text-sm text-muted-foreground mb-4">{exp.location} • {exp.period}</p>
-                      
-                      <ul className="space-y-2 mb-6">
-                        {exp.highlights.map((highlight, i) => (
-                          <li key={i} className="text-muted-foreground text-sm leading-relaxed flex gap-3">
-                            <span className="text-primary font-bold flex-shrink-0">•</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      <div>
-                        <p className="text-sm font-semibold text-foreground mb-3">Tech Stack:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.stack.map((tech, i) => (
-                            <span
-                              key={i}
-                              className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-medium border border-orange-500/30"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </m.div>
-                  ))}
-                </div>
-              </m.div>
-            </div>
+          <Section>
+            <ExperienceTimeline experiences={experiences} />
           </Section>
 
-          {/* Academic Background */}
-          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-            <div className="container max-w-4xl mx-auto">
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                  <GraduationCap className="w-8 h-8 text-primary" />
-                  Academic Background
-                </h2>
-                
-                <div className="space-y-4">
-                  {education.map((edu, idx) => (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.5 + idx * 0.05 }}
-                      className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-                    >
-                      <h3 className="text-lg font-bold text-foreground mb-2">{edu.degree}</h3>
-                      <p className="text-muted-foreground">{edu.institution}</p>
-                      <p className="text-sm text-muted-foreground">{edu.location} • {edu.year}</p>
-                    </m.div>
-                  ))}
-                </div>
-              </m.div>
-            </div>
+          <Section>
+            <EducationSection education={education} />
           </Section>
 
-          {/* Certifications */}
-          <Section className="mb-20">
-            <div className="container max-w-4xl mx-auto">
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-              >
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                  <Award className="w-8 h-8 text-primary" />
-                  Certifications & Courses
-                </h2>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  {certifications.map((cert, idx) => (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.6 + idx * 0.05 }}
-                      className="flex items-start gap-3 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-                    >
-                      <span className="text-primary font-bold mt-1">•</span>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {cert}
-                      </p>
-                    </m.div>
-                  ))}
-                </div>
-              </m.div>
-            </div>
+          <Section>
+            <CertificationsSection certifications={certifications} />
           </Section>
 
-          {/* Languages */}
-          <Section className="mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
-            <div className="container max-w-4xl mx-auto">
-              <m.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                  <Globe className="w-8 h-8 text-primary" />
-                  Languages
-                </h2>
-                
-                <div className="grid md:grid-cols-3 gap-6">
-                  {languages.map((lang, idx) => (
-                    <m.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
-                      className={`p-6 rounded-xl glass ${
-                        ["layer-yellow", "layer-blue", "layer-purple"][idx % 3]
-                      }`}
-                    >
-                      <h3 className="font-semibold text-foreground mb-1">
-                        {lang.language}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {lang.level}
-                      </p>
-                    </m.div>
-                  ))}
-                </div>
-              </m.div>
-            </div>
+          <Section>
+            <LanguagesSection languages={languages} />
           </Section>
+
         </main>
       </LazyMotion>
 
       <Footer />
-    </div>
-  );
-};
 
-export default Professional;
+    </div>
+  )
+}
+
+export default Professional

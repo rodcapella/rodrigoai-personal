@@ -4,19 +4,27 @@ import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 import Section from "@/components/layout/Section";
 
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ExpertiseSection from "@/components/ExpertiseSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import WhatDrivesMe from "@/components/WhatDrivesMe";
-import AboutMyCareer from "@/components/AboutMyCareer";
-import ContactSection from "@/components/ContactSection";
+import { lazy, Suspense } from "react";
+
+const AboutSection = lazy(() => import("@/components/AboutSection"));
+const ExpertiseSection = lazy(() => import("@/components/ExpertiseSection"));
+const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
+const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
+const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+
 import Footer from "@/components/Footer";
 
 interface IndexProps {
   theme?: 'dark' | 'light';
   onToggleTheme?: () => void;
 }
+
+const SectionLoader = () => (
+  <div className="py-20 flex justify-center">
+    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"/>
+  </div>
+);
 
 const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
@@ -143,29 +151,29 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
         <HeroSection />
 
-        <Section>
+        <Suspense fallback={<SectionLoader />}>
           <AboutSection />
-        </Section>
+        </Suspense>
 
-        <Section>
+        <Suspense fallback={<SectionLoader />}>
           <ExpertiseSection />
-        </Section>
+        </Suspense>
 
-        <Section>
+        <Suspense fallback={<SectionLoader />}>
           <ProjectsSection />
-        </Section>
+        </Suspense>
 
-        <Section>
+        <Suspense fallback={<SectionLoader />}>
           <WhatDrivesMe />
-        </Section>
+        </Suspense>
 
-        <Section>
+        <Suspense fallback={<SectionLoader />}>
           <AboutMyCareer />
-        </Section>
+        </Suspense>
 
-        <Section>
+        <Suspense fallback={<SectionLoader />}>
           <ContactSection />
-        </Section>
+        </Suspense>
 
       </main>
 
