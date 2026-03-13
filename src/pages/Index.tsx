@@ -12,6 +12,7 @@ const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
 const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
 const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
+const HeroSection = lazy(() => import("@/components/HeroSection"));
 
 import Footer from "@/components/Footer";
 
@@ -149,7 +150,9 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
       <main id="main-content">
 
-        <HeroSection />
+        <Suspense fallback={<SectionLoader />}>
+          <HeroSection />
+        </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />
