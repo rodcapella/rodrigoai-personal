@@ -15,13 +15,13 @@ const GraduationCap = lazy(() => import("lucide-react").then(m => ({ default: m.
 const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })));
 const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })));
 
-import ProfessionalIntro from "@/components/professional/ProfessionalIntro"
-import CoreCompetencesSection from "@/components/professional/CoreCompetencesSection"
-import TechStackSection from "@/components/professional/TechStackSection"
-import ExperienceTimeline from "@/components/professional/ExperienceTimeline"
-import EducationSection from "@/components/professional/EducationSection"
-import CertificationsSection from "@/components/professional/CertificationsSection"
-import LanguagesSection from "@/components/professional/LanguagesSection"
+import ProfessionalIntro from "@/components/layout/professional/ProfessionalIntro"
+import CoreCompetencesSection from "@/components/layout/professional/CoreCompetencesSection"
+import TechStackSection from "@/components/layout/professional/TechStackSection"
+import ExperienceTimeline from "@/components/layout/professional/ExperienceTimeline"
+import EducationSection from "@/components/layout/professional/EducationSection"
+import CertificationsSection from "@/components/layout/professional/CertificationsSection"
+import LanguagesSection from "@/components/layout/professional/LanguagesSection"
 
 interface ProfessionalProps {
   theme?: "dark" | "light"
