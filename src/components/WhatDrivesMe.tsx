@@ -56,6 +56,7 @@ const WhatDrivesMe = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {facts.map((fact, idx) => {
                 const Icon = fact.icon;
+
                 return (
                   <m.div
                     key={idx}
