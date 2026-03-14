@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { LazyMotion, domAnimation } from "framer-motion"
 
 interface PageHeroProps {
   title: string
@@ -7,7 +7,7 @@ interface PageHeroProps {
   image?: string
 }
 
-const PageHero = ({ title, subtitle, image }: PageHeroProps) => {
+const PageHero = ({ title, subtitle, description, image }: PageHeroProps) => {
   return (
     <LazyMotion features={domAnimation}>
       <section className="px-4 mb-24">
