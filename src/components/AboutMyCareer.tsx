@@ -21,9 +21,21 @@ const AboutMyCareer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-12">
-              About My Career
+            <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+              <Briefcase
+                className="
+                  w-6 h-6
+                  text-primary
+                  transition-all duration-300
+                  group-hover:scale-110
+                  group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                "
+              />
+              <span className="transition-colors duration-300 group-hover:text-primary">
+                About My Career
+              </span>
             </h2>
+          </m.div>
 
             <div className="space-y-4">
               {funFacts.map((fact, idx) => (

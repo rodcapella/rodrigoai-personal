@@ -38,12 +38,6 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 That Scale, Govern and Drive Decisions.
               </m.h1>
               
-              <m.p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
-                Technical Data Leader specialized in building governed analytics ecosystems,
-                structuring scalable data architectures and leading teams to transform
-                fragmented data into strategic infrastructure.
-              </m.p>
-              
               <div className="flex flex-col sm:flex-row items-start gap-4">
                 <a
                   href="/contact"

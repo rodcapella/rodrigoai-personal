@@ -40,10 +40,6 @@ const ExpertiseSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-primary font-display text-sm tracking-[0.2em] uppercase mb-4">
-            Expertise
-          </p>
-
           <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
             <Cpu className="w-6 h-6 text-primary" />
             Core Skills
