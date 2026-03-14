@@ -35,7 +35,7 @@ const PageHero = ({ title, subtitle, image }: PageHeroProps) => {
             </div>
 
             {image && (
-              <div className="flex justify-center">
+              <div className="rounded-2xl shadow-2xl border border-primary/20 w-[220px] transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.35)]">
                 <img
                   src={image}
                   alt={title}

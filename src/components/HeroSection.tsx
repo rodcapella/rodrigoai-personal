@@ -28,14 +28,12 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <p className="text-primary font-display text-sm tracking-[0.3em] uppercase mb-6">
-                Data Analytics Engineer • Team Leader
+              <p className="text-primary uppercase tracking-widest text-sm mb-6">
+                DATA ANALYTICS ENGINEER • TEAM LEADER
               </p>
               
-              <m.h1 className="text-4xl md:text-6xl font-display font-bold leading-tight mb-6">
-                Designing Enterprise Data Platforms
-                <br />
-                That Scale, Govern and Drive Decisions.
+              <m.h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6 max-w-2xl">
+                Designing Enterprise Data Platforms That Scale, Govern and Drive Decisions.
               </m.h1>
               
               <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -64,7 +62,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 <div className="absolute inset-0 rounded-3xl border-2 border-primary/30 shadow-2xl" />
                 
                 {/* Image with LinkedIn-style circular crop */}
-                <div className="relative w-full h-full rounded-3xl overflow-hidden">
+                <div className="rounded-2xl shadow-2xl border border-primary/20 w-[220px] transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.35)]">
                   <img
                     src="/profile.jpg"
                     alt="Rodrigo Povoa"

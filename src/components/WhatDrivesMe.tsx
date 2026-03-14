@@ -42,7 +42,7 @@ const WhatDrivesMe = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <section className="px-4 py-20">
+      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
         <div className="container max-w-4xl mx-auto">
 
           <m.div
@@ -52,8 +52,8 @@ const WhatDrivesMe = () => {
             viewport={{ once: true }}
           >
 
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Brain className="w-6 h-6 text-primary" />
+            <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+              <Brain className=" w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]"/>
               What Drives Me
             </h2>
 

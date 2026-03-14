@@ -197,7 +197,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8 }}
-                  className="flex justify-center"
+                  className="rounded-2xl shadow-2xl border border-primary/20 w-[220px] transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.35)]"
                 >
 
                   <img

@@ -30,9 +30,8 @@ const ExpertiseSection = () => {
   return (
     <LazyMotion features={domAnimation}>
       <Section variant="highlight" className="relative" id="expertise">
-
         {/* background pattern */}
-        <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
+        <div className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
 
         <m.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,9 +39,9 @@ const ExpertiseSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-            <Cpu className="w-6 h-6 text-primary" />
-            Core Skills
+          <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+              <Cpu className=" w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]"/>
+              Core Skills
           </h2>
         </m.div>
 
