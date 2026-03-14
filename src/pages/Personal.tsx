@@ -104,7 +104,7 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
             "mainEntityOfPage": "https://www.rpovoadata.tech/personal",
             "image": "https://www.rpovoadata.tech/rodrigo_flamengo_porto.png",
             "nationality": "Brazilian",
-            "knowsLanguage": ["Portuguese","English"]
+            "knowsLanguage": ["Portuguese","English"],
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "Portugal"
