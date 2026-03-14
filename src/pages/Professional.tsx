@@ -62,7 +62,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
             <ProfessionalIntro />
             <CoreCompetencesSection />
             <TechStackSection maxYears={maxYears} />
-            <ExperienceTimeline />
+            <ExperienceTimeline experiences={profile.experience} />
             <EducationSection />
             <CertificationsSection />
             <LanguagesSection />

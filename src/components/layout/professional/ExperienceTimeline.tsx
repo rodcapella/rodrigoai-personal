@@ -11,7 +11,7 @@ interface Experience {
 }
 
 interface ExperienceTimelineProps {
-  experiences: Experience[]
+  experiences?: Experience[]
 }
 
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
@@ -33,7 +33,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
           <div className="space-y-10">
 
-            {experiences.map((exp, idx) => (
+            {(experiences ?? []).map((exp, idx) => (
 
               <m.div
                 key={idx}
@@ -57,7 +57,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
                 <ul className="space-y-2 mb-6">
 
-                  {exp.highlights.map((highlight, i) => (
+                  {(exp.highlights ?? []).map((highlight, i) => (
 
                     <li
                       key={i}
@@ -83,7 +83,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
                   <div className="flex flex-wrap gap-2">
 
-                    {exp.stack.map((tech, i) => (
+                    {(exp.stack ?? []).map((tech, i) => (
 
                       <span
                         key={i}
