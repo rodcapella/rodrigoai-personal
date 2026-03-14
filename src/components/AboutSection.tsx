@@ -2,6 +2,12 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section"
 
+import { lazy } from "react"
+
+const User = lazy(() =>
+  import("lucide-react").then(m => ({ default: m.User }))
+)
+
 const AboutSection = () => {
   return (
     <LazyMotion features={domAnimation}>
