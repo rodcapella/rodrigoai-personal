@@ -1,4 +1,9 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
+import { lazy, Suspense } from "react"
+
+const Briefcase  = lazy(() => import("lucide-react").then(m => ({ default: m.Briefcase  })))
+const ChevronRight  = lazy(() => import("lucide-react").then(m => ({ default: m.ChevronRight  })))
+ 
 
 const AboutMyCareer = () => {
   const funFacts = [
@@ -11,17 +16,30 @@ const AboutMyCareer = () => {
     "Experienced in leading teams through digital transformation initiatives"
   ];
 
-  return (
+    return (
     <LazyMotion features={domAnimation}>
       <section className="px-4 py-20">
-        <div className="container max-w-4xl mx-auto">
+        <m.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0, x: -20 },
+                show: { opacity: 1, x: 0 }
+              }}
+              }}
+              className="space-y-4"
+        >
+
           <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
+
             <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+
               <Briefcase
                 className="
                   w-6 h-6
@@ -31,32 +49,62 @@ const AboutMyCareer = () => {
                   group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
                 "
               />
+
               <span className="transition-colors duration-300 group-hover:text-primary">
                 About My Career
               </span>
+
             </h2>
-          </m.div>
 
             <div className="space-y-4">
+
               {funFacts.map((fact, idx) => (
+
                 <m.div
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: idx * 0.05 }}
                   viewport={{ once: true }}
-                  className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-xl border border-primary/20 flex items-start gap-4"
+                  className="
+                    group
+                    bg-gradient-to-r from-primary/10 to-primary/5
+                    p-6 rounded-xl
+                    border border-primary/20
+                    flex items-start gap-4
+                    transition-all duration-300
+                    hover:border-primary/40
+                    hover:translate-x-1
+                  "
                 >
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  <p className="text-muted-foreground">{fact}</p>
+
+                  <ChevronRight
+                    className="
+                      w-5 h-5 mt-1
+                      text-primary
+                      flex-shrink-0
+                      transition-all duration-300
+                      group-hover:translate-x-1
+                      group-hover:drop-shadow-[0_0_4px_rgba(249,115,22,0.6)]
+                    "
+                  />
+
+                  <p className="text-muted-foreground leading-relaxed">
+                    {fact}
+                  </p>
+
                 </m.div>
+
               ))}
+
             </div>
+
           </m.div>
+
         </div>
       </section>
     </LazyMotion>
-  );
-};
+  )
+}
 
-export default AboutMyCareer;
+export default AboutMyCareer
