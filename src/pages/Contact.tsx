@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { lazy, useState, Suspense } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Section from "@/components/layout/Section";
-import { lazy } from "react";
+import PageHero from "@/components/layout/PageHero"
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Mail = lazy(() => import("lucide-react").then(m => ({ default: m.Mail })));
 const Phone = lazy(() => import("lucide-react").then(m => ({ default: m.Phone })));
@@ -9,10 +11,6 @@ const MapPin = lazy(() => import("lucide-react").then(m => ({ default: m.MapPin 
 const Send = lazy(() => import("lucide-react").then(m => ({ default: m.Send })));
 const CheckCircle = lazy(() => import("lucide-react").then(m => ({ default: m.CheckCircle })));
 const AlertCircle = lazy(() => import("lucide-react").then(m => ({ default: m.AlertCircle })));
-
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Suspense } from "react";
 
 interface ContactProps {
   theme?: 'dark' | 'light';

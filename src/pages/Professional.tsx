@@ -1,27 +1,24 @@
+import { lazy, Suspense } from "react"
 import { LazyMotion, domAnimation } from "framer-motion"
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { Helmet } from "react-helmet-async"
 import PageHero from "@/components/layout/PageHero"
-import Section from "@/components/layout/Section"
 
-import { lazy } from "react";
+const ProfessionalIntro = lazy(() => import("@/components/layout/professional/ProfessionalIntro"))
+const CoreCompetencesSection = lazy(() => import("@/components/layout/professional/CoreCompetencesSection"))
+const TechStackSection = lazy(() => import("@/components/layout/professional/TechStackSection"))
+const ExperienceTimeline = lazy(() => import("@/components/layout/professional/ExperienceTimeline"))
+const EducationSection = lazy(() => import("@/components/layout/professional/EducationSection"))
+const CertificationsSection = lazy(() => import("@/components/layout/professional/CertificationsSection"))
+const LanguagesSection = lazy(() => import("@/components/layout/professional/LanguagesSection"))
 
-const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
-const Briefcase = lazy(() => import("lucide-react").then(m => ({ default: m.Briefcase })));
-const Globe = lazy(() => import("lucide-react").then(m => ({ default: m.Globe })));
-const GraduationCap = lazy(() => import("lucide-react").then(m => ({ default: m.GraduationCap })));
-const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })));
-const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })));
-
-import ProfessionalIntro from "@/components/layout/professional/ProfessionalIntro"
-import CoreCompetencesSection from "@/components/layout/professional/CoreCompetencesSection"
-import TechStackSection from "@/components/layout/professional/TechStackSection"
-import ExperienceTimeline from "@/components/layout/professional/ExperienceTimeline"
-import EducationSection from "@/components/layout/professional/EducationSection"
-import CertificationsSection from "@/components/layout/professional/CertificationsSection"
-import LanguagesSection from "@/components/layout/professional/LanguagesSection"
+const SectionLoader = () => (
+  <div className="text-muted-foreground py-10 animate-pulse text-center">
+    Loading section...
+  </div>
+)
 
 interface ProfessionalProps {
   theme?: "dark" | "light"
@@ -61,33 +58,15 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
             image="/ai-portrait.jpeg"
           />
 
-          <Section>
-            <ProfessionalIntro summaryPoints={summaryPoints} />
-          </Section>
-
-          <Section>
-            <CoreCompetencesSection competences={coreCompetences} />
-          </Section>
-
-          <Section>
-            <TechStackSection techStack={techStack} maxYears={maxYears} />
-          </Section>
-
-          <Section>
-            <ExperienceTimeline experiences={experiences} />
-          </Section>
-
-          <Section>
-            <EducationSection education={education} />
-          </Section>
-
-          <Section>
-            <CertificationsSection certifications={certifications} />
-          </Section>
-
-          <Section>
-            <LanguagesSection languages={languages} />
-          </Section>
+          <Suspense fallback={<SectionLoader />}>
+            <ProfessionalIntro />
+            <CoreCompetencesSection />
+            <TechStackSection maxYears={maxYears} />
+            <ExperienceTimeline />
+            <EducationSection />
+            <CertificationsSection />
+            <LanguagesSection />
+          </Suspense>
 
         </main>
       </LazyMotion>

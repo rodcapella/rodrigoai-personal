@@ -1,10 +1,9 @@
+import { lazy, Suspense } from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
-
-import { lazy, Suspense } from "react"
 
 const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })))
 const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })))

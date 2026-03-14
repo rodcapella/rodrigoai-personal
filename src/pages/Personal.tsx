@@ -43,8 +43,8 @@ const AIExplorationSection = lazy(
 )
 
 const SectionLoader = () => (
-  <div className="py-20 flex justify-center">
-    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  <div className="py-24 flex justify-center items-center">
+    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
   </div>
 )
 
@@ -101,6 +101,14 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
+            "mainEntityOfPage": "https://www.rpovoadata.tech/personal",
+            "image": "https://www.rpovoadata.tech/rodrigo_flamengo_porto.png",
+            "nationality": "Brazilian",
+            "knowsLanguage": ["Portuguese","English"]
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "Portugal"
+            },
             name: "Rodrigo Póvoa",
             url: "https://www.rpovoadata.tech/personal",
             jobTitle: "Data Analytics Engineer & Team Leader",
@@ -133,35 +141,23 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         />
 
         <Suspense fallback={<SectionLoader />}>
+
           <PersonalPhilosophy />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <LifeRelocation />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <HobbiesSection />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <SportsSection />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <ValuesSection />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <InfluencesSection />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <VisionSection />
-        </Suspense>
 
-        <Suspense fallback={<SectionLoader />}>
           <AIExplorationSection />
+
         </Suspense>
 
       </main>

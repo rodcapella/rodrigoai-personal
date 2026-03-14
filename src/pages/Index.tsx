@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import { Helmet } from "react-helmet-async";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
@@ -5,8 +6,6 @@ import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import Section from "@/components/layout/Section";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
-
-import { lazy, Suspense } from "react";
 
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ExpertiseSection = lazy(() => import("@/components/ExpertiseSection"));

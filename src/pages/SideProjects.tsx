@@ -1,10 +1,9 @@
+import { lazy } from "react";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
-
-import { lazy } from "react";
 
 const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })));
 const Database = lazy(() => import("lucide-react").then(m => ({ default: m.Database })));
