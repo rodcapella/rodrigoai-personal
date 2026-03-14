@@ -1,5 +1,11 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 
+import { lazy } from "react"
+
+const Rocket = lazy(() =>
+  import("lucide-react").then(m => ({ default: m.Rocket }))
+)
+
 const projects = [
     {
     name: "TIP4Y - Automotive Intelligence - Portugal",
