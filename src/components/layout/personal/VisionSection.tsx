@@ -1,6 +1,5 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-import { Target } from "react";
+import { lazy } from "react"
 
 const Target = lazy(() => import("lucide-react").then(m => ({ default: m.Target })));
 

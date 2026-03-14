@@ -1,6 +1,5 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-import { Trophy } from "react";
+import { lazy } from "react"
 
 const Trophy = lazy(() => import("lucide-react").then(m => ({ default: m.Trophy })));
 

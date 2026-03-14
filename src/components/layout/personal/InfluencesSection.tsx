@@ -1,6 +1,5 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-import { BookOpen } from "react";
+import { lazy } from "react"
 
 const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
 

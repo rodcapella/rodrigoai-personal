@@ -1,5 +1,13 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Music, Guitar, Gamepad2, Film, Dumbbell, BookOpen } from "lucide-react"
+import { lazy } from "react"
+
+const Music = lazy(() => import("lucide-react").then(m => ({ default: m.Music })));
+const Guitar = lazy(() => import("lucide-react").then(m => ({ default: m.Guitar })));
+const Gamepad2 = lazy(() => import("lucide-react").then(m => ({ default: m.Gamepad2 })));
+const Film = lazy(() => import("lucide-react").then(m => ({ default: m.Film })));
+const Dumbbell = lazy(() => import("lucide-react").then(m => ({ default: m.Dumbbell })));
+const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
 
 const hobbies = [
 {

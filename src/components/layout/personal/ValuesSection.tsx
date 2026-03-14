@@ -1,6 +1,5 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-import { Heart } from "react";
+import { lazy } from "react"
 
 const Heart = lazy(() => import("lucide-react").then(m => ({ default: m.Heart })));
 

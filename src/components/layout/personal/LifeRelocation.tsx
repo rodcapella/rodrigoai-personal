@@ -1,6 +1,5 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-import { Compass } from "react";
+import { lazy } from "react"
 
 const Compass = lazy(() => import("lucide-react").then(m => ({ default: m.Compass })));
 
@@ -23,7 +22,7 @@ export default function LifeRelocation() {
           <SectionTitle icon={<Compass className="w-8 h-8 text-primary" />}>
             Life & Relocation
           </SectionTitle>
-          
+
             <div className="space-y-6 text-muted-foreground leading-relaxed">
 
               <p>
