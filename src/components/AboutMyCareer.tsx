@@ -61,21 +61,16 @@ const AboutMyCareer = () => {
               {funFacts.map((fact, idx) => (
 
                 <m.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: idx * 0.05 }}
-                  viewport={{ once: true }}
-                  className="
-                    group
-                    bg-gradient-to-r from-primary/10 to-primary/5
-                    p-6 rounded-xl
-                    border border-primary/20
-                    flex items-start gap-4
-                    transition-all duration-300
-                    hover:border-primary/40
-                    hover:translate-x-1
-                  "
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={{
+                      hidden: {},
+                      show: {
+                        transition: { staggerChildren: 0.08 }
+                      }
+                    }}
+                    className="space-y-4"
                 >
 
                   <ChevronRight
