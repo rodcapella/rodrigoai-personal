@@ -20,7 +20,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
   return (
       <div className="container max-w-4xl mx-auto">
 
-        <SectionTitle icon={<Briefcase className="w-6 h-6" />}>
+        <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
           Professional Experience
         </SectionTitle>
 
@@ -56,8 +56,12 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                     key={i}
                     className="flex gap-3 text-muted-foreground text-sm leading-relaxed"
                   >
-                    <span className="text-primary font-bold flex-shrink-0">•</span>
+                    <span className="text-primary font-bold flex-shrink-0">
+                      •
+                    </span>
+
                     <span>{highlight}</span>
+
                   </li>
 
                 ))}
@@ -94,6 +98,5 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
         </div>
 
       </div>
-    </LazyMotion>
   )
 }
