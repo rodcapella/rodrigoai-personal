@@ -60,15 +60,30 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
             image = "/ai-portrait.jpeg"
           />
 
-          <Suspense fallback={<SectionLoader />}>
+         <Suspense fallback={<SectionLoader />}>
+
+          <div className="space-y-24">
+
             <ProfessionalIntro />
-            <CoreCompetencesSection competences={[]} />
-            <TechStackSection maxYears={maxYears} techStack={[]} />
+
+            <CoreCompetencesSection competences={profile.core_skills} />
+
+            <TechStackSection
+              maxYears={maxYears}
+              techStack={profile.technical_stack}
+            />
+
             <ExperienceTimeline experiences={profile.experience} />
-            <EducationSection />
-            <CertificationsSection certifications={[]} />
-            <LanguagesSection languages={[]} />
-          </Suspense>
+
+            <EducationSection education={profile.education} />
+
+            <CertificationsSection certifications={profile.certifications} />
+
+            <LanguagesSection languages={profile.languages} />
+
+          </div>
+
+        </Suspense>
 
         </main>
       </LazyMotion>
