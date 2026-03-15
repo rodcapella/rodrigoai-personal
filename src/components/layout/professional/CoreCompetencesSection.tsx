@@ -1,6 +1,6 @@
+import React, { lazy } from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import SectionTitle from "@/components/ui/SectionTitle"
-import React, { lazy } from "react"
 
 const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
 

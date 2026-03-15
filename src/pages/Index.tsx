@@ -189,7 +189,9 @@ const Index = ({ theme = 'dark', onToggleTheme }: IndexProps) => {
 
       <main id="main-content">
 
-        <HeroSection />
+        <HeroSection onOpenChat={function (): void {
+          throw new Error("Function not implemented.");
+        } } />
 
         <Suspense fallback={<SectionLoader />}>
           <AboutSection />

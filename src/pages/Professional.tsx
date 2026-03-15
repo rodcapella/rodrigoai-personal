@@ -61,12 +61,12 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
 
           <Suspense fallback={<SectionLoader />}>
             <ProfessionalIntro />
-            <CoreCompetencesSection />
-            <TechStackSection maxYears={maxYears} />
+            <CoreCompetencesSection competences={[]} />
+            <TechStackSection maxYears={maxYears} techStack={[]} />
             <ExperienceTimeline experiences={profile.experience} />
             <EducationSection />
-            <CertificationsSection />
-            <LanguagesSection />
+            <CertificationsSection certifications={[]} />
+            <LanguagesSection languages={[]} />
           </Suspense>
 
         </main>

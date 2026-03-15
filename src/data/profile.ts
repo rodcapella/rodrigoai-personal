@@ -1,3 +1,16 @@
+import {
+  Database,
+  Cloud,
+  Layers,
+  BarChart3,
+  Network,
+  LineChart,
+  Workflow,
+  ShieldCheck,
+  Users,
+  GitBranch
+} from "lucide-react"
+
 export const profile = {
   name: "Rodrigo Póvoa",
 
