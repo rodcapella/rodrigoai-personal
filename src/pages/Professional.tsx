@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { Helmet } from "react-helmet-async"
 import PageHero from "@/components/layout/PageHero"
+import { profile } from "@/data/profile"
 
 const ProfessionalIntro = lazy(() => import("@/components/layout/professional/ProfessionalIntro"))
 const CoreCompetencesSection = lazy(() => import("@/components/layout/professional/CoreCompetencesSection"))
