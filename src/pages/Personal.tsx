@@ -139,7 +139,6 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         <PageHero
           variant="page"
           title="PERSONAL"
-          description = "My personal qualities, tasties, hobbys and thoughts about life."
           subtitle="Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with music, sports and long-term vision."
           image = "/rodrigo_flamengo_porto.png"
         />

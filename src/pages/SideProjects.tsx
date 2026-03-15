@@ -172,7 +172,6 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           variant="page"
           title="SIDE PROJECTS"
           subtitle="Explorations in Data Engineering, AI and Technical Research"
-          description="Independent experiments, prototypes and architectural studies."
           image = "/logo_sapienteai.png"
         />
 

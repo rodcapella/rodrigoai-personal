@@ -29,7 +29,7 @@ export default function InfluencesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SectionTitle icon={BookOpen}>
+            <SectionTitle icon={<BookOpen className="w-8 h-8" />}>
               Influences
             </SectionTitle>
 

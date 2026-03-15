@@ -29,7 +29,7 @@ export default function VisionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SectionTitle icon={Target}>
+           <SectionTitle icon={<Target className="w-8 h-8" />}>
               Long-Term Vision
             </SectionTitle>
 

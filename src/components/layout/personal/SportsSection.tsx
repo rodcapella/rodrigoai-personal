@@ -25,7 +25,7 @@ export default function SportsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SectionTitle icon={Trophy}>
+            <SectionTitle icon={<Trophy className="w-8 h-8" />}>
               Team Spirit
             </SectionTitle>
 
