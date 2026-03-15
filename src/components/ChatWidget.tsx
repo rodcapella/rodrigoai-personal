@@ -117,6 +117,8 @@ const ChatWidget = ({ isOpen, onToggle }: ChatWidgetProps) => {
   return (
     <>
       {/* Floating button */}
+
+import { m } from "framer-motion"
       <AnimatePresence>
         {!isOpen && (
           <m.button

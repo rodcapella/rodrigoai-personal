@@ -52,7 +52,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               </h1>
 
               {/* SUBTITLE */}
-              <m.p
+              <motion.p
                 className="hero-title
                 font-display
                 text-4xl md:text-5xl lg:text-6xl

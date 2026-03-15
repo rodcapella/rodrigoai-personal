@@ -17,9 +17,7 @@ export default function AIExplorationSection() {
 
   return (
       <section className="px-4 mb-20">
-
         <div className="container max-w-4xl mx-auto">
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +50,7 @@ export default function AIExplorationSection() {
 
                 {aiExploration.map((platform, idx) => (
 
-                  <m.span
+                  <motion.span
                     key={idx}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -63,7 +61,7 @@ export default function AIExplorationSection() {
 
                     {platform}
 
-                  </m.span>
+                  </motion.span>
 
                 ))}
 
@@ -72,9 +70,7 @@ export default function AIExplorationSection() {
             </div>
 
           </motion.div>
-
         </div>
-
       </section>
   )
 }
