@@ -84,7 +84,6 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
         </Suspense>
 
         </main>
-      </LazyMotion>
 
       <Footer />
 
