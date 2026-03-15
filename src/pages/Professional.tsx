@@ -51,7 +51,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <LazyMotion features={domAnimation}>
-        <main>
+        <main className="pt-36 pb-24">
 
           <PageHero
             variant="page"

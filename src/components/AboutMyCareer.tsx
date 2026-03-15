@@ -33,27 +33,10 @@ const AboutMyCareer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-
-            <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
-
-              <Suspense fallback={null}>
-                <Briefcase
-                  className="
-                    w-6 h-6
-                    text-primary
-                    transition-all duration-300
-                    group-hover:scale-110
-                    group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                  "
-                />
-              </Suspense>
-
-              <span className="transition-colors duration-300 group-hover:text-primary">
-                About My Career
-              </span>
-
-            </h2>
-
+            <SectionTitle Briefcase={<Cpu className="w-6 h-6" />}>
+              About My Career
+            </SectionTitle>
+            
             <div className="space-y-4">
 
               {funFacts.map((fact, idx) => (

@@ -44,20 +44,9 @@ const ProjectsSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
-              <Rocket
-                className="
-                  w-6 h-6
-                  text-primary
-                  transition-all duration-300
-                  group-hover:scale-110
-                  group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                "
-              />
-              <span className="transition-colors duration-300 group-hover:text-primary">
-                Strategic Projects
-              </span>
-            </h2>
+            <SectionTitle icon={<Rocket className="w-6 h-6" />}>
+              Strategic Projects
+            </SectionTitle>
           </m.div>
 
           <div className="grid gap-6 md:grid-cols-2">

@@ -15,18 +15,38 @@ const SectionTitle = ({
   return (
 
     <h2
-      className={`text-3xl font-bold mb-12 flex items-center gap-3 ${
-        align === "center" ? "justify-center text-center" : ""
-      }`}
+      className={`
+        group
+        text-3xl font-bold mb-12
+        flex items-center gap-3
+        transition-all duration-300
+        hover:tracking-wide
+        ${align === "center" ? "justify-center text-center" : ""}
+      `}
     >
 
       {icon && (
-        <span className="text-primary flex items-center">
+        <span
+          className="
+            text-primary
+            transition-all duration-300
+            group-hover:scale-110
+            group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+            flex items-center
+          "
+        >
           {icon}
         </span>
       )}
 
-      {children}
+      <span
+        className="
+          transition-colors duration-300
+          group-hover:text-primary
+        "
+      >
+        {children}
+      </span>
 
     </h2>
 
