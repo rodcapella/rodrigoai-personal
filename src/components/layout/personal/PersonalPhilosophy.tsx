@@ -1,6 +1,7 @@
 import { lazy } from "react"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { Heart} from "lucide-react"
+import { motion } from "framer-motion";
 
 export default function PersonalPhilosophy() {
 
