@@ -1,6 +1,7 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { lazy, Suspense } from "react";
 import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "lucide-react"
+import SectionTitle from "@/components/layout/SectionTitle"
 
 const WhatDrivesMe = () => {
   const facts = [

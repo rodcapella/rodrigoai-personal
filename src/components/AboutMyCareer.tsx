@@ -1,9 +1,7 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { lazy, Suspense } from "react"
-
-const Briefcase = lazy(() =>
-  import("lucide-react").then(m => ({ default: m.Briefcase }))
-)
+import { Briefcase} from "lucide-react"
+import SectionTitle from "@/components/layout/SectionTitle"
 
 const ChevronRight = lazy(() =>
   import("lucide-react").then(m => ({ default: m.ChevronRight }))
@@ -36,7 +34,7 @@ const AboutMyCareer = () => {
             <SectionTitle Briefcase={<Cpu className="w-6 h-6" />}>
               About My Career
             </SectionTitle>
-            
+
             <div className="space-y-4">
 
               {funFacts.map((fact, idx) => (

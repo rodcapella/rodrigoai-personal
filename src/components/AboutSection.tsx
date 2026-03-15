@@ -1,12 +1,10 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section"
+import SectionTitle from "@/components/layout/SectionTitle"
+import { User} from "lucide-react"
 
-import { lazy } from "react"
 
-const User = lazy(() =>
-  import("lucide-react").then(m => ({ default: m.User }))
-)
 
 const AboutSection = () => {
   return (

@@ -1,10 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-
-import { lazy } from "react"
-
-const Rocket = lazy(() =>
-  import("lucide-react").then(m => ({ default: m.Rocket }))
-)
+import SectionTitle from "@/components/layout/SectionTitle"
+import { Rocket} from "lucide-react"
 
 const projects = [
     {
