@@ -104,7 +104,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           property="og:image"
-          content="https://www.rpovoadata.tech/logo_sapienteai.png"
+          content="https://www.rpovoadata.tech/public/logo_sapienteai.png"
         />
 
         {/* Twitter */}
@@ -119,7 +119,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://www.rpovoadata.tech/logo_sapienteai.png"
+          content="https://www.rpovoadata.tech/public/logo_sapienteai.png"
         />
 
         {/* Structured Data */}
@@ -201,7 +201,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 >
 
                   <img
-                    src="/logo_sapienteai.png"
+                    src="/public/logo_sapienteai.png"
                     alt="SapienteAI Logo"
                     className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
                   />
@@ -379,7 +379,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           >
             <div className="flex justify-center mb-6">
               <img
-                src="/banner_SapienteAI.png"
+                src="/public/banner_SapienteAI.png"
                 alt="SapienteAI Banner"
                 className="h-48 w-auto opacity-90"
               />

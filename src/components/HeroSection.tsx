@@ -34,39 +34,40 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             >
 
               {/* TITLE */}
-              <p className="
-                text-primary/80
-                uppercase
-                tracking-[0.25em]
-                text-xs
-                font-semibold
-                mb-6
-              ">
-                DATA ANALYTICS ENGINEER • TEAM LEADER
-              </p>
-
-              {/* HERO STATEMENT */}
-              <m.h1
+              <h1
                 className="
                 font-display
-                text-5xl md:text-6xl lg:text-7xl
-                font-bold
-                leading-[1.05]
-                tracking-tight
-                mb-10
+                text-3xl md:text-4xl
+                font-extrabold
+                uppercase
+                tracking-[0.18em]
+                mb-6
                 bg-gradient-to-r
-                from-white
-                to-gray-400
+                from-primary
+                to-secondary
                 bg-clip-text
                 text-transparent
                 "
               >
-                Designing Enterprise
+                DATA ANALYTICS ENGINEER • TEAM LEADER
+              </h1>
+
+              {/* SUBTITLE */}
+              <m.p
+                className="hero-title
+                font-display
+                text-4xl md:text-5xl lg:text-6xl
+                font-semibold
+                leading-[1.1]
+                tracking-tight
+                text-foreground/90
+                mb-10
+              "
+              >
+                Designing Enterprise Data Platforms
                 <br />
-                Data <span className="text-primary">Platforms</span> That <span className="text-primary">Scale</span>, Govern
-                <br />
-                and Drive Decisions.
-              </m.h1>
+                That Scale, Govern and Drive Decisions.
+              </m.p>
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row items-start gap-4">

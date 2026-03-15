@@ -5,7 +5,7 @@ const Footer = () => (
       {/* Logo com glow sutil */}
       <div className="relative">
         <img
-          src="/logo_fundo_transparente.png"
+          src="/public/logo_fundo_transparente.png"
           alt="Rodrigo Póvoa Logo"
           className="h-16 md:h-20 w-auto opacity-90 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
         />
