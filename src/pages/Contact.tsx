@@ -211,7 +211,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
             "@type": "Organization",
             "name": "Rodrigo Póvoa",
             "url": "https://www.rpovoadata.tech",
-            "logo": "https://www.rpovoadata.tech/public/rodrigo_contact_image.png",
+            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
             "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
             "sameAs": [
               "https://www.linkedin.com/in/rodrigopovoa",
@@ -239,9 +239,11 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
 
           {/* HERO */}
           <PageHero
-            title="Let’s Connect"
-            subtitle="Interested in data architecture, scalable analytics or collaboration opportunities? I'm always open to meaningful conversations."
-            image="/public/rodrigo_contact_image.png"
+            variant="page"
+            title="LET'S CONNECT"
+            subtitle="Open to Strategic Data Architecture and Analytics Leadership Opportunities"
+            description="Feel free to reach out if you want to discuss data platforms, architecture or collaboration."
+            image="/rodrigo_contact_image.png"
           />
 
           {/* CONTACT FORM */}

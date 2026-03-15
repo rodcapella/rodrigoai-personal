@@ -79,7 +79,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           content="15+ years building data systems. Three levels of mastery. Sapiente.AI — AI-native data platforms."
         />
         <meta property="og:url" content="https://www.rpovoadata.tech/why-me" />
-        <meta property="og:image" content="https://www.rpovoadata.tech/public/rodrigo_why_me.png" />
+        <meta property="og:image" content="https://www.rpovoadata.tech/rodrigo_why_me.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -88,7 +88,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           name="twitter:description"
           content="Data architecture defines organizational intelligence. Here's why that matters."
         />
-        <meta name="twitter:image" content="https://www.rpovoadata.tech/public/rodrigo_why_me.png" />
+        <meta name="twitter:image" content="https://www.rpovoadata.tech/rodrigo_why_me.png" />
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
@@ -102,7 +102,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             "@type": "Organization",
             "name": "Rodrigo Póvoa",
             "url": "https://www.rpovoadata.tech",
-            "logo": "https://www.rpovoadata.tech/public/rodrigo_contact_image.png",
+            "logo": "https://www.rpovoadata.tech/rodrigo_contact_image.png",
             "description": "Enterprise Data Architect and Analytics Platform Leader specializing in Azure, Databricks and modern Lakehouse architectures.",
             "sameAs": [
               "https://www.linkedin.com/in/rodrigopovoa",
@@ -126,9 +126,11 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           <main className="pt-36 pb-24">
           {/* HERO PADRONIZADO */}
             <PageHero
-              title="Why Work With Me"
+              variant="page"
+              title="WHY WORK WITH ME"
               subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
-              image="/public/rodrigo_why_me.png"
+              image="/rodrigo_why_me.png"
+              description="My philosophy about building scalable, governed and business-driven data platforms."
             />
 
             {/* Leadership Philosophy */}

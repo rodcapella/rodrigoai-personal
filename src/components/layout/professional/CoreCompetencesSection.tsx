@@ -1,8 +1,7 @@
-import React, { lazy } from "react"
+import React from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
+import { Award } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
-
-const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
 
 interface CoreCompetencesSectionProps {
   competences: string[]

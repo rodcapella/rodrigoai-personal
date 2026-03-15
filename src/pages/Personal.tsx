@@ -82,7 +82,7 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         />
         <meta
           property="og:image"
-          content="https://www.rpovoadata.tech/public/rodrigo_flamengo_porto.png"
+          content="https://www.rpovoadata.tech/rodrigo_flamengo_porto.png"
         />
 
         {/* Twitter */}
@@ -94,7 +94,7 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://www.rpovoadata.tech/public/rodrigo_flamengo_porto.png"
+          content="https://www.rpovoadata.tech/rodrigo_flamengo_porto.png"
         />
 
         {/* Structured Data */}
@@ -103,7 +103,7 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
             "@context": "https://schema.org",
             "@type": "Person",
             "mainEntityOfPage": "https://www.rpovoadata.tech/personal",
-            "image": "https://www.rpovoadata.tech/public/rodrigo_flamengo_porto.png",
+            "image": "https://www.rpovoadata.tech/rodrigo_flamengo_porto.png",
             "nationality": "Brazilian",
             "knowsLanguage": ["Portuguese","English"],
             "address": {
@@ -137,8 +137,11 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
       <main className="pt-36 pb-24">
 
         <PageHero
-          title="Personal"
+          variant="page"
+          title="PERSONAL"
+          description = "My personal qualities, tasties, hobbys and thoughts about life."
           subtitle="Beyond data architecture projects, I combine analytical rigor with cultural curiosity, balancing engineering excellence with music, sports and long-term vision."
+          image = "/rodrigo_flamengo_porto.png"
         />
 
         <Suspense fallback={<SectionLoader />}>

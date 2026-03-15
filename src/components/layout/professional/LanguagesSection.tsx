@@ -1,7 +1,6 @@
-import React, { lazy } from "react"
+import React from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-const Globe = lazy(() => import("lucide-react").then(m => ({ default: m.Globe })));
+import { Globe } from "lucide-react"
 
 interface Language {
   language: string

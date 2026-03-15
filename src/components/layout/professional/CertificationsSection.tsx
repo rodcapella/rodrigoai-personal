@@ -1,7 +1,6 @@
+import React from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
-import React, { lazy } from "react"
-
-const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
+import { Award } from "lucide-react"
 
 interface CertificationsSectionProps {
   certifications: string[]

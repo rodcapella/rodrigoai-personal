@@ -104,7 +104,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           property="og:image"
-          content="https://www.rpovoadata.tech/public/logo_sapienteai.png"
+          content="https://www.rpovoadata.tech/logo_sapienteai.png"
         />
 
         {/* Twitter */}
@@ -119,7 +119,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://www.rpovoadata.tech/public/logo_sapienteai.png"
+          content="https://www.rpovoadata.tech/logo_sapienteai.png"
         />
 
         {/* Structured Data */}
@@ -168,49 +168,13 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       <LazyMotion features={domAnimation}>
         <main className="pt-36 pb-24">
         {/* HERO */}
-          <section className="px-4 mb-24">
-            <div className="container max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-
-                <m.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-
-                  <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-6">
-                    Sapiente.AI
-                  </h1>
-
-                  <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                  Enterprise AI Architecture Experiments
-                  </h2>
-
-                  <p className="text-base text-muted-foreground leading-relaxed max-w-3xl">
-                    Sapiente.AI is my independent innovation studio focused on exploring how artificial intelligence
-                    is transforming enterprise data architecture, automation and digital strategy.
-                  </p>
-
-                </m.div>
-
-                <m.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8 }}
-                  className="rounded-2xl shadow-2xl border border-primary/20 w-[220px] transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.35)]"
-                >
-
-                  <img
-                    src="/public/logo_sapienteai.png"
-                    alt="SapienteAI Logo"
-                    className="rounded-2xl shadow-2xl border border-primary/20 w-[170px]"
-                  />
-
-                </m.div>
-
-              </div>
-            </div>
-          </section>
+        <PageHero
+          variant="page"
+          title="SIDE PROJECTS"
+          subtitle="Explorations in Data Engineering, AI and Technical Research"
+          description="Independent experiments, prototypes and architectural studies."
+          image = "/logo_sapienteai.png"
+        />
 
           {/* SapienteAI - The Next Generation */}
           <section className="px-4 mb-20">
@@ -379,7 +343,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           >
             <div className="flex justify-center mb-6">
               <img
-                src="/public/banner_SapienteAI.png"
+                src="/banner_SapienteAI.png"
                 alt="SapienteAI Banner"
                 className="h-48 w-auto opacity-90"
               />

@@ -1,7 +1,6 @@
-import React, { lazy } from "react"
+import React from "react"
+import { Briefcase } from "lucide-react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
-
-const Briefcase = lazy(() => import("lucide-react").then(m => ({ default: m.Briefcase })));
 
 interface Experience {
   title: string
