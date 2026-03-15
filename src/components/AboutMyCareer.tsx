@@ -31,7 +31,7 @@ const AboutMyCareer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <SectionTitle Briefcase={<Cpu className="w-6 h-6" />}>
+            <SectionTitle icon={<Briefcase className="w-6 h-6" />}>
               About My Career
             </SectionTitle>
 
