@@ -26,28 +26,22 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
 
           <div className="grid md:grid-cols-2 gap-6">
 
-            {competences?.map((item, idx) => (
-              <m.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
-              >
+            {competences.map((competence, i) => {
 
-                <div className="flex items-start gap-3">
+              const Icon = competence.icon
 
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+              return (
+                <div key={i} className="flex items-start gap-4">
 
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item}
+                  <Icon className="w-6 h-6 text-primary" />
+
+                  <p className="text-muted-foreground">
+                    {competence.title}
                   </p>
 
                 </div>
-
-              </m.div>
-            ))}
+              )
+            })}
 
           </div>
 
