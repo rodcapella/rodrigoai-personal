@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { motion } from "framer-motion"
 
 interface PageHeroProps {
   title: string
@@ -16,7 +16,6 @@ const PageHero = ({
   variant = "page"
 }: PageHeroProps) => {
   return (
-    <LazyMotion features={domAnimation}>
       <section className="relative px-4 py-20 overflow-hidden">
 
         {/* Grid background */}
@@ -87,7 +86,6 @@ const PageHero = ({
         </div>
 
       </section>
-    </LazyMotion>
   )
 }
 

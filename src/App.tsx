@@ -3,9 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
-
 import { LazyMotion, domAnimation } from "framer-motion";
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const Index = lazy(() => import("./pages/Index"));
