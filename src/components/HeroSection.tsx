@@ -66,7 +66,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 Designing Enterprise Data Platforms
                 <br />
                 That Scale, Govern and Drive Decisions.
-              </m.p>
+              </motion.p>
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row items-start gap-4">
