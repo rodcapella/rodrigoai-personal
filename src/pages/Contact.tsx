@@ -241,8 +241,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
           <PageHero
             variant="page"
             title="LET'S CONNECT"
-            subtitle="Open to Strategic Data Architecture and Analytics Leadership Opportunities"
-            description="Feel free to reach out if you want to discuss data platforms, architecture or collaboration."
+            subtitle="Feel free to reach out if you want to discuss data platforms, architecture or collaboration."
             image="/rodrigo_contact_image.png"
           />
 

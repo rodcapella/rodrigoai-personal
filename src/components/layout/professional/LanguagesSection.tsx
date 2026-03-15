@@ -1,6 +1,7 @@
 import React from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Globe } from "lucide-react"
+import SectionTitle from "@/components/ui/SectionTitle"
 
 interface Language {
   language: string
@@ -22,12 +23,9 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-            <Globe className="w-8 h-8 text-primary" />
+          <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
-          </h2>
-
+          </SectionTitle>
           <div className="grid md:grid-cols-3 gap-6">
 
             {languages?.map((lang, idx) => (

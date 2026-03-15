@@ -1,6 +1,7 @@
 import React from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Award } from "lucide-react"
+import SectionTitle from "@/components/ui/SectionTitle"
 
 interface CertificationsSectionProps {
   certifications: string[]
@@ -17,12 +18,9 @@ export default function CertificationsSection({ certifications }: Certifications
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-            <Award className="w-8 h-8 text-primary" />
+          <SectionTitle icon={<Award className="w-6 h-6" />}>
             Certifications & Courses
-          </h2>
-
+          </SectionTitle>
           <div className="grid md:grid-cols-2 gap-6">
 
             {certifications?.map((cert, idx) => (

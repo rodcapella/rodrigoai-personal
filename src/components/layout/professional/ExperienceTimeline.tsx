@@ -1,6 +1,7 @@
 import React from "react"
 import { Briefcase } from "lucide-react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
+import SectionTitle from "@/components/ui/SectionTitle"
 
 interface Experience {
   title: string
@@ -21,16 +22,9 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
     <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
 
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-            <Briefcase className="w-8 h-8 text-primary" />
+          <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
             Professional Experience
-          </h2>
+          </SectionTitle>
 
           <div className="space-y-10">
 
@@ -98,8 +92,6 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                   </div>
 
                 </div>
-
-              </m.div>
 
             ))}
 
