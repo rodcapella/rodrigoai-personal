@@ -3,6 +3,8 @@ import { lazy } from "react";
 
 const Sparkles = lazy(() => import("lucide-react").then(m => ({ default: m.Sparkles })));
 
+import SectionTitle from "@/components/layout/SectionTitle"
+
 const aiExploration = [
   "OpenAI",
   "Claude",

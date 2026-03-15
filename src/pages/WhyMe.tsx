@@ -39,27 +39,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
     }
   ];
 
-  const sapienteAIPoints = [
-    {
-      icon: Brain,
-      title: "The Problem We Solve",
-      description: "Companies adopt AI without robust data architecture—resulting in unscalable projects, unreliable models, and prototypes that never go live. We fix this.",
-      metric: "AI-native from day one"
-    },
-    {
-      icon: Lightbulb,
-      title: "Our Approach",
-      description: "Data, governance, automation, and AI are designed as one integrated system. Every solution is built on deep expertise and best-in-class AI tools for maximum productivity and quality.",
-      metric: "Integrated architecture"
-    },
-    {
-      icon: Zap,
-      title: "Three Revenue Streams",
-      description: "Applied research in AI architectures • Experimental product development • Strategic advisory for AI-ready data platforms • Digital transformation services (automation, branding, SEO/GEO/AEO)",
-      metric: "Hybrid innovation studio"
-    }
-  ];
-
   const leadershipPillars = [
     {
       title: "Engineering First",
@@ -156,9 +135,24 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
               <div className="container max-w-4xl mx-auto">
 
-                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                  <Brain className="text-primary" />
-                  Leadership Philosophy
+                <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+
+                              <Suspense fallback={null}>
+                                <Brain
+                                  className="
+                                    w-6 h-6
+                                    text-primary
+                                    transition-all duration-300
+                                    group-hover:scale-110
+                                    group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                                  "
+                                />
+                              </Suspense>
+
+                              <span className="transition-colors duration-300 group-hover:text-primary">
+                                Leadership Philosophy
+                              </span>
+
                 </h2>
 
                 <div className="grid md:grid-cols-3 gap-6">
@@ -191,12 +185,25 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           {/* DIFFERENTIATORS */}
             <section className="px-4 mb-20">
               <div className="container max-w-4xl mx-auto">
+                <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
 
-                <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                  <Zap className="text-primary" />
-                What sets me apart from other data leaders:
+                  <Suspense fallback={null}>
+                    <Zap
+                      className="
+                        w-6 h-6
+                        text-primary
+                        transition-all duration-300
+                        group-hover:scale-110
+                        group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                      "
+                    />
+                  </Suspense>
+
+                  <span className="transition-colors duration-300 group-hover:text-primary">
+                    What sets me apart from other data leaders:
+                  </span>
+
                 </h2>
-
                 <div className="space-y-6">
                   {differentiators.map((diff, idx) => {
                     const Icon = diff.icon;
@@ -239,10 +246,25 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   transition={{ duration: 0.6 }}
                   className="bg-transparent rounded-2xl p-8 border border-primary/10"
                 >
-                  <h3 className="text-xl font-semibold mb-4">
-                    <Lightbulb className="text-primary w-6 h-6" />
-                    My Vision
-                  </h3>
+                  <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+
+                    <Suspense fallback={null}>
+                      <Lightbulb
+                        className="
+                          w-6 h-6
+                          text-primary
+                          transition-all duration-300
+                          group-hover:scale-110
+                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                        "
+                      />
+                    </Suspense>
+
+                    <span className="transition-colors duration-300 group-hover:text-primary">
+                      My Vision
+                    </span>
+
+                  </h2>
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
                       <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
@@ -273,10 +295,25 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h3 className="text-xl font-semibold mb-4">
-                    <Users className="text-primary w-6 h-6" />
-                    What This Means For You
-                  </h3>
+                  <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+
+                    <Suspense fallback={null}>
+                      <Users
+                        className="
+                          w-6 h-6
+                          text-primary
+                          transition-all duration-300
+                          group-hover:scale-110
+                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                        "
+                      />
+                    </Suspense>
+
+                    <span className="transition-colors duration-300 group-hover:text-primary">
+                      What This Means For You
+                    </span>
+
+                  </h2>
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                       <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>

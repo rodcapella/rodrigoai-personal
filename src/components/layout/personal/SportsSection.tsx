@@ -3,6 +3,8 @@ import { lazy } from "react"
 
 const Trophy = lazy(() => import("lucide-react").then(m => ({ default: m.Trophy })));
 
+import SectionTitle from "@/components/layout/SectionTitle"
+
 const sportsTeams = [
   { team: "Flamengo", country: "Brazil", emoji: "🔴⚫" },
   { team: "FC Porto", country: "Portugal", emoji: "🔵⚪" }

@@ -3,6 +3,8 @@ import { lazy } from "react"
 
 const Target = lazy(() => import("lucide-react").then(m => ({ default: m.Target })));
 
+import SectionTitle from "@/components/layout/SectionTitle"
+
 const longTermVision = [
   "Building intelligent systems",
   "Bridging data & decision layers",

@@ -110,6 +110,17 @@
   }
 }
 
+@layer components {
+  .skill-card svg {
+  transition: transform .25s ease, filter .25s ease;
+}
+
+  .skill-card:hover svg {
+    transform: scale(1.12) rotate(-3deg);
+    filter: drop-shadow(0 0 8px hsl(var(--primary) / .6));
+  }
+}
+
 @layer utilities {
 
   /* Glow utilities */

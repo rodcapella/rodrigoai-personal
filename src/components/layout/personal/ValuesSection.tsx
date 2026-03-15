@@ -3,6 +3,8 @@ import { lazy } from "react"
 
 const Heart = lazy(() => import("lucide-react").then(m => ({ default: m.Heart })));
 
+import SectionTitle from "@/components/layout/SectionTitle"
+
 const personalValues = [
   {
     title: "Analytical Mindset",

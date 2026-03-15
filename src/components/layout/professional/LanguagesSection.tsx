@@ -1,5 +1,7 @@
-import { Globe } from "lucide-react"
+import React, { lazy } from "react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
+
+const Globe = lazy(() => import("lucide-react").then(m => ({ default: m.Globe })));
 
 interface Language {
   language: string
@@ -29,7 +31,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
           <div className="grid md:grid-cols-3 gap-6">
 
-            {languages.map((lang, idx) => (
+            {languages?.map((lang, idx) => (
 
               <m.div
                 key={idx}

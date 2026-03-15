@@ -1,7 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import SectionTitle from "@/components/ui/SectionTitle"
-
-import { Award } from "react";
+import React, { lazy } from "react"
 
 const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
 
@@ -28,7 +27,7 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
 
           <div className="grid md:grid-cols-2 gap-6">
 
-            {competences.map((item, idx) => (
+            {competences?.map((item, idx) => (
               <m.div
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}

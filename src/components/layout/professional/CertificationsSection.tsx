@@ -1,5 +1,7 @@
-import { Award } from "lucide-react"
 import { LazyMotion, domAnimation, m } from "framer-motion"
+import React, { lazy } from "react"
+
+const Award = lazy(() => import("lucide-react").then(m => ({ default: m.Award })));
 
 interface CertificationsSectionProps {
   certifications: string[]
@@ -24,7 +26,7 @@ export default function CertificationsSection({ certifications }: Certifications
 
           <div className="grid md:grid-cols-2 gap-6">
 
-            {certifications.map((cert, idx) => (
+            {certifications?.map((cert, idx) => (
 
               <m.div
                 key={idx}

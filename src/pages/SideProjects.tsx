@@ -215,25 +215,53 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           {/* SapienteAI - The Next Generation */}
           <section className="px-4 mb-20">
             <div className="container max-w-4xl mx-auto">
+              <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
 
-            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-              <Cpu className="w-6 h-6 text-primary" />
-              Sapiente.AI: The Next Generation
-            </h2>
+                    <Suspense fallback={null}>
+                      <Cpu
+                        className="
+                          w-6 h-6
+                          text-primary
+                          transition-all duration-300
+                          group-hover:scale-110
+                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                        "
+                      />
+                    </Suspense>
+
+                    <span className="transition-colors duration-300 group-hover:text-primary">
+                      Sapiente.AI: The Next Generation
+                    </span>
+
+              </h2>
 
               <div className="mb-12 space-y-6 max-w-3xl">
                 <p className="text-lg leading-relaxed">
                   My 15 years building data systems revealed a critical insight:
                   <span className="text-primary font-semibold">
-                    {" "}the next generation of data platforms must be AI-native from inception.
+                    {" "} the next generation of data platforms must be AI-native from inception.
                   </span>
                 </p>
 
                 <p className="text-muted-foreground leading-relaxed">
-                  Sapiente.AI is where I explore this frontier—combining deep data engineering
+                  Sapiente.AI is where I explore this frontier: combining deep data engineering
                   expertise with AI innovation to build the platforms enterprises need to
                   compete in the AI era.
                 </p>
+                <div className="space-y-6 text-muted-foreground leading-relaxed">
+                  <p>
+                  Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
+                </p>
+                <p>
+                  It operates as a structured experimentation environment where AI-native systems, governance frameworks, and scalable data platforms are designed, tested, and refined beyond the constraints of client-driven projects.
+                </p>
+                <p>
+                  Each initiative explores how AI can be embedded into data ecosystems, governance models, and automation pipelines to enhance scalability, reliability, and strategic decision-making.
+                </p>
+                <p>
+                  The goal is not experimentation for novelty, but disciplined innovation—bridging enterprise data rigor with AI-native thinking.
+                </p>
+                </div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-6">
@@ -264,38 +292,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               </div>
             </div>
           </section>
-
-        {/* Project Philosophy */}
-        <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-          <div className="container max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Cpu className="w-6 h-6 text-primary" />
-                Sapiente.AI: The Next Generation
-              </h2>
         
-              <div className="space-y-6 text-muted-foreground leading-relaxed">
-                <p>
-                Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
-              </p>
-              <p>
-                It operates as a structured experimentation environment where AI-native systems, governance frameworks, and scalable data platforms are designed, tested, and refined beyond the constraints of client-driven projects.
-              </p>
-              <p>
-                Each initiative explores how AI can be embedded into data ecosystems, governance models, and automation pipelines to enhance scalability, reliability, and strategic decision-making.
-              </p>
-              <p>
-                The goal is not experimentation for novelty, but disciplined innovation—bridging enterprise data rigor with AI-native thinking.
-              </p>
-              </div>
-            </m.div>
-          </div>
-        </section>
-          
         {/* Project Focus Areas */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
@@ -304,11 +301,25 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-                <Zap className="w-6 h-6 text-primary" />
-                Project Focus Areas
+              <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+
+                    <Suspense fallback={null}>
+                      <Zap
+                        className="
+                          w-6 h-6
+                          text-primary
+                          transition-all duration-300
+                          group-hover:scale-110
+                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+                        "
+                      />
+                    </Suspense>
+
+                    <span className="transition-colors duration-300 group-hover:text-primary">
+                      Project Focus Areas
+                    </span>
+
               </h2>
-        
               <div className="grid md:grid-cols-2 gap-8">
               {projectCategories.map((category, idx) => {
 

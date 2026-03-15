@@ -14,7 +14,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
 
       <div className="grid md:grid-cols-2 gap-8">
 
-        {techStack.map((group) => (
+        {techStack?.map((group) => (
 
           <div
             key={group.category}

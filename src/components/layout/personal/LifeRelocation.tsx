@@ -3,6 +3,8 @@ import { lazy } from "react"
 
 const Compass = lazy(() => import("lucide-react").then(m => ({ default: m.Compass })));
 
+import SectionTitle from "@/components/layout/SectionTitle"
+
 export default function LifeRelocation() {
 
   return (

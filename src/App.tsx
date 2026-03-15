@@ -3,8 +3,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
-import { PersonSchema } from "@/components/seo/PersonSchema";
-import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
 
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";

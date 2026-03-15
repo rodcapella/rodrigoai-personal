@@ -3,6 +3,8 @@ import { lazy } from "react"
 
 const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
 
+import SectionTitle from "@/components/layout/SectionTitle"
+
 const influences = [
   { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
   { category: "Global Leaders", items: ["Martin Luther King Jr.", "Nelson Mandela", "Princess Diana"] },
