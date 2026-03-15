@@ -19,8 +19,8 @@ const SectionTitle = ({
         group
         text-3xl font-bold mb-12
         flex items-center gap-3
-        transition-all duration-300
-        hover:tracking-wide
+        transition-transform duration-300
+        hover:scale-[1.02]
         ${align === "center" ? "justify-center text-center" : ""}
       `}
     >
@@ -29,7 +29,7 @@ const SectionTitle = ({
         <span
           className="
             text-primary
-            transition-all duration-300
+            transition-transform duration-300
             group-hover:scale-110
             group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
             flex items-center

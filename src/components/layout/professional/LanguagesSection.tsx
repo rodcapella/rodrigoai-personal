@@ -4,7 +4,7 @@ import { Globe } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
 
 interface Language {
-  language: string
+  name: string
   level: string
 }
 
@@ -17,12 +17,6 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
   return (
     <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
-
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
           <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
           </SectionTitle>
@@ -41,14 +35,12 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
               >
 
                 <h3 className="text-xl font-semibold mb-4">
-                  {lang.language}
+                  {lang.name}
                 </h3>
 
                 <p className="text-sm text-muted-foreground">
                   {lang.level}
                 </p>
-
-              </m.div>
 
             ))}
 
