@@ -27,8 +27,6 @@ const icons = [
 const ExpertiseSection = () => {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <Section className="relative px-4 py-16" id="expertise">
 
         <motion.div
@@ -100,8 +98,6 @@ const ExpertiseSection = () => {
         </div>
 
       </Section>
-
-    </LazyMotion>
   );
 };
 

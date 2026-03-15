@@ -12,7 +12,6 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
   return (
-    <LazyMotion features={domAnimation}>
       <Section variant="hero">
 
         {/* Grid background */}
@@ -164,7 +163,6 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
         </motion.div>
 
       </Section>
-    </LazyMotion>
   );
 };
 

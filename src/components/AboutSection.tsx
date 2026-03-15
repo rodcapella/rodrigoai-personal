@@ -8,7 +8,6 @@ import { User} from "lucide-react"
 
 const AboutSection = () => {
   return (
-    <LazyMotion features={domAnimation}>
       <Section>
         <div className="container max-w-4xl mx-auto">
 
@@ -45,7 +44,6 @@ const AboutSection = () => {
 
         </div>
       </Section>
-    </LazyMotion>
   );
 };
 

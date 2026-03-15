@@ -20,7 +20,6 @@ const AboutMyCareer = () => {
   ]
 
   return (
-    <LazyMotion features={domAnimation}>
       <section className="px-4 py-20">
 
         <div className="container max-w-4xl mx-auto">
@@ -85,7 +84,6 @@ const AboutMyCareer = () => {
         </div>
 
       </section>
-    </LazyMotion>
   )
 }
 

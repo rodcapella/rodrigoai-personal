@@ -1,4 +1,3 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
 import { lazy } from "react"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { Heart} from "lucide-react"
@@ -6,8 +5,6 @@ import { Heart} from "lucide-react"
 export default function PersonalPhilosophy() {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
 
         <div className="container max-w-4xl mx-auto">
@@ -40,7 +37,5 @@ export default function PersonalPhilosophy() {
         </div>
 
       </section>
-
-    </LazyMotion>
   )
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { LazyMotion, domAnimation, m } from "framer-motion";
 import { lazy, Suspense } from "react"
 import { Github, Linkedin, Sun, Moon, Menu, X } from "lucide-react"
+import { motion } from "framer-motion"
 
 const links = [
   { href: "/", label: "Home" },
@@ -36,7 +36,6 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
   }, []);
 
   return (
-    <LazyMotion features={domAnimation}>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled ? "glass py-3 border-b border-primary/20" : "py-5"
@@ -183,7 +182,6 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
           </div>
         </div>
       </nav>
-    </LazyMotion>
   );
 };
 

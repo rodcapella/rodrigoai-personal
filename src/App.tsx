@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 
+import { LazyMotion, domAnimation } from "framer-motion";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -49,30 +50,32 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-    
-        <div className="theme-provider" data-theme={theme}>
-          <Suspense
-                fallback={
-                  <div className="min-h-screen flex items-center justify-center text-muted-foreground">
-                    Loading...
-                  </div>
-                }
-              >
-                <Routes>
-                  <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
-                  <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-                  <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
-                  <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
-                  <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
-                  <Route path="/why-me" element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />} />
-                </Routes>
-          </Suspense>
-        </div>
-    
-        {import.meta.env.PROD && <Analytics />}
-      </TooltipProvider>
+      <LazyMotion features={domAnimation}>
+        <TooltipProvider>
+          <Toaster />
+
+          <div className="theme-provider" data-theme={theme}>
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center text-muted-foreground">
+                  Loading...
+                </div>
+              }
+            >
+              <Routes>
+                <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/why-me" element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />} />
+              </Routes>
+            </Suspense>
+          </div>
+
+          {import.meta.env.PROD && <Analytics />}
+        </TooltipProvider>
+      </LazyMotion>
     </QueryClientProvider>
   );
 };
