@@ -1,10 +1,10 @@
-import { m } from "framer-motion"
+import { motion } from "framer-motion"
 
 export default function ProfessionalIntro() {
   return (
     <div className="container max-w-4xl mx-auto">
 
-      <m.div
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -18,7 +18,7 @@ export default function ProfessionalIntro() {
           data initiatives across engineering and analytics domains.
         </p>
 
-      </m.div>
+      </motion.div>
 
     </div>
   )

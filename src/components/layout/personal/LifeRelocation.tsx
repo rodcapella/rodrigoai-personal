@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { motion } from "framer-motion"
 import { lazy } from "react"
 
 const Compass = lazy(() => import("lucide-react").then(m => ({ default: m.Compass })));
@@ -8,13 +8,11 @@ import SectionTitle from "@/components/layout/SectionTitle"
 export default function LifeRelocation() {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <section className="px-4 mb-20">
 
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -42,12 +40,10 @@ export default function LifeRelocation() {
 
             </div>
 
-          </m.div>
+          </motion.div>
 
         </div>
 
       </section>
-
-    </LazyMotion>
   )
 }

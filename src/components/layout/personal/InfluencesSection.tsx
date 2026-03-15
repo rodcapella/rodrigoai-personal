@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { motion } from "framer-motion"
 import { lazy } from "react"
 import { BookOpen} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
@@ -15,13 +15,11 @@ const influences = [
 export default function InfluencesSection() {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <section className="px-4 mb-20">
 
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -35,7 +33,7 @@ export default function InfluencesSection() {
 
               {influences.map((section, idx) => (
 
-                <m.div
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -66,18 +64,16 @@ export default function InfluencesSection() {
 
                   </ul>
 
-                </m.div>
+                </motion.div>
 
               ))}
 
             </div>
 
-          </m.div>
+          </motion.div>
 
         </div>
 
       </section>
-
-    </LazyMotion>
   )
 }

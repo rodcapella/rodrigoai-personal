@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion"
 import Section from "@/components/layout/Section";
 import { lazy, Suspense } from "react";
 
@@ -26,7 +26,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
           <div className="grid md:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
 
             {/* LEFT SIDE */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -94,10 +94,10 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
 
               </div>
 
-            </m.div>
+            </motion.div>
 
             {/* RIGHT SIDE */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -138,14 +138,14 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
 
               </div>
 
-            </m.div>
+            </motion.div>
 
           </div>
 
         </div>
 
         {/* Scroll indicator */}
-        <m.div
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
@@ -161,7 +161,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             </Suspense>
 
           </a>
-        </m.div>
+        </motion.div>
 
       </Section>
     </LazyMotion>

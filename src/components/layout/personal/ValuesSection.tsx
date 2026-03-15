@@ -1,7 +1,6 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
-import { lazy } from "react"
 import { Heart} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
+import { motion } from "framer-motion"
 
 const personalValues = [
   {
@@ -33,13 +32,11 @@ const personalValues = [
 export default function ValuesSection() {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
 
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -53,7 +50,7 @@ export default function ValuesSection() {
 
               {personalValues.map((value, idx) => (
 
-                <m.div
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -70,18 +67,16 @@ export default function ValuesSection() {
                     {value.description}
                   </p>
 
-                </m.div>
+                </motion.div>
 
               ))}
 
             </div>
 
-          </m.div>
+          </motion.div>
 
         </div>
 
       </section>
-
-    </LazyMotion>
   )
 }

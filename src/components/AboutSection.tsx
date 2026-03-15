@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion"
 import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section"
 import SectionTitle from "@/components/layout/SectionTitle"
@@ -12,7 +12,7 @@ const AboutSection = () => {
       <Section>
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -41,7 +41,7 @@ const AboutSection = () => {
               {profile.positioning_statement}
             </p>
 
-          </m.div>
+          </motion.div>
 
         </div>
       </Section>

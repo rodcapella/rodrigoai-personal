@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { Rocket} from "lucide-react"
 
@@ -31,10 +31,9 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <LazyMotion features={domAnimation}>
       <section id="projects" className="py-32 relative">
         <div className="container max-w-4xl mx-auto">
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -43,11 +42,11 @@ const ProjectsSection = () => {
             <SectionTitle icon={<Rocket className="w-6 h-6" />}>
               Strategic Projects
             </SectionTitle>
-          </m.div>
+          </motion.div>
 
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project, i) => (
-              <m.div
+              <motion.div
                 key={project.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -73,12 +72,11 @@ const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-              </m.div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
-    </LazyMotion>
   );
 };
 

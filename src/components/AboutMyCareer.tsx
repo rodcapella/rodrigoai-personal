@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { motion } from "framer-motion"
 import { lazy, Suspense } from "react"
 import { Briefcase} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
@@ -25,7 +25,7 @@ const AboutMyCareer = () => {
 
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -39,7 +39,7 @@ const AboutMyCareer = () => {
 
               {funFacts.map((fact, idx) => (
 
-                <m.div
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -74,13 +74,13 @@ const AboutMyCareer = () => {
                     {fact}
                   </p>
 
-                </m.div>
+                </motion.div>
 
               ))}
 
             </div>
 
-          </m.div>
+          </motion.div>
 
         </div>
 

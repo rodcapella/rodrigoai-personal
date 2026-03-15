@@ -1,5 +1,5 @@
-import { lazy, Suspense } from "react";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { Suspense } from "react";
+import { motion } from "framer-motion"
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
@@ -161,7 +161,6 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-      <LazyMotion features={domAnimation}>
         <main className="pt-36 pb-24">
         {/* HERO */}
         <PageHero
@@ -229,7 +228,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   const Icon = point.icon;
 
                   return (
-                    <m.div
+                    <motion.div
                       key={idx}
                       className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
                     >
@@ -244,7 +243,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                         {point.description}
                       </p>
 
-                    </m.div>
+                    </motion.div>
                   );
                 })}
 
@@ -255,7 +254,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         {/* Project Focus Areas */}
         <section className="px-4 mb-20">
           <div className="container max-w-4xl mx-auto">
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -286,7 +285,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 const layers = ["layer-yellow", "layer-blue", "layer-green", "layer-purple"];
 
                 return (
-                  <m.div
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -304,12 +303,12 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                       {category.description}
                     </p>
 
-                  </m.div>
+                  </motion.div>
                 );
               })}
 
             </div>
-            </m.div>
+            </motion.div>
           </div>
         </section>
         
@@ -330,7 +329,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       {/* CTA Section */}
       <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
         <div className="container max-w-4xl mx-auto">
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -360,15 +359,14 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             >
               Visit Sapiente.AI website
             </a>
-          </m.div>
+          </motion.div>
         </div>
         </section>
       </main>
-    </LazyMotion>
       
-              <Footer />
-            </div>
-          );
-      };
+<Footer />
+</div>
+);
+};
       
-      export default SideProjects;
+export default SideProjects;

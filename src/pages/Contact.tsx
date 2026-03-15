@@ -1,5 +1,5 @@
 import { lazy, useState, Suspense } from "react";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion"
 import Section from "@/components/layout/Section";
 import PageHero from "@/components/layout/PageHero"
 import Navbar from "@/components/Navbar";
@@ -234,7 +234,6 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       <script type="application/ld+json">...</script>
       <script type="application/ld+json">...</script>
       
-      <LazyMotion features={domAnimation}>
         <main className="pt-36 pb-24">
 
           {/* HERO */}
@@ -250,7 +249,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
 
             <div className="max-w-2xl mx-auto">
 
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -420,14 +419,13 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
 
                 </form>
 
-              </m.div>
+              </motion.div>
 
             </div>
 
           </Section>
 
         </main>
-      </LazyMotion>
 
       <Footer />
     </div>

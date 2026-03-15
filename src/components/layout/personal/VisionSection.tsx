@@ -1,5 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
-import { lazy } from "react"
+import { motion } from "framer-motion"
 import { Target} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
 
@@ -15,13 +14,11 @@ const longTermVision = [
 export default function VisionSection() {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
 
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -35,7 +32,7 @@ export default function VisionSection() {
 
               {longTermVision.map((item, idx) => (
 
-                <m.div
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -50,18 +47,16 @@ export default function VisionSection() {
                     {item}
                   </p>
 
-                </m.div>
+                </motion.div>
 
               ))}
 
             </div>
 
-          </m.div>
+          </motion.div>
 
         </div>
 
       </section>
-
-    </LazyMotion>
   )
 }

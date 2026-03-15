@@ -30,7 +30,7 @@ const PageHero = ({
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
 
             {/* TEXT */}
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
@@ -58,11 +58,11 @@ const PageHero = ({
                 </p>
               )}
 
-            </m.div>
+            </motion.div>
 
             {/* IMAGE */}
             {image && (
-              <m.div
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7 }}
@@ -79,7 +79,7 @@ const PageHero = ({
                   />
 
                 </div>
-              </m.div>
+              </motion.div>
             )}
 
           </div>

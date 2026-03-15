@@ -1,6 +1,7 @@
 import React from "react"
 import { Briefcase } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
+import { motion } from "framer-motion"
 
 interface Experience {
   title: string
@@ -28,7 +29,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
           {(experiences ?? []).map((exp, idx) => (
 
-            <m.div
+            <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,7 +92,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
               </div>
 
-            </m.div>
+            </motion.div>
 
           ))}
 

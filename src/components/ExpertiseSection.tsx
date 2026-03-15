@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion"
 import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section";
 import SectionTitle from "@/components/layout/SectionTitle"
@@ -31,7 +31,7 @@ const ExpertiseSection = () => {
 
       <Section className="relative px-4 py-16" id="expertise">
 
-        <m.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -40,7 +40,7 @@ const ExpertiseSection = () => {
             <SectionTitle icon={<Cpu className="w-6 h-6" />}>
               Core Skills
             </SectionTitle>
-        </m.div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
@@ -50,7 +50,7 @@ const ExpertiseSection = () => {
 
             return (
 
-              <m.div
+              <motion.div
                 key={skill}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ const ExpertiseSection = () => {
 
                 </Card>
 
-              </m.div>
+              </motion.div>
 
             );
           })}

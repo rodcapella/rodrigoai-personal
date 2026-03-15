@@ -1,14 +1,13 @@
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { motion } from "framer-motion"
 import { Suspense } from "react"
 import { lazy } from "react"
 import { Mail, Github, Linkedin  } from "lucide-react"
 
 const ContactSection = () => {
   return (
-    <LazyMotion features={domAnimation}>
       <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
         <div className="container max-w-4xl mx-auto">
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -41,10 +40,9 @@ const ContactSection = () => {
                 </a>
               </div>
             </Suspense>
-          </m.div>
+          </motion.div>
         </div>
       </section>
-    </LazyMotion>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react"
 import { Globe } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
+import { motion } from "framer-motion"
 
 interface Language {
   name: string
@@ -22,7 +23,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
           {languages?.map((lang, idx) => (
 
-            <m.div
+            <motion.div
               key={idx}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -40,7 +41,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
                 {lang.level}
               </p>
 
-            </m.div>
+            </motion.div>
 
           ))}
 

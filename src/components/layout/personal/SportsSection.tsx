@@ -1,5 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
-import { lazy } from "react"
+import { motion } from "framer-motion"
 import { Trophy} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
 
@@ -11,13 +10,11 @@ const sportsTeams = [
 export default function SportsSection() {
 
   return (
-    <LazyMotion features={domAnimation}>
-
       <section className="px-4 mb-20">
 
         <div className="container max-w-4xl mx-auto">
 
-          <m.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -31,7 +28,7 @@ export default function SportsSection() {
 
               {sportsTeams.map((team, idx) => (
 
-                <m.div
+                <motion.div
                   key={idx}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -52,7 +49,7 @@ export default function SportsSection() {
                     {team.country}
                   </p>
 
-                </m.div>
+                </motion.div>
 
               ))}
 
@@ -62,12 +59,10 @@ export default function SportsSection() {
               Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal), bridging two countries through sports.
             </p>
 
-          </m.div>
+          </motion.div>
 
         </div>
 
       </section>
-
-    </LazyMotion>
   )
 }

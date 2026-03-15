@@ -67,7 +67,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
                     </span>
 
                     {isActive && (
-                      <m.div
+                      <motion.div
                         layoutId="navbar-indicator"
                         className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]"
                         transition={{ type: "spring", stiffness: 500, damping: 30 }}
@@ -79,7 +79,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
             ))}
 
             {/* Pulsing Contact Button */}
-            <m.div
+            <motion.div
               animate={{
                 boxShadow: [
                   "0 0 8px rgba(59,130,246,0.4)",
@@ -102,7 +102,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
               >
                 Contact
               </NavLink>
-            </m.div>
+            </motion.div>
           </div>
 
           {/* Social + Theme */}

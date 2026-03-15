@@ -1,9 +1,9 @@
 import { lazy, Suspense } from "react"
-import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
+import { motion } from "framer-motion"
 
 const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })))
 const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })))
@@ -122,7 +122,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
       />
 
       <Suspense fallback={null}>
-        <LazyMotion features={domAnimation}>
           <main className="pt-36 pb-24">
           {/* HERO PADRONIZADO */}
             <PageHero
@@ -159,7 +158,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 <div className="grid md:grid-cols-3 gap-6">
 
                   {leadershipPillars.map((pillar, idx) => (
-                    <m.div
+                    <motion.div
                       key={idx}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -175,7 +174,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                         {pillar.description}
                       </p>
 
-                    </m.div>
+                    </motion.div>
                   ))}
 
                 </div>
@@ -282,7 +281,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             {/* What This Means For You */}
             <section className="px-4 mb-20">
               <div className="container max-w-4xl mx-auto">
-                <m.div
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
@@ -358,13 +357,11 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     </div>
 
                   </div>
-                </m.div>
+                </motion.div>
               </div>
             </section>
           </main>
-        </LazyMotion>
       </Suspense>
-
       <Footer />
     </div>
   );

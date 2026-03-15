@@ -1,4 +1,4 @@
-import { LazyMotion, domAnimation, m } from "framer-motion"
+import { motion } from "framer-motion"
 import { lazy } from "react"
 import { Music, Guitar, Gamepad2, Film, Dumbbell, BookOpen } from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
@@ -39,13 +39,11 @@ const hobbies = [
 export default function HobbiesSection() {
 
     return (
-        <LazyMotion features={domAnimation}>
-
             <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
 
             <div className="container max-w-4xl mx-auto">
 
-            <m.div>
+            <motion.div>
                 <SectionTitle icon={<Music className="w-8 h-8" />}>
                   Passions & Hobbies
                 </SectionTitle>
@@ -57,7 +55,7 @@ export default function HobbiesSection() {
                 const Icon = hobby.icon
 
                 return (
-                        <m.div key={idx} className="glass rounded-xl p-6">
+                        <motion.div key={idx} className="glass rounded-xl p-6">
 
                             <Icon className="w-8 h-8 text-primary mb-4" />
 
@@ -69,19 +67,17 @@ export default function HobbiesSection() {
                             {hobby.description}
                             </p>
 
-                        </m.div>
+                        </motion.div>
 
                 )
                 })}
 
             </div>
 
-            </m.div>
+            </motion.div>
 
             </div>
 
             </section>
-
-        </LazyMotion>
     )
 }

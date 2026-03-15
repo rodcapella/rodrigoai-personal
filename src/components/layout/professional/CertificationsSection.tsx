@@ -1,6 +1,7 @@
 import React from "react"
 import { Award } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
+import { motion } from "framer-motion"
 
 interface CertificationsSectionProps {
   certifications: string[]
@@ -18,7 +19,7 @@ export default function CertificationsSection({ certifications }: Certifications
 
             {certifications?.map((cert, idx) => (
 
-              <m.div
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -34,7 +35,7 @@ export default function CertificationsSection({ certifications }: Certifications
                   {cert}
                 </p>
 
-              </m.div>
+              </motion.div>
 
             ))}
 
