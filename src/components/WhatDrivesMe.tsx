@@ -1,12 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
-
 import { lazy, Suspense } from "react";
-
-const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
-const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })));
-const Rocket = lazy(() => import("lucide-react").then(m => ({ default: m.Rocket })));
-const Lightbulb = lazy(() => import("lucide-react").then(m => ({ default: m.Lightbulb })));
-const Brain = lazy(() => import("lucide-react").then(m => ({ default: m.Brain })));
+import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "lucide-react"
 
 const WhatDrivesMe = () => {
   const facts = [

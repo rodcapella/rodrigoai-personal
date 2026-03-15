@@ -1,8 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { lazy } from "react";
-
-const Sparkles = lazy(() => import("lucide-react").then(m => ({ default: m.Sparkles })));
-
+import { Sparkles} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const aiExploration = [

@@ -2,24 +2,8 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section";
 import { Card, CardContent } from "@/components/ui/card";
-
 import { lazy, Suspense } from "react";
-
-const Database = lazy(() => import("lucide-react").then(m => ({ default: m.Database })));
-const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })));
-const Rocket = lazy(() => import("lucide-react").then(m => ({ default: m.Rocket })));
-const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })));
-const Cloud = lazy(() => import("lucide-react").then(m => ({ default: m.Cloud })));
-const Shield = lazy(() => import("lucide-react").then(m => ({ default: m.Shield })));
-const Workflow = lazy(() => import("lucide-react").then(m => ({ default: m.Workflow })));
-const Code = lazy(() => import("lucide-react").then(m => ({ default: m.Code })));
-const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })));
-const BarChart3 = lazy(() => import("lucide-react").then(m => ({ default: m.BarChart3 })));
-const Network = lazy(() => import("lucide-react").then(m => ({ default: m.Network })));
-const LineChart = lazy(() => import("lucide-react").then(m => ({ default: m.LineChart })));
-const GitBranch = lazy(() => import("lucide-react").then(m => ({ default: m.GitBranch })));
-const Users = lazy(() => import("lucide-react").then(m => ({ default: m.Users })));
-const ShieldCheck = lazy(() => import("lucide-react").then(m => ({ default: m.ShieldCheck })));
+import { Database, Zap, Rocket, Cpu, Cloud, Shield, Workflow, Code, Layers, BarChart3, Network, LineChart, GitBranch, Users, ShieldCheck  } from "lucide-react"
 
 const icons = [
   Database,

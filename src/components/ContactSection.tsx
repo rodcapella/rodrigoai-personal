@@ -1,10 +1,7 @@
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { Suspense } from "react"
 import { lazy } from "react"
-
-const Mail = lazy(() => import("lucide-react").then(m => ({ default: m.Mail })))
-const Github = lazy(() => import("lucide-react").then(m => ({ default: m.Github })))
-const Linkedin = lazy(() => import("lucide-react").then(m => ({ default: m.Linkedin })))
+import { Mail, Github, Linkedin  } from "lucide-react"
 
 const ContactSection = () => {
   return (

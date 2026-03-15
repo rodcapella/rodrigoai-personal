@@ -1,8 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { lazy } from "react"
-
-const Trophy = lazy(() => import("lucide-react").then(m => ({ default: m.Trophy })));
-
+import { Trophy} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const sportsTeams = [

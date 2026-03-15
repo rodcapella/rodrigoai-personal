@@ -58,7 +58,6 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
             title="PROFESSIONAL JOURNEY"
             subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
             image = "/ai-portrait.jpeg"
-            description="Over 15 years designing data ecosystems, analytics platforms and governance frameworks."
           />
 
           <Suspense fallback={<SectionLoader />}>

@@ -4,11 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
-
-const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })));
-const Database = lazy(() => import("lucide-react").then(m => ({ default: m.Database })));
-const Cpu = lazy(() => import("lucide-react").then(m => ({ default: m.Cpu })));
-const TrendingUp = lazy(() => import("lucide-react").then(m => ({ default: m.TrendingUp })));
+import { Zap, Database, Cpu, TrendingUp} from "lucide-react"
 
 interface SideProjectsProps {
   theme?: 'dark' | 'light';

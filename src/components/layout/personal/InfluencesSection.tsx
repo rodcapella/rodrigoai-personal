@@ -1,8 +1,6 @@
 import { LazyMotion, domAnimation, m } from "framer-motion"
 import { lazy } from "react"
-
-const BookOpen = lazy(() => import("lucide-react").then(m => ({ default: m.BookOpen })));
-
+import { BookOpen} from "lucide-react"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const influences = [
