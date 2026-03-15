@@ -47,7 +47,7 @@ export default function ValuesSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SectionTitle icon={<Heart className="w-8 h-8 text-primary" />}>
+            <SectionTitle icon={Heart}>
               Core Values
             </SectionTitle>
 

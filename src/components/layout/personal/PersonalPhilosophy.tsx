@@ -19,7 +19,7 @@ export default function PersonalPhilosophy() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SectionTitle icon={<Heart className="w-8 h-8 text-primary" />}>
+            <SectionTitle icon={Heart}>
               Personal Philosophy
             </SectionTitle>
 

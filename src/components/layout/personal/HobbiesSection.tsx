@@ -53,7 +53,7 @@ export default function HobbiesSection() {
             <div className="container max-w-4xl mx-auto">
 
             <m.div>
-                <SectionTitle icon={<Music className="w-8 h-8 text-primary" />}>
+                <SectionTitle icon={Music}>
                   Passions & Hobbies
                 </SectionTitle>
 

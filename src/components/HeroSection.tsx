@@ -23,7 +23,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
 
         <div className="container relative z-10 px-4">
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
 
             {/* LEFT SIDE */}
             <m.div
@@ -33,27 +33,27 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               className="max-w-xl"
             >
 
-              {/* Label */}
+              {/* TITLE */}
               <p className="
-                text-primary
+                text-primary/80
                 uppercase
-                tracking-[0.2em]
+                tracking-[0.25em]
                 text-xs
-                font-medium
+                font-semibold
                 mb-6
               ">
                 DATA ANALYTICS ENGINEER • TEAM LEADER
               </p>
 
-              {/* Title */}
+              {/* HERO STATEMENT */}
               <m.h1
                 className="
                 font-display
-                text-4xl md:text-5xl lg:text-6xl
+                text-5xl md:text-6xl lg:text-7xl
                 font-bold
-                leading-tight
+                leading-[1.05]
                 tracking-tight
-                mb-8
+                mb-10
                 bg-gradient-to-r
                 from-white
                 to-gray-400
@@ -61,8 +61,11 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 text-transparent
                 "
               >
-                Designing Enterprise Data Platforms
-                That Scale, Govern and Drive Decisions.
+                Designing Enterprise
+                <br />
+                Data <span className="text-primary">Platforms</span> That <span className="text-primary">Scale</span>, Govern
+                <br />
+                and Drive Decisions.
               </m.h1>
 
               {/* CTA */}

@@ -30,7 +30,7 @@ export default function AIExplorationSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <SectionTitle icon={<Sparkles className="w-8 h-8 text-primary" />}>
+            <SectionTitle icon={Sparkles}>
               AI Ecosystem Exploration
             </SectionTitle>
 

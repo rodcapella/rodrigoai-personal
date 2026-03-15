@@ -21,7 +21,7 @@ export default function LifeRelocation() {
             transition={{ duration: 0.8 }}
           >
 
-          <SectionTitle icon={<Compass className="w-8 h-8 text-primary" />}>
+          <SectionTitle icon={Compass}>
             Life & Relocation
           </SectionTitle>
 

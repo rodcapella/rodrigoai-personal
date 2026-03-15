@@ -21,7 +21,7 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
           transition={{ duration: 0.6 }}
         >
 
-          <SectionTitle icon={<Award className="w-6 h-6 text-primary" />}>
+          <SectionTitle icon={Award}>
             Core Competences
           </SectionTitle>
 
