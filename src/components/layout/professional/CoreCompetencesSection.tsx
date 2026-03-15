@@ -13,13 +13,6 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
 
       <div className="container max-w-4xl mx-auto">
 
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-
           <SectionTitle icon={<Award className="w-8 h-8" />}>
             Core Competences
           </SectionTitle>
@@ -44,8 +37,6 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
             })}
 
           </div>
-
-        </m.div>
 
       </div>
 

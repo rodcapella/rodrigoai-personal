@@ -21,8 +21,8 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
   return (
     <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
-
-        <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
+        
+        <SectionTitle icon={<Briefcase className="w-6 h-6" />}>
           Professional Experience
         </SectionTitle>
 

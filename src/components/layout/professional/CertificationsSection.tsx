@@ -13,11 +13,6 @@ export default function CertificationsSection({ certifications }: Certifications
     <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
 
-        <m.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
           <SectionTitle icon={<Award className="w-6 h-6" />}>
             Certifications & Courses
           </SectionTitle>
@@ -46,8 +41,6 @@ export default function CertificationsSection({ certifications }: Certifications
             ))}
 
           </div>
-
-        </m.div>
 
       </div>
     </LazyMotion>
