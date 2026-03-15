@@ -1,5 +1,4 @@
 import React from "react"
-import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Award } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
 
@@ -10,7 +9,6 @@ interface CertificationsSectionProps {
 export default function CertificationsSection({ certifications }: CertificationsSectionProps) {
 
   return (
-    <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
 
           <SectionTitle icon={<Award className="w-6 h-6" />}>
@@ -43,6 +41,5 @@ export default function CertificationsSection({ certifications }: Certifications
           </div>
 
       </div>
-    </LazyMotion>
   )
 }

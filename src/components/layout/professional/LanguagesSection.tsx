@@ -1,5 +1,4 @@
 import React from "react"
-import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Globe } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
 
@@ -15,7 +14,6 @@ interface LanguagesSectionProps {
 export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
   return (
-    <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
           <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
@@ -49,6 +47,5 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
           </div>
 
       </div>
-    </LazyMotion>
   )
 }

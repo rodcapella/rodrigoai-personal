@@ -1,5 +1,4 @@
 import { lazy, Suspense } from "react"
-import { LazyMotion, domAnimation } from "framer-motion"
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
@@ -50,7 +49,6 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
-      <LazyMotion features={domAnimation}>
         <main className="pt-36 pb-24">
 
           <PageHero

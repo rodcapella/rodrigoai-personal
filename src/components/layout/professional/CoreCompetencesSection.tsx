@@ -1,5 +1,4 @@
 import React from "react"
-import { LazyMotion, domAnimation, m } from "framer-motion"
 import { Award } from "lucide-react"
 import SectionTitle from "@/components/ui/SectionTitle"
 
@@ -9,8 +8,6 @@ interface CoreCompetencesSectionProps {
 
 const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) => {
   return (
-    <LazyMotion features={domAnimation}>
-
       <div className="container max-w-4xl mx-auto">
 
           <SectionTitle icon={<Award className="w-8 h-8" />}>
@@ -37,10 +34,7 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
             })}
 
           </div>
-
       </div>
-
-    </LazyMotion>
   )
 }
 

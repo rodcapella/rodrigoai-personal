@@ -1,6 +1,5 @@
 import React from "react"
 import { Briefcase } from "lucide-react"
-import { LazyMotion, domAnimation, m } from "framer-motion"
 import SectionTitle from "@/components/ui/SectionTitle"
 
 interface Experience {
@@ -19,9 +18,8 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
-    <LazyMotion features={domAnimation}>
       <div className="container max-w-4xl mx-auto">
-        
+
         <SectionTitle icon={<Briefcase className="w-6 h-6" />}>
           Professional Experience
         </SectionTitle>
