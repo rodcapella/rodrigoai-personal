@@ -45,7 +45,7 @@ export {
   Layers,
   Network,
   GitBranch,
-  FlaskConical
+  FlaskConical,
   
   // Negócios e Análise
   TrendingUp,
