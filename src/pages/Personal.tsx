@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 
 import { Suspense, lazy } from "react"
 

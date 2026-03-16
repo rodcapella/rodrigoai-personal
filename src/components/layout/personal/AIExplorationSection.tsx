@@ -17,7 +17,7 @@ const aiExploration = [
 export default function AIExplorationSection() {
 
   return (
-      <section className="px-4 mb-20">
+      <section className="py-20">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

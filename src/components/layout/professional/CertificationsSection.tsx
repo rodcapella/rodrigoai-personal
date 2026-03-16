@@ -1,6 +1,6 @@
 import React from "react"
 import { Award } from "@/lib/icons"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 import { motion } from "framer-motion"
 import Container from "@/components/layout/Container"
 
@@ -15,31 +15,30 @@ export default function CertificationsSection({ certifications }: Certifications
           <SectionTitle icon={<Award className="w-6 h-6" />}>
             Certifications & Courses
           </SectionTitle>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="space-y-4">
 
-            {certifications?.map((cert, idx) => (
+              {certifications?.map((cert, idx) => (
 
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="flex items-start gap-3 p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-              >
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.05 }}
+                  className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-xl border border-primary/20 flex items-start gap-4"
+                >
 
-                <span className="text-primary font-bold mt-1">
-                  •
-                </span>
+                  <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {cert}
-                </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    • {cert}
+                  </p>
 
-              </motion.div>
-            ))}
+                </motion.div>
+
+              ))}
 
           </div>
-
       </Container>
   )
 }

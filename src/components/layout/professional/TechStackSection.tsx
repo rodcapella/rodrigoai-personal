@@ -1,6 +1,6 @@
 import React from "react"
 import { Award } from "@/lib/icons"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
 
 interface Props {

@@ -11,7 +11,7 @@ const sportsTeams = [
 export default function SportsSection() {
 
   return (
-      <section className="px-4 mb-20">
+      <section className="py-20">
 
         <Container>
           <motion.div

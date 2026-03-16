@@ -16,7 +16,7 @@ const influences = [
 export default function InfluencesSection() {
 
   return (
-      <section className="px-4 mb-20">
+      <section className="py-20">
 
         <Container>
 

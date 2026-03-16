@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
 import { Zap, Database, Cpu, TrendingUp} from "@/lib/icons"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
 
 interface SideProjectsProps {
@@ -173,7 +173,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           />
 
           {/* SapienteAI - The Next Generation */}
-          <section className="px-4 mb-20">
+          <section className="py-20">
             <Container>
 
               <SectionTitle icon={<Cpu className="w-6 h-6" />}>
@@ -239,7 +239,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           </section>
         
         {/* Project Focus Areas */}
-        <section className="px-4 mb-20">
+        <section className="py-20">
           <Container>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -286,7 +286,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         </section>
         
         {/* SEO invisível */}
-        <section className="px-4 mb-20">
+        <section className="py-20">
           <Container>
             <div className="sr-only">
               <h2>Artificial Intelligence Architecture Research</h2>
@@ -300,7 +300,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         </section>
 
       {/* CTA Section */}
-      <section className="px-4 py-16 bg-gradient-to-br from-primary/10 to-transparent">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

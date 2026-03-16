@@ -33,7 +33,7 @@ const personalValues = [
 export default function ValuesSection() {
 
   return (
-      <section className="px-4 mb-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
 
         <Container>
           <motion.div

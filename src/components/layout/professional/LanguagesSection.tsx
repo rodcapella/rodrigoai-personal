@@ -1,6 +1,6 @@
 import React from "react"
 import { Globe } from "@/lib/icons"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 import { motion } from "framer-motion"
 import Container from "@/components/layout/Container"
 

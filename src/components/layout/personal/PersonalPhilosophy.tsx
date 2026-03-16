@@ -7,7 +7,7 @@ import Container from "@/components/layout/Container"
 export default function PersonalPhilosophy() {
 
   return (
-      <section className="px-4 mb-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
 
         <Container>
           <motion.div

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { motion } from "framer-motion"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
 
 const Layers = lazy(() => import("@/lib/icons").then(m => ({ default: m.Layers })))
@@ -134,7 +134,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               />
 
             {/* Leadership Philosophy */}
-            <section className="px-4 py-16 bg-gradient-to-br from-primary/10 to-transparent">
+            <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
               <Container>
                 <SectionTitle icon={<Brain className="w-6 h-6" />}>
                   Leadership Philosophy
@@ -167,7 +167,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
           {/* DIFFERENTIATORS */}
-            <section className="px-4 mb-20">
+            <section className="py-20">
               <Container>
 
                 <SectionTitle icon={<Zap className="w-6 h-6" />}>
@@ -206,7 +206,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
             {/* Vision */}
-            <section className="px-4 py-16 bg-gradient-to-br from-primary/10 to-transparent">
+            <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
               <Container>
 
                     <SectionTitle icon={<Lightbulb className="w-6 h-6" />}>
@@ -234,70 +234,86 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
             {/* What This Means For You */}
-            <section className="px-4 mb-20">
+            <section className="py-20">
               <Container>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                >
                   <SectionTitle icon={<Users className="w-6 h-6" />}>
                     What This Means For You
                   </SectionTitle>
 
-                  <div className="space-y-4">
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>
+                  <div className="grid md:grid-cols-3 gap-8">
+                    <div>
+                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
+                        Architecture
+                      </p>
+                      <p className="text-xl font-semibold mb-2">
+                        AI-Ready Data Platforms
+                      </p>
                       <p className="text-muted-foreground">
-                        I help structure architectures that scale, govern, and deliver real business impact. Not just technology, but strategic infrastructure.
+                        I design scalable architectures that support governance, analytics, and AI workloads from the same data foundation.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You're Exploring AI Innovation</h4>
+
+                    <div>
+                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
+                        Innovation
+                      </p>
+                      <p className="text-xl font-semibold mb-2">
+                        Applied AI Exploration
+                      </p>
                       <p className="text-muted-foreground">
-                        Sapiente.AI is a laboratory for next-generation data and AI systems. Applied research, experimental products, and strategic advisory.
+                        Sapiente.AI serves as a laboratory for new architectures and experimental systems that anticipate the next generation of data platforms.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You're Scaling Data Leadership</h4>
+
+                    <div>
+                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
+                        Leadership
+                      </p>
+                      <p className="text-xl font-semibold mb-2">
+                        Scaling Data Organizations
+                      </p>
                       <p className="text-muted-foreground">
-                        I've led teams, mentored engineers, and built analytics capabilities from the ground up. I understand both the technical depth and organizational complexity of scaling data.
+                        I build teams, define technical standards, and structure platforms that allow data organizations to grow sustainably.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If Your Data Platform Feels Fragile</h4>
+
+                    <div>
+                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
+                        Data Quality
+                      </p>
+                      <p className="text-xl font-semibold mb-2">
+                        Trustworthy Data Foundations
+                      </p>
                       <p className="text-muted-foreground">
-                        Many organizations struggle with unreliable pipelines, inconsistent metrics, and low trust in dashboards.I help redesign data architecture, governance, and modeling foundations to restore confidence in data.
+                        Reliable pipelines, consistent metrics, and strong governance frameworks restore confidence in organizational data.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You Want to Turn Data Into Strategic Assets</h4>
-                      <p className="text-muted-foreground">
-                        Data should not be an operational byproduct. I help organizations treat data as products—with ownership, quality standards, governance, and measurable business impact.
+
+                    <div>
+                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
+                        Strategy
                       </p>
-                    </div>                  
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You're Integrating AI Into Your Organization</h4>
-                      <p className="text-muted-foreground">
-                        AI initiatives often fail due to weak data foundations. I help align data engineering, governance, and AI architecture so AI can move beyond prototypes into scalable production systems.
+                      <p className="text-xl font-semibold mb-2">
+                        Data as Strategic Assets
                       </p>
-                    </div>       
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You Value Practical Innovation</h4>
                       <p className="text-muted-foreground">
-                        Many AI ideas stay theoretical. My work focuses on building real systems and prototypes, testing new architectures and approaches in practical environments before they reach enterprise scale.
+                        I help organizations move from operational reporting to treating data as products with ownership, quality standards, and measurable impact.
                       </p>
                     </div>
-                    <div className="bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
-                      <h4 className="font-bold text-lg mb-2">If You Want to Work With Someone Who Understands Both Technology and Strategy</h4>
+
+                    <div>
+                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
+                        AI Integration
+                      </p>
+                      <p className="text-xl font-semibold mb-2">
+                        AI in Production
+                      </p>
                       <p className="text-muted-foreground">
-                        My background combines hands-on engineering, architecture design, and strategic leadership, allowing me to bridge the gap between technical execution and business outcomes.
+                        Aligning data engineering, governance, and platform architecture so AI initiatives can move beyond prototypes into production systems.
                       </p>
                     </div>
 
                   </div>
-                </motion.div>
               </Container>
             </section>
           </main>

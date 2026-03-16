@@ -27,7 +27,7 @@ const icons = [
 const ExpertiseSection = () => {
 
   return (
-      <Section className="relative px-4 py-16" id="expertise">
+      <Section className="relative py-20" id="expertise">
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

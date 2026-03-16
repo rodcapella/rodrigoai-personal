@@ -3,11 +3,11 @@ import { Suspense } from "react"
 import { lazy } from "react"
 import { Mail, Github, Linkedin  } from "@/lib/icons"
 import Container from "@/components/layout/Container"
-import SectionTitle from "@/components/ui/SectionTitle"
+import SectionTitle from "@/components/layout/SectionTitle"
 
 const ContactSection = () => {
   return (
-      <section className="px-4 py-16 bg-gradient-to-br from-primary/10 to-transparent">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
