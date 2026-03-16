@@ -181,37 +181,48 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               </SectionTitle>
 
               <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 mb-12"
+              >
+
                 <p className="text-lg">
                   My 15 years building data systems revealed a critical insight:
                   <span className="text-primary font-semibold">
-                    {" "} the next generation of data platforms must be AI-native from inception.
+                    {" "}the next generation of data platforms must be AI-native from inception.
                   </span>
                 </p>
 
-               <p className="text-lg">
+                <p className="text-lg">
                   Sapiente.AI is where I explore this frontier: combining deep data engineering
                   expertise with AI innovation to build the platforms enterprises need to
                   compete in the AI era.
                 </p>
+
                 <p className="text-lg">
-                  <p>
-                  Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
+                  Sapiente.AI is grounded in the belief that artificial intelligence should
+                  not be treated as a feature layer, but as a new architectural paradigm.
                 </p>
-                <p>
-                  It operates as a structured experimentation environment where AI-native systems, governance frameworks, and scalable data platforms are designed, tested, and refined beyond the constraints of client-driven projects.
+
+                <p className="text-lg">
+                  It operates as a structured experimentation environment where AI-native
+                  systems, governance frameworks, and scalable data platforms are designed,
+                  tested, and refined beyond the constraints of client-driven projects.
                 </p>
-                <p>
-                  Each initiative explores how AI can be embedded into data ecosystems, governance models, and automation pipelines to enhance scalability, reliability, and strategic decision-making.
+
+                <p className="text-lg">
+                  Each initiative explores how AI can be embedded into data ecosystems,
+                  governance models, and automation pipelines to enhance scalability,
+                  reliability, and strategic decision-making.
                 </p>
-                <p>
-                  The goal is not experimentation for novelty, but disciplined innovation—bridging enterprise data rigor with AI-native thinking.
+
+                <p className="text-lg">
+                  The goal is not experimentation for novelty, but disciplined innovation—
+                  bridging enterprise data rigor with AI-native thinking.
                 </p>
-                </div>
-              </div>
+
+              </motion.div>
 
               <div className="grid md:grid-cols-3 gap-8">
 
@@ -239,7 +250,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 })}
 
               </div>
-            </motion.div>
+
             </Container>
           </section>
         
