@@ -19,7 +19,7 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="container max-w-4xl mx-auto">
 
       <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
         Professional Experience

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
 import { Zap, Database, Cpu, TrendingUp} from "@/lib/icons"
+import SectionTitle from "@/components/ui/SectionTitle"
 
 interface SideProjectsProps {
   theme?: 'dark' | 'light';
@@ -173,25 +174,10 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           {/* SapienteAI - The Next Generation */}
           <section className="px-4 mb-20">
             <div className="container max-w-4xl mx-auto">
-              <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
 
-                    <Suspense fallback={null}>
-                      <Cpu
-                        className="
-                          w-6 h-6
-                          text-primary
-                          transition-all duration-300
-                          group-hover:scale-110
-                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                        "
-                      />
-                    </Suspense>
-
-                    <span className="transition-colors duration-300 group-hover:text-primary">
-                      Sapiente.AI: The Next Generation
-                    </span>
-
-              </h2>
+              <SectionTitle icon={<Cpu className="w-6 h-6" />}>
+                Sapiente.AI: The Next Generation
+              </SectionTitle>
 
               <div className="mb-12 space-y-6 max-w-3xl">
                 <p className="text-lg leading-relaxed">
@@ -259,25 +245,11 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
 
-                    <Suspense fallback={null}>
-                      <Zap
-                        className="
-                          w-6 h-6
-                          text-primary
-                          transition-all duration-300
-                          group-hover:scale-110
-                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                        "
-                      />
-                    </Suspense>
-
-                    <span className="transition-colors duration-300 group-hover:text-primary">
-                      Project Focus Areas
-                    </span>
-
-              </h2>
+              <SectionTitle icon={<Zap className="w-6 h-6" />}>
+                Project Focus Areas
+              </SectionTitle>
+              
               <div className="grid md:grid-cols-2 gap-8">
               {projectCategories.map((category, idx) => {
 

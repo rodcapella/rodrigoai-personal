@@ -4,13 +4,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { motion } from "framer-motion"
+import SectionTitle from "@/components/ui/SectionTitle"
 
-const Layers = lazy(() => import("lucide-react").then(m => ({ default: m.Layers })))
-const Zap = lazy(() => import("lucide-react").then(m => ({ default: m.Zap })))
-const Users = lazy(() => import("lucide-react").then(m => ({ default: m.Users })))
-const Target = lazy(() => import("lucide-react").then(m => ({ default: m.Target })))
-const Brain = lazy(() => import("lucide-react").then(m => ({ default: m.Brain })))
-const Lightbulb = lazy(() => import("lucide-react").then(m => ({ default: m.Lightbulb })))
+const Layers = lazy(() => import("@/lib/icons").then(m => ({ default: m.Layers })))
+const Zap = lazy(() => import("@/lib/icons").then(m => ({ default: m.Zap })))
+const Users = lazy(() => import("@/lib/icons").then(m => ({ default: m.Users })))
+const Target = lazy(() => import("@/lib/icons").then(m => ({ default: m.Target })))
+const Brain = lazy(() => import("@/lib/icons").then(m => ({ default: m.Brain })))
+const Lightbulb = lazy(() => import("@/lib/icons").then(m => ({ default: m.Lightbulb })))
 
 interface WhyMeProps {
   theme?: 'dark' | 'light';
@@ -135,25 +136,9 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
               <div className="container max-w-4xl mx-auto">
 
-                <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
-
-                              <Suspense fallback={null}>
-                                <Brain
-                                  className="
-                                    w-6 h-6
-                                    text-primary
-                                    transition-all duration-300
-                                    group-hover:scale-110
-                                    group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                                  "
-                                />
-                              </Suspense>
-
-                              <span className="transition-colors duration-300 group-hover:text-primary">
-                                Leadership Philosophy
-                              </span>
-
-                </h2>
+              <SectionTitle icon={<Brain className="w-6 h-6" />}>
+                Leadership Philosophy
+              </SectionTitle>
 
                 <div className="grid md:grid-cols-3 gap-6">
 
@@ -185,25 +170,11 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
           {/* DIFFERENTIATORS */}
             <section className="px-4 mb-20">
               <div className="container max-w-4xl mx-auto">
-                <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
 
-                  <Suspense fallback={null}>
-                    <Zap
-                      className="
-                        w-6 h-6
-                        text-primary
-                        transition-all duration-300
-                        group-hover:scale-110
-                        group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                      "
-                    />
-                  </Suspense>
+                <SectionTitle icon={<Zap className="w-6 h-6" />}>
+                  What sets me apart from other data leaders:
+                </SectionTitle>
 
-                  <span className="transition-colors duration-300 group-hover:text-primary">
-                    What sets me apart from other data leaders:
-                  </span>
-
-                </h2>
                 <div className="space-y-6">
                   {differentiators.map((diff, idx) => {
                     const Icon = diff.icon;
@@ -239,25 +210,11 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             {/* Vision */}
             <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
               <div className="container max-w-4xl mx-auto">
-                  <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
 
-                    <Suspense fallback={null}>
-                      <Lightbulb
-                        className="
-                          w-6 h-6
-                          text-primary
-                          transition-all duration-300
-                          group-hover:scale-110
-                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                        "
-                      />
-                    </Suspense>
-
-                    <span className="transition-colors duration-300 group-hover:text-primary">
+                    <SectionTitle icon={<Lightbulb className="w-6 h-6" />}>
                       My Vision
-                    </span>
+                    </SectionTitle>
 
-                  </h2>
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
                       <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
@@ -287,25 +244,10 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
+                  <SectionTitle icon={<Users className="w-6 h-6" />}>
+                    What This Means For You
+                  </SectionTitle>
 
-                    <Suspense fallback={null}>
-                      <Users
-                        className="
-                          w-6 h-6
-                          text-primary
-                          transition-all duration-300
-                          group-hover:scale-110
-                          group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                        "
-                      />
-                    </Suspense>
-
-                    <span className="transition-colors duration-300 group-hover:text-primary">
-                      What This Means For You
-                    </span>
-
-                  </h2>
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-primary/5 to-transparent rounded-xl p-6 border border-primary/10 hover:-translate-y-1 transition-all">
                       <h4 className="font-bold text-lg mb-2">If You're Building AI-Ready Data Platforms</h4>

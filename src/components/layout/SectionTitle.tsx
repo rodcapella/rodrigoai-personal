@@ -7,11 +7,11 @@ interface SectionTitleProps {
   align?: "left" | "center"
 }
 
-const SectionTitle = ({
+export default function SectionTitle({
   icon,
   children,
   align = "left"
-}: SectionTitleProps) => {
+}: SectionTitleProps) {
 
   const isCenter = align === "center"
 
@@ -19,10 +19,14 @@ const SectionTitle = ({
 
     <div className={`mb-14 ${isCenter ? "text-center" : ""}`}>
 
-      <h2
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
         className={`
           group
-          text-xl md:text-2xl lg:text-3xl
+          text-2xl md:text-3xl font-bold
           flex items-center gap-3
           ${isCenter ? "justify-center" : ""}
         `}
@@ -32,9 +36,9 @@ const SectionTitle = ({
           <span
             className="
               text-primary
-              transition-transform duration-300
+              transition-all duration-300
               group-hover:scale-110
-              group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
+              group-hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]
               flex items-center
             "
           >
@@ -53,14 +57,13 @@ const SectionTitle = ({
           {children}
         </span>
 
-      </h2>
+      </motion.h2>
 
-      {/* Linha animada */}
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: isCenter ? "120px" : "80px" }}
-        transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         className={`
           h-[2px] mt-4
           bg-gradient-to-r from-primary to-secondary
@@ -69,8 +72,5 @@ const SectionTitle = ({
       />
 
     </div>
-
   )
 }
-
-export default SectionTitle
