@@ -135,7 +135,6 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="pt-36 pb-24">
-      <div className="relative w-[208px] md:w-[240px] aspect-square">      
         <PageHero
           variant="page"
           title="PERSONAL"

@@ -123,7 +123,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
 
       <Suspense fallback={null}>
           <main className="pt-36 pb-24">
-          <div className="relative w-[208px] md:w-[240px] aspect-square">  
             {/* HERO PADRONIZADO */}
               <PageHero
                 variant="page"

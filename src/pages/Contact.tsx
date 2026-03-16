@@ -234,7 +234,6 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
       <script type="application/ld+json">...</script>
       
         <main className="pt-36 pb-24">
-        <div className="relative w-[208px] md:w-[240px] aspect-square">
           {/* HERO */}
           <PageHero
             variant="page"
