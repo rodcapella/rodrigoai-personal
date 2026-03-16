@@ -32,6 +32,7 @@ export {
   Moon,
   Menu,
   X,
+  Mail,
   
   // Dados e Infraestrutura
   Globe,
