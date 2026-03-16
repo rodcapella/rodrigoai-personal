@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Container from "@/components/layout/Container"
+import SectionTitle from "@/components/layout/SectionTitle";
 
 export default function ProfessionalIntro() {
   return (

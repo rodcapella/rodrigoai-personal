@@ -43,39 +43,18 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
       title: "AI-Driven Digital Strategy",
       description:
         "Applying AI to SEO, content systems and digital positioning strategies."
-    }
-  ];
-
-  const sapientePoints = [
-    {
-      icon: Database,
-      title: "AI-Native Data Platforms",
-      description:
-        "Architecting data platforms designed from inception to support AI workloads, governance and scalable analytics."
-    },
-    {
-      icon: Cpu,
-      title: "Automation Architectures",
-      description:
-        "Designing automation systems that integrate AI models with operational data pipelines."
-    },
-    {
-      icon: TrendingUp,
-      title: "AI Strategic Enablement",
-      description:
-        "Exploring how organizations can embed AI into data ecosystems and decision frameworks."
-    },
-    {
-      icon: Sparkles,
-      title: "AI Digital Presence",
-      description:
-        "Exploring AI-powered identities, virtual avatars and intelligent interfaces for digital engagement."
     },
     {
       icon: MessageSquare,
       title: "Intelligent Brand Interfaces",
       description:
         "Designing AI-driven interfaces and virtual personas that enable scalable and authentic audience engagement."
+    },
+    {
+      icon: FlaskConical,
+      title: "AI Prototyping Lab",
+      description:
+        "Rapid prototyping of experimental AI concepts, architectures and applied use cases."
     }
   ];
 
@@ -170,29 +149,6 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
                 The goal is simple: bridge enterprise-grade data engineering with the possibilities of AI-driven systems.
               </p>
             </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {sapientePoints.map((point, idx) => {
-                const Icon = point.icon;
-
-                return (
-                  <motion.div
-                    key={idx}
-                    className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
-                  >
-                    <Icon className="w-8 h-8 text-primary mb-4" />
-
-                    <h4 className="font-bold text-lg mb-3">
-                      {point.title}
-                    </h4>
-
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {point.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
 
           </Container>
         </section>
