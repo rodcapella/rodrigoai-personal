@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero";
 import { Helmet } from "react-helmet-async";
-import { Zap, Database, Cpu, TrendingUp, Sparkles, MessageSquare } from "@/lib/icons";
+import { Zap, Database, Cpu, TrendingUp, Sparkles, MessageSquare, FlaskConical  } from "@/lib/icons";
 import SectionTitle from "@/components/layout/SectionTitle";
 import Container from "@/components/layout/Container";
 
