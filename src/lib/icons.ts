@@ -53,5 +53,6 @@ export {
   Award,
   BarChart3,
   LineChart,
-  Users
+  Users,
+  User
 } from "lucide-react";
