@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import Container from "@/components/layout/Container"
 import SectionTitle from "@/components/layout/SectionTitle";
-import { Award } from "@/lib/icons";
+import { Workflow } from "@/lib/icons";
 
 export default function ProfessionalIntro() {
   return (
@@ -12,7 +12,7 @@ export default function ProfessionalIntro() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <SectionTitle icon={<Award className="w-8 h-8" />}>
+          <SectionTitle icon={<Workflow className="w-8 h-8" />}>
             Data Analytics Engineer & Team Leader | Azure Databricks | Python | PySpark | SQL | Power BI
           </SectionTitle>
           <br /><br />

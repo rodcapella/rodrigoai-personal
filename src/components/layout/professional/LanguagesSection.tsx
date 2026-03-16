@@ -21,7 +21,13 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
           <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
           </SectionTitle>
-          <div className="grid md:grid-cols-3 gap-8">
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
 
           {languages?.map((lang, idx) => (
 
@@ -47,7 +53,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
           ))}
 
-          </div>
+          </motion.div>
       </Container>
     </section>
   )

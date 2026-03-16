@@ -13,6 +13,12 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
   return (
     <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
       <Container>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+        >
         <SectionTitle icon={<Layers className="w-6 h-6" />}>
           Core Technology Stack & Experience Depth
         </SectionTitle>  
@@ -72,6 +78,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
 
         </div>
       </Container>
+    </motion.div>
     </section>
   )
 }

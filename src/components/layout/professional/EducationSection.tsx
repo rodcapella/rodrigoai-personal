@@ -31,6 +31,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
                 key={i}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className={`p-6 rounded-xl glass ${
                   ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][i % 3]
