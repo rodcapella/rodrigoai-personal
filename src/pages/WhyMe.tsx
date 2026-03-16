@@ -7,7 +7,6 @@ import { motion } from "framer-motion"
 import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
 
-const Layers = lazy(() => import("@/lib/icons").then(m => ({ default: m.Layers })))
 const Zap = lazy(() => import("@/lib/icons").then(m => ({ default: m.Zap })))
 const Users = lazy(() => import("@/lib/icons").then(m => ({ default: m.Users })))
 const Target = lazy(() => import("@/lib/icons").then(m => ({ default: m.Target })))
@@ -217,9 +216,9 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                       key={idx}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: idx * 0.1 }}
+                      transition={{ duration: 0.6 }}
                       className={`p-6 rounded-xl glass ${
-                        ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][idx % 3]
+                        className="p-6 rounded-xl glass layer-blue"
                       }`}
                   >
                     <h3 className="text-xl font-semibold mb-4">
