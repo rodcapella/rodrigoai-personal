@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
 
+const Layers = lazy(() => import("@/lib/icons").then(m => ({ default: m.Layers })))
 const Zap = lazy(() => import("@/lib/icons").then(m => ({ default: m.Zap })))
 const Users = lazy(() => import("@/lib/icons").then(m => ({ default: m.Users })))
 const Target = lazy(() => import("@/lib/icons").then(m => ({ default: m.Target })))
