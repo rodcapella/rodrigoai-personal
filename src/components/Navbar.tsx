@@ -50,14 +50,17 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
 
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass py-3 border-b border-primary/20 backdrop-blur-md" : "py-5"
+        scrolled
+          ? "glass py-3 border-b border-primary/20 backdrop-blur-md"
+          : "py-5"
       }`}
     >
 
       <Container>
+
         <div className="flex items-center justify-between">
 
-          {/* LEFT SIDE — Navigation */}
+          {/* LEFT — Navigation */}
           <div className="hidden md:flex items-center gap-8">
 
             {links.map((link) => (
@@ -124,7 +127,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
 
           </div>
 
-          {/* RIGHT SIDE — Social + Theme + Mobile */}
+          {/* RIGHT — Social + Theme + Mobile */}
           <div className="flex items-center gap-4">
 
             {/* Theme Toggle */}
@@ -176,6 +179,53 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
         </div>
 
       </Container>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+
+        {mobileMenuOpen && (
+
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.25 }}
+            className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 md:hidden"
+          >
+
+            <Container>
+
+              <div className="flex flex-col gap-6 py-6">
+
+                {links.map((link) => (
+                  <NavLink
+                    key={link.href}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `font-medium text-lg transition-all duration-300 ${
+                        isActive
+                          ? "text-primary border-l-4 border-primary pl-3"
+                          : "text-muted-foreground hover:text-primary"
+                      }`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+
+                <NavLink
+                  to="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="mt-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center font-medium"
+                >
+                  Contact
+                </NavLink>
+
+              </div>
+
+            </Container>
+
           </motion.div>
 
         )}
