@@ -81,7 +81,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
           </div>
 
         </Suspense>
-        </div>
+
         </main>
 
       <Footer />
