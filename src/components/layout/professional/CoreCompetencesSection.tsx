@@ -19,18 +19,21 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
             {competences.map((competence, i) => {
 
               const Icon = competence.icon
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="flex items-start gap-3 p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+              >
 
-              return (
-                <div key={i} className="flex items-start gap-4">
+                <Icon className="w-6 h-6 text-primary" />
 
-                  <Icon className="w-6 h-6 text-primary" />
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {competence.title}
+                </p>
 
-                  <p className="text-muted-foreground">
-                    {competence.title}
-                  </p>
-
-                </div>
-              )
+              </motion.div>
             })}
 
           </div>

@@ -25,24 +25,27 @@ export default function EducationSection({ education }: EducationSectionProps) {
 
         {education?.map((edu, i) => (
 
-          <div
-            key={i}
-            className="border-l-4 border-primary pl-6"
-          >
+          <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="flex items-start gap-3 p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+              >
 
-            <h3 className="text-lg font-semibold">
-              {edu.degree}
-            </h3>
+                <h3 className="text-lg font-semibold">
+                  {edu.degree}
+                </h3>
 
-            <p className="text-muted-foreground">
-              {edu.institution} • {edu.location}
-            </p>
+                 <p className="text-muted-foreground">
+                  {edu.institution} • {edu.location}
+                </p>
 
-            <p className="text-sm text-muted-foreground">
-              {edu.year}
-            </p>
+                <p className="text-sm text-muted-foreground">
+                  {edu.year}
+                </p>
 
-          </div>
+            </motion.div>
 
         ))}
 
