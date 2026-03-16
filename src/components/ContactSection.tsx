@@ -3,6 +3,7 @@ import { Suspense } from "react"
 import { lazy } from "react"
 import { Mail, Github, Linkedin  } from "@/lib/icons"
 import Container from "@/components/layout/Container"
+import SectionTitle from "@/components/ui/SectionTitle"
 
 const ContactSection = () => {
   return (

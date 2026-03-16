@@ -16,7 +16,7 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <SectionTitle User={<Icon />}>
+            <SectionTitle icon={<User className="w-6 h-6" />}>
               {profile.name}
             </SectionTitle>
 
