@@ -209,27 +209,42 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
               <Container>
 
-                    <SectionTitle icon={<Lightbulb className="w-6 h-6" />}>
-                      My Vision
-                    </SectionTitle>
+                  <SectionTitle icon={<Lightbulb className="w-6 h-6" />}>
+                    My Vision
+                  </SectionTitle>
+                    
+                  <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: idx * 0.1 }}
+                      className={`p-6 rounded-xl glass ${
+                        ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][idx % 3]
+                      }`}
+                  >
+                    <h3 className="text-xl font-semibold mb-4">
+                      Architecture
+                    </h3>
 
-                  <div className="grid md:grid-cols-3 gap-8">
-                    <div>
-                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Architecture</p>
-                      <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
-                      <p className="text-muted-foreground">From reactive analytics to proactive intelligence</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Governance</p>
-                      <p className="text-xl font-semibold mb-2">Data as Products</p>
-                      <p className="text-muted-foreground">Clear ownership, accountability, and trust</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">Impact</p>
-                      <p className="text-xl font-semibold mb-2">AI Amplifies Humans</p>
-                      <p className="text-muted-foreground">Technology multiplies human capability and creativity</p>
-                    </div>
-                  </div>
+                    <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
+                    <p className="text-muted-foreground">From reactive analytics to proactive intelligence</p>
+
+                  <h3 className="text-xl font-semibold mb-4">
+                    Architecture
+                  </h3>
+
+                  <p className="text-xl font-semibold mb-2">Data as Products</p>
+                  <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
+                  <p className="text-muted-foreground">Clear ownership, accountability, and trust</p>
+
+                  <h3 className="text-xl font-semibold mb-4">
+                    Impact
+                  </h3>
+
+                  <p className="text-xl font-semibold mb-2">AI Amplifies Humans</p>
+                  <p className="text-muted-foreground">Technology multiplies human capability and creativity</p>
+               </motion.div>
+
               </Container>
             </section>
 

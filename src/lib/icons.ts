@@ -55,5 +55,6 @@ export {
   BarChart3,
   LineChart,
   Users,
-  User
+  User,
+  MessageSquare
 } from "lucide-react";

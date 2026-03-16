@@ -50,19 +50,20 @@ const WhatDrivesMe = () => {
           <SectionTitle icon={<Brain className="w-6 h-6" />}>
             What Drives Me
           </SectionTitle>
-
+          
             <div className="grid md:grid-cols-3 gap-8">
               {facts.map((fact, idx) => {
                 const Icon = fact.icon;
 
                 return (
-                  <motion.div
+                              <motion.div
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: idx * 0.1 }}
-                    viewport={{ once: true }}
-                    className={`bg-gradient-to-br ${fact.color} p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all`}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                    className={`p-6 rounded-xl glass ${
+                      ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][idx % 3]
+                    }`}
                   >
                     <Icon className="w-8 h-8 text-primary mb-4" />
 

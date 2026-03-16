@@ -35,10 +35,16 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
         "Developing automation frameworks that integrate AI capabilities into operational workflows."
     },
     {
+      icon: Sparkles,
+      title: "AI Digital Presence",
+      description:
+        "Exploring AI-powered identities, virtual avatars and intelligent interfaces for scalable digital engagement."
+    },
+    {
       icon: TrendingUp,
       title: "AI-Driven Digital Strategy",
       description:
-        "Applying AI to marketing, SEO and digital positioning strategies."
+        "Applying AI to SEO, content systems and digital positioning strategies."
     }
   ];
 
@@ -60,6 +66,18 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
       title: "AI Strategic Enablement",
       description:
         "Exploring how organizations can embed AI into data ecosystems and decision frameworks."
+    },
+    {
+      icon: Sparkles,
+      title: "AI Digital Presence",
+      description:
+        "Exploring AI-powered identities, virtual avatars and intelligent interfaces for digital engagement."
+    },
+    {
+      icon: MessageSquare,
+      title: "Intelligent Brand Interfaces",
+      description:
+        "Designing AI-driven interfaces and virtual personas that enable scalable and authentic audience engagement."
     }
   ];
 
@@ -188,30 +206,15 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               >
 
                 <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                  My 15 years building data systems revealed a critical insight:
-                  <span className="text-primary font-semibold">
-                    {" "}the next generation of data platforms must be AI-native from inception.
-                  </span>
-                  <br/>
-                  Sapiente.AI is where I explore this frontier: combining deep data engineering
-                  expertise with AI innovation to build the platforms enterprises need to
-                  compete in the AI era.
-                  <br/>
-                  Sapiente.AI is grounded in the belief that artificial intelligence should
-                  not be treated as a feature layer, but as a new architectural paradigm.
-                  <br/>
-                  It operates as a structured experimentation environment where AI-native
-                  systems, governance frameworks, and scalable data platforms are designed,
-                  tested, and refined beyond the constraints of client-driven projects.
-                  <br/>
-                  Each initiative explores how AI can be embedded into data ecosystems,
-                  governance models, and automation pipelines to enhance scalability,
-                  reliability, and strategic decision-making.
-                  <br/>
-                  The goal is not experimentation for novelty, but disciplined innovation—
-                  bridging enterprise data rigor with AI-native thinking.
-                </p>
-
+                Sapiente.AI was born from a simple realization after 15 years building data systems: the next generation of platforms must be AI-native from the start.
+                <br/><br/>
+                This is where I explore my vision of future: combining data engineering experience with AI to design smarter, more adaptive data platforms.
+                <br/><br/>
+                Rather than treating AI as just another feature, Sapiente.AI looks at it as a new architectural foundation for how data systems should be built.
+                <br/><br/>
+                It’s a space to experiment, prototype and refine ideas about AI-native data ecosystems, governance, and automation.
+                <br/><br/>
+                The goal is simple: bridge enterprise-grade data engineering with the possibilities of AI-driven systems.
               </motion.div>
 
               <div className="grid md:grid-cols-3 gap-8">

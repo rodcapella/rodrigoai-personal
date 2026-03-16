@@ -1,5 +1,5 @@
 import React from "react"
-import { Award } from "@/lib/icons"
+import { Layers } from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
 
@@ -13,7 +13,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
   return (
     <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
       <Container>
-        <SectionTitle icon={<Award className="w-6 h-6" />}>
+        <SectionTitle icon={<Layers className="w-6 h-6" />}>
           Core Technology Stack & Experience Depth
         </SectionTitle>  
 

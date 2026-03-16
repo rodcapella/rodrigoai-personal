@@ -11,7 +11,7 @@ const Footer = () => {
 
           {/* Logo */}
           <img
-            src="/public/logo_fundo_transparente.png"
+            src="/logo_fundo_transparente.png"
             alt="Rodrigo Póvoa Logo"
             className="h-10 opacity-60"
           />
