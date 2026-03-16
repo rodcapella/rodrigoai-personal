@@ -20,9 +20,9 @@ export const profile = {
     "Technical Data Leader specialized in designing enterprise data ecosystems, structuring governance frameworks and leading analytics teams in complex environments. I operate at the intersection of architecture, engineering and business strategy. Transforming fragmented data landscapes into scalable, governed and decision-driven platforms.",
 
   core_skills: [
-     {
-    icon: Database,
-    title: "Enterprise Data Architecture & Lakehouse Design"
+    {
+      icon: Database,
+      title: "Enterprise Data Architecture & Lakehouse Design"
     },
     {
       icon: Cloud,
