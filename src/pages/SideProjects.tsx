@@ -362,7 +362,6 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           </motion.div>
         </div>
         </section>
-      </div> 
       </main>  
 <Footer />
 </div>

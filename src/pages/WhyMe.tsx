@@ -360,7 +360,6 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 </motion.div>
               </div>
             </section>
-          </div>
           </main>
       </Suspense>
       <Footer />

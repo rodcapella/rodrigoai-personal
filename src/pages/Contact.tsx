@@ -421,8 +421,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
 
             </div>
 
-          </Section>
-        </div>            
+          </Section>         
         </main>
 
       <Footer />
