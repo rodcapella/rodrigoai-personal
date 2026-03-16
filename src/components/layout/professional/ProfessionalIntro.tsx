@@ -1,9 +1,9 @@
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 export default function ProfessionalIntro() {
   return (
-    <div className="container max-w-4xl mx-auto">
-
+    <Container>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,6 @@ export default function ProfessionalIntro() {
           Strong background in defining data architecture standards, leading engineering teams, mentoring engineers and aligning technical strategy with business goals.
         </p>
       </motion.div>
-
-    </div>
+    </Container>
   )
 }

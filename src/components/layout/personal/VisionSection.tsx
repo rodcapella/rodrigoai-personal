@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Target} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const longTermVision = [
   "Building intelligent systems",
@@ -14,10 +15,9 @@ const longTermVision = [
 export default function VisionSection() {
 
   return (
-      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+      <section className="px-4 mb-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
 
-        <div className="container max-w-4xl mx-auto">
-
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,8 +54,7 @@ export default function VisionSection() {
             </div>
 
           </motion.div>
-
-        </div>
+        </Container>
 
       </section>
   )

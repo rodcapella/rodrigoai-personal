@@ -1,6 +1,7 @@
 import { GraduationCap } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 interface Education {
   degree: string
@@ -16,13 +17,12 @@ interface EducationSectionProps {
 export default function EducationSection({ education }: EducationSectionProps) {
 
   return (
-    <div className="container max-w-4xl mx-auto">
-
+    <Container>
       <SectionTitle icon={<GraduationCap className="w-6 h-6" />}>
         Academic Background
       </SectionTitle>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-8">
 
         {education?.map((edu, i) => (
 
@@ -43,7 +43,6 @@ export default function EducationSection({ education }: EducationSectionProps) {
         ))}
 
       </div>
-
-    </div>
+    </Container>
   )
 }

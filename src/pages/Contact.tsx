@@ -254,7 +254,7 @@ const Contact = ({ theme = 'dark', onToggleTheme }: ContactProps) => {
                 viewport={{ once: true }}
               >
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
 
                   {/* Name */}
                   <div>

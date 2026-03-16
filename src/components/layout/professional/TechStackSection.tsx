@@ -1,6 +1,7 @@
 import React from "react"
 import { Award } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
+import Container from "@/components/layout/Container"
 
 interface Props {
   techStack: any[]
@@ -10,12 +11,12 @@ interface Props {
 export default function TechStackSection({ techStack, maxYears }: Props) {
 
   return (
-    <div className="container max-w-4xl mx-auto">
+    <Container>
       <SectionTitle icon={<Award className="w-6 h-6" />}>
         Core Technology Stack & Experience Depth
       </SectionTitle>  
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-3 gap-8">
 
         {techStack?.map((group) => (
 
@@ -28,14 +29,14 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
               {group.category}
             </h3>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
 
               {group.items.map((tech: any) => {
 
                 const width = (tech.years / maxYears) * 100
 
                 return (
-                  <div key={tech.name} className="space-y-2">
+                  <div key={tech.name} className="space-y-4">
 
                     <div className="flex justify-between text-sm">
 
@@ -69,7 +70,6 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
         ))}
 
       </div>
-
-    </div>
+    </Container>
   )
 }

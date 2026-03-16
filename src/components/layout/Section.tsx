@@ -1,3 +1,5 @@
+import Container from "@/components/layout/Container"
+
 interface SectionProps {
   variant?: "hero" | "content" | "highlight"
   children: React.ReactNode
@@ -12,9 +14,9 @@ const variants = {
 const Section = ({ variant = "content", children }: SectionProps) => {
   return (
     <section className={variants[variant]}>
-      <div className="container max-w-4xl mx-auto">
+      <Container>
         {children}
-      </div>
+      </Container>
     </section>
   )
 }

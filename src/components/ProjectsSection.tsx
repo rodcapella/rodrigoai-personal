@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { Rocket} from "@/lib/icons"
+import Container from "@/components/layout/Container"
 
 const projects = [
     {
@@ -32,7 +33,7 @@ const projects = [
 const ProjectsSection = () => {
   return (
       <section id="projects" className="py-32 relative">
-        <div className="container max-w-4xl mx-auto">
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +45,7 @@ const ProjectsSection = () => {
             </SectionTitle>
           </motion.div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project, i) => (
               <motion.div
                 key={project.name}
@@ -75,7 +76,7 @@ const ProjectsSection = () => {
               </motion.div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
   );
 };

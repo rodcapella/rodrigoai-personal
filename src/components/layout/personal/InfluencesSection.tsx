@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { lazy } from "react"
 import { BookOpen} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const influences = [
   { category: "Tech Leaders", items: ["Steve Jobs", "Elon Musk", "Jeff Bezos"] },
@@ -17,7 +18,7 @@ export default function InfluencesSection() {
   return (
       <section className="px-4 mb-20">
 
-        <div className="container max-w-4xl mx-auto">
+        <Container>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +30,7 @@ export default function InfluencesSection() {
               Influences
             </SectionTitle>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
 
               {influences.map((section, idx) => (
 
@@ -49,7 +50,6 @@ export default function InfluencesSection() {
                   </h3>
 
                   <ul className="space-y-2">
-
                     {section.items.map((item, i) => (
 
                       <li
@@ -61,7 +61,6 @@ export default function InfluencesSection() {
                       </li>
 
                     ))}
-
                   </ul>
 
                 </motion.div>
@@ -72,7 +71,7 @@ export default function InfluencesSection() {
 
           </motion.div>
 
-        </div>
+        </Container>
 
       </section>
   )

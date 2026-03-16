@@ -1,6 +1,7 @@
 import { Heart} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 const personalValues = [
   {
@@ -32,10 +33,9 @@ const personalValues = [
 export default function ValuesSection() {
 
   return (
-      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+      <section className="px-4 mb-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
 
-        <div className="container max-w-4xl mx-auto">
-
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function ValuesSection() {
               Core Values
             </SectionTitle>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
 
               {personalValues.map((value, idx) => (
 
@@ -74,8 +74,7 @@ export default function ValuesSection() {
             </div>
 
           </motion.div>
-
-        </div>
+        </Container>
 
       </section>
   )

@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { lazy } from "react";
 import { Sparkles} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const aiExploration = [
   "OpenAI",
@@ -17,7 +18,7 @@ export default function AIExplorationSection() {
 
   return (
       <section className="px-4 mb-20">
-        <div className="container max-w-4xl mx-auto">
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +29,7 @@ export default function AIExplorationSection() {
               AI Ecosystem Exploration
             </SectionTitle>
 
-            <div className="mb-8 space-y-6">
+            <div className="mb-8 space-y-4">
 
               <p className="text-muted-foreground leading-relaxed">
                 I actively study and evaluate modern AI systems as part of an independent experimentation practice focused on applied intelligence and architectural integration. I analyze behavioral patterns, architectural trade-offs, response reliability and integration potential within scalable data environments.
@@ -58,9 +59,7 @@ export default function AIExplorationSection() {
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
                     className="px-4 py-2 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 border border-orange-500/30 font-medium text-sm"
                   >
-
                     {platform}
-
                   </motion.span>
 
                 ))}
@@ -70,7 +69,7 @@ export default function AIExplorationSection() {
             </div>
 
           </motion.div>
-        </div>
+        </Container>
       </section>
   )
 }

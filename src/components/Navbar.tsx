@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { NavLink } from "react-router-dom"
 import { Github, Linkedin, Sun, Moon, Menu, X } from "@/lib/icons"
 import { motion, AnimatePresence } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 const links = [
   { href: "/", label: "Home" },
@@ -53,8 +54,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
       }`}
     >
 
-      <div className="container flex items-center justify-between px-4">
-
+      <Container>
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8 relative">
 
@@ -171,7 +171,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
 
         </div>
 
-      </div>
+      </Container>
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -186,7 +186,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
             className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 md:hidden"
           >
 
-            <div className="container px-4 py-6 flex flex-col gap-5">
+            <Container>
 
               {links.map((link) => (
                 <NavLink
@@ -214,7 +214,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
                 Contact
               </NavLink>
 
-            </div>
+            </Container>
 
           </motion.div>
 

@@ -6,6 +6,7 @@ import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
 import { Zap, Database, Cpu, TrendingUp} from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
+import Container from "@/components/layout/Container"
 
 interface SideProjectsProps {
   theme?: 'dark' | 'light';
@@ -173,13 +174,13 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
           {/* SapienteAI - The Next Generation */}
           <section className="px-4 mb-20">
-            <div className="container max-w-4xl mx-auto">
+            <Container>
 
               <SectionTitle icon={<Cpu className="w-6 h-6" />}>
                 Sapiente.AI: The Next Generation
               </SectionTitle>
 
-              <div className="mb-12 space-y-6 max-w-3xl">
+              <div className="mb-12 space-y-4 max-w-3xl">
                 <p className="text-lg leading-relaxed">
                   My 15 years building data systems revealed a critical insight:
                   <span className="text-primary font-semibold">
@@ -192,7 +193,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                   expertise with AI innovation to build the platforms enterprises need to
                   compete in the AI era.
                 </p>
-                <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                   Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
                 </p>
@@ -208,7 +209,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
+              <div className="grid md:grid-cols-3 gap-8">
 
                 {sapientePoints.map((point, idx) => {
                   const Icon = point.icon;
@@ -234,12 +235,12 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 })}
 
               </div>
-            </div>
+            </Container>
           </section>
         
         {/* Project Focus Areas */}
         <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
+          <Container>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -249,8 +250,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               <SectionTitle icon={<Zap className="w-6 h-6" />}>
                 Project Focus Areas
               </SectionTitle>
-              
-              <div className="grid md:grid-cols-2 gap-8">
+
+              <div className="grid md:grid-cols-3 gap-8">
               {projectCategories.map((category, idx) => {
 
                 const Icon = category.icon;
@@ -281,12 +282,12 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
             </div>
             </motion.div>
-          </div>
+          </Container>
         </section>
         
         {/* SEO invisível */}
         <section className="px-4 mb-20">
-          <div className="container max-w-4xl mx-auto">
+          <Container>
             <div className="sr-only">
               <h2>Artificial Intelligence Architecture Research</h2>
               <p>
@@ -295,12 +296,12 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 integrated with machine learning systems and large language models.
               </p>
             </div>
-          </div>
+          </Container>
         </section>
 
       {/* CTA Section */}
-      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-        <div className="container max-w-4xl mx-auto">
+      <section className="px-4 py-16 bg-gradient-to-br from-primary/10 to-transparent">
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -332,7 +333,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               Visit Sapiente.AI website
             </a>
           </motion.div>
-        </div>
+        </Container>
         </section>
       </main>  
 <Footer />

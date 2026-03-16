@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import Section from "@/components/layout/Section";
 import { lazy, Suspense } from "react";
+import Container from "@/components/layout/Container"
 
 const ArrowDown = lazy(() =>
   import("lucide-react").then(m => ({ default: m.ArrowDown }))
@@ -20,7 +21,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
         {/* Radial glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]" />
 
-        <div className="container relative z-10 px-4">
+        <Container>
 
           <div className="grid md:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
 
@@ -141,7 +142,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
 
           </div>
 
-        </div>
+        </Container>
 
         {/* Scroll indicator */}
         <motion.div

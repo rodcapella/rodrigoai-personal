@@ -2,6 +2,7 @@ import React from "react"
 import { Briefcase } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 interface Experience {
   title: string
@@ -19,13 +20,12 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
-    <div className="container max-w-4xl mx-auto">
-
+    <Container>
       <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
         Professional Experience
       </SectionTitle>
 
-      <div className="space-y-12">
+      <div className="space-y-4">
 
         {(experiences ?? []).map((exp, idx) => (
 
@@ -135,7 +135,6 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
         ))}
 
       </div>
-
-    </div>
+    </Container>
   )
 }

@@ -2,6 +2,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { Award } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
+import Container from "@/components/layout/Container"
 
 interface Competence {
   icon: React.ElementType
@@ -14,13 +15,12 @@ interface CoreCompetencesSectionProps {
 
 const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) => {
   return (
-    <div className="container max-w-4xl mx-auto">
-
+    <Container>
       <SectionTitle icon={<Award className="w-8 h-8" />}>
         Core Competences
       </SectionTitle>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid md:grid-cols-3 lg:grid-cols-3">
 
         {competences.map((competence, i) => {
           const Icon = competence.icon
@@ -43,8 +43,7 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
         })}
 
       </div>
-
-    </div>
+    </Container>
   )
 }
 

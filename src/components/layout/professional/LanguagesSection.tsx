@@ -2,6 +2,7 @@ import React from "react"
 import { Globe } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 interface Language {
   name: string
@@ -15,11 +16,11 @@ interface LanguagesSectionProps {
 export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
   return (
-      <div className="container max-w-4xl mx-auto">
+      <Container>
           <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
           </SectionTitle>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
 
           {languages?.map((lang, idx) => (
 
@@ -46,7 +47,6 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
           ))}
 
           </div>
-
-      </div>
+      </Container>
   )
 }

@@ -3,11 +3,12 @@ import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { User} from "@/lib/icons"
+import Container from "@/components/layout/Container"
 
 const AboutSection = () => {
   return (
       <Section>
-        <div className="container max-w-4xl mx-auto">
+        <Container>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -15,20 +16,9 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="group text-3xl font-bold mb-12 flex items-center gap-3 transition-all duration-300 hover:tracking-wide">
-              <User
-                className="
-                  w-6 h-6
-                  text-primary
-                  transition-all duration-300
-                  group-hover:scale-110
-                  group-hover:drop-shadow-[0_0_6px_rgba(249,115,22,0.6)]
-                "
-              />
-              <span className="transition-colors duration-300 group-hover:text-primary">
-                {profile.name}
-              </span>
-            </h2>
+            <SectionTitle User={<Icon />}>
+              {profile.name}
+            </SectionTitle>
 
             <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               {profile.summary}
@@ -40,7 +30,7 @@ const AboutSection = () => {
 
           </motion.div>
 
-        </div>
+        </Container>
       </Section>
   );
 };

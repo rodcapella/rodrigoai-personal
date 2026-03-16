@@ -2,14 +2,14 @@ import { lazy } from "react"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { Heart} from "@/lib/icons"
 import { motion } from "framer-motion";
+import Container from "@/components/layout/Container"
 
 export default function PersonalPhilosophy() {
 
   return (
-      <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+      <section className="px-4 mb-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
 
-        <div className="container max-w-4xl mx-auto">
-
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -20,7 +20,7 @@ export default function PersonalPhilosophy() {
               Personal Philosophy
             </SectionTitle>
 
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
 
               <p className="text-lg">
                 I am a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams.
@@ -34,8 +34,7 @@ export default function PersonalPhilosophy() {
             </div>
 
           </motion.div>
-
-        </div>
+        </Container>
 
       </section>
   )

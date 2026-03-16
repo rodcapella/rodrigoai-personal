@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { lazy, Suspense } from "react"
 import { Briefcase} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const ChevronRight = lazy(() =>
   import("lucide-react").then(m => ({ default: m.ChevronRight }))
@@ -22,7 +23,7 @@ const AboutMyCareer = () => {
   return (
       <section className="px-4 py-20">
 
-        <div className="container max-w-4xl mx-auto">
+        <Container>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +82,7 @@ const AboutMyCareer = () => {
 
           </motion.div>
 
-        </div>
+        </Container>
 
       </section>
   )

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 interface PageHeroProps {
   title: string
@@ -24,7 +25,7 @@ const PageHero = ({
         {/* Radial glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/5 blur-[120px]" />
 
-        <div className="container relative z-10 max-w-5xl mx-auto">
+        <Container>
 
           <div className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
 
@@ -88,9 +89,7 @@ const PageHero = ({
             )}
 
           </div>
-
-        </div>
-
+        </Container>
       </section>
   )
 }

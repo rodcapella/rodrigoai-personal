@@ -1,6 +1,8 @@
+import Container from "@/components/layout/Container"
+
 const Footer = () => (
   <footer className="py-10 border-t border-border relative">
-    <div className="container px-4 text-center flex flex-col items-center gap-4">
+    <Container>
 
       {/* Logo com glow sutil */}
       <div className="relative">
@@ -15,7 +17,7 @@ const Footer = () => (
         © {new Date().getFullYear()} Rodrigo Póvoa — Data Analytics Engineer & Team Leader.
       </p>
 
-    </div>
+    </Container>
   </footer>
 );
 

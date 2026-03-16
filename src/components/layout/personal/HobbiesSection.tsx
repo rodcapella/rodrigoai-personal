@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { lazy } from "react"
 import { Music, Guitar, Gamepad2, Film, Dumbbell, BookOpen } from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const hobbies = [
 {
@@ -39,44 +40,44 @@ const hobbies = [
 export default function HobbiesSection() {
 
     return (
-            <section className="px-4 mb-20 bg-gradient-to-r from-primary/5 to-transparent py-16">
+            <section className="px-4 mb-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
 
-            <div className="container max-w-4xl mx-auto">
+            <Container>
 
-            <motion.div>
-                <SectionTitle icon={<Music className="w-8 h-8" />}>
-                  Passions & Hobbies
-                </SectionTitle>
+              <motion.div>
+                  <SectionTitle icon={<Music className="w-8 h-8" />}>
+                    Passions & Hobbies
+                  </SectionTitle>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid md:grid-cols-3 gap-8">
 
-                {hobbies.map((hobby, idx) => {
+                  {hobbies.map((hobby, idx) => {
 
-                const Icon = hobby.icon
+                  const Icon = hobby.icon
 
-                return (
-                        <motion.div key={idx} className="glass rounded-xl p-6">
+                  return (
+                          <motion.div key={idx} className="glass rounded-xl p-6">
 
-                            <Icon className="w-8 h-8 text-primary mb-4" />
+                              <Icon className="w-8 h-8 text-primary mb-4" />
 
-                            <h3 className="text-lg font-bold mb-2">
-                            {hobby.title}
-                            </h3>
+                              <h3 className="text-lg font-bold mb-2">
+                              {hobby.title}
+                              </h3>
 
-                            <p className="text-sm text-muted-foreground">
-                            {hobby.description}
-                            </p>
+                              <p className="text-sm text-muted-foreground">
+                              {hobby.description}
+                              </p>
 
-                        </motion.div>
+                          </motion.div>
 
-                )
-                })}
+                  )
+                  })}
 
-            </div>
+              </div>
 
-            </motion.div>
+              </motion.div>
 
-            </div>
+            </Container>
 
             </section>
     )

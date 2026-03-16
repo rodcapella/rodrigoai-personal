@@ -2,6 +2,7 @@ import React from "react"
 import { Award } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { motion } from "framer-motion"
+import Container from "@/components/layout/Container"
 
 interface CertificationsSectionProps {
   certifications: string[]
@@ -10,12 +11,11 @@ interface CertificationsSectionProps {
 export default function CertificationsSection({ certifications }: CertificationsSectionProps) {
 
   return (
-      <div className="container max-w-4xl mx-auto">
-
+      <Container>
           <SectionTitle icon={<Award className="w-6 h-6" />}>
             Certifications & Courses
           </SectionTitle>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
 
             {certifications?.map((cert, idx) => (
 
@@ -36,11 +36,10 @@ export default function CertificationsSection({ certifications }: Certifications
                 </p>
 
               </motion.div>
-
             ))}
 
           </div>
 
-      </div>
+      </Container>
   )
 }

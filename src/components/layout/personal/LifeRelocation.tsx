@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { lazy } from "react"
+import Container from "@/components/layout/Container"
 
 const Compass = lazy(() => import("lucide-react").then(m => ({ default: m.Compass })));
 
@@ -10,8 +11,7 @@ export default function LifeRelocation() {
   return (
       <section className="px-4 mb-20">
 
-        <div className="container max-w-4xl mx-auto">
-
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ export default function LifeRelocation() {
             Life & Relocation
           </SectionTitle>
 
-            <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
 
               <p>
                 In the end of 2019, I made a significant life decision to relocate to Portugal together with his family (wife, son and their dog), seeking improved quality of life, greater personal and family security, and more challenging professional opportunities. 
@@ -42,7 +42,7 @@ export default function LifeRelocation() {
 
           </motion.div>
 
-        </div>
+        </Container>
 
       </section>
   )

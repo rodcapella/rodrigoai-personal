@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Trophy} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const sportsTeams = [
   { team: "Flamengo", country: "Brazil", emoji: "🔴⚫" },
@@ -12,8 +13,7 @@ export default function SportsSection() {
   return (
       <section className="px-4 mb-20">
 
-        <div className="container max-w-4xl mx-auto">
-
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function SportsSection() {
               Team Spirit
             </SectionTitle>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
 
               {sportsTeams.map((team, idx) => (
 
@@ -61,7 +61,7 @@ export default function SportsSection() {
 
           </motion.div>
 
-        </div>
+        </Container>
 
       </section>
   )

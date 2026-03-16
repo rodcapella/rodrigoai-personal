@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { lazy, Suspense } from "react";
 import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
+import Container from "@/components/layout/Container"
 
 const WhatDrivesMe = () => {
   const facts = [
@@ -36,8 +37,8 @@ const WhatDrivesMe = () => {
   ];
 
   return (
-      <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
-        <div className="container max-w-4xl mx-auto">
+      <section className="px-4 py-16 bg-gradient-to-br from-primary/10 to-transparent">
+        <Container>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -50,7 +51,7 @@ const WhatDrivesMe = () => {
             What Drives Me
           </SectionTitle>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {facts.map((fact, idx) => {
                 const Icon = fact.icon;
 
@@ -80,7 +81,7 @@ const WhatDrivesMe = () => {
 
           </motion.div>
 
-        </div>
+        </Container>
       </section>
   );
 };
