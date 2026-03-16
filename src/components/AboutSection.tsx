@@ -6,8 +6,8 @@ import { User} from "@/lib/icons"
 import Container from "@/components/layout/Container"
 
 const AboutSection = () => {
-  return (
-      <Section>
+  return (  
+      <section className="py-20">
         <Container>
 
           <motion.div

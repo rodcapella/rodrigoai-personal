@@ -28,7 +28,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
             {education?.map((edu, i) => (
 
               <motion.div
-                key={idx}
+                key={i}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
