@@ -67,14 +67,20 @@ const PageHero = ({
                 transition={{ duration: 0.7 }}
                 className="flex justify-center"
               >
-                <div className="relative w-[260px]">
+                <div
+                  className={`relative ${
+                    variant === "hero"
+                      ? "w-[260px] md:w-[320px]"
+                      : "w-[200px] md:w-[240px]"
+                  }`}
+                >
 
                   <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl" />
 
                   <img
                     src={image}
                     alt={title}
-                    className="relative rounded-3xl border border-primary/20 shadow-2xl"
+                    className="relative rounded-3xl border border-primary/20 shadow-2xl aspect-square"
                   />
 
                 </div>

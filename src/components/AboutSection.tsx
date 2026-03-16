@@ -34,7 +34,7 @@ const AboutSection = () => {
               {profile.summary}
             </p>
 
-            <p className="text-muted-foreground leading-relaxed">
+           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               {profile.positioning_statement}
             </p>
 
