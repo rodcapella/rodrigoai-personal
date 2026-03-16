@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import Container from "@/components/layout/Container"
 import SectionTitle from "@/components/layout/SectionTitle";
+import { Award } from "@/lib/icons";
 
 export default function ProfessionalIntro() {
   return (
