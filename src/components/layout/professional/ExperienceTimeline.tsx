@@ -19,7 +19,7 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
-    <div className="container max-w-5xl mx-auto">
+    <div className="max-w-6xl mx-auto">
 
       <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
         Professional Experience
@@ -60,7 +60,6 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
               </h3>
 
               {/* Company */}
-
               <p
                 className="
                   text-lg font-semibold
@@ -72,13 +71,11 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
               </p>
 
               {/* Location + period */}
-
               <p className="text-sm text-muted-foreground mb-5">
                 {exp.location} • {exp.period}
               </p>
 
               {/* Highlights */}
-
               <ul className="space-y-2 mb-6">
 
                 {(exp.highlights ?? []).map((highlight, i) => (
@@ -101,7 +98,6 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
               </ul>
 
               {/* Tech Stack */}
-
               <div>
 
                 <p className="text-sm font-semibold mb-3 text-foreground">
@@ -118,8 +114,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                         px-3 py-1
                         rounded-full
                         bg-primary/10
-                        text-primary
-                        text-xs font-medium
+                        text-orange-500 font-semibold text-xs
                         border border-primary/30
                         hover:bg-primary/20
                         transition-colors
@@ -135,7 +130,6 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
               </div>
 
             </div>
-
           </motion.div>
 
         ))}

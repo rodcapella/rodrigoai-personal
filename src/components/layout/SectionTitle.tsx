@@ -22,7 +22,7 @@ const SectionTitle = ({
       <h2
         className={`
           group
-          text-2xl md:text-3xl font-bold
+          text-xl md:text-2xl lg:text-3xl
           flex items-center gap-3
           ${isCenter ? "justify-center" : ""}
         `}
