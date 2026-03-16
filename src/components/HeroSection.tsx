@@ -103,7 +103,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               className="relative flex justify-center"
             >
 
-              <div className="relative w-[260px] md:w-[300px]">
+              <div className="relative w-[260px] md:w-[300px] aspect-square">
 
                 {/* Glow background */}
                 <div className="

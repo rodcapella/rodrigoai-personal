@@ -123,13 +123,14 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
 
       <Suspense fallback={null}>
           <main className="pt-36 pb-24">
-          {/* HERO PADRONIZADO */}
-            <PageHero
-              variant="page"
-              title="WHY WORK WITH ME"
-              subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
-              image="/rodrigo_why_me.png"
-            />
+          <div className="relative w-[208px] md:w-[240px] aspect-square">  
+            {/* HERO PADRONIZADO */}
+              <PageHero
+                variant="page"
+                title="WHY WORK WITH ME"
+                subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+                image="/rodrigo_why_me.png"
+              />
 
             {/* Leadership Philosophy */}
             <section className="px-4 py-16 bg-gradient-to-r from-primary/5 to-transparent">
@@ -360,6 +361,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                 </motion.div>
               </div>
             </section>
+          </div>
           </main>
       </Suspense>
       <Footer />

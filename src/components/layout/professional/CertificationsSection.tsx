@@ -1,5 +1,5 @@
 import React from "react"
-import { Award } from "lucide-react"
+import { Award } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { motion } from "framer-motion"
 

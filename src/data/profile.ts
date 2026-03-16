@@ -9,7 +9,7 @@ import {
   ShieldCheck,
   Users,
   GitBranch
-} from "lucide-react"
+} from "@/lib/icons"
 
 export const profile = {
   name: "Rodrigo Póvoa",

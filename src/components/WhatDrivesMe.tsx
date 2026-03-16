@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { lazy, Suspense } from "react";
-import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "lucide-react"
+import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const WhatDrivesMe = () => {

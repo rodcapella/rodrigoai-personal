@@ -4,7 +4,7 @@ import Section from "@/components/layout/Section";
 import SectionTitle from "@/components/layout/SectionTitle"
 import { Card, CardContent } from "@/components/ui/card";
 import { Suspense } from "react";
-import { Database, Zap, Rocket, Cpu, Cloud, Shield, Workflow, Code, Layers, BarChart3, Network, LineChart, GitBranch, Users, ShieldCheck  } from "lucide-react"
+import { Database, Zap, Rocket, Cpu, Cloud, Shield, Workflow, Code, Layers, BarChart3, Network, LineChart, GitBranch, Users, ShieldCheck  } from "@/lib/icons"
 
 const icons = [
   Database,

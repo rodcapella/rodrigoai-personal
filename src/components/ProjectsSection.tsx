@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import SectionTitle from "@/components/layout/SectionTitle"
-import { Rocket} from "lucide-react"
+import { Rocket} from "@/lib/icons"
 
 const projects = [
     {

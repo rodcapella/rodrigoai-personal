@@ -1,5 +1,5 @@
 import React from "react"
-import { Briefcase } from "lucide-react"
+import { Briefcase } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 import { motion } from "framer-motion"
 

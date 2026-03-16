@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Suspense } from "react"
 import { lazy } from "react"
-import { Mail, Github, Linkedin  } from "lucide-react"
+import { Mail, Github, Linkedin  } from "@/lib/icons"
 
 const ContactSection = () => {
   return (

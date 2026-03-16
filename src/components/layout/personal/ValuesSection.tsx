@@ -1,4 +1,4 @@
-import { Heart} from "lucide-react"
+import { Heart} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 import { motion } from "framer-motion"
 

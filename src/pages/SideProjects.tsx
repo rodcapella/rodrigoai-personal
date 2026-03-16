@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PageHero from "@/components/layout/PageHero"
 import { Helmet } from "react-helmet-async";
-import { Zap, Database, Cpu, TrendingUp} from "lucide-react"
+import { Zap, Database, Cpu, TrendingUp} from "@/lib/icons"
 
 interface SideProjectsProps {
   theme?: 'dark' | 'light';
@@ -162,13 +162,14 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
         <main className="pt-36 pb-24">
-        {/* HERO */}
-        <PageHero
-          variant="page"
-          title="SIDE PROJECTS"
-          subtitle="Explorations in Data Engineering, AI and Technical Research"
-          image = "/logo_sapienteai.png"
-        />
+        <div className="relative w-[208px] md:w-[240px] aspect-square"> 
+          {/* HERO */}
+          <PageHero
+            variant="page"
+            title="SIDE PROJECTS"
+            subtitle="Explorations in Data Engineering, AI and Technical Research"
+            image = "/logo_sapienteai.png"
+          />
 
           {/* SapienteAI - The Next Generation */}
           <section className="px-4 mb-20">
@@ -362,8 +363,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           </motion.div>
         </div>
         </section>
-      </main>
-      
+      </div> 
+      </main>  
 <Footer />
 </div>
 );

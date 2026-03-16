@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { lazy } from "react"
-import { BookOpen} from "lucide-react"
+import { BookOpen} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const influences = [

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { lazy } from "react";
-import { Sparkles} from "lucide-react"
+import { Sparkles} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const aiExploration = [

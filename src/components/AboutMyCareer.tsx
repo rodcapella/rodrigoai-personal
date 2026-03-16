@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { lazy, Suspense } from "react"
-import { Briefcase} from "lucide-react"
+import { Briefcase} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const ChevronRight = lazy(() =>

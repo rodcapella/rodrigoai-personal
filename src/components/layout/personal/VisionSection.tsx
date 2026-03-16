@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Target} from "lucide-react"
+import { Target} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const longTermVision = [

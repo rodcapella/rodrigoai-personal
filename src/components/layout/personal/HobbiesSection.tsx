@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { lazy } from "react"
-import { Music, Guitar, Gamepad2, Film, Dumbbell, BookOpen } from "lucide-react"
+import { Music, Guitar, Gamepad2, Film, Dumbbell, BookOpen } from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const hobbies = [

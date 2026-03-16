@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react"
+import { GraduationCap } from "@/lib/icons"
 import SectionTitle from "@/components/ui/SectionTitle"
 
 interface Education {
@@ -21,7 +21,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
         Academic Background
       </SectionTitle>
 
-      <div className="space-y-6">
+      <div className="grid md:grid-cols-2 gap-6">
 
         {education?.map((edu, i) => (
 

@@ -2,9 +2,7 @@ import { motion } from "framer-motion"
 import { profile } from "@/data/profile";
 import Section from "@/components/layout/Section"
 import SectionTitle from "@/components/layout/SectionTitle"
-import { User} from "lucide-react"
-
-
+import { User} from "@/lib/icons"
 
 const AboutSection = () => {
   return (

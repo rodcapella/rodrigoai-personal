@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Trophy} from "lucide-react"
+import { Trophy} from "@/lib/icons"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 const sportsTeams = [

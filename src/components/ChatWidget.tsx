@@ -1,7 +1,7 @@
 /*
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, X, Send, Bot } from "lucide-react";
+import { MessageSquare, X, Send, Bot } from "@/lib/icons"
 
 const suggestedQuestions = [
   "What projects has Rodrigo built?",
