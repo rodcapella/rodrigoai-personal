@@ -19,35 +19,65 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
-      <div className="container max-w-4xl mx-auto">
+    <div className="container max-w-5xl mx-auto">
 
-        <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
-          Professional Experience
-        </SectionTitle>
+      <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
+        Professional Experience
+      </SectionTitle>
 
-        <div className="space-y-10">
+      <div className="space-y-12">
 
-          {(experiences ?? []).map((exp, idx) => (
+        {(experiences ?? []).map((exp, idx) => (
 
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="border-l-4 border-primary pl-6 pb-6"
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+            className="
+              relative
+              border-l-4 border-primary
+              pl-6
+            "
+          >
+
+            <div
+              className="
+                p-6
+                rounded-xl
+                border border-border
+                bg-card
+                hover:border-primary/40
+                transition-all duration-300
+              "
             >
 
-              <h3 className="text-xl font-semibold mb-4">
+              {/* Role */}
+
+              <h3 className="text-xl font-semibold mb-1 text-secondary">
                 {exp.title}
               </h3>
 
-              <p className="text-lg font-semibold text-foreground">
+              {/* Company */}
+
+              <p
+                className="
+                  text-lg font-semibold
+                  bg-gradient-to-r from-primary to-secondary
+                  bg-clip-text text-transparent
+                "
+              >
                 {exp.company}
               </p>
 
-              <p className="text-sm text-muted-foreground mb-4">
+              {/* Location + period */}
+
+              <p className="text-sm text-muted-foreground mb-5">
                 {exp.location} • {exp.period}
               </p>
+
+              {/* Highlights */}
 
               <ul className="space-y-2 mb-6">
 
@@ -57,6 +87,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
                     key={i}
                     className="flex gap-3 text-muted-foreground text-sm leading-relaxed"
                   >
+
                     <span className="text-primary font-bold flex-shrink-0">
                       •
                     </span>
@@ -69,9 +100,11 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
               </ul>
 
+              {/* Tech Stack */}
+
               <div>
 
-                <p className="text-sm font-semibold mb-3">
+                <p className="text-sm font-semibold mb-3 text-foreground">
                   Tech Stack
                 </p>
 
@@ -81,7 +114,16 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
                     <span
                       key={i}
-                      className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-medium border border-orange-500/30"
+                      className="
+                        px-3 py-1
+                        rounded-full
+                        bg-primary/10
+                        text-primary
+                        text-xs font-medium
+                        border border-primary/30
+                        hover:bg-primary/20
+                        transition-colors
+                      "
                     >
                       {tech}
                     </span>
@@ -92,12 +134,14 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
               </div>
 
-            </motion.div>
+            </div>
 
-          ))}
+          </motion.div>
 
-        </div>
+        ))}
 
       </div>
+
+    </div>
   )
 }

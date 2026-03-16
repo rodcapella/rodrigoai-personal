@@ -34,16 +34,8 @@ export default function EducationSection({ education }: EducationSectionProps) {
                 className="flex items-start gap-3 p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
               >
 
-                <h3 className="text-lg font-semibold">
-                  {edu.degree}
-                </h3>
-
                  <p className="text-muted-foreground">
-                  {edu.institution} • {edu.location}
-                </p>
-
-                <p className="text-sm text-muted-foreground">
-                  {edu.year}
+                  {edu.degree} • {edu.institution} • {edu.location} • {edu.year}
                 </p>
 
             </motion.div>

@@ -59,7 +59,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
 
          <Suspense fallback={<SectionLoader />}>
 
-          <div className="space-y-24">
+          <div className="max-w-6xl mx-auto space-y-28 px-4">
 
             <ProfessionalIntro />
 
