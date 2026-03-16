@@ -1,20 +1,18 @@
-import { Suspense } from "react";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/layout/PageHero"
+import PageHero from "@/components/layout/PageHero";
 import { Helmet } from "react-helmet-async";
-import { Zap, Database, Cpu, TrendingUp} from "@/lib/icons"
-import SectionTitle from "@/components/layout/SectionTitle"
-import Container from "@/components/layout/Container"
+import { Zap, Database, Cpu, TrendingUp, Sparkles, MessageSquare } from "@/lib/icons";
+import SectionTitle from "@/components/layout/SectionTitle";
+import Container from "@/components/layout/Container";
 
 interface SideProjectsProps {
-  theme?: 'dark' | 'light';
+  theme?: "dark" | "light";
   onToggleTheme?: () => void;
 }
 
-const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
-
+const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
   const projectCategories = [
     {
       icon: Cpu,
@@ -83,11 +81,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
 
   return (
     <div className="min-h-screen bg-background">
-
       <Helmet>
-        <title>
-          Rodrigo Póvoa – Sapiente.AI Innovation Studio
-        </title>
+        <title>Rodrigo Póvoa – Sapiente.AI Innovation Studio</title>
 
         <meta
           name="description"
@@ -104,41 +99,23 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
           href="https://www.rpovoadata.tech/side-projects"
         />
 
-        {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="AI Projects | Sapiente.AI Innovation Studio"
-        />
+        <meta property="og:title" content="AI Projects | Sapiente.AI Innovation Studio" />
         <meta
           property="og:description"
           content="Exploring AI-native architectures, automation systems and AI-augmented data platforms."
         />
-        <meta
-          property="og:url"
-          content="https://www.rpovoadata.tech/side-projects"
-        />
-        <meta
-          property="og:image"
-          content="https://www.rpovoadata.tech/logo_sapienteai.png"
-        />
+        <meta property="og:url" content="https://www.rpovoadata.tech/side-projects" />
+        <meta property="og:image" content="https://www.rpovoadata.tech/logo_sapienteai.png" />
 
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Sapiente.AI – AI Innovation Projects"
-        />
+        <meta name="twitter:title" content="Sapiente.AI – AI Innovation Projects" />
         <meta
           name="twitter:description"
           content="AI-native architectures, automation frameworks and intelligent digital systems."
         />
-        <meta
-          name="twitter:image"
-          content="https://www.rpovoadata.tech/logo_sapienteai.png"
-        />
+        <meta name="twitter:image" content="https://www.rpovoadata.tech/logo_sapienteai.png" />
 
-        {/* Structured Data */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -150,117 +127,86 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
             },
             url: "https://www.rpovoadata.tech/side-projects",
             description:
-              "Independent AI experimentation studio exploring AI-native architectures, automation systems and intelligent data platforms.",
-            keywords: [
-              "Artificial Intelligence",
-              "AI-native Architecture",
-              "Automation Systems",
-              "AI-Augmented Data Platforms",
-              "Digital Strategy",
-              "AI",
-              "IA",
-              "Inteligência Artificial",
-              "Branding"
-            ],
-            about: [
-              {
-                "@type": "Thing",
-                name: "Artificial Intelligence"
-              },
-              {
-                "@type": "Thing",
-                name: "Data Architecture"
-              },
-              {
-                "@type": "Thing",
-                name: "Automation Systems"
-              }
-            ]
+              "Independent AI experimentation studio exploring AI-native architectures, automation systems and intelligent data platforms."
           })}
-          </script>
+        </script>
       </Helmet>
 
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
-        <main className="pt-36 pb-24">
-          {/* HERO */}
-          <PageHero
-            variant="page"
-            title="SIDE PROJECTS"
-            subtitle="Explorations in Data Engineering, AI and Technical Research"
-            image = "/logo_sapienteai.png"
-          />
 
-          {/* SapienteAI - The Next Generation */}
-          <section className="py-20">
-            <Container>
+      <main className="pt-36 pb-24">
 
-              <SectionTitle icon={<Cpu className="w-6 h-6" />}>
-                Sapiente.AI: The Next Generation
-              </SectionTitle>
+        {/* HERO */}
+        <PageHero
+          variant="page"
+          title="SIDE PROJECTS"
+          subtitle="Explorations in Data Engineering, AI and Technical Research"
+          image="/logo_sapienteai.png"
+        />
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-6 mb-12"
-              >
-
-                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                Sapiente.AI was born from a simple realization after 15 years building data systems: the next generation of platforms must be AI-native from the start.
-                <br/><br/>
-                This is where I explore my vision of future: combining data engineering experience with AI to design smarter, more adaptive data platforms.
-                <br/><br/>
-                Rather than treating AI as just another feature, Sapiente.AI looks at it as a new architectural foundation for how data systems should be built.
-                <br/><br/>
-                It’s a space to experiment, prototype and refine ideas about AI-native data ecosystems, governance, and automation.
-                <br/><br/>
-                The goal is simple: bridge enterprise-grade data engineering with the possibilities of AI-driven systems.
-              </motion.div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-
-                {sapientePoints.map((point, idx) => {
-                  const Icon = point.icon;
-
-                  return (
-                    <motion.div
-                      key={idx}
-                      className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
-                    >
-
-                      <Icon className="w-8 h-8 text-primary mb-4" />
-
-                      <h4 className="font-bold text-lg mb-3">
-                        {point.title}
-                      </h4>
-
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {point.description}
-                      </p>
-
-                    </motion.div>
-                  );
-                })}
-
-              </div>
-
-            </Container>
-          </section>
-        
-        {/* Project Focus Areas */}
+        {/* SapienteAI */}
         <section className="py-20">
           <Container>
+
+            <SectionTitle icon={<Cpu className="w-6 h-6" />}>
+              Sapiente.AI: The Next Generation
+            </SectionTitle>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="space-y-6 mb-12"
             >
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                Sapiente.AI was born from a simple realization after 15 years building data systems: the next generation of platforms must be AI-native from the start.
+                <br /><br />
+                This is where I explore my vision of future: combining data engineering experience with AI to design smarter, more adaptive data platforms.
+                <br /><br />
+                Rather than treating AI as just another feature, Sapiente.AI looks at it as a new architectural foundation for how data systems should be built.
+                <br /><br />
+                It’s a space to experiment, prototype and refine ideas about AI-native data ecosystems, governance, and automation.
+                <br /><br />
+                The goal is simple: bridge enterprise-grade data engineering with the possibilities of AI-driven systems.
+              </p>
+            </motion.div>
 
-              <SectionTitle icon={<Zap className="w-6 h-6" />}>
-                Project Focus Areas
-              </SectionTitle>
+            <div className="grid md:grid-cols-3 gap-8">
+              {sapientePoints.map((point, idx) => {
+                const Icon = point.icon;
 
-              <div className="grid md:grid-cols-3 gap-8">
+                return (
+                  <motion.div
+                    key={idx}
+                    className="bg-gradient-to-br from-background to-primary/5 rounded-xl p-6 border border-primary/10"
+                  >
+                    <Icon className="w-8 h-8 text-primary mb-4" />
+
+                    <h4 className="font-bold text-lg mb-3">
+                      {point.title}
+                    </h4>
+
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {point.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+          </Container>
+        </section>
+
+        {/* Project Focus */}
+        <section className="py-20">
+          <Container>
+
+            <SectionTitle icon={<Zap className="w-6 h-6" />}>
+              Project Focus Areas
+            </SectionTitle>
+
+            <div className="grid md:grid-cols-3 gap-8">
+
               {projectCategories.map((category, idx) => {
 
                 const Icon = category.icon;
@@ -269,12 +215,8 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 return (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 + idx * 0.05 }}
                     className={`glass ${layers[idx % 4]} rounded-xl p-6 hover:-translate-y-1 transition-all`}
                   >
-
                     <Icon className="w-8 h-8 mb-4 text-primary" />
 
                     <h3 className="text-lg font-bold mb-3">
@@ -290,64 +232,69 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
               })}
 
             </div>
-            </motion.div>
+
           </Container>
         </section>
-        
-        {/* SEO invisível */}
+
+        {/* SEO */}
         <section className="py-20">
           <Container>
             <div className="sr-only">
               <h2>Artificial Intelligence Architecture Research</h2>
               <p>
                 This research lab explores modern AI architectures including AI-native
-                data platforms, automation pipelines, enterprise data governance
+                data platforms, automation pipelines and enterprise data governance
                 integrated with machine learning systems and large language models.
               </p>
             </div>
           </Container>
         </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm hover:scale-[1.01] transition-all"
-          >
-            <div className="flex justify-center mb-6">
-              <img
-                src="/banner_SapienteAI.png"
-                alt="SapienteAI Banner"
-                className="h-48 w-auto opacity-90"
-              />
-            </div>
-      
-            <h3 className="text-xl font-semibold mb-4">
-              Explore Sapiente.AI
-            </h3>
-      
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              A structured AI experimentation lab focused on scalable architectures, governed automation systems and intelligent digital infrastructure.
-            </p>
-      
-            <a
-              href="https://sapienteai.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all glow-primary-sm"
+        {/* CTA */}
+        <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
+          <Container>
+
+            <motion.div
+              className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm"
             >
-              Visit Sapiente.AI website
-            </a>
-          </motion.div>
-        </Container>
+
+              <div className="flex justify-center mb-6">
+                <img
+                  src="/banner_SapienteAI.png"
+                  alt="SapienteAI Banner"
+                  className="h-48 w-auto opacity-90"
+                />
+              </div>
+
+              <h3 className="text-xl font-semibold mb-4">
+                Explore Sapiente.AI
+              </h3>
+
+              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+                A structured AI experimentation lab focused on scalable architectures,
+                governed automation systems and intelligent digital infrastructure.
+              </p>
+
+              <a
+                href="https://sapienteai.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+              >
+                Visit Sapiente.AI website
+              </a>
+
+            </motion.div>
+
+          </Container>
         </section>
-      </main>  
-<Footer />
-</div>
-);
+
+      </main>
+
+      <Footer />
+
+    </div>
+  );
 };
-      
+
 export default SideProjects;
