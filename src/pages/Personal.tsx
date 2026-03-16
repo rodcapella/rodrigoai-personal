@@ -161,11 +161,8 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
           <AIExplorationSection />
 
         </Suspense>
-      </div>    
       </main>
-
       <Footer />
-
     </div>
   )
 }
