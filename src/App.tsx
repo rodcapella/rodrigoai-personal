@@ -5,6 +5,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = lazy(() => import("./pages/Index"));
 Index.preload = () => import("./pages/Index")
@@ -53,6 +54,7 @@ const App = () => {
           <Toaster />
 
           <div className="theme-provider" data-theme={theme}>
+            <ScrollToTop />
             <Suspense
               fallback={
                 <div className="min-h-screen flex items-center justify-center text-muted-foreground">

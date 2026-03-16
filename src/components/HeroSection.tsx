@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import Section from "@/components/layout/Section";
 import { lazy, Suspense } from "react";
 import Container from "@/components/layout/Container"
+import { Link } from "react-router-dom"
 
 const ArrowDown = lazy(() =>
   import("lucide-react").then(m => ({ default: m.ArrowDown }))
@@ -72,8 +73,8 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               {/* CTA */}
               <div className="flex flex-col sm:flex-row items-start gap-4">
 
-                <a
-                  href="/contact"
+                <Link
+                  to="/contact"
                   className="
                   px-8 py-3.5
                   rounded-lg
@@ -90,7 +91,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                   "
                 >
                   Get in Touch
-                </a>
+                </Link>
 
               </div>
 
