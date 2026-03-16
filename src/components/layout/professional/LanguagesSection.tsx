@@ -16,6 +16,7 @@ interface LanguagesSectionProps {
 export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
   return (
+    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
       <Container>
           <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
@@ -30,7 +31,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className={`p-6 rounded-xl glass ${
-                ["layer-yellow", "layer-blue", "layer-purple"][idx % 3]
+                ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][idx % 3]
               }`}
             >
 
@@ -48,5 +49,6 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
           </div>
       </Container>
+    </section>
   )
 }

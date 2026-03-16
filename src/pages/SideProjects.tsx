@@ -180,20 +180,24 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 Sapiente.AI: The Next Generation
               </SectionTitle>
 
-              <div className="mb-12 space-y-4 max-w-3xl">
-                <p className="text-lg leading-relaxed">
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
+                <p className="text-lg">
                   My 15 years building data systems revealed a critical insight:
                   <span className="text-primary font-semibold">
                     {" "} the next generation of data platforms must be AI-native from inception.
                   </span>
                 </p>
 
-                <p className="text-muted-foreground leading-relaxed">
+               <p className="text-lg">
                   Sapiente.AI is where I explore this frontier: combining deep data engineering
                   expertise with AI innovation to build the platforms enterprises need to
                   compete in the AI era.
                 </p>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p className="text-lg">
                   <p>
                   Sapiente.AI is grounded in the belief that artificial intelligence should not be treated as a feature layer, but as a new architectural paradigm.
                 </p>
@@ -235,6 +239,7 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 })}
 
               </div>
+            </motion.div>
             </Container>
           </section>
         

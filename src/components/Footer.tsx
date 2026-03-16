@@ -7,33 +7,19 @@ const Footer = () => {
 
       <Container>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col items-center justify-center gap-4 text-center">
 
+          {/* Logo */}
+          <img
+            src="/logo_fundo_branco.png"
+            alt="Rodrigo Póvoa Logo"
+            className="h-10 opacity-90"
+          />
+
+          {/* Texto */}
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Rodrigo Póvoa — Data Analytics Engineer & Team Leader.
+            © {new Date().getFullYear()} Rodrigo Póvoa — Data Analytics Engineer & Team Leader
           </p>
-
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-
-            <a
-              href="https://github.com/rodcapella"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/rodrigocspovoa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              LinkedIn
-            </a>
-
-          </div>
 
         </div>
 

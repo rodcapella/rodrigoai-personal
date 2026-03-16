@@ -31,7 +31,7 @@ export default function CertificationsSection({ certifications }: Certifications
                   <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
 
                   <p className="text-muted-foreground leading-relaxed">
-                    • {cert}
+                   {cert}
                   </p>
 
                 </motion.div>

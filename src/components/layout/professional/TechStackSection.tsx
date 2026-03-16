@@ -11,65 +11,67 @@ interface Props {
 export default function TechStackSection({ techStack, maxYears }: Props) {
 
   return (
-    <Container>
-      <SectionTitle icon={<Award className="w-6 h-6" />}>
-        Core Technology Stack & Experience Depth
-      </SectionTitle>  
+    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+      <Container>
+        <SectionTitle icon={<Award className="w-6 h-6" />}>
+          Core Technology Stack & Experience Depth
+        </SectionTitle>  
 
-      <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
 
-        {techStack?.map((group) => (
+          {techStack?.map((group) => (
 
-          <div
-            key={group.category}
-            className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-          >
+            <div
+              key={group.category}
+              className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+            >
 
-            <h3 className="text-xl font-semibold mb-4">
-              {group.category}
-            </h3>
+              <h3 className="text-xl font-semibold mb-4">
+                {group.category}
+              </h3>
 
-            <div className="space-y-4">
+              <div className="space-y-4">
 
-              {group.items.map((tech: any) => {
+                {group.items.map((tech: any) => {
 
-                const width = (tech.years / maxYears) * 100
+                  const width = (tech.years / maxYears) * 100
 
-                return (
-                  <div key={tech.name} className="space-y-4">
+                  return (
+                    <div key={tech.name} className="space-y-4">
 
-                    <div className="flex justify-between text-sm">
+                      <div className="flex justify-between text-sm">
 
-                      <span className="text-foreground">
-                        {tech.name}
-                      </span>
+                        <span className="text-foreground">
+                          {tech.name}
+                        </span>
 
-                      <span className="text-orange-500 font-semibold text-xs">
-                        {tech.years} yrs
-                      </span>
+                        <span className="text-orange-500 font-semibold text-xs">
+                          {tech.years} yrs
+                        </span>
+
+                      </div>
+
+                      <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+
+                        <div
+                          className="h-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700"
+                          style={{ width: `${width}%` }}
+                        />
+
+                      </div>
 
                     </div>
+                  )
+                })}
 
-                    <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-
-                      <div
-                        className="h-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700"
-                        style={{ width: `${width}%` }}
-                      />
-
-                    </div>
-
-                  </div>
-                )
-              })}
+              </div>
 
             </div>
 
-          </div>
+          ))}
 
-        ))}
-
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </section>
   )
 }

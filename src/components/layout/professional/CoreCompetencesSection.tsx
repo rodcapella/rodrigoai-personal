@@ -15,35 +15,37 @@ interface CoreCompetencesSectionProps {
 
 const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) => {
   return (
-    <Container>
-      <SectionTitle icon={<Award className="w-8 h-8" />}>
-        Core Competences
-      </SectionTitle>
+    <section className="py-20">
+      <Container>
+        <SectionTitle icon={<Award className="w-8 h-8" />}>
+          Core Competences
+        </SectionTitle>
 
-      <div className="grid md:grid-cols-3 lg:grid-cols-3">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3">
 
-        {competences.map((competence, i) => {
-          const Icon = competence.icon
+          {competences.map((competence, i) => {
+            const Icon = competence.icon
 
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="flex items-start gap-3 p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-            >
-              <Icon className="w-6 h-6 text-primary flex-shrink-0" />
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="flex items-start gap-3 p-5 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
+              >
+                <Icon className="w-6 h-6 text-primary flex-shrink-0" />
 
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {competence.title}
-              </p>
-            </motion.div>
-          )
-        })}
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {competence.title}
+                </p>
+              </motion.div>
+            )
+          })}
 
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </section>
   )
 }
 

@@ -20,121 +20,123 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
-    <Container>
-      <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
-        Professional Experience
-      </SectionTitle>
+    <section className="py-20">
+      <Container>
+        <SectionTitle icon={<Briefcase className="w-8 h-8" />}>
+          Professional Experience
+        </SectionTitle>
 
-      <div className="space-y-4">
+        <div className="space-y-4">
 
-        {(experiences ?? []).map((exp, idx) => (
+          {(experiences ?? []).map((exp, idx) => (
 
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.1 }}
-            viewport={{ once: true }}
-            className="
-              relative
-              border-l-4 border-primary
-              pl-6
-            "
-          >
-
-            <div
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              viewport={{ once: true }}
               className="
-                p-6
-                rounded-xl
-                border border-border
-                bg-card
-                hover:border-primary/40
-                transition-all duration-300
+                relative
+                border-l-4 border-primary
+                pl-6
               "
             >
 
-              {/* Role */}
-
-              <h3 className="text-xl font-semibold mb-1 text-secondary">
-                {exp.title}
-              </h3>
-
-              {/* Company */}
-              <p
+              <div
                 className="
-                  text-lg font-semibold
-                  bg-gradient-to-r from-primary to-secondary
-                  bg-clip-text text-transparent
+                  p-6
+                  rounded-xl
+                  border border-border
+                  bg-card
+                  hover:border-primary/40
+                  transition-all duration-300
                 "
               >
-                {exp.company}
-              </p>
 
-              {/* Location + period */}
-              <p className="text-sm text-muted-foreground mb-5">
-                {exp.location} • {exp.period}
-              </p>
+                {/* Role */}
 
-              {/* Highlights */}
-              <ul className="space-y-2 mb-6">
+                <h3 className="text-xl font-semibold mb-1 text-secondary">
+                  {exp.title}
+                </h3>
 
-                {(exp.highlights ?? []).map((highlight, i) => (
-
-                  <li
-                    key={i}
-                    className="flex gap-3 text-muted-foreground text-sm leading-relaxed"
-                  >
-
-                    <span className="text-primary font-bold flex-shrink-0">
-                      •
-                    </span>
-
-                    <span>{highlight}</span>
-
-                  </li>
-
-                ))}
-
-              </ul>
-
-              {/* Tech Stack */}
-              <div>
-
-                <p className="text-sm font-semibold mb-3 text-foreground">
-                  Tech Stack
+                {/* Company */}
+                <p
+                  className="
+                    text-lg font-semibold
+                    bg-gradient-to-r from-primary to-secondary
+                    bg-clip-text text-transparent
+                  "
+                >
+                  {exp.company}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                {/* Location + period */}
+                <p className="text-sm text-muted-foreground mb-5">
+                  {exp.location} • {exp.period}
+                </p>
 
-                  {(exp.stack ?? []).map((tech, i) => (
+                {/* Highlights */}
+                <ul className="space-y-2 mb-6">
 
-                    <span
+                  {(exp.highlights ?? []).map((highlight, i) => (
+
+                    <li
                       key={i}
-                      className="
-                        px-3 py-1
-                        rounded-full
-                        bg-primary/10
-                        text-orange-500 font-semibold text-xs
-                        border border-primary/30
-                        hover:bg-primary/20
-                        transition-colors
-                      "
+                      className="flex gap-3 text-muted-foreground text-sm leading-relaxed"
                     >
-                      {tech}
-                    </span>
+
+                      <span className="text-primary font-bold flex-shrink-0">
+                        •
+                      </span>
+
+                      <span>{highlight}</span>
+
+                    </li>
 
                   ))}
+
+                </ul>
+
+                {/* Tech Stack */}
+                <div>
+
+                  <p className="text-sm font-semibold mb-3 text-foreground">
+                    Tech Stack
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+
+                    {(exp.stack ?? []).map((tech, i) => (
+
+                      <span
+                        key={i}
+                        className="
+                          px-3 py-1
+                          rounded-full
+                          bg-primary/10
+                          text-orange-500 font-semibold text-xs
+                          border border-primary/30
+                          hover:bg-primary/20
+                          transition-colors
+                        "
+                      >
+                        {tech}
+                      </span>
+
+                    ))}
+
+                  </div>
 
                 </div>
 
               </div>
+            </motion.div>
 
-            </div>
-          </motion.div>
+          ))}
 
-        ))}
-
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </section>
   )
 }
