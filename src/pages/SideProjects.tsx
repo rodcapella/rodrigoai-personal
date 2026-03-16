@@ -187,37 +187,27 @@ const SideProjects = ({ theme = 'dark', onToggleTheme }: SideProjectsProps) => {
                 className="space-y-6 mb-12"
               >
 
-                <p className="text-lg">
+                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                   My 15 years building data systems revealed a critical insight:
                   <span className="text-primary font-semibold">
                     {" "}the next generation of data platforms must be AI-native from inception.
                   </span>
-                </p>
-
-                <p className="text-lg">
+                  <br/>
                   Sapiente.AI is where I explore this frontier: combining deep data engineering
                   expertise with AI innovation to build the platforms enterprises need to
                   compete in the AI era.
-                </p>
-
-                <p className="text-lg">
+                  <br/>
                   Sapiente.AI is grounded in the belief that artificial intelligence should
                   not be treated as a feature layer, but as a new architectural paradigm.
-                </p>
-
-                <p className="text-lg">
+                  <br/>
                   It operates as a structured experimentation environment where AI-native
                   systems, governance frameworks, and scalable data platforms are designed,
                   tested, and refined beyond the constraints of client-driven projects.
-                </p>
-
-                <p className="text-lg">
+                  <br/>
                   Each initiative explores how AI can be embedded into data ecosystems,
                   governance models, and automation pipelines to enhance scalability,
                   reliability, and strategic decision-making.
-                </p>
-
-                <p className="text-lg">
+                  <br/>
                   The goal is not experimentation for novelty, but disciplined innovation—
                   bridging enterprise data rigor with AI-native thinking.
                 </p>

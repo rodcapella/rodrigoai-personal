@@ -31,7 +31,7 @@ const AboutSection = () => {
           </motion.div>
 
         </Container>
-      </Section>
+      </section>
   );
 };
 
