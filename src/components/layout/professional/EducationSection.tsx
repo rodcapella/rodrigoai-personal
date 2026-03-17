@@ -1,21 +1,20 @@
-import { GraduationCap } from "@/lib/icons"
-import SectionTitle from "@/components/layout/SectionTitle"
-import { motion } from "framer-motion"
-import Container from "@/components/layout/Container"
+import { GraduationCap } from "@/lib/icons";
+import SectionTitle from "@/components/layout/SectionTitle";
+import { motion } from "framer-motion";
+import Container from "@/components/layout/Container";
 
 interface Education {
-  degree: string
-  institution: string
-  location: string
-  year: string
+  degree: string;
+  institution: string;
+  location: string;
+  year: string;
 }
 
 interface EducationSectionProps {
-  education: Education[]
+  education: Education[];
 }
 
 export default function EducationSection({ education }: EducationSectionProps) {
-
   return (
     <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
       <Container>
@@ -23,35 +22,29 @@ export default function EducationSection({ education }: EducationSectionProps) {
           Academic Background
         </SectionTitle>
 
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
+          {education?.map((edu, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className={`p-6 rounded-xl glass ${
+                ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][
+                  i % 3
+                ]
+              }`}
+            >
+              <h3 className="text-2xl font-bold mb-2">{edu.degree}</h3>
 
-            {education?.map((edu, i) => (
-
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`p-6 rounded-xl glass ${
-                  ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][i % 3]
-                }`}
-              >
-
-                <h3 className="text-2xl font-bold mb-2">
-                  {edu.degree}
-                </h3>
-
-                <p className="text-sm text-muted-foreground">
-                  {edu.institution} • {edu.location} • {edu.year}
-                </p>
-
-              </motion.div>
-
-            ))}
-
-            </div>
+              <p className="text-sm text-muted-foreground">
+                {edu.institution} • {edu.location} • {edu.year}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </Container>
     </section>
-  )
+  );
 }

@@ -1,81 +1,69 @@
-import { Heart} from "@/lib/icons"
-import SectionTitle from "@/components/layout/SectionTitle"
-import { motion } from "framer-motion"
-import Container from "@/components/layout/Container"
+import { Heart } from "@/lib/icons";
+import SectionTitle from "@/components/layout/SectionTitle";
+import { motion } from "framer-motion";
+import Container from "@/components/layout/Container";
 
 const personalValues = [
   {
     title: "Analytical Mindset",
-    description: "Data-driven and structured reasoning approach"
+    description: "Data-driven and structured reasoning approach",
   },
   {
     title: "Discipline",
-    description: "Structured approach to personal and professional growth"
+    description: "Structured approach to personal and professional growth",
   },
   {
     title: "Loyalty",
-    description: "Commitment to relationships and long-term partnerships"
+    description: "Commitment to relationships and long-term partnerships",
   },
   {
     title: "Intellectual Growth",
-    description: "Continuous learning and exploration"
+    description: "Continuous learning and exploration",
   },
   {
     title: "Cultural Curiosity",
-    description: "Interest in different perspectives and cultures"
+    description: "Interest in different perspectives and cultures",
   },
   {
     title: "Technology Enthusiasm",
-    description: "Constant exploration of emerging technologies"
-  }
-]
+    description: "Constant exploration of emerging technologies",
+  },
+];
 
 export default function ValuesSection() {
-
   return (
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
+    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <SectionTitle icon={<Heart className="w-8 h-8" />}>
+            Core Values
+          </SectionTitle>
 
-        <Container>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <SectionTitle icon={<Heart className="w-8 h-8" />}>
-              Core Values
-            </SectionTitle>
+          <div className="grid md:grid-cols-3 gap-8">
+            {personalValues.map((value, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: idx * 0.05 }}
+                className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
+              >
+                <h3 className="text-2xl font-bold mb-2">{value.title}</h3>
 
-            <div className="grid md:grid-cols-3 gap-8">
-
-              {personalValues.map((value, idx) => (
-
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: idx * 0.05 }}
-                  className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
-                >
-
-                  <h3 className="text-2xl font-bold mb-2">
-                    {value.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-          </motion.div>
-        </Container>
-
-      </section>
-  )
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Container>
+    </section>
+  );
 }

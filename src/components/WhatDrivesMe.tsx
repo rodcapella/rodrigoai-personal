@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "@/lib/icons";
 import SectionTitle from "@/components/layout/SectionTitle";
 import Container from "@/components/layout/Container";
+import PageGrid from "@/components/layout/PageGrid"
 
 const WhatDrivesMe = () => {
   const facts = [
@@ -65,7 +66,7 @@ const WhatDrivesMe = () => {
                       "layer-green",
                       "layer-purple",
                       "layer-blue",
-                    ][idx % 3]
+                    ][idx % 4]
                   }`}
                 >
                   <Icon className="w-8 h-8 text-primary mb-4" />

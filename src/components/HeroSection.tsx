@@ -65,29 +65,6 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
               <br />
               That Scale, Govern and Drive Decisions.
             </motion.p>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row items-start gap-4">
-              <Link
-                to="/contact"
-                className="
-                  px-8 py-3.5
-                  rounded-lg
-                  bg-primary
-                  text-primary-foreground
-                  font-display
-                  font-semibold
-                  text-sm
-                  tracking-wide
-                  transition-all
-                  hover:bg-primary/90
-                  glow-primary-sm
-                  hover:glow-primary
-                  "
-              >
-                Get in Touch
-              </Link>
-            </div>
           </motion.div>
 
           {/* RIGHT SIDE */}
