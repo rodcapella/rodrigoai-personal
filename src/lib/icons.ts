@@ -33,6 +33,7 @@ export {
   Menu,
   X,
   Mail,
+  Eye,
   
   // Dados e Infraestrutura
   Globe,
