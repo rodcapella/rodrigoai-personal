@@ -7,16 +7,12 @@ interface MainLayoutProps {
   onToggleTheme?: () => void;
 }
 
-const MainLayout = ({
-  children,
-  theme = "dark",
-  onToggleTheme,
-}: MainLayoutProps) => {
+const MainLayout = ({ children, theme, onToggleTheme }: any) => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
-      <main className="pt-36 pb-24">{children}</main>
+      <main className="flex-1 pt-32 pb-24">{children}</main>
 
       <Footer />
     </div>

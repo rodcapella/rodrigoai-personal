@@ -6,7 +6,7 @@ import PageHero from '@/components/layout/PageHero';
 import { motion } from 'framer-motion';
 import SectionTitle from '@/components/layout/SectionTitle';
 import Container from '@/components/layout/Container';
-import PageSection from '@/components/layout/PageSection';
+import { PageGrid, PageSection } from "@/components/layout"
 
 const Layers = lazy(() =>
 	import('@/lib/icons').then((m) => ({ default: m.Layers })),

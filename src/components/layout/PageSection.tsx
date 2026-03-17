@@ -8,6 +8,15 @@ interface PageSectionProps {
   children: React.ReactNode
   className?: string
   containerClassName?: string
+  variant?: "default" | "muted" | "gradient" | "glass"
+  container?: boolean
+}
+
+const variants = {
+  default: "",
+  muted: "bg-muted/40",
+  gradient: "bg-gradient-to-br from-primary/10 to-transparent",
+  glass: "bg-white/5 backdrop-blur-md border-y border-white/10"
 }
 
 const PageSection = ({
@@ -15,22 +24,32 @@ const PageSection = ({
   icon,
   children,
   className = "",
-  containerClassName = ""
+  containerClassName = "",
+  variant = "default",
+  container = true
 }: PageSectionProps) => {
 
+  const content = (
+    <>
+      {title && (
+        <SectionTitle icon={icon}>
+          {title}
+        </SectionTitle>
+      )}
+
+      {children}
+    </>
+  )
+
   return (
-    <section className={`py-20 ${className}`}>
-      <Container className={containerClassName}>
-
-        {title && (
-          <SectionTitle icon={icon}>
-            {title}
-          </SectionTitle>
-        )}
-
-        {children}
-
-      </Container>
+    <section className={`py-20 ${variants[variant]} ${className}`}>
+      {container ? (
+        <Container className={containerClassName}>
+          {content}
+        </Container>
+      ) : (
+        content
+      )}
     </section>
   )
 }
