@@ -67,7 +67,7 @@ const WhatDrivesMe = () => {
                   >
                     <Icon className="w-8 h-8 text-primary mb-4" />
 
-                    <h3 className="text-xl font-semibold mb-4">
+                    <h3 className="text-2xl font-bold mb-2">
                       {fact.title}
                     </h3>
 

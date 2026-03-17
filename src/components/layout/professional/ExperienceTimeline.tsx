@@ -26,7 +26,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
           Professional Experience
         </SectionTitle>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
 
           {(experiences ?? []).map((exp, idx) => (
 
@@ -56,7 +56,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
 
                 {/* Role */}
 
-                <h3 className="text-xl font-semibold mb-1 text-secondary">
+                <h3 className="text-2xl font-bold mb-2">
                   {exp.title}
                 </h3>
 

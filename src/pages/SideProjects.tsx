@@ -175,7 +175,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
                   >
                     <Icon className="w-8 h-8 mb-4 text-primary" />
 
-                    <h3 className="text-lg font-bold mb-3">
+                    <h3 className="text-2xl font-bold mb-2">
                       {category.title}
                     </h3>
 
@@ -222,7 +222,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
                 />
               </div>
 
-              <h3 className="text-xl font-semibold mb-4">
+              <h3 className="text-2xl font-bold mb-2">
                 Explore Sapiente.AI
               </h3>
 

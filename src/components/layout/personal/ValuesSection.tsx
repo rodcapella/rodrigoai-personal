@@ -33,7 +33,7 @@ const personalValues = [
 export default function ValuesSection() {
 
   return (
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
 
         <Container>
           <motion.div
@@ -59,7 +59,7 @@ export default function ValuesSection() {
                   className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
                 >
 
-                  <h3 className="text-lg font-bold mb-2">
+                  <h3 className="text-2xl font-bold mb-2">
                     {value.title}
                   </h3>
 

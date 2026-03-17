@@ -44,7 +44,7 @@ const AIExplorationSection = lazy(
 )
 
 const SectionLoader = () => (
-  <div className="py-24 flex justify-center items-center">
+  <div className="py-20 flex justify-center items-center">
     <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
   </div>
 )

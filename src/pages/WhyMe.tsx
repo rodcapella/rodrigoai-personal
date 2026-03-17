@@ -6,6 +6,7 @@ import PageHero from "@/components/layout/PageHero"
 import { motion } from "framer-motion"
 import SectionTitle from "@/components/layout/SectionTitle"
 import Container from "@/components/layout/Container"
+import PageSection from "@/components/layout/PageSection"
 
 const Layers = lazy(() => import("@/lib/icons").then(m => ({ default: m.Layers })))
 const Zap = lazy(() => import("@/lib/icons").then(m => ({ default: m.Zap })))
@@ -134,11 +135,12 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
               />
 
             {/* Leadership Philosophy */}
-            <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
-              <Container>
-                <SectionTitle icon={<Brain className="w-6 h-6" />}>
-                  Leadership Philosophy
-                </SectionTitle>
+            <PageSection
+              title="Leadership Philosophy"
+              icon={<Brain className="w-6 h-6" />}
+              className="bg-gradient-to-br from-primary/10 to-transparent"
+            >
+              <PageGrid cols={3}>
 
                 <div className="grid md:grid-cols-3 gap-8">
 
@@ -163,8 +165,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   ))}
 
                 </div>
-              </Container>
-            </section>
+            </PageSection>
 
           {/* DIFFERENTIATORS */}
             <section className="py-20">
@@ -174,7 +175,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   What sets me apart from other data leaders:
                 </SectionTitle>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
                   {differentiators.map((diff, idx) => {
                     const Icon = diff.icon;
 
@@ -206,12 +207,11 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
             </section>
 
             {/* Vision */}
-            <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
-              <Container>
-
-                  <SectionTitle icon={<Lightbulb className="w-6 h-6" />}>
-                    My Vision
-                  </SectionTitle>
+            <PageSection
+                title="My Vision"
+                icon={<Lightbulb className="w-6 h-6" />}
+                className="bg-gradient-to-br from-primary/10 to-transparent"
+            >
                     
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -219,14 +219,14 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                     transition={{ duration: 0.6 }}
                     className="p-6 rounded-xl glass layer-blue"
                   >
-                    <h3 className="text-xl font-semibold mb-4">
+                    <h3 className="text-2xl font-bold mb-2">
                       Architecture
                     </h3>
 
                     <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
                     <p className="text-muted-foreground">From reactive analytics to proactive intelligence</p>
 
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="text-2xl font-bold mb-2">
                     Architecture
                   </h3>
 
@@ -234,7 +234,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                   <p className="text-xl font-semibold mb-2">Data Platforms → AI-Native Systems</p>
                   <p className="text-muted-foreground">Clear ownership, accountability, and trust</p>
 
-                  <h3 className="text-xl font-semibold mb-4">
+                  <h3 className="text-2xl font-bold mb-2">
                     Impact
                   </h3>
 
@@ -243,16 +243,14 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                </motion.div>
 
               </Container>
-            </section>
+            </PageSection>
 
             {/* What This Means For You */}
-            <section className="py-20">
-              <Container>
-                  <SectionTitle icon={<Users className="w-6 h-6" />}>
-                    What This Means For You
-                  </SectionTitle>
-
-                  <div className="grid md:grid-cols-3 gap-8">
+            <PageSection
+              title="What This Means For You"
+              icon={<Users className="w-6 h-6" />}
+            >
+              <PageGrid cols={3}>
                     <div>
                       <p className="text-sm text-primary font-semibold uppercase tracking-wide mb-2">
                         Architecture
@@ -324,10 +322,7 @@ const WhyMe = ({ theme = 'dark', onToggleTheme }: WhyMeProps) => {
                         Aligning data engineering, governance, and platform architecture so AI initiatives can move beyond prototypes into production systems.
                       </p>
                     </div>
-
-                  </div>
-              </Container>
-            </section>
+            </PageSection>      
           </main>
       </Suspense>
       <Footer />

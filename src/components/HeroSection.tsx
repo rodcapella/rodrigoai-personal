@@ -14,15 +14,15 @@ interface HeroSectionProps {
 
 const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
   return (
-      <Section variant="hero">
+      <Section variant="hero" className="overflow-hidden">
 
         {/* Grid background */}
         <div className="absolute inset-0 grid-pattern opacity-40" />
 
         {/* Radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full bg-primary/5 blur-[120px]" />
 
-        <Container>
+        <Container className="max-w-7xl mx-auto px-6">
 
           <div className="grid md:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
 

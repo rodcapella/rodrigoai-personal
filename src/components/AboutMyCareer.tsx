@@ -34,7 +34,7 @@ const AboutMyCareer = () => {
               About My Career
             </SectionTitle>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
 
               {funFacts.map((fact, idx) => (
 

@@ -16,12 +16,12 @@ interface LanguagesSectionProps {
 export default function LanguagesSection({ languages }: LanguagesSectionProps) {
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
       <Container>
           <SectionTitle icon={<Globe className="w-6 h-6" />}>
             Languages
           </SectionTitle>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +41,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
               }`}
             >
 
-              <h3 className="text-xl font-semibold mb-4">
+              <h3 className="text-2xl font-bold mb-2">
                 {lang.name}
               </h3>
 

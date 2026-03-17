@@ -23,7 +23,7 @@ export default function LifeRelocation() {
             Life & Relocation
           </SectionTitle>
 
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
 
               <p>
                 In the end of 2019, I made a significant life decision to relocate to Portugal together with his family (wife, son and their dog), seeking improved quality of life, greater personal and family security, and more challenging professional opportunities. 

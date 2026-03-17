@@ -40,7 +40,7 @@ const hobbies = [
 export default function HobbiesSection() {
 
     return (
-            <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+            <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
 
             <Container>
               <motion.div>
@@ -59,7 +59,7 @@ export default function HobbiesSection() {
 
                               <Icon className="w-8 h-8 text-primary mb-4" />
 
-                              <h3 className="text-lg font-bold mb-2">
+                              <h3 className="text-2xl font-bold mb-2">
                               {hobby.title}
                               </h3>
 

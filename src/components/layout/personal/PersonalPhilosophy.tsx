@@ -7,7 +7,7 @@ import Container from "@/components/layout/Container"
 export default function PersonalPhilosophy() {
 
   return (
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
 
         <Container>
           <motion.div
@@ -20,7 +20,7 @@ export default function PersonalPhilosophy() {
               Personal Philosophy
             </SectionTitle>
 
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
 
               <p className="text-lg">
                 I am a Data Analytics Engineer and Team Leader with 15+ years of experience designing scalable data architectures and leading cross-functional engineering teams.

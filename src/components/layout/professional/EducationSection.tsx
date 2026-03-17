@@ -17,7 +17,7 @@ interface EducationSectionProps {
 export default function EducationSection({ education }: EducationSectionProps) {
 
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
       <Container>
         <SectionTitle icon={<GraduationCap className="w-6 h-6" />}>
           Academic Background
@@ -38,7 +38,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
                 }`}
               >
 
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-2xl font-bold mb-2">
                   {edu.degree}
                 </h3>
 

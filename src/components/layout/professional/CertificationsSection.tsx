@@ -15,7 +15,7 @@ export default function CertificationsSection({ certifications }: Certifications
           <SectionTitle icon={<Award className="w-6 h-6" />}>
             Certifications & Courses
           </SectionTitle>
-          <div className="space-y-4">
+          <div className="space-y-6">
 
               {certifications?.map((cert, idx) => (
 

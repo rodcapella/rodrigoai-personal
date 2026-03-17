@@ -36,18 +36,18 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
                 className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
               >
 
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-2xl font-bold mb-2">
                   {group.category}
                 </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-6">
 
                   {group.items.map((tech: any) => {
 
                     const width = (tech.years / maxYears) * 100
 
                     return (
-                      <div key={tech.name} className="space-y-4">
+                      <div key={tech.name} className="space-y-6">
 
                         <div className="flex justify-between text-sm">
 

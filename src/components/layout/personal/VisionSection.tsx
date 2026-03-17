@@ -15,7 +15,7 @@ const longTermVision = [
 export default function VisionSection() {
 
   return (
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-16">
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
 
         <Container>
           <motion.div
@@ -28,7 +28,7 @@ export default function VisionSection() {
               Long-Term Vision
             </SectionTitle>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
 
               {longTermVision.map((item, idx) => (
 

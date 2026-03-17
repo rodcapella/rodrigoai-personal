@@ -17,7 +17,7 @@ const PageHero = ({
   variant = "page"
 }: PageHeroProps) => {
   return (
-      <section className="relative px-4 py-20 overflow-hidden">
+      <section className="overflow-hidden">
 
         {/* Grid background */}
         <div className="absolute inset-0 grid-pattern opacity-40" />
@@ -31,7 +31,7 @@ const PageHero = ({
 
             {/* TEXT */}
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >

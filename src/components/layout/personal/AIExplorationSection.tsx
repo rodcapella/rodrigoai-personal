@@ -29,7 +29,7 @@ export default function AIExplorationSection() {
               AI Ecosystem Exploration
             </SectionTitle>
 
-            <div className="mb-8 space-y-4">
+            <div className="mb-8 space-y-6">
 
               <p className="text-muted-foreground leading-relaxed">
                 I actively study and evaluate modern AI systems as part of an independent experimentation practice focused on applied intelligence and architectural integration. I analyze behavioral patterns, architectural trade-offs, response reliability and integration potential within scalable data environments.
@@ -43,7 +43,7 @@ export default function AIExplorationSection() {
 
             <div>
 
-              <h3 className="text-xl font-semibold mb-4">
+              <h3 className="text-2xl font-bold mb-2">
                 Platforms Explored
               </h3>
 
