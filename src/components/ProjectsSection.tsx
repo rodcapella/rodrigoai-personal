@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import SectionTitle from "@/components/layout/SectionTitle";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
 import { Rocket } from "@/lib/icons";
-import Container from "@/components/layout/Container";
 
 const projects = [
   {
@@ -63,33 +64,17 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-32 relative">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <SectionTitle icon={<Rocket className="w-6 h-6" />}>
-            Strategic Projects
-          </SectionTitle>
-        </motion.div>
-
-        <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass rounded-xl p-6 hover:border-primary/30 transition-all group"
-            >
-              <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors mb-3">
-                {project.name}
-              </h3>
-
+    <PageSection title="Strategic Projects" icon={<Rocket />}>
+      <PageGrid cols={2} gap="md">
+        {projects.map((project, i) => (
+          <motion.div
+            key={project.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <PageCard title={project.name}>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {project.description}
               </p>
@@ -104,11 +89,11 @@ const ProjectsSection = () => {
                   </span>
                 ))}
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </Container>
-    </section>
+            </PageCard>
+          </motion.div>
+        ))}
+      </PageGrid>
+    </PageSection>
   );
 };
 

@@ -1,34 +1,30 @@
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
-import Section from "@/components/layout/Section";
-import SectionTitle from "@/components/layout/SectionTitle";
+import PageSection from "@/components/layout/PageSection";
+import PageCard from "@/components/layout/PageCard";
 import { User } from "@/lib/icons";
-import Container from "@/components/layout/Container";
 
 const AboutSection = () => {
   return (
-    <section className="py-20">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          <SectionTitle icon={<User className="w-6 h-6" />}>
-            {profile.name}
-          </SectionTitle>
-
+    <PageSection title={profile.name} icon={<User />}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl"
+      >
+        <PageCard>
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">
             {profile.summary}
           </p>
 
-          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             {profile.positioning_statement}
           </p>
-        </motion.div>
-      </Container>
-    </section>
+        </PageCard>
+      </motion.div>
+    </PageSection>
   );
 };
 

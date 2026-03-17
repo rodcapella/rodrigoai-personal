@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { lazy } from "react";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
 import { BookOpen } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
-import Container from "@/components/layout/Container";
 
 const influences = [
   {
@@ -35,52 +35,40 @@ const influences = [
   },
 ];
 
+const layers = ["layer-yellow", "layer-blue", "layer-purple", "layer-green"];
+
 export default function InfluencesSection() {
   return (
-    <section className="py-20">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <SectionTitle icon={<BookOpen className="w-8 h-8" />}>
-            Influences
-          </SectionTitle>
+    <PageSection title="Influences" icon={<BookOpen />}>
+      <PageGrid cols={3} gap="md">
+        {influences.map((section, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.05 }}
+          >
+            <PageCard className={`${layers[idx % 4]} group`}>
+              <p className="text-foreground font-medium mb-3">
+                {section.category}
+              </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {influences.map((section, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.05 }}
-                className={`glass ${
-                  ["layer-yellow", "layer-blue", "layer-purple", "layer-green"][
-                    idx % 4
-                  ]
-                } rounded-xl p-6 hover:-translate-y-1 transition-all`}
-              >
-                <h3 className="text-2xl font-bold mb-2">{section.category}</h3>
-
-                <ul className="space-y-2">
-                  {section.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-muted-foreground flex gap-3"
-                    >
-                      <span className="text-primary font-bold">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </Container>
-    </section>
+              <ul className="space-y-2">
+                {section.items.map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-2 text-sm text-muted-foreground"
+                  >
+                    <span className="text-primary">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </PageCard>
+          </motion.div>
+        ))}
+      </PageGrid>
+    </PageSection>
   );
 }

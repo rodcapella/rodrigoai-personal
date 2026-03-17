@@ -1,9 +1,9 @@
 import { lazy, Suspense } from "react";
-import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
+import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
+import PageSection from "@/components/layout/PageSection";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { profile } from "@/data/profile";
 
 const ProfessionalIntro = lazy(
@@ -34,16 +34,11 @@ const SectionLoader = () => (
   </div>
 );
 
-interface ProfessionalProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
-
 const maxYears = 20;
 
-const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
+const Professional = ({ theme = "dark", onToggleTheme }: any) => {
   return (
-    <div className="min-h-screen bg-background">
+    <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <Helmet>
         <title>Professional Experience | Rodrigo Póvoa</title>
         <meta
@@ -62,40 +57,46 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
         ]}
       />
 
-      <Navbar theme={theme} onToggleTheme={onToggleTheme} />
+      <PageHero
+        variant="page"
+        title="PROFESSIONAL JOURNEY"
+        subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
+        image="/ai-portrait.jpeg"
+      />
 
-      <main className="pt-36 pb-24">
-        <PageHero
-          variant="page"
-          title="PROFESSIONAL JOURNEY"
-          subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
-          image="/ai-portrait.jpeg"
-        />
+      <Suspense fallback={<SectionLoader />}>
+        <PageSection>
+          <ProfessionalIntro />
+        </PageSection>
 
-        <Suspense fallback={<SectionLoader />}>
-          <div className="max-w-6xl mx-auto space-y-28 px-4">
-            <ProfessionalIntro />
+        <PageSection title="Core Competences">
+          <CoreCompetencesSection competences={profile.core_skills} />
+        </PageSection>
 
-            <CoreCompetencesSection competences={profile.core_skills} />
+        <PageSection title="Technology Stack">
+          <TechStackSection
+            maxYears={maxYears}
+            techStack={profile.technical_stack}
+          />
+        </PageSection>
 
-            <TechStackSection
-              maxYears={maxYears}
-              techStack={profile.technical_stack}
-            />
+        <PageSection title="Professional Experience">
+          <ExperienceTimeline experiences={profile.experience} />
+        </PageSection>
 
-            <ExperienceTimeline experiences={profile.experience} />
+        <PageSection title="Education">
+          <EducationSection education={profile.education} />
+        </PageSection>
 
-            <EducationSection education={profile.education} />
+        <PageSection title="Certifications">
+          <CertificationsSection certifications={profile.certifications} />
+        </PageSection>
 
-            <CertificationsSection certifications={profile.certifications} />
-
-            <LanguagesSection languages={profile.languages} />
-          </div>
-        </Suspense>
-      </main>
-
-      <Footer />
-    </div>
+        <PageSection title="Languages">
+          <LanguagesSection languages={profile.languages} />
+        </PageSection>
+      </Suspense>
+    </MainLayout>
   );
 };
 

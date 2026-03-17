@@ -57,5 +57,6 @@ export {
   LineChart,
   Users,
   User,
-  MessageSquare
+  MessageSquare,
+  AlertTriangle
 } from "lucide-react";

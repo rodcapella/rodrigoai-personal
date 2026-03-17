@@ -1,7 +1,8 @@
-import { GraduationCap } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
 import { motion } from "framer-motion";
-import Container from "@/components/layout/Container";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
+import { GraduationCap } from "@/lib/icons";
 
 interface Education {
   degree: string;
@@ -14,37 +15,34 @@ interface EducationSectionProps {
   education: Education[];
 }
 
+const layers = ["layer-yellow", "layer-green", "layer-purple", "layer-blue"];
+
 export default function EducationSection({ education }: EducationSectionProps) {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
-      <Container>
-        <SectionTitle icon={<GraduationCap className="w-6 h-6" />}>
-          Academic Background
-        </SectionTitle>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {education?.map((edu, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`p-6 rounded-xl glass ${
-                ["layer-yellow", "layer-green", "layer-purple", "layer-blue"][
-                  i % 3
-                ]
-              }`}
-            >
-              <h3 className="text-2xl font-bold mb-2">{edu.degree}</h3>
+    <PageSection
+      title="Academic Background"
+      icon={<GraduationCap />}
+      className="bg-gradient-to-br from-primary/10 to-transparent"
+    >
+      <PageGrid cols={3} gap="md">
+        {education?.map((edu, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+          >
+            <PageCard className={`${layers[i % 4]}`}>
+              <h3 className="text-lg font-semibold mb-2">{edu.degree}</h3>
 
               <p className="text-sm text-muted-foreground">
                 {edu.institution} • {edu.location} • {edu.year}
               </p>
-            </motion.div>
-          ))}
-        </div>
-      </Container>
-    </section>
+            </PageCard>
+          </motion.div>
+        ))}
+      </PageGrid>
+    </PageSection>
   );
 }

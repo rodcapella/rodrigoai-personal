@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { lazy } from "react";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
 import { Music, Guitar, Gamepad2, Film, Dumbbell, BookOpen } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
-import Container from "@/components/layout/Container";
 
 const hobbies = [
   {
@@ -27,7 +27,7 @@ const hobbies = [
     icon: Gamepad2,
     title: "Video Games",
     description:
-      "Video game enthusiast since Atari. Nowadays. it is from the PlayStation generation, proudly on the dark side of the Force.",
+      "Video game enthusiast since Atari. Nowadays it is from the PlayStation generation, proudly on the dark side of the Force.",
   },
   {
     icon: Film,
@@ -45,32 +45,47 @@ const hobbies = [
 
 export default function HobbiesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
-      <Container>
-        <motion.div>
-          <SectionTitle icon={<Music className="w-8 h-8" />}>
-            Passions & Hobbies
-          </SectionTitle>
+    <PageSection
+      title="Passions & Hobbies"
+      icon={<Music />}
+      className="bg-gradient-to-br from-primary/10 to-transparent"
+    >
+      <PageGrid cols={3} gap="md">
+        {hobbies.map((hobby, idx) => {
+          const Icon = hobby.icon;
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {hobbies.map((hobby, idx) => {
-              const Icon = hobby.icon;
+          return (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
+            >
+              <PageCard className="group">
+                <Icon
+                  className="
+                    w-6 h-6
+                    text-primary
+                    mb-3
+                    transition-all
+                    group-hover:scale-110
+                    group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
+                  "
+                />
 
-              return (
-                <motion.div key={idx} className="glass rounded-xl p-6">
-                  <Icon className="w-8 h-8 text-primary mb-4" />
+                <p className="text-foreground font-medium mb-1">
+                  {hobby.title}
+                </p>
 
-                  <h3 className="text-2xl font-bold mb-2">{hobby.title}</h3>
-
-                  <p className="text-sm text-muted-foreground">
-                    {hobby.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-      </Container>
-    </section>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {hobby.description}
+                </p>
+              </PageCard>
+            </motion.div>
+          );
+        })}
+      </PageGrid>
+    </PageSection>
   );
 }

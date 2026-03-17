@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
 import { Trophy } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
-import Container from "@/components/layout/Container";
 
 const sportsTeams = [
   { team: "Flamengo", country: "Brazil", emoji: "🔴⚫" },
@@ -10,43 +11,31 @@ const sportsTeams = [
 
 export default function SportsSection() {
   return (
-    <section className="py-20">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <SectionTitle icon={<Trophy className="w-8 h-8" />}>
-            Team Spirit
-          </SectionTitle>
+    <PageSection title="Team Spirit" icon={<Trophy />}>
+      <PageGrid cols={2} gap="md">
+        {sportsTeams.map((team, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.08 }}
+          >
+            <PageCard className="text-center group">
+              <div className="text-3xl mb-3">{team.emoji}</div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {sportsTeams.map((team, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="glass rounded-xl p-8 text-center"
-              >
-                <div className="text-4xl mb-4">{team.emoji}</div>
+              <p className="text-foreground font-medium">{team.team}</p>
 
-                <h3 className="text-2xl font-bold mb-2">{team.team}</h3>
+              <p className="text-sm text-muted-foreground">{team.country}</p>
+            </PageCard>
+          </motion.div>
+        ))}
+      </PageGrid>
 
-                <p className="text-muted-foreground">{team.country}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <p className="text-center text-muted-foreground mt-8">
-            Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal),
-            bridging two countries through sports.
-          </p>
-        </motion.div>
-      </Container>
-    </section>
+      <p className="text-center text-muted-foreground mt-8 max-w-xl mx-auto">
+        Passionate supporter of Flamengo (Brazil) and FC Porto (Portugal),
+        bridging two countries through sports.
+      </p>
+    </PageSection>
   );
 }

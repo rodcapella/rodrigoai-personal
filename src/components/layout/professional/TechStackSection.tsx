@@ -1,8 +1,8 @@
-import React from "react";
 import { motion } from "framer-motion";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
 import { Layers } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
-import Container from "@/components/layout/Container";
 
 interface Props {
   techStack: any[];
@@ -11,55 +11,54 @@ interface Props {
 
 export default function TechStackSection({ techStack, maxYears }: Props) {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
+    <PageSection
+      title="Core Technology Stack & Experience Depth"
+      icon={<Layers />}
+      className="bg-gradient-to-br from-primary/10 to-transparent"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
       >
-        <Container>
-          <SectionTitle icon={<Layers className="w-6 h-6" />}>
-            Core Technology Stack & Experience Depth
-          </SectionTitle>
+        <PageGrid cols={3} gap="md">
+          {techStack?.map((group) => (
+            <PageCard key={group.category}>
+              <h3 className="text-lg font-semibold mb-4">{group.category}</h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {techStack?.map((group) => (
-              <div
-                key={group.category}
-                className="p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20"
-              >
-                <h3 className="text-2xl font-bold mb-2">{group.category}</h3>
+              <div className="space-y-5">
+                {group.items.map((tech: any) => {
+                  const width = (tech.years / maxYears) * 100;
 
-                <div className="space-y-6">
-                  {group.items.map((tech: any) => {
-                    const width = (tech.years / maxYears) * 100;
+                  return (
+                    <div key={tech.name} className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-foreground">{tech.name}</span>
 
-                    return (
-                      <div key={tech.name} className="space-y-6">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-foreground">{tech.name}</span>
-
-                          <span className="text-orange-500 font-semibold text-xs">
-                            {tech.years} yrs
-                          </span>
-                        </div>
-
-                        <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-primary to-orange-500 transition-all duration-700"
-                            style={{ width: `${width}%` }}
-                          />
-                        </div>
+                        <span className="text-primary text-xs font-medium">
+                          {tech.years} yrs
+                        </span>
                       </div>
-                    );
-                  })}
-                </div>
+
+                      <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                        <div
+                          className="
+                            h-full
+                            bg-gradient-to-r from-primary to-secondary
+                            transition-all duration-700
+                          "
+                          style={{ width: `${width}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
-          </div>
-        </Container>
+            </PageCard>
+          ))}
+        </PageGrid>
       </motion.div>
-    </section>
+    </PageSection>
   );
 }

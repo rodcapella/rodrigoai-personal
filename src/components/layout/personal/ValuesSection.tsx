@@ -1,7 +1,8 @@
-import { Heart } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
 import { motion } from "framer-motion";
-import Container from "@/components/layout/Container";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
+import { Heart } from "@/lib/icons";
 
 const personalValues = [
   {
@@ -32,38 +33,30 @@ const personalValues = [
 
 export default function ValuesSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent py-20">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <SectionTitle icon={<Heart className="w-8 h-8" />}>
-            Core Values
-          </SectionTitle>
+    <PageSection
+      title="Core Values"
+      icon={<Heart />}
+      className="bg-gradient-to-br from-primary/10 to-transparent"
+    >
+      <PageGrid cols={3} gap="md">
+        {personalValues.map((value, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.05 }}
+          >
+            <PageCard className="group">
+              <p className="text-foreground font-medium mb-1">{value.title}</p>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {personalValues.map((value, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.05 }}
-                className="glass rounded-xl p-6 hover:-translate-y-1 transition-all"
-              >
-                <h3 className="text-2xl font-bold mb-2">{value.title}</h3>
-
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </Container>
-    </section>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {value.description}
+              </p>
+            </PageCard>
+          </motion.div>
+        ))}
+      </PageGrid>
+    </PageSection>
   );
 }
