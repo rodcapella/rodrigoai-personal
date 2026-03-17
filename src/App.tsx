@@ -8,43 +8,43 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = lazy(() => import("./pages/Index"));
-Index.preload = () => import("./pages/Index")
+Index.preload = () => import("./pages/Index");
 
-const Professional = lazy(() => import("./pages/Professional"))
-;(Professional as any).preload = () => import("./pages/Professional")
+const Professional = lazy(() => import("./pages/Professional"));
+(Professional as any).preload = () => import("./pages/Professional");
 
-const Personal = lazy(() => import("./pages/Personal"))
-;(Personal as any).preload = () => import("./pages/Personal")
+const Personal = lazy(() => import("./pages/Personal"));
+(Personal as any).preload = () => import("./pages/Personal");
 
-const WhyMe = lazy(() => import("./pages/WhyMe"))
-;(WhyMe as any).preload = () => import("./pages/WhyMe")
+const WhyMe = lazy(() => import("./pages/WhyMe"));
+(WhyMe as any).preload = () => import("./pages/WhyMe");
 
-const SideProjects = lazy(() => import("./pages/SideProjects"))
-;(SideProjects as any).preload = () => import("./pages/SideProjects")
+const SideProjects = lazy(() => import("./pages/SideProjects"));
+(SideProjects as any).preload = () => import("./pages/SideProjects");
 
-const Contact = lazy(() => import("./pages/Contact"))
-;(Contact as any).preload = () => import("./pages/Contact")
+const Contact = lazy(() => import("./pages/Contact"));
+(Contact as any).preload = () => import("./pages/Contact");
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    const saved = localStorage.getItem('theme');
-    return (saved as 'dark' | 'light') || 'dark';
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    const saved = localStorage.getItem("theme");
+    return (saved as "dark" | "light") || "dark";
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
+    if (theme === "light") {
+      root.classList.add("light");
     } else {
-      root.classList.remove('light');
+      root.classList.remove("light");
     }
-    localStorage.setItem('theme', theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (
@@ -63,12 +63,38 @@ const App = () => {
               }
             >
               <Routes>
-                <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
-                <Route path="/why-me" element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route
+                  path="/"
+                  element={<Index theme={theme} onToggleTheme={toggleTheme} />}
+                />
+                <Route
+                  path="/professional"
+                  element={
+                    <Professional theme={theme} onToggleTheme={toggleTheme} />
+                  }
+                />
+                <Route
+                  path="/personal"
+                  element={
+                    <Personal theme={theme} onToggleTheme={toggleTheme} />
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={
+                    <Contact theme={theme} onToggleTheme={toggleTheme} />
+                  }
+                />
+                <Route
+                  path="/side-projects"
+                  element={
+                    <SideProjects theme={theme} onToggleTheme={toggleTheme} />
+                  }
+                />
+                <Route
+                  path="/why-me"
+                  element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />}
+                />
               </Routes>
             </Suspense>
           </div>

@@ -1,24 +1,21 @@
-import React from "react"
-import { motion } from "framer-motion"
+import React from "react";
+import { motion } from "framer-motion";
 
 interface SectionTitleProps {
-  icon?: React.ReactNode
-  children: React.ReactNode
-  align?: "left" | "center"
+  icon?: React.ReactNode;
+  children: React.ReactNode;
+  align?: "left" | "center";
 }
 
 export default function SectionTitle({
   icon,
   children,
-  align = "left"
+  align = "left",
 }: SectionTitleProps) {
-
-  const isCenter = align === "center"
+  const isCenter = align === "center";
 
   return (
-
     <div className={`mb-14 ${isCenter ? "text-center" : ""}`}>
-
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -31,7 +28,6 @@ export default function SectionTitle({
           ${isCenter ? "justify-center" : ""}
         `}
       >
-
         {icon && (
           <span
             className="
@@ -56,7 +52,6 @@ export default function SectionTitle({
         >
           {children}
         </span>
-
       </motion.h2>
 
       <motion.div
@@ -70,7 +65,6 @@ export default function SectionTitle({
           ${isCenter ? "mx-auto" : ""}
         `}
       />
-
     </div>
-  )
+  );
 }
