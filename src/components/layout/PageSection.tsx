@@ -31,7 +31,7 @@ const PageSection = ({
 
   const content = (
     <>
-      {title && (
+      {(
         <SectionTitle icon={icon}>
           {title}
         </SectionTitle>

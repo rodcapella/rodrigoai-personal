@@ -9,7 +9,7 @@ const links = [
   { href: "/why-me", label: "Why Me?" },
   { href: "/professional", label: "Professional" },
   { href: "/personal", label: "Personal" },
-  { href: "/side-projects", label: "Side Projects" },
+  { href: "/side-projects", label: "Innovation Hub" },
 ];
 
 const preloadMap: Record<string, () => Promise<any>> = {

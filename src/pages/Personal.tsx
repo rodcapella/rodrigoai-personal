@@ -13,6 +13,9 @@ const PersonalPhilosophy = lazy(
   () => import("@/components/layout/personal/PersonalPhilosophy")
 );
 
+const CuriosityStackSection = lazy(
+  () => import("@/components/layout/personal/CuriosityStackSection")
+);
 const LifeRelocation = lazy(
   () => import("@/components/layout/personal/LifeRelocation")
 );
@@ -77,6 +80,10 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
 
         <PageSection>
           <LifeRelocation />
+        </PageSection>
+
+        <PageSection>
+          <CuriosityStackSection />
         </PageSection>
 
         <PageSection>

@@ -20,18 +20,9 @@ export default function PersonalPhilosophy() {
 
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p className="text-lg">
-              I am a Data Analytics Engineer and Team Leader with 15+ years of
-              experience designing scalable data architectures and leading
-              cross-functional engineering teams.
-            </p>
-
-            <p>
-              Throughout my career, i had held technical leadership and
-              managerial roles across logistics, e-commerce, retail, financial
-              services and digital media. I combine deep technical mastery with
-              a holistic understanding of how data drives operational
-              efficiency, strategic decision-making and long-term business
-              impact.
+              Beyond the data pipelines and architecture diagrams, I am a firm believer in the balance between high-tech and high-touch. 
+              When I’m not architecting data ecosystems, you’ll likely find me exploring the philosophy of AI, playing eletric guitar, training for my next run 
+              or discovering new coffee spots. I believe that a great engineer is fueled by curiosity, both in and out of the office.
             </p>
           </div>
         </motion.div>

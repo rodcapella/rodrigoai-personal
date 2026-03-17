@@ -8,7 +8,6 @@ interface CertificationsSectionProps {
 }
 
 export default function CertificationsSection({
-  certifications,
 }: CertificationsSectionProps) {
   return (
     <PageSection title="Certifications & Courses" icon={<Award />}>

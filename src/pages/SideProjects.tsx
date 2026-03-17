@@ -70,47 +70,56 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <Helmet>
-        <title>Rodrigo Póvoa – Sapiente.AI Innovation Studio</title>
+        <title>Rodrigo Póvoa – Sapiente.AI Innovation Hub</title>
       </Helmet>
 
       <Suspense fallback={null}>
         {/* HERO */}
         <PageHero
           variant="page"
-          title="SIDE PROJECTS"
-          subtitle="Explorations in Data Engineering, AI and Technical Research"
+          title="Innovation Hub: Sapiente.AI"
+          subtitle="Founder & Lead Researcher"
           image="/logo_sapienteai.png"
         />
 
         {/* SapienteAI */}
-        <PageSection title="Sapiente.AI: The Next Generation" icon={<Cpu />}>
+        <PageSection
+          title="Sapiente.AI: Maximizing human potential through Artificial Intelligence"
+          icon={<Cpu />}
+        >
           <div className="max-w-3xl text-muted-foreground text-lg leading-relaxed space-y-6">
             <p>
-              Sapiente.AI was born from a simple realization after 15 years
-              building data systems: the next generation of platforms must be
-              AI-native from the start.
+              Sapiente.AI is my innovation ecosystem designed to bridge the gap
+              between robust Data Engineering and the creative power of AI. It
+              is the practical application of my vision: aligning human essence
+              with artificial intelligence to maximize delivery and impact.
             </p>
 
             <p>
-              This is where I explore my vision of future: combining data
-              engineering experience with AI to design smarter, more adaptive
-              data platforms.
+              At Sapiente, I leverage my 15+ years of data experience to build:
+            </p>
+            <p>
+              - AI-Driven Data Products: Integrating LLMs and Agentic workflows
+              directly into data platforms to transform raw information into
+              autonomous insights.
             </p>
 
             <p>
-              Rather than treating AI as just another feature, Sapiente.AI looks
-              at it as a new architectural foundation for how data systems
-              should be built.
+              - Intelligent Web & Mobile Apps: Developing full-stack solutions
+              that aren't just "apps," but data-rich interfaces powered by
+              customized AI models.
             </p>
 
             <p>
-              It’s a space to experiment, prototype and refine ideas about
-              AI-native data ecosystems, governance, and automation.
+              - Automated Digital Ecosystems: Scaling brand presence and social
+              media management through data-backed automation and bespoke brand
+              personas.
             </p>
 
             <p>
-              The goal is simple: bridge enterprise-grade data engineering with
-              the possibilities of AI-driven systems.
+              - Smart Branding & Strategy: Using data to inform creative
+              decisions, ensuring that every brand identity is both authentic
+              and optimized for the digital age.
             </p>
           </div>
         </PageSection>
@@ -159,9 +168,12 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             <h3 className="text-2xl font-bold mb-2">Explore Sapiente.AI</h3>
 
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              A structured AI experimentation lab focused on scalable
-              architectures, governed automation systems and intelligent digital
-              infrastructure.
+              Sapiente.AI is my dedicated innovation lab focused on
+              democratizing the use of Generative AI and LLMs within modern data
+              architectures. It serves as a bridge between cutting-edge AI
+              research and practical enterprise applications. Through
+              Sapiente.AI, I develop frameworks that help organizations
+              transition from traditional analytics to AI-driven intelligence.
             </p>
 
             <a

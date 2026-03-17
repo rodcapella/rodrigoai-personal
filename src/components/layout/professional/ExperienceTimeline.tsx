@@ -17,7 +17,6 @@ interface ExperienceTimelineProps {
 }
 
 export default function ExperienceTimeline({
-  experiences,
 }: ExperienceTimelineProps) {
   return (
     <PageSection title="Professional Experience" icon={<Briefcase />}>
