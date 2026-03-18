@@ -215,7 +215,6 @@ export default function Contact({ theme, onToggleTheme }: any) {
               </motion.form>
             )}
           </AnimatePresence>
-        </div>
       </PageSection>
     </MainLayout>
   );
