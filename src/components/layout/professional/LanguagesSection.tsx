@@ -30,7 +30,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="w-full"
+            className="w-full flex justify-center"
           >
             <PageCard className={`${layers[idx % 4]} group`}>
               <h3 className="text-lg font-semibold mb-1">{lang.name}</h3>

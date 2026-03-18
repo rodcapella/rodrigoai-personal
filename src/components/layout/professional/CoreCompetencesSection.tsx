@@ -29,7 +29,7 @@ const CoreCompetencesSection = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="w-full"
+              className="w-full flex justify-center"
             >
               <PageCard className="group">
                 <Icon

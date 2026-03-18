@@ -8,7 +8,7 @@ import { Cpu } from "@/lib/icons";
 const ExpertiseSection = () => {
   return (
     <PageSection title="Core Skills" icon={<Cpu />} id="expertise">
-      <PageGrid cols={4} gap="sm">
+      <PageGrid cols={{ base: 2, md: 3, lg: 4 }} gap="sm">
         {profile.core_skills.map((skill, i) => {
           const Icon = skill.icon;
 
@@ -19,17 +19,14 @@ const ExpertiseSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="w-full"
+              className="w-full flex justify-center"
             >
-              <PageCard className="group text-center" hover>
+              <PageCard className="group skill-card text-center" hover>
                 <Icon
                   className="
                     w-5 h-5
                     text-primary
                     mx-auto mb-3
-                    transition-all duration-300
-                    group-hover:scale-110
-                    group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
                   "
                 />
 

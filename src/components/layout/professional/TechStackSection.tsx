@@ -21,7 +21,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="w-full"
+        className="w-full flex justify-center"
       >
         <PageGrid cols={3} gap="md">
           {techStack?.map((group) => (

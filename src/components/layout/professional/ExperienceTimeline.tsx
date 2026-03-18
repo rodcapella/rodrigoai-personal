@@ -31,7 +31,7 @@ export default function ExperienceTimeline({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="w-full"
+            className="w-full flex justify-center"
           >
             {/* timeline dot */}
             <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />

@@ -73,7 +73,7 @@ const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="w-full"
+            className="w-full flex justify-center"
           >
             <PageCard title={project.name}>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">

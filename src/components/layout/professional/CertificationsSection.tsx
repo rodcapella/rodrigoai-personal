@@ -19,7 +19,7 @@ export default function CertificationsSection({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.05 }}
-            className="w-full"
+            className="w-full flex justify-center"
           >
             <PageCard className="flex items-start gap-4">
               <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />

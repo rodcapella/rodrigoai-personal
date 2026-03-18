@@ -37,7 +37,7 @@ const ContactSection = () => {
             margin: isMobile ? "-40px" : "-100px"
           }}
           transition={{ duration: 0.6 }}
-          className="w-full"
+          className="w-full flex justify-center"
         >
           <SectionTitle as="h2" icon={<Mail />}>Let's Build Something</SectionTitle>
 
