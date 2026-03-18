@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <sitemap>
     <loc>https://www.rpovoadata.tech/sitemap-pages.xml</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>${lastCommitDate}</lastmod>
   </sitemap>
 
   <sitemap>
     <loc>https://www.rpovoadata.tech/sitemap-projects.xml</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>${lastCommitDate}</lastmod>
   </sitemap>
 
-</sitemapindex>
+</sitemapindex>`;
+
+fs.writeFileSync("./dist/sitemap.xml", sitemapIndex);

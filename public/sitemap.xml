@@ -1,49 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://www.rpovoadata.tech/</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <sitemap>
+    <loc>https://www.rpovoadata.tech/sitemap-pages.xml</loc>
+    <lastmod>DINÂMICO</lastmod>
+  </sitemap>
 
-  <url>
-    <loc>https://www.rpovoadata.tech/professional</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <sitemap>
+    <loc>https://www.rpovoadata.tech/sitemap-projects.xml</loc>
+    <lastmod>DINÂMICO</lastmod>
+  </sitemap>
 
-  <url>
-    <loc>https://www.rpovoadata.tech/personal</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.rpovoadata.tech/why-me</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.rpovoadata.tech/side-projects</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.rpovoadata.tech/contact</loc>
-    <lastmod>2026-03-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-</urlset>
+</sitemapindex>

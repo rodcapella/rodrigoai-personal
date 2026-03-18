@@ -17,9 +17,9 @@ const PageHero = ({
   variant = "page",
 }: PageHeroProps) => {
   return (
-    <section className="overflow-hidden">
+    <section className="relative overflow-hidden">
       {/* Grid background */}
-      <div className="absolute inset-0 grid-pattern opacity-40" />
+      <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
 
       {/* Radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/5 blur-[120px]" />

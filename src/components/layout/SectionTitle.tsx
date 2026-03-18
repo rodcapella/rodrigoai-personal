@@ -5,36 +5,49 @@ interface SectionTitleProps {
   icon?: React.ReactNode;
   children: React.ReactNode;
   align?: "left" | "center";
+  variant?: "default" | "gradient";
 }
 
 export default function SectionTitle({
   icon,
   children,
   align = "left",
+  variant = "gradient",
 }: SectionTitleProps) {
   const isCenter = align === "center";
 
+  const textVariant = {
+    default: "text-foreground",
+    gradient:
+      "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
+  };
+
   return (
     <div className={`mb-14 ${isCenter ? "text-center" : ""}`}>
+      
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className={`
           group
-          text-2xl md:text-3xl font-bold
+          font-display
+          text-2xl md:text-3xl lg:text-4xl
+          font-bold
+          tracking-tight
           flex items-center gap-3
           ${isCenter ? "justify-center" : ""}
         `}
       >
+        {/* ICON */}
         {icon && (
           <span
             className="
               text-primary
               transition-all duration-300
               group-hover:scale-110
-              group-hover:drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]
+              group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]
               flex items-center
             "
           >
@@ -42,23 +55,24 @@ export default function SectionTitle({
           </span>
         )}
 
+        {/* TITLE */}
         <span
-          className="
-            bg-gradient-to-r from-primary to-secondary
-            bg-clip-text text-transparent
+          className={`
             transition-all duration-300
-            group-hover:from-secondary group-hover:to-primary
-          "
+            ${textVariant[variant]}
+            group-hover:opacity-90
+          `}
         >
           {children}
         </span>
       </motion.h2>
 
+      {/* UNDERLINE */}
       <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: isCenter ? "120px" : "80px" }}
+        initial={{ width: 0, opacity: 0 }}
+        whileInView={{ width: isCenter ? "120px" : "80px", opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className={`
           h-[2px] mt-4
           bg-gradient-to-r from-primary to-secondary

@@ -8,7 +8,7 @@ const projects = [
   {
     name: "TIP4Y - Automotive Intelligence - Portugal",
     description:
-      "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Bronze/Silver/Gold layers, implemented governance and quality validation frameworks, and delivered curated analytics through Power BI for business consumption.",
+      "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Medallion Architecture (bronze/silver/gold layers), implemented governance and quality validation frameworks, and delivered curated analytics through Power BI for business consumption.",
     stack: [
       "Azure",
       "Databricks",

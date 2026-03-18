@@ -1,12 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
+const projects = [
+  "https://www.rpovoadata.tech/side-projects"
+];
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+const projectUrls = projects.map(url => `
   <url>
-    <loc>https://www.rpovoadata.tech/side-projects</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>${url}</loc>
+    <lastmod>${lastCommitDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+`).join("");
 
-</urlset>
+const sitemapProjects = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${projectUrls}
+</urlset>`;
+
+fs.writeFileSync("./dist/sitemap-projects.xml", sitemapProjects);

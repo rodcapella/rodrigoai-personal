@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
+import SEO from "@/components/SEO";
 
 interface PersonalProps {
   theme?: "dark" | "light";
@@ -53,6 +54,11 @@ const SectionLoader = () => (
 const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <SEO
+        title="Personal"
+        description="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
+      />
+      
       <Helmet>
         <title>
           Personal | Rodrigo Póvoa – Values, Vision & AI Exploration

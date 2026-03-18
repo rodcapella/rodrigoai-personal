@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
+import SEO from "@/components/SEO";
 
 import {
   Zap,
@@ -69,6 +70,10 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
 
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <SEO
+        title="Innovation Hub |Sapiente.AI"
+        description="Explore my side projects in AI, automation and digital products."
+      />
       <Helmet>
         <title>Rodrigo Póvoa – Sapiente.AI Innovation Hub</title>
       </Helmet>
@@ -155,8 +160,10 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
         </PageSection>
 
         {/* CTA */}
-        <PageSection variant="gradient">
+        <PageSection variant="gradient" withDivider={false}>
+
           <div className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm">
+
             <div className="flex justify-center mb-6">
               <img
                 src="/banner_SapienteAI.png"
@@ -168,12 +175,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             <h3 className="text-2xl font-bold mb-2">Explore Sapiente.AI</h3>
 
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Sapiente.AI is my dedicated innovation lab focused on
-              democratizing the use of Generative AI and LLMs within modern data
-              architectures. It serves as a bridge between cutting-edge AI
-              research and practical enterprise applications. Through
-              Sapiente.AI, I develop frameworks that help organizations
-              transition from traditional analytics to AI-driven intelligence.
+              Sapiente.AI is my dedicated innovation lab focused on democratizing the use of Generative AI...
             </p>
 
             <a
@@ -184,7 +186,9 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             >
               Visit Sapiente.AI website
             </a>
+
           </div>
+
         </PageSection>
       </Suspense>
     </MainLayout>

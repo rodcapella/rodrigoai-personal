@@ -3,13 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
-
-const AlertCircle = lazy(() =>
-  import("lucide-react").then((m) => ({ default: m.AlertCircle }))
-);
-const CheckCircle = lazy(() =>
-  import("lucide-react").then((m) => ({ default: m.CheckCircle }))
-);
+import SEO from "@/components/SEO";
+import { AlertCircle, CheckCircle } from "@/lib/icons";
 
 export default function Contact({ theme, onToggleTheme }: any) {
   const [formData, setFormData] = useState({
@@ -35,49 +30,49 @@ export default function Contact({ theme, onToggleTheme }: any) {
   const phoneRegex = /^[\d\s+()-]{8,20}$/;
 
   const validate = () => {
-    const e: any = {}
+    const e: any = {};
 
     // NAME
     if (!formData.name.trim()) {
-      e.name = 'Name is required'
+      e.name = "Name is required";
     } else if (formData.name.length < limits.name.min) {
-      e.name = `Min ${limits.name.min} characters`
+      e.name = `Min ${limits.name.min} characters`;
     } else if (formData.name.length > limits.name.max) {
-      e.name = `Max ${limits.name.max} characters`
+      e.name = `Max ${limits.name.max} characters`;
     }
 
     // EMAIL
     if (!formData.email.trim()) {
-      e.email = 'Email is required'
+      e.email = "Email is required";
     } else if (!emailRegex.test(formData.email)) {
-      e.email = 'Invalid email format'
+      e.email = "Invalid email format";
     }
 
     // PHONE (❗ NÃO obrigatório)
     if (formData.phone.trim()) {
       if (!phoneRegex.test(formData.phone)) {
-        e.phone = 'Invalid phone number'
+        e.phone = "Invalid phone number";
       }
     }
 
     // SUBJECT
     if (!formData.subject.trim()) {
-      e.subject = 'Subject is required'
+      e.subject = "Subject is required";
     } else if (formData.subject.length < limits.subject.min) {
-      e.subject = `Min ${limits.subject.min} characters`
+      e.subject = `Min ${limits.subject.min} characters`;
     }
 
     // MESSAGE
     if (!formData.message.trim()) {
-      e.message = 'Message is required'
+      e.message = "Message is required";
     } else if (formData.message.length < limits.message.min) {
-      e.message = `Min ${limits.message.min} characters`
+      e.message = `Min ${limits.message.min} characters`;
     } else if (formData.message.length > limits.message.max) {
-      e.message = `Max ${limits.message.max} characters`
+      e.message = `Max ${limits.message.max} characters`;
     }
 
-    setErrors(e)
-    return Object.keys(e).length === 0
+    setErrors(e);
+    return Object.keys(e).length === 0;
   };
 
   const handleChange = (e: any) => {
@@ -116,15 +111,21 @@ export default function Contact({ theme, onToggleTheme }: any) {
 
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <SEO title="Contact" description="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful." />
+
       <PageHero
         variant="page"
         title="LET'S CONNECT"
-        subtitle="Tell me what you're building."
+        subtitle="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
         image="/rodrigo_contact_image.png"
       />
 
+      <div className="max-w-2xl mx-auto relative z-10">
       <PageSection>
-        <div className="max-w-2xl mx-auto relative z-10">
+           <div className="text-center mb-6 text-sm text-muted-foreground">
+            Usually replies within 24 hours, often faster.
+          </div>
+
           <AnimatePresence mode="wait">
             {status === "success" ? (
               <motion.div
@@ -134,9 +135,7 @@ export default function Contact({ theme, onToggleTheme }: any) {
                 exit={{ opacity: 0 }}
                 className="glass p-10 rounded-2xl text-center glow-primary"
               >
-                <Suspense>
-                  <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
-                </Suspense>
+                <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
 
                 <h3 className="text-xl font-semibold mb-2">Message Sent 🚀</h3>
 
@@ -152,7 +151,7 @@ export default function Contact({ theme, onToggleTheme }: any) {
                 animate={{ opacity: 1, y: 0 }}
                 className="glass p-8 rounded-2xl space-y-5 border border-primary/10"
               >
-                 <Field
+                <Field
                   name="name"
                   placeholder="Full Name"
                   formData={formData}
@@ -188,13 +187,14 @@ export default function Contact({ theme, onToggleTheme }: any) {
                 <textarea
                   name="message"
                   rows={5}
-                  placeholder="Your message..."
+                  placeholder="Tell me about your idea, project or challenge..."
                   value={formData.message}
                   onChange={handleChange}
-                  className={`w-full p-3 rounded-lg border bg-background ${
+                  aria-invalid={!!errors.message}
+                  className={`w-full p-3 rounded-lg border bg-background transition-all duration-200 outline-none ${
                     errors.message
                       ? "border-red-500"
-                      : "border-border focus:border-primary"
+                      : "border-border focus:border-primary focus:ring-2 focus:ring-primary/30"
                   }`}
                 />
 
@@ -202,9 +202,15 @@ export default function Contact({ theme, onToggleTheme }: any) {
 
                 <button
                   disabled={loading}
-                  className="w-full py-3 rounded-lg bg-primary text-white font-semibold glow-primary-sm"
+                  className="w-full py-3 rounded-lg bg-primary text-white font-semibold glow-primary-sm flex items-center justify-center gap-2"
                 >
-                  {loading ? "Sending..." : "Send Message"}
+                  {loading ? (
+                    <>
+                      <span className="animate-pulse">Sending...</span>
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </motion.form>
             )}
@@ -217,7 +223,7 @@ export default function Contact({ theme, onToggleTheme }: any) {
 
 function Field({
   name,
-  type = 'text',
+  type = "text",
   placeholder,
   formData,
   handleChange,
@@ -228,27 +234,27 @@ function Field({
       <input
         type={type}
         name={name}
+        autoComplete={name}
         placeholder={placeholder}
         value={formData[name]}
         onChange={handleChange}
-        className={`w-full p-3 rounded-lg border bg-background ${
+        aria-invalid={!!errors[name]}
+        className={`w-full p-3 rounded-lg border bg-background transition-all duration-200 outline-none ${
           errors[name]
-            ? 'border-red-500'
-            : 'border-border focus:border-primary'
+            ? "border-red-500"
+            : "border-border focus:border-primary focus:ring-2 focus:ring-primary/30"
         }`}
       />
 
       {errors[name] && <Error text={errors[name]} />}
     </div>
-  )
+  );
 }
 
 function Error({ text }: any) {
   return (
     <p className="text-red-500 text-sm flex gap-2 mt-1">
-      <Suspense>
-        <AlertCircle className="w-4 h-4" />
-      </Suspense>
+      <AlertCircle className="w-4 h-4" />
       {text}
     </p>
   );

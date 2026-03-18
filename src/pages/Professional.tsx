@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { profile } from "@/data/profile";
+import SEO from "@/components/SEO";
 
 const ProfessionalIntro = lazy(
   () => import("@/components/layout/professional/ProfessionalIntro")
@@ -39,11 +40,18 @@ const maxYears = 20;
 const Professional = ({ theme = "dark", onToggleTheme }: any) => {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <SEO
+        title="Professional"
+        description="Over 15 years leading data engineering projects, building Azure Databricks platforms and scalable analytics architectures in Europe and Brazil."
+      />
       <Helmet>
-        <title>Professional Experience | Rodrigo Póvoa</title>
+        <title>
+          Professional Experience | Rodrigo Póvoa - Data Analytics Engineer
+          Leader
+        </title>
         <meta
           name="description"
-          content="15+ years experience in data engineering, analytics platforms and architecture."
+          content="Over 15 years leading data engineering projects, building Azure Databricks platforms and scalable analytics architectures in Europe and Brazil."
         />
       </Helmet>
 

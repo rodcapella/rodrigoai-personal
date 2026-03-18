@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
+import SEO from "@/components/SEO";
 
 const Layers = lazy(() =>
   import("@/lib/icons").then((m) => ({ default: m.Layers }))
@@ -65,6 +66,11 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
 
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <SEO
+        title="Why Me ?"
+        description="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+      />
+
       <Helmet>
         <title>Why Me? | Rodrigo Póvoa</title>
       </Helmet>
