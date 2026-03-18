@@ -31,7 +31,7 @@ const PageSection = ({
 
   const content = (
     <>
-      {(
+      {title && (
         <SectionTitle as="h2" icon={icon}>
           {title}
         </SectionTitle>
@@ -44,7 +44,7 @@ const PageSection = ({
   return (
     <section className={`py-20 ${variants[variant]} ${className}`}>
       {container ? (
-        <Container className={containerClassName}>
+        <Container>
           {content}
         </Container>
       ) : (

@@ -14,13 +14,14 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
     <PageSection
       title="Core Technology Stack & Experience Depth"
       icon={<Layers />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="w-full"
       >
         <PageGrid cols={3} gap="md">
           {techStack?.map((group) => (

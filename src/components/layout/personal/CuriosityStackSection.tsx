@@ -36,7 +36,7 @@ export default function CuriosityStackSection() {
     <PageSection
       title="What Keeps Me Inspired"
       icon={<Sparkles />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <PageGrid cols={2} gap="md">
         {curiosityStack.map((item, idx) => {

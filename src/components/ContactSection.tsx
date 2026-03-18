@@ -5,6 +5,26 @@ import { Mail, Github, Linkedin } from "@/lib/icons";
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/layout/SectionTitle";
 
+<a
+  href="https://www.linkedin.com/in/rodrigocspovoa/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Visit my LinkedIn profile"
+  className="
+    group inline-flex items-center justify-center
+    w-10 h-10
+    rounded-full
+    bg-white/5
+    border border-white/10
+    transition-all
+    hover:bg-primary/10 hover:border-primary/30
+  "
+>
+  <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+</a>
+
+const isMobile = window.innerWidth < 768;
+
 const ContactSection = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
@@ -12,8 +32,12 @@ const ContactSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{
+            once: true,
+            margin: isMobile ? "-40px" : "-100px"
+          }}
           transition={{ duration: 0.6 }}
+          className="w-full"
         >
           <SectionTitle as="h2" icon={<Mail />}>Let's Build Something</SectionTitle>
 

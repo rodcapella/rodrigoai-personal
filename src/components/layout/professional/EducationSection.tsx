@@ -22,7 +22,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
     <PageSection
       title="Academic Background"
       icon={<GraduationCap />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <PageGrid cols={3} gap="md">
         {education?.map((edu, i) => (
@@ -32,6 +32,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="w-full"
           >
             <PageCard className={`${layers[i % 4]}`}>
               <h3 className="text-lg font-semibold mb-2">{edu.degree}</h3>

@@ -12,7 +12,7 @@ const AboutSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="max-w-3xl"
+        className="w-full"
       >
         <PageCard>
           <p className="text-muted-foreground text-lg leading-relaxed mb-6">

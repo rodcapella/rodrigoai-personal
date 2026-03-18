@@ -48,7 +48,7 @@ export default function HobbiesSection() {
     <PageSection
       title="Passions & Hobbies"
       icon={<Music />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <PageGrid cols={3} gap="md">
         {hobbies.map((hobby, idx) => {

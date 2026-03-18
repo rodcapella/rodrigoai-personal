@@ -52,16 +52,7 @@ export default function AIExplorationSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className="
-                    px-4 py-1.5
-                    rounded-full
-                    bg-primary/10
-                    text-primary
-                    text-xs font-medium
-                    border border-primary/20
-                    hover:bg-primary/20
-                    transition-all
-                  "
+                  className="tag-ai"
                 >
                   {platform}
                 </motion.span>

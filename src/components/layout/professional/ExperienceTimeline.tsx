@@ -20,7 +20,7 @@ export default function ExperienceTimeline({
 }: ExperienceTimelineProps) {
   return (
     <PageSection title="Professional Experience" icon={<Briefcase />}>
-      <div className="relative max-w-3xl space-y-10">
+      <div className="relative w-full space-y-10">
         {/* vertical line */}
         <div className="absolute left-2 top-0 bottom-0 w-[2px] bg-primary/20" />
 
@@ -31,7 +31,7 @@ export default function ExperienceTimeline({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="relative pl-8"
+            className="w-full"
           >
             {/* timeline dot */}
             <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
@@ -71,19 +71,16 @@ export default function ExperienceTimeline({
 
                 <div className="flex flex-wrap gap-2">
                   {(exp.stack ?? []).map((tech, i) => (
-                    <span
-                      key={i}
-                      className="
-                        px-3 py-1
-                        rounded-full
-                        bg-primary/10
-                        text-primary
-                        text-xs font-medium
-                        border border-primary/20
-                      "
-                    >
-                      {tech}
-                    </span>
+                  <motion.span
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  className="tag-ai"
+                >
+                  {tech}
+                </motion.span>
                   ))}
                 </div>
               </div>

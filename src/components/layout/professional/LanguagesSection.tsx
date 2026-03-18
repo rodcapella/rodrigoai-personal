@@ -20,7 +20,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
     <PageSection
       title="Languages"
       icon={<Globe />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <PageGrid cols={3} gap="md">
         {languages?.map((lang, idx) => (
@@ -30,6 +30,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
+            className="w-full"
           >
             <PageCard className={`${layers[idx % 4]} group`}>
               <h3 className="text-lg font-semibold mb-1">{lang.name}</h3>

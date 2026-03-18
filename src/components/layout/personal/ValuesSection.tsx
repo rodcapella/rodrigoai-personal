@@ -36,7 +36,7 @@ export default function ValuesSection() {
     <PageSection
       title="Core Values"
       icon={<Heart />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <PageGrid cols={3} gap="md">
         {personalValues.map((value, idx) => (

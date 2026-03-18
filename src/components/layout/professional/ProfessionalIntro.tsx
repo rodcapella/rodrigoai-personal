@@ -11,6 +11,7 @@ export default function ProfessionalIntro() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="w-full"
         >
           <SectionTitle as="h2" icon={<Workflow className="w-8 h-8" />}>
             Data Analytics Engineer & Team Leader | Azure Databricks | Python |

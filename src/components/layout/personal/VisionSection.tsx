@@ -17,7 +17,7 @@ export default function VisionSection() {
     <PageSection
       title="Long-Term Vision"
       icon={<Target />}
-      className="bg-gradient-to-br from-primary/10 to-transparent"
+      variant="gradient"
     >
       <div className="space-y-6 max-w-3xl">
         {longTermVision.map((item, idx) => (

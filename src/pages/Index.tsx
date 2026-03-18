@@ -37,7 +37,13 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
             jobTitle: "Technical Data Leader & Data Analytics Engineer",
             description:
               "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
-            address: {
+            contactPoint: {
+				"@type": "ContactPoint",
+				contactType: "professional",
+				email: "contato@rpovoadata.tech",
+				availableLanguage: ["English", "Portuguese"]
+				},
+			  address: {
               "@type": "PostalAddress",
               addressLocality: "Aveiro",
               addressCountry: "Portugal",
@@ -189,25 +195,39 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
         />
 
         <Suspense fallback={<SectionLoader />}>
-          <AboutSection />
+          <PageSection>
+            <AboutSection />
+          </PageSection>
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
-          <ExpertiseSection />
+          <PageSection>
+            <ExpertiseSection />
+          </PageSection>
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
-          <ProjectsSection />
+          <PageSection>
+            <ProjectsSection />
+          </PageSection>
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
-          <WhatDrivesMe />
+          <PageSection>
+            <WhatDrivesMe />
+          </PageSection>
         </Suspense>
 
         <Suspense fallback={<SectionLoader />}>
-          <AboutMyCareer />
+          <PageSection>
+            <AboutMyCareer />
+          </PageSection>
         </Suspense>
-
+        <Suspense fallback={<SectionLoader />}>
+          <PageSection>
+            <AboutMyCareer />
+          </PageSection>
+        </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <ContactSection />
         </Suspense>
