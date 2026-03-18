@@ -59,5 +59,6 @@ export {
   Users,
   User,
   MessageSquare,
-  AlertTriangle
+  AlertTriangle,
+  CheckCircle
 } from "lucide-react";
