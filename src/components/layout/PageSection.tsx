@@ -32,7 +32,7 @@ const PageSection = ({
   const content = (
     <>
       {(
-        <SectionTitle icon={icon}>
+        <SectionTitle as="h2" icon={icon}>
           {title}
         </SectionTitle>
       )}

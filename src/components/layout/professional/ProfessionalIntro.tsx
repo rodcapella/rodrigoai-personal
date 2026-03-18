@@ -12,7 +12,7 @@ export default function ProfessionalIntro() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <SectionTitle icon={<Workflow className="w-8 h-8" />}>
+          <SectionTitle as="h2" icon={<Workflow className="w-8 h-8" />}>
             Data Analytics Engineer & Team Leader | Azure Databricks | Python |
             PySpark | SQL | Power BI
           </SectionTitle>

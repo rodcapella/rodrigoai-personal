@@ -6,6 +6,7 @@ interface SectionTitleProps {
   children: React.ReactNode;
   align?: "left" | "center";
   variant?: "default" | "gradient";
+  as?: "h2" | "h3";
 }
 
 export default function SectionTitle({
@@ -13,6 +14,7 @@ export default function SectionTitle({
   children,
   align = "left",
   variant = "gradient",
+  as = "h2",
 }: SectionTitleProps) {
   const isCenter = align === "center";
 
@@ -22,10 +24,12 @@ export default function SectionTitle({
       "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
   };
 
+  const MotionTag = motion(as);
+
   return (
     <div className={`mb-14 ${isCenter ? "text-center" : ""}`}>
       
-      <motion.h2
+      <MotionTag
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -65,7 +69,7 @@ export default function SectionTitle({
         >
           {children}
         </span>
-      </motion.h2>
+      </MotionTag>
 
       {/* UNDERLINE */}
       <motion.div

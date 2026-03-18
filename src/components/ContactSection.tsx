@@ -15,7 +15,7 @@ const ContactSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <SectionTitle icon={<Mail />}>Let's Build Something</SectionTitle>
+          <SectionTitle as="h2" icon={<Mail />}>Let's Build Something</SectionTitle>
 
           <p className="text-muted-foreground text-lg mb-12">
             Building modern data platforms, AI systems, or intelligent digital

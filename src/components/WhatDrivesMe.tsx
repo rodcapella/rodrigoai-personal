@@ -46,7 +46,7 @@ const WhatDrivesMe = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <SectionTitle icon={<Brain className="w-6 h-6" />}>
+          <SectionTitle as="h2" icon={<Brain className="w-6 h-6" />}>
             What Drives Me
           </SectionTitle>
 
