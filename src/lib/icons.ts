@@ -63,7 +63,6 @@ export {
   CheckCircle,
   AlertCircle,
   ArrowDown,
-  Compass,
-  ShieldCheck,
-  
+  Compass
+
 } from "lucide-react";
