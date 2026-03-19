@@ -25,6 +25,29 @@ const SectionLoader = () => (
 );
 
 const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
+  const sections = [
+    {
+      component: <AboutSection />,
+    },
+    {
+      component: <ExpertiseSection />,
+      variant: "muted",
+    },
+    {
+      component: <ProjectsSection />,
+    },
+    {
+      component: <WhatDrivesMe />,
+      variant: "muted",
+    },
+    {
+      component: <AboutMyCareer />,
+    },
+    {
+      component: <ContactSection />,
+      variant: "glass",
+    },
+  ];
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -39,12 +62,12 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
             description:
               "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
             contactPoint: {
-				"@type": "ContactPoint",
-				contactType: "professional",
-				email: "contato@rpovoadata.tech",
-				availableLanguage: ["English", "Portuguese"]
-				},
-			  address: {
+              "@type": "ContactPoint",
+              contactType: "professional",
+              email: "contato@rpovoadata.tech",
+              availableLanguage: ["English", "Portuguese"],
+            },
+            address: {
               "@type": "PostalAddress",
               addressLocality: "Aveiro",
               addressCountry: "Portugal",
@@ -188,48 +211,19 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
 
       <main id="main-content">
         <HeroSection
-          onOpenChat={function (): void {
-            throw new Error("Function not implemented.");
+          onOpenChat={() => {
+            console.warn("Chat not implemented yet");
           }}
         />
 
-        <Suspense fallback={<SectionLoader />}>
-          <PageSection>
-            <AboutSection />
-          </PageSection>
-        </Suspense>
-
-        <Suspense fallback={<SectionLoader />}>
-          <PageSection>
-            <ExpertiseSection />
-          </PageSection>
-        </Suspense>
-
-        <Suspense fallback={<SectionLoader />}>
-          <PageSection>
-            <ProjectsSection />
-          </PageSection>
-        </Suspense>
-
-        <Suspense fallback={<SectionLoader />}>
-          <PageSection>
-            <WhatDrivesMe />
-          </PageSection>
-        </Suspense>
-
-        <Suspense fallback={<SectionLoader />}>
-          <PageSection>
-            <AboutMyCareer />
-          </PageSection>
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <PageSection>
-            <AboutMyCareer />
-          </PageSection>
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ContactSection />
-        </Suspense>
+        {/* SECTIONS DINÂMICAS */}
+        {sections.map((section, index) => (
+          <Suspense key={index} fallback={<SectionLoader />}>
+            <PageSection variant={section.variant as any}>
+              {section.component}
+            </PageSection>
+          </Suspense>
+        ))}
       </main>
 
       <Footer />

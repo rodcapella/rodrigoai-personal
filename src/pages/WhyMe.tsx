@@ -6,7 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
-import { Layers, Zap, Users, Target, Brain, Lightbulb  } from "@/lib/icons";
+import { Layers, Zap, Users, Target, Brain, Lightbulb, ShieldCheck, Sparkles, BarChart3  } from "@/lib/icons";
 
 const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
   const differentiators = [
@@ -31,7 +31,29 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
         "AI and automation enhance human capability, they don't replace it. My philosophy centers on building systems where technology multiplies team effectiveness.",
       highlight: "Productivity through intelligent infrastructure",
     },
+    {
+      icon: ShieldCheck,
+      title: "End-to-End Ownership",
+      description:
+        "I take full responsibility from problem definition to production impact—ensuring solutions are not only built, but adopted, trusted and measurable.",
+      highlight: "From idea to impact, not just implementation",
+    },
+    {
+      icon: Sparkles,
+      title: "Relentless Focus on Quality",
+      description:
+        "I don’t settle for 'working solutions'. I push for robust, scalable and elegant systems—always aiming for the best possible implementation.",
+      highlight: "Good enough is never the finish line",
+    },
+    {
+      icon: BarChart3,
+      title: "Business-Driven Engineering",
+      description:
+        "I translate complex data systems into clear business value—aligning engineering decisions with measurable outcomes and strategic goals.",
+      highlight: "Bridging the gap between data and decisions",
+    },
   ];
+
 
   const leadershipPillars = [
     {
@@ -43,31 +65,25 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
       description: "Platforms are strategic infrastructure.",
     },
     {
+    title: "Calm & Clarity Under Pressure",
+    description: "A composed and thoughtful approach to challenges, enabling better decisions, stronger teams and sustainable outcomes.",
+    },
+    {
+      title: "Empathy & Understanding",
+      description: "Great systems are built by people. I value listening, understanding different perspectives and creating environments where individuals can thrive.",
+    },
+    {
       title: "Human-Centered AI",
       description: "Technology amplifies capability.",
     },
   ];
 
-  return (
-    <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
-      <SEO
-        title="Why Me ?"
-        description="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
-      />
-
-      <Helmet>
-        <title>Why Me? | Rodrigo Póvoa</title>
-      </Helmet>
-
-      <Suspense fallback={null}>
-        <PageHero
-          variant="page"
-          title="WHY WORK WITH ME"
-          subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
-          image="/rodrigo_why_me.webp"
-        />
-
-        {/* Leadership */}
+  const sections: {
+    component: React.ReactNode;
+    variant?: SectionVariant;
+  }[] = [
+    {
+      component: (
         <PageSection title="Leadership Philosophy" icon={<Brain />}>
           <PageGrid cols={3}>
             {leadershipPillars.map((pillar, idx) => (
@@ -79,13 +95,11 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
             ))}
           </PageGrid>
         </PageSection>
-
-        {/* Differentiators */}
-        <PageSection
-          title="What sets me apart"
-          icon={<Zap />}
-          variant="gradient"
-        >
+      ),
+    },
+    {
+      component: (
+        <PageSection title="What sets me apart" icon={<Zap />}>
           <PageGrid cols={3}>
             {differentiators.map((diff, idx) => {
               const Icon = diff.icon;
@@ -102,62 +116,75 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
             })}
           </PageGrid>
         </PageSection>
-
-        {/* Vision */}
+      ),
+      variant: "muted",
+    },
+    {
+      component: (
         <PageSection title="My Vision" icon={<Lightbulb />}>
           <PageGrid cols={3}>
             <PageCard
               title="Architecture"
-              description="Data Platforms → AI-Native Systems. From reactive analytics to proactive intelligence."
+              description="Data Platforms → AI-Native Systems..."
             />
-
             <PageCard
               title="Data as Products"
               description="Clear ownership, accountability, and trust."
             />
-
             <PageCard
               title="Impact"
-              description="AI Amplifies Humans. Technology multiplies human capability and creativity."
+              description="AI Amplifies Humans..."
             />
           </PageGrid>
         </PageSection>
-
-        {/* Value */}
+      ),
+    },
+    {
+      component: (
         <PageSection title="What This Means For You" icon={<Users />}>
           <PageGrid cols={3}>
-            <PageCard
-              title="AI-Ready Data Platforms"
-              description="I design scalable architectures that support governance, analytics, and AI workloads from the same data foundation."
-            />
-
-            <PageCard
-              title="Applied AI Exploration"
-              description="Sapiente.AI serves as a laboratory for new architectures and experimental systems."
-            />
-
-            <PageCard
-              title="Scaling Data Organizations"
-              description="I build teams, define standards, and structure platforms for sustainable growth."
-            />
-
-            <PageCard
-              title="Trustworthy Data Foundations"
-              description="Reliable pipelines, consistent metrics, and strong governance frameworks."
-            />
-
-            <PageCard
-              title="Data as Strategic Assets"
-              description="Move from reporting to data products with ownership and measurable impact."
-            />
-
-            <PageCard
-              title="AI in Production"
-              description="Align engineering, governance, and architecture to move AI into real systems."
-            />
+            <PageCard title="AI-Ready Data Platforms" description="..." />
+            <PageCard title="Applied AI Exploration" description="..." />
+            <PageCard title="Scaling Data Organizations" description="..." />
+            <PageCard title="Trustworthy Data Foundations" description="..." />
+            <PageCard title="Data as Strategic Assets" description="..." />
+            <PageCard title="AI in Production" description="..." />
           </PageGrid>
         </PageSection>
-      </Suspense>
+      ),
+      variant: "glass",
+    },
+  ];
+
+  return (
+    <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <SEO
+        title="Why Me?"
+        description="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+      />
+
+      <Helmet>
+        <title>Why Me? | Rodrigo Póvoa</title>
+      </Helmet>
+
+      {/* HERO PADRONIZADO */}
+      <PageSection variant="gradient" className="pt-32 pb-16">
+        <PageHero
+          variant="page"
+          title="WHY WORK WITH ME"
+          subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+          image="/rodrigo_why_me.webp"
+        />
+      </PageSection>
+
+      {/* SECTIONS */}
+      {sections.map((section, index) => (
+        <Suspense key={index} fallback={<SectionLoader />}>
+          <PageSection variant={section.variant}>
+            {section.component}
+          </PageSection>
+        </Suspense>
+      ))}
     </MainLayout>
   );
 };

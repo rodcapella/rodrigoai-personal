@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
@@ -6,8 +6,21 @@ import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import { AlertCircle, CheckCircle, Linkedin } from "@/lib/icons";
 
-export default function Contact({ theme, onToggleTheme }: any) {
-  const [formData, setFormData] = useState({
+interface ContactProps {
+  theme?: "dark" | "light";
+  onToggleTheme?: () => void;
+}
+
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
+export default function Contact({ theme, onToggleTheme }: ContactProps) {
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
@@ -15,7 +28,7 @@ export default function Contact({ theme, onToggleTheme }: any) {
     message: "",
   });
 
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<Partial<FormData>>({});
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +42,7 @@ export default function Contact({ theme, onToggleTheme }: any) {
   const phoneRegex = /^[\d\s+()-]{8,20}$/;
 
   const validate = () => {
-    const e: any = {};
+    const e: Partial<FormData> = {};
 
     if (!formData.name.trim()) e.name = "Name is required";
     else if (formData.name.length < limits.name.min)
@@ -38,7 +51,8 @@ export default function Contact({ theme, onToggleTheme }: any) {
       e.name = `Max ${limits.name.max} characters`;
 
     if (!formData.email.trim()) e.email = "Email is required";
-    else if (!emailRegex.test(formData.email)) e.email = "Invalid email format";
+    else if (!emailRegex.test(formData.email))
+      e.email = "Invalid email format";
 
     if (formData.phone.trim() && !phoneRegex.test(formData.phone))
       e.phone = "Invalid phone number";
@@ -57,20 +71,26 @@ export default function Contact({ theme, onToggleTheme }: any) {
     return Object.keys(e).length === 0;
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev: any) => ({ ...prev, [name]: undefined }));
+
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
     setLoading(true);
 
     setTimeout(() => {
       setStatus("success");
       setLoading(false);
+
       setTimeout(() => {
         setFormData({
           name: "",
@@ -91,20 +111,24 @@ export default function Contact({ theme, onToggleTheme }: any) {
         description="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
       />
 
-      <PageHero
-        variant="page"
-        title="LET'S CONNECT"
-        subtitle="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
-        image="/rodrigo_contact_image.webp"
-      />
+      {/* HERO AGORA PADRONIZADO */}
+      <PageSection variant="gradient" className="pt-32 pb-16">
+        <PageHero
+          variant="page"
+          title="LET'S CONNECT"
+          subtitle="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
+          image="/rodrigo_contact_image.webp"
+        />
+      </PageSection>
 
-      <PageSection>
+      {/* FORM */}
+      <PageSection variant="glass">
         <div className="text-center mb-6 text-sm text-muted-foreground">
           Usually replies within 24 hours, often faster.
         </div>
 
         {/* LinkedIn */}
-        <div className="flex justify-center mb-6 gap-3">
+        <div className="flex justify-center mb-8 gap-3">
           <a
             href="https://www.linkedin.com/in/rodrigocspovoa/"
             target="_blank"
@@ -127,103 +151,48 @@ export default function Contact({ theme, onToggleTheme }: any) {
             >
               <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
               <h3 className="text-xl font-semibold mb-2">Message Sent 🚀</h3>
-              <p className="text-muted-foreground">I’ll get back to you shortly.</p>
+              <p className="text-muted-foreground">
+                I’ll get back to you shortly.
+              </p>
             </motion.div>
           ) : (
             <motion.form
               key="form"
               onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }} // ajustado para mobile
-              className="glass p-8 rounded-2xl space-y-5 border border-primary/10"
+              animate={{ opacity: 1, y: 0 }}
+              className="glass p-8 rounded-2xl space-y-5 border border-primary/10 max-w-xl mx-auto"
             >
-              <Field
-                name="name"
-                placeholder="Full Name"
-                formData={formData}
-                handleChange={handleChange}
-                errors={errors}
-              />
-              <Field
-                name="email"
-                type="email"
-                placeholder="Email"
-                formData={formData}
-                handleChange={handleChange}
-                errors={errors}
-              />
-              <Field
-                name="phone"
-                placeholder="Phone (optional)"
-                formData={formData}
-                handleChange={handleChange}
-                errors={errors}
-              />
-              <Field
-                name="subject"
-                placeholder="Subject"
-                formData={formData}
-                handleChange={handleChange}
-                errors={errors}
-              />
+              <Field name="name" placeholder="Full Name" {...{ formData, handleChange, errors }} />
+              <Field name="email" type="email" placeholder="Email" {...{ formData, handleChange, errors }} />
+              <Field name="phone" placeholder="Phone (optional)" {...{ formData, handleChange, errors }} />
+              <Field name="subject" placeholder="Subject" {...{ formData, handleChange, errors }} />
+
               <textarea
                 name="message"
                 rows={5}
                 placeholder="Tell me about your idea, project or challenge..."
                 value={formData.message}
                 onChange={handleChange}
-                aria-invalid={!!errors.message}
-                className={`w-full p-3 rounded-lg border bg-background transition-all duration-200 outline-none ${
+                className={`w-full p-3 rounded-lg border bg-background ${
                   errors.message
                     ? "border-red-500"
                     : "border-border focus:border-primary focus:ring-2 focus:ring-primary/30"
                 }`}
               />
+
               {errors.message && <Error text={errors.message} />}
+
               <button
                 disabled={loading}
-                className="w-full py-3 rounded-lg bg-primary text-white font-semibold glow-primary-sm flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-lg bg-primary text-white font-semibold glow-primary-sm"
               >
-                {loading ? <span className="animate-pulse">Sending...</span> : "Send Message"}
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </motion.form>
           )}
         </AnimatePresence>
       </PageSection>
     </MainLayout>
-  );
-}
-
-// Field component
-function Field({ name, type = "text", placeholder, formData, handleChange, errors }: any) {
-  return (
-    <div>
-      <input
-        type={type}
-        name={name}
-        autoComplete={name}
-        placeholder={placeholder}
-        value={formData[name]}
-        onChange={handleChange}
-        aria-invalid={!!errors[name]}
-        className={`w-full p-3 rounded-lg border bg-background transition-all duration-200 outline-none ${
-          errors[name]
-            ? "border-red-500"
-            : "border-border focus:border-primary focus:ring-2 focus:ring-primary/30"
-        }`}
-      />
-      {errors[name] && <Error text={errors[name]} />}
-    </div>
-  );
-}
-
-// Error component
-function Error({ text }: any) {
-  return (
-    <p className="text-red-500 text-sm flex gap-2 mt-1">
-      <AlertCircle className="w-4 h-4" />
-      {text}
-    </p>
   );
 }

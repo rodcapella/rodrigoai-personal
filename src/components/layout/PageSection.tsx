@@ -27,9 +27,16 @@ const PageSection = ({
   containerClassName = "",
   variant = "default",
   container = true
-}: PageSectionProps) => {
+  spacing = "default"
+}: PageSectionProps & { spacing?: "default" | "sm" | "lg" }) => {
 
-  const content = (
+const spacingMap = {
+  sm: "py-10",
+  default: "py-20",
+  lg: "py-32"
+}
+
+const content = (
     <>
       {title && (
         <SectionTitle as="h2" icon={icon}>
@@ -39,7 +46,7 @@ const PageSection = ({
 
       {children}
     </>
-  )
+)
 
   return (
     <section className={`py-20 ${variants[variant]} ${className}`}>

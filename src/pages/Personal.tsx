@@ -10,40 +10,15 @@ interface PersonalProps {
   onToggleTheme?: () => void;
 }
 
-const PersonalPhilosophy = lazy(
-  () => import("@/components/layout/personal/PersonalPhilosophy")
-);
-
-const CuriosityStackSection = lazy(
-  () => import("@/components/layout/personal/CuriosityStackSection")
-);
-const LifeRelocation = lazy(
-  () => import("@/components/layout/personal/LifeRelocation")
-);
-
-const HobbiesSection = lazy(
-  () => import("@/components/layout/personal/HobbiesSection")
-);
-
-const SportsSection = lazy(
-  () => import("@/components/layout/personal/SportsSection")
-);
-
-const ValuesSection = lazy(
-  () => import("@/components/layout/personal/ValuesSection")
-);
-
-const InfluencesSection = lazy(
-  () => import("@/components/layout/personal/InfluencesSection")
-);
-
-const VisionSection = lazy(
-  () => import("@/components/layout/personal/VisionSection")
-);
-
-const AIExplorationSection = lazy(
-  () => import("@/components/layout/personal/AIExplorationSection")
-);
+const PersonalPhilosophy = lazy(() => import("@/components/layout/personal/PersonalPhilosophy"));
+const CuriosityStackSection = lazy(() => import("@/components/layout/personal/CuriosityStackSection"));
+const LifeRelocation = lazy(() => import("@/components/layout/personal/LifeRelocation"));
+const HobbiesSection = lazy(() => import("@/components/layout/personal/HobbiesSection"));
+const SportsSection = lazy(() => import("@/components/layout/personal/SportsSection"));
+const ValuesSection = lazy(() => import("@/components/layout/personal/ValuesSection"));
+const InfluencesSection = lazy(() => import("@/components/layout/personal/InfluencesSection"));
+const VisionSection = lazy(() => import("@/components/layout/personal/VisionSection"));
+const AIExplorationSection = lazy(() => import("@/components/layout/personal/AIExplorationSection"));
 
 const SectionLoader = () => (
   <div className="py-20 flex justify-center items-center">
@@ -51,18 +26,34 @@ const SectionLoader = () => (
   </div>
 );
 
+type SectionVariant = "default" | "muted" | "gradient" | "glass";
+
 const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
+  
+  const sections: {
+    component: React.ReactNode;
+    variant?: SectionVariant;
+  }[] = [
+    { component: <PersonalPhilosophy /> },
+    { component: <LifeRelocation />, variant: "muted" },
+    { component: <CuriosityStackSection /> },
+    { component: <HobbiesSection />, variant: "muted" },
+    { component: <SportsSection /> },
+    { component: <ValuesSection />, variant: "muted" },
+    { component: <InfluencesSection /> },
+    { component: <VisionSection />, variant: "muted" },
+    { component: <AIExplorationSection />, variant: "glass" },
+  ];
+
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Personal"
         description="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
       />
-      
+
       <Helmet>
-        <title>
-          Personal | Rodrigo Póvoa – Values, Vision & AI Exploration
-        </title>
+        <title>Personal | Rodrigo Póvoa – Values, Vision & AI Exploration</title>
 
         <meta
           name="description"
@@ -72,50 +63,24 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         <link rel="canonical" href="https://www.rpovoadata.tech/personal" />
       </Helmet>
 
-      <PageHero
-        variant="page"
-        title="PERSONAL"
-        subtitle="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
-        image="/rodrigo_flamengo_porto.png"
-      />
+      {/* HERO PADRONIZADO */}
+      <PageSection variant="gradient" className="pt-32 pb-16">
+        <PageHero
+          variant="page"
+          title="PERSONAL"
+          subtitle="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
+          image="/rodrigo_flamengo_porto.png"
+        />
+      </PageSection>
 
-      <Suspense fallback={<SectionLoader />}>
-        <PageSection>
-          <PersonalPhilosophy />
-        </PageSection>
-
-        <PageSection>
-          <LifeRelocation />
-        </PageSection>
-
-        <PageSection>
-          <CuriosityStackSection />
-        </PageSection>
-
-        <PageSection>
-          <HobbiesSection />
-        </PageSection>
-
-        <PageSection>
-          <SportsSection />
-        </PageSection>
-
-        <PageSection>
-          <ValuesSection />
-        </PageSection>
-
-        <PageSection>
-          <InfluencesSection />
-        </PageSection>
-
-        <PageSection>
-          <VisionSection />
-        </PageSection>
-
-        <PageSection>
-          <AIExplorationSection />
-        </PageSection>
-      </Suspense>
+      {/* SECTIONS DINÂMICAS */}
+      {sections.map((section, index) => (
+        <Suspense key={index} fallback={<SectionLoader />}>
+          <PageSection variant={section.variant}>
+            {section.component}
+          </PageSection>
+        </Suspense>
+      ))}
     </MainLayout>
   );
 };
