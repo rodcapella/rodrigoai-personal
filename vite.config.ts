@@ -16,33 +16,13 @@ export default defineConfig({
   },
 
   build: {
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        manualChunks: {
-          
-          react: [
-            "react",
-            "react-dom",
-            "react-router-dom"
-          ],
-
-          motion: [
-            "framer-motion"
-          ],
-
-          icons: [
-            "lucide-react"
-          ],
-
-          query: [
-            "@tanstack/react-query"
-          ],
-
-          analytics: [
-            "@vercel/analytics"
-          ]
-
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            return 'vendor'; // Agrupa todas as bibliotecas num só ficheiro para evitar erros de contexto nulo
+          }
         }
       }
     }

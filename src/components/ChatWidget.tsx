@@ -146,12 +146,7 @@ import { m } from "framer-motion"
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-primary/10 to-primary/5">
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50">
-                  <img
-                    src="/profile.jpg"
-                    alt="PóvoaAI"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary/50">          
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 hover:opacity-100 transition-opacity">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
