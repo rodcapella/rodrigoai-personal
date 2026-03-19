@@ -6,37 +6,15 @@ import { Analytics } from "@vercel/analytics/react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ScrollToTop from "@/components/ScrollToTop";
-import { HelmetProvider } from "react-helmet-async";
 import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import { HelmetProvider } from "react-helmet-async";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </React.StrictMode>
-);
-
+// 1. Definição dos Lazy Components (Fora do componente App)
 const Index = lazy(() => import("./pages/Index"));
-Index.preload = () => import("./pages/Index");
-
 const Professional = lazy(() => import("./pages/Professional"));
-(Professional as any).preload = () => import("./pages/Professional");
-
 const Personal = lazy(() => import("./pages/Personal"));
-(Personal as any).preload = () => import("./pages/Personal");
-
 const WhyMe = lazy(() => import("./pages/WhyMe"));
-(WhyMe as any).preload = () => import("./pages/WhyMe");
-
 const SideProjects = lazy(() => import("./pages/SideProjects"));
-(SideProjects as any).preload = () => import("./pages/SideProjects");
-
 const Contact = lazy(() => import("./pages/Contact"));
-(Contact as any).preload = () => import("./pages/Contact");
 
 const queryClient = new QueryClient();
 
@@ -65,53 +43,25 @@ const App = () => {
       <LazyMotion features={domAnimation}>
         <TooltipProvider>
           <Toaster />
-
           <div className="theme-provider" data-theme={theme}>
             <ScrollToTop />
             <Suspense
               fallback={
                 <div className="min-h-screen flex items-center justify-center text-muted-foreground">
-                  Loading...
+                  <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
                 </div>
               }
             >
               <Routes>
-                <Route
-                  path="/"
-                  element={<Index theme={theme} onToggleTheme={toggleTheme} />}
-                />
-                <Route
-                  path="/professional"
-                  element={
-                    <Professional theme={theme} onToggleTheme={toggleTheme} />
-                  }
-                />
-                <Route
-                  path="/personal"
-                  element={
-                    <Personal theme={theme} onToggleTheme={toggleTheme} />
-                  }
-                />
-                <Route
-                  path="/contact"
-                  element={
-                    <Contact theme={theme} onToggleTheme={toggleTheme} />
-                  }
-                />
-                <Route
-                  path="/side-projects"
-                  element={
-                    <SideProjects theme={theme} onToggleTheme={toggleTheme} />
-                  }
-                />
-                <Route
-                  path="/why-me"
-                  element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />}
-                />
+                <Route path="/" element={<Index theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/professional" element={<Professional theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/personal" element={<Personal theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/contact" element={<Contact theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/side-projects" element={<SideProjects theme={theme} onToggleTheme={toggleTheme} />} />
+                <Route path="/why-me" element={<WhyMe theme={theme} onToggleTheme={toggleTheme} />} />
               </Routes>
             </Suspense>
           </div>
-
           {import.meta.env.PROD && <Analytics />}
         </TooltipProvider>
       </LazyMotion>
