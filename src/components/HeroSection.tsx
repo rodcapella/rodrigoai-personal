@@ -50,7 +50,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
 
               <div className="relative rounded-3xl overflow-hidden border border-primary/20 shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] transition-all duration-500">
                 <img
-                  src="/profile.jpg"
+                  src="/ai-portrait.jpeg"
                   alt="Rodrigo Povoa"
                   className="w-full h-full object-cover"
                 />
@@ -71,9 +71,8 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
           to="/professional"
           className="text-muted-foreground hover:text-primary transition-colors"
         >
-          <Suspense fallback={null}>
-            <ArrowDown className="w-5 h-5 animate-bounce" />
-          </Suspense>
+          
+          <ArrowDown className="w-5 h-5 animate-bounce" />
         </Link>
       </motion.div>
     </PageSection>

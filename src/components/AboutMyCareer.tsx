@@ -27,7 +27,6 @@ const AboutMyCareer = () => {
             viewport={{ once: true }}
           >
             <PageCard className="group flex items-start gap-4">
-              <Suspense fallback={null}>
                 <ChevronRight
                   className="
                     w-5 h-5 mt-1
@@ -38,7 +37,6 @@ const AboutMyCareer = () => {
                     group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
                   "
                 />
-              </Suspense>
 
               <p className="text-muted-foreground leading-relaxed">{fact}</p>
             </PageCard>
