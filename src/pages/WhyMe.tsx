@@ -143,12 +143,12 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
       component: (
         <PageSection title="What This Means For You" icon={<Users />}>
           <PageGrid cols={3}>
-            <PageCard title="AI-Ready Data Platforms" description="..." />
-            <PageCard title="Applied AI Exploration" description="..." />
-            <PageCard title="Scaling Data Organizations" description="..." />
-            <PageCard title="Trustworthy Data Foundations" description="..." />
-            <PageCard title="Data as Strategic Assets" description="..." />
-            <PageCard title="AI in Production" description="..." />
+            <PageCard title="AI-Ready Data Platforms" description="I design scalable architectures that support governance, analytics, and AI workloads from the same data foundation." />
+            <PageCard title="Applied AI Exploration" description="Sapiente.AI serves as a laboratory for new architectures and experimental systems." />
+            <PageCard title="Scaling Data Organizations" description="I build teams, define standards, and structure platforms for sustainable growth." />
+            <PageCard title="Trustworthy Data Foundations" description="Reliable pipelines, consistent metrics, and strong governance frameworks." />
+            <PageCard title="Data as Strategic Assets" description="Move from reporting to data products with ownership and measurable impact." />
+            <PageCard title="AI in Production" description="Align engineering, governance, and architecture to move AI into real systems" />
           </PageGrid>
         </PageSection>
       ),
