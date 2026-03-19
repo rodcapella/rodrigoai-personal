@@ -2,11 +2,7 @@ import { motion } from "framer-motion";
 import { lazy, Suspense } from "react";
 import PageSection from "@/components/layout/PageSection";
 import PageCard from "@/components/layout/PageCard";
-import { Briefcase } from "@/lib/icons";
-
-const ChevronRight = lazy(() =>
-  import("lucide-react").then((m) => ({ default: m.ChevronRight }))
-);
+import { Briefcase, ChevronRight } from "@/lib/icons";
 
 const AboutMyCareer = () => {
   const funFacts = [

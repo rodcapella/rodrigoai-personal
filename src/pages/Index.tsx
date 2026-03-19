@@ -177,8 +177,6 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
 
         <meta name="author" content="Rodrigo Póvoa" />
         <meta name="creator" content="Rodrigo Póvoa" />
-
-        <link rel="preload" as="image" href="/ai-portrait.jpeg" />
       </Helmet>
 
       <BreadcrumbSchema

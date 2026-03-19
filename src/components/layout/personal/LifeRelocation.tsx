@@ -2,10 +2,7 @@ import { motion } from "framer-motion";
 import { lazy, Suspense } from "react";
 import PageSection from "@/components/layout/PageSection";
 import PageCard from "@/components/layout/PageCard";
-
-const Compass = lazy(() =>
-  import("lucide-react").then((m) => ({ default: m.Compass }))
-);
+import { Compass } from "@/lib/icons";
 
 export default function LifeRelocation() {
   return (

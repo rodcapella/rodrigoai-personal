@@ -3,10 +3,7 @@ import { lazy, Suspense } from "react";
 import PageSection from "@/components/layout/PageSection";
 import Container from "@/components/layout/Container";
 import { Link } from "react-router-dom";
-
-const ArrowDown = lazy(() =>
-  import("lucide-react").then((m) => ({ default: m.ArrowDown }))
-);
+import { ArrowDown } from "@/lib/icons";
 
 interface HeroSectionProps {
   onOpenChat: () => void;

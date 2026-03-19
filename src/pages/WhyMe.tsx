@@ -6,23 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
-
-const Layers = lazy(() =>
-  import("@/lib/icons").then((m) => ({ default: m.Layers }))
-);
-const Zap = lazy(() => import("@/lib/icons").then((m) => ({ default: m.Zap })));
-const Users = lazy(() =>
-  import("@/lib/icons").then((m) => ({ default: m.Users }))
-);
-const Target = lazy(() =>
-  import("@/lib/icons").then((m) => ({ default: m.Target }))
-);
-const Brain = lazy(() =>
-  import("@/lib/icons").then((m) => ({ default: m.Brain }))
-);
-const Lightbulb = lazy(() =>
-  import("@/lib/icons").then((m) => ({ default: m.Lightbulb }))
-);
+import { Layers, Zap, Users, Target, Brain, Lightbulb  } from "@/lib/icons";
 
 const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
   const differentiators = [
