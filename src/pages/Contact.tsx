@@ -95,7 +95,7 @@ export default function Contact({ theme, onToggleTheme }: any) {
         variant="page"
         title="LET'S CONNECT"
         subtitle="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
-        image="/rodrigo_contact_image.png"
+        image="/rodrigo_contact_image.webp"
       />
 
       <PageSection>

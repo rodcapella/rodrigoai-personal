@@ -64,7 +64,7 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
           variant="page"
           title="WHY WORK WITH ME"
           subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
-          image="/rodrigo_why_me.png"
+          image="/rodrigo_why_me.webp"
         />
 
         {/* Leadership */}

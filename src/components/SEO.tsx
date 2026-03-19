@@ -12,7 +12,7 @@ export default function SEO({ title, description, image }: SEOProps) {
   const baseUrl = "https://www.rpovoadata.tech";
 
   const currentUrl = baseUrl + location.pathname;
-  const ogImage = image || `${baseUrl}/ai-portrait.jpeg`;
+  const ogImage = image || `${baseUrl}/ai-portrait.webp`;
 
   return (
     <Helmet>

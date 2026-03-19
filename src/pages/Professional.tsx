@@ -69,7 +69,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: any) => {
         variant="page"
         title="PROFESSIONAL JOURNEY"
         subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
-        image="/ai-portrait.jpeg"
+        image="/ai-portrait.webp"
       />
 
       <Suspense fallback={<SectionLoader />}>

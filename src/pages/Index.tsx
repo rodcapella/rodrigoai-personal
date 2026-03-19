@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
+import PageSection from "@/components/layout/PageSection";
 
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ExpertiseSection = lazy(() => import("@/components/ExpertiseSection"));
@@ -33,7 +34,7 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
             "@type": "Person",
             name: "Rodrigo Póvoa",
             url: "https://www.rpovoadata.tech",
-            image: "https://www.rpovoadata.tech/ai-portrait.jpeg",
+            image: "https://www.rpovoadata.tech/ai-portrait.webp",
             jobTitle: "Technical Data Leader & Data Analytics Engineer",
             description:
               "Technical Data Leader specializing in enterprise data architecture, governance frameworks and scalable analytics platforms.",
@@ -154,7 +155,7 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
         <meta property="og:url" content="https://www.rpovoadata.tech/" />
         <meta
           property="og:image"
-          content="https://www.rpovoadata.tech/ai-portrait.jpeg"
+          content="https://www.rpovoadata.tech/ai-portrait.webp"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -172,7 +173,7 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
         />
         <meta
           name="twitter:image"
-          content="https://www.rpovoadata.tech/ai-portrait.jpeg"
+          content="https://www.rpovoadata.tech/ai-portrait.webp"
         />
 
         <meta name="author" content="Rodrigo Póvoa" />

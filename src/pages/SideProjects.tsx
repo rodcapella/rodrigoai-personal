@@ -84,7 +84,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
           variant="page"
           title="Innovation Hub: Sapiente.AI"
           subtitle="Founder & Lead Researcher"
-          image="/logo_sapienteai.png"
+          image="/logo_sapienteai.webp"
         />
 
         {/* SapienteAI */}
@@ -163,7 +163,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
           <div className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm">
             <div className="flex justify-center mb-6">
               <img
-                src="/banner_SapienteAI.png"
+                src="/banner_SapienteAI.webp"
                 alt="SapienteAI Banner"
                 className="h-48 w-auto opacity-90"
               />

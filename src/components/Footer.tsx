@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center gap-4 text-center">
           {/* Logo */}
           <img
-            src="/logo_fundo_transparente.png"
+            src="/logo_fundo_transparente.webp"
             alt="Rodrigo Póvoa Logo"
             className="h-10 opacity-60"
           />

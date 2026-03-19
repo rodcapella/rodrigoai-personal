@@ -50,7 +50,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
 
               <div className="relative rounded-3xl overflow-hidden border border-primary/20 shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] transition-all duration-500">
                 <img
-                  src="/ai-portrait.jpeg"
+                  src="/ai-portrait.webp"
                   alt="Rodrigo Povoa"
                   className="w-full h-full object-cover"
                 />
