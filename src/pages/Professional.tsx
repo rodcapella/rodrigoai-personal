@@ -6,6 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { profile } from "@/data/profile";
 import SEO from "@/components/SEO";
+import SectionLoader from "@/components/ui/SectionLoader";
 
 interface ProfessionalProps {
   theme?: "dark" | "light";
@@ -84,7 +85,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
 
       {/* SECTIONS DINÂMICAS */}
       {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader />}>
+        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
           <PageSection variant={section.variant}>
             {section.component}
           </PageSection>

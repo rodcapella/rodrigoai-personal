@@ -4,6 +4,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
+import SectionLoader from "@/components/ui/SectionLoader";
 
 interface PersonalProps {
   theme?: "dark" | "light";
@@ -75,7 +76,7 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
 
       {/* SECTIONS DINÂMICAS */}
       {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader />}>
+        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
           <PageSection variant={section.variant}>
             {section.component}
           </PageSection>

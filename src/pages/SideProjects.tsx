@@ -6,6 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
+import SectionLoader from "@/components/ui/SectionLoader";
 
 import {
   Zap,
@@ -211,7 +212,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
 
       {/* SECTIONS */}
       {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader />}>
+        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
           <PageSection variant={section.variant}>
             {section.component}
           </PageSection>

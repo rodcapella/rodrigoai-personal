@@ -19,16 +19,10 @@ const ExpertiseSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="w-full flex justify-center"
+              className="w-full"
             >
-              <PageCard className="group skill-card text-center" hover>
-                <Icon
-                  className="
-                    w-5 h-5
-                    text-primary
-                    mx-auto mb-3
-                  "
-                />
+              <PageCard className="group skill-card text-center w-full h-full" hover>
+                <Icon className="w-5 h-5 text-primary mx-auto mb-3" />
 
                 <p className="text-foreground text-sm font-medium">
                   {skill.title}

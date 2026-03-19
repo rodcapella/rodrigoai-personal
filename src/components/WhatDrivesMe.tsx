@@ -45,13 +45,13 @@ const WhatDrivesMe = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="w-full flex justify-center"
+          className="w-full flex flex-col items-center"
         >
           <SectionTitle as="h2" icon={<Brain className="w-6 h-6" />}>
             What Drives Me
           </SectionTitle>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="mt-10 grid md:grid-cols-3 gap-8 max-w-6xl w-full">
             {facts.map((fact, idx) => {
               const Icon = fact.icon;
 

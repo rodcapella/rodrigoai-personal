@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import { AlertCircle, CheckCircle, Linkedin } from "@/lib/icons";
+import FormField from "@/components/ui/FormField";
 
 interface ContactProps {
   theme?: "dark" | "light";
@@ -163,10 +164,38 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               animate={{ opacity: 1, y: 0 }}
               className="glass p-8 rounded-2xl space-y-5 border border-primary/10 max-w-xl mx-auto"
             >
-              <Field name="name" placeholder="Full Name" {...{ formData, handleChange, errors }} />
-              <Field name="email" type="email" placeholder="Email" {...{ formData, handleChange, errors }} />
-              <Field name="phone" placeholder="Phone (optional)" {...{ formData, handleChange, errors }} />
-              <Field name="subject" placeholder="Subject" {...{ formData, handleChange, errors }} />
+          <FormField
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            error={errors.name}
+          />
+
+          <FormField
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            error={errors.email}
+          />
+
+          <FormField
+            name="phone"
+            placeholder="Phone (optional)"
+            value={formData.phone}
+            onChange={handleChange}
+            error={errors.phone}
+          />
+
+          <FormField
+            name="subject"
+            placeholder="Subject"
+            value={formData.subject}
+            onChange={handleChange}
+            error={errors.subject}
+          />
 
               <textarea
                 name="message"
@@ -181,7 +210,12 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
                 }`}
               />
 
-              {errors.message && <Error text={errors.message} />}
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1 flex gap-2 items-center">
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.message}
+                </p>
+              )}
 
               <button
                 disabled={loading}
@@ -196,3 +230,4 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
     </MainLayout>
   );
 }
+

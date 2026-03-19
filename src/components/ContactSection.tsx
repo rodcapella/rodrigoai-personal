@@ -34,37 +34,42 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{
             once: true,
-            margin: isMobile ? "-40px" : "-100px"
+            margin: window.innerWidth < 768 ? "-40px" : "-100px",
           }}
           transition={{ duration: 0.6 }}
-          className="w-full flex justify-center"
+          className="w-full flex flex-col items-center text-center"
         >
-          <SectionTitle as="h2" icon={<Mail />}>Let's Build Something</SectionTitle>
+          <SectionTitle as="h2" icon={<Mail />}>
+            Let's Build Something
+          </SectionTitle>
 
-          <p className="text-muted-foreground text-lg mb-12">
+          <p className="text-muted-foreground text-lg mb-10 max-w-xl">
             Building modern data platforms, AI systems, or intelligent digital
             products? Let’s connect and explore what’s possible.
           </p>
 
-          <Suspense fallback={null}>
-            <div className="flex items-center justify-center gap-8">
-              <a
-                href="/contact"
-                className="flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm hover:bg-primary/90 transition-all glow-primary-sm"
-              >
-                <Mail className="w-4 h-4" />
-                Get in Touch
-              </a>
-              <a
-                href="https://www.linkedin.com/in/rodrigocspovoa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-          </Suspense>
+          {/* BOTÕES */}
+          <div className="flex items-center gap-4">
+            
+            {/* BOTÃO PRINCIPAL */}
+            <a
+              href="/contact"
+              className="flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-primary text-primary-foreground font-display font-semibold text-sm hover:bg-primary/90 transition-all glow-primary-sm"
+            >
+              <Mail className="w-4 h-4" />
+              Get in Touch
+            </a>
+
+            {/* LINKEDIN (MESMA ALTURA DO BOTÃO) */}
+            <a
+              href="https://www.linkedin.com/in/rodrigocspovoa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center h-12 w-12 rounded-lg border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
         </motion.div>
       </Container>
     </section>

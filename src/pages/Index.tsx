@@ -5,6 +5,7 @@ import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
 import PageSection from "@/components/layout/PageSection";
+import SectionLoader from "@/components/ui/SectionLoader";
 
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const ExpertiseSection = lazy(() => import("@/components/ExpertiseSection"));
@@ -218,15 +219,13 @@ const Index = ({ theme = "dark", onToggleTheme }: IndexProps) => {
 
         {/* SECTIONS DINÂMICAS */}
         {sections.map((section, index) => (
-          <Suspense key={index} fallback={<SectionLoader />}>
+          <Suspense key={index} fallback={<SectionLoader size="lg" />}>
             <PageSection variant={section.variant as any}>
               {section.component}
             </PageSection>
           </Suspense>
         ))}
       </main>
-
-      <Footer />
     </div>
   );
 };

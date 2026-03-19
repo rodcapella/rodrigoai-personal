@@ -6,7 +6,14 @@ import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
+import SectionLoader from "@/components/ui/SectionLoader";
 import { Layers, Zap, Users, Target, Brain, Lightbulb, ShieldCheck, Sparkles, BarChart3  } from "@/lib/icons";
+
+const SectionLoader = () => (
+  <div className="py-20 flex justify-center items-center">
+    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
   const differentiators = [
@@ -179,7 +186,7 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
 
       {/* SECTIONS */}
       {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader />}>
+        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
           <PageSection variant={section.variant}>
             {section.component}
           </PageSection>
