@@ -18,6 +18,8 @@ interface EducationSectionProps {
 const layers = ["layer-yellow", "layer-green", "layer-purple", "layer-blue"];
 
 export default function EducationSection({ education }: EducationSectionProps) {
+  if (!education?.length) return null;
+
   return (
     <PageSection
       title="Academic Background"
@@ -25,7 +27,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
       variant="gradient"
     >
       <PageGrid cols={3} gap="md">
-        {education?.map((edu, i) => (
+        {education.map((edu, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, x: -20 }}

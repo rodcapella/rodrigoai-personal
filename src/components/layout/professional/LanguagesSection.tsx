@@ -16,6 +16,8 @@ interface LanguagesSectionProps {
 const layers = ["layer-yellow", "layer-green", "layer-purple", "layer-blue"];
 
 export default function LanguagesSection({ languages }: LanguagesSectionProps) {
+  if (!languages?.length) return null;
+
   return (
     <PageSection
       title="Languages"
@@ -23,7 +25,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
       variant="gradient"
     >
       <PageGrid cols={3} gap="md">
-        {languages?.map((lang, idx) => (
+        {languages.map((lang, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, x: -20 }}
@@ -34,7 +36,6 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
           >
             <PageCard className={`${layers[idx % 4]} group`}>
               <h3 className="text-lg font-semibold mb-1">{lang.name}</h3>
-
               <p className="text-sm text-muted-foreground">{lang.level}</p>
             </PageCard>
           </motion.div>

@@ -8,43 +8,40 @@ export default function LifeRelocation() {
   return (
     <PageSection
       title="Life & Relocation"
-      icon={
-        <Suspense fallback={null}>
-          <Compass />
-        </Suspense>
-      }
+      icon={<Compass />}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6 }}
-        className="max-w-3xl"
+        className="max-w-3xl mx-auto"
       >
-        <PageCard className="space-y-6">
+        <PageCard className="space-y-5">
+
           <p className="text-muted-foreground leading-relaxed">
-            In the end of 2019, I made a significant life decision to relocate
-            to Portugal together with my family (wife, son and our dog), seeking
-            improved quality of life, greater personal and family security, and
-            more challenging professional opportunities. This move was driven by
-            the desire to work on international and multi-domain projects while
-            learning new concepts and technologies within more mature data
-            environments.
+            In 2019, I made a defining decision: relocating to Portugal with my
+            family in search of a better quality of life, stronger security and
+            new professional challenges.
           </p>
 
           <p className="text-muted-foreground leading-relaxed">
-            Today, the family has grown and now includes a second dog. Portugal
-            has become home, offering the perfect balance between professional
-            growth and personal fulfillment. The relocation proved to be a
-            transformative decision that shaped both my career trajectory and
-            personal identity.
+            The move was driven by the ambition to work on international
+            projects, explore more mature data ecosystems and expand both
+            technical and personal horizons.
           </p>
 
           <p className="text-muted-foreground leading-relaxed">
-            This journey reflects my philosophy: intentional decisions that
-            align personal values with professional aspirations, creating a life
-            of purpose and continuous evolution.
+            Today, Portugal is home. The family has grown, now with two dogs,
+            and the balance between career evolution and personal life became a
+            reality, not just a goal.
           </p>
+
+          <p className="text-muted-foreground leading-relaxed">
+            This journey reflects how I approach life: intentional decisions,
+            aligned with long-term vision, continuous growth and purpose.
+          </p>
+
         </PageCard>
       </motion.div>
     </PageSection>

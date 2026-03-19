@@ -4,38 +4,32 @@ import PageCard from "@/components/layout/PageCard";
 import { Target } from "@/lib/icons";
 
 const longTermVision = [
-  "Building intelligent systems",
-  "Bridging data & decision layers",
-  "Leadership in data multi-functional teams",
-  "Creating sustainable and governed data platforms",
-  "Leveraging modern AI ecosystems",
-  "Combining human capability development with AI ecosystems to unlock the next level of productivity and quality",
+  "Designing and building intelligent, scalable data systems",
+  "Bridging the gap between data, insights and decision-making",
+  "Leading high-performing, multi-functional data teams",
+  "Creating governed, secure and sustainable data platforms",
+  "Integrating modern AI ecosystems into real-world applications",
+  "Elevating human capability through the synergy between data, AI and decision intelligence",
 ];
 
 export default function VisionSection() {
   return (
-    <PageSection
-      title="Long-Term Vision"
-      icon={<Target />}
-      variant="gradient"
-    >
-      <div className="space-y-6 max-w-3xl">
-        {longTermVision.map((item, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: idx * 0.05 }}
-          >
-            <PageCard className="flex items-start gap-3 group">
-              <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0 group-hover:scale-125 transition-all" />
+    <PageSection title="Long-Term Vision" icon={<Target />} variant="gradient">
+      {longTermVision.map((item, idx) => (
+        <motion.div
+          key={item}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.4, delay: idx * 0.05 }}
+        >
+          <PageCard className="flex items-start gap-4 group hover:translate-x-1 transition-all duration-300">
+            <div className="w-3 h-3 rounded-full bg-primary mt-2 flex-shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
 
-              <p className="text-muted-foreground leading-relaxed">{item}</p>
-            </PageCard>
-          </motion.div>
-        ))}
-      </div>
+            <p className="text-muted-foreground leading-relaxed">{item}</p>
+          </PageCard>
+        </motion.div>
+      ))}
     </PageSection>
   );
 }

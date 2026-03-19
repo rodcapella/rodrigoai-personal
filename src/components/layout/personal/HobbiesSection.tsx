@@ -9,37 +9,37 @@ const hobbies = [
     icon: Music,
     title: "Rock & Heavy Metal",
     description:
-      "Deep passion for music, especially rock and heavy metal. Spends most days listening to favorite bands at high volume.",
+      "Daily fuel. From Nirvana to Iron Maiden, music is not background noise, it's part of how I think and operate.",
   },
   {
     icon: Guitar,
     title: "Electric Guitar",
     description:
-      "Electric guitar player influenced by classic and modern rock. Continuously exploring new techniques and musical styles.",
+      "Playing guitar as a form of expression and discipline, constantly exploring tone, technique and musical identity.",
   },
   {
     icon: BookOpen,
-    title: "Author & Storyteller",
+    title: "Writing & Storytelling",
     description:
-      "Currently writing his first non-technical book exploring the intersection between music, society and history.",
+      "Currently writing a non-technical book exploring the intersection of music, society and historical context.",
   },
   {
     icon: Gamepad2,
-    title: "Video Games",
+    title: "Gaming",
     description:
-      "Video game enthusiast since Atari. Nowadays it is from the PlayStation generation, proudly on the dark side of the Force.",
+      "Gamer since Atari. Today on PlayStation, still chasing immersion, storytelling and competitive edge.",
   },
   {
     icon: Film,
-    title: "Film & Series",
+    title: "Cinema & Series",
     description:
-      "Film and series lover with strong interest in storytelling and cinematography.",
+      "Strong interest in storytelling, character development and visual narrative structure.",
   },
   {
     icon: Dumbbell,
-    title: "Sports & Fitness",
+    title: "Training & Discipline",
     description:
-      "Sports enthusiast: practices gym training, basketball and running regularly.",
+      "Gym, basketball and running as pillars for consistency, focus and mental performance.",
   },
 ];
 
@@ -56,31 +56,33 @@ export default function HobbiesSection() {
 
           return (
             <motion.div
-              key={idx}
+              key={hobby.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
             >
-              <PageCard className="group">
+              <PageCard className="group hover:scale-[1.03] transition-all duration-300">
+
                 <Icon
                   className="
-                    w-6 h-6
+                    w-7 h-7
                     text-primary
                     mb-3
                     transition-all
                     group-hover:scale-110
-                    group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
+                    group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]
                   "
                 />
 
-                <p className="text-foreground font-medium mb-1">
+                <p className="text-foreground font-semibold mb-1">
                   {hobby.title}
                 </p>
 
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {hobby.description}
                 </p>
+
               </PageCard>
             </motion.div>
           );

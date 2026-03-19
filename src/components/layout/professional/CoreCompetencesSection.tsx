@@ -13,13 +13,13 @@ interface CoreCompetencesSectionProps {
   competences: Competence[];
 }
 
-const CoreCompetencesSection = ({
-  competences,
-}: CoreCompetencesSectionProps) => {
+const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) => {
+  if (!competences?.length) return null;
+
   return (
     <PageSection title="Core Competences" icon={<Award />}>
       <PageGrid cols={3} gap="md">
-        {competences.map((competence, i) => {
+        {(competences ?? []).map((competence, i) => {
           const Icon = competence.icon;
 
           return (

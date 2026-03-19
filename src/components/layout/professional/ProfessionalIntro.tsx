@@ -7,46 +7,65 @@ export default function ProfessionalIntro() {
   return (
     <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full flex justify-center"
-        >
-          <SectionTitle as="h2" icon={<Workflow className="w-8 h-8" />}>
-            Data Analytics Engineer & Team Leader | Azure Databricks | Python |
-            PySpark | SQL | Power BI
-          </SectionTitle>
-          <br />
-          <br />
-          <p className="text-lg">
-            Data Analytics Engineer & Team Leader with 15+ years of experience
-            leading data initiatives across engineering and analytics domains.
-            Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power
-            BI (Power Query, DAX, M and semantic modeling) within modern data
-            stack environments.
-          </p>
-          <br />
-          <p className="text-lg">
-            Delivered enterprise data modernization programs improving
-            analytical efficiency and maturity of governance across multi-domain
-            environments. Proven track record in translating business goals into
-            scalable data solutions that accelerate decision-making and insight
-            delivery.
-          </p>
-          <br />
-          <p className="text-lg">
-            Expert in building governed and secure data platforms, implementing
-            Data Governance, GDPR-compliant architectures and scalable
-            distributed data pipelines.
-          </p>
-          <br />
-          <p className="text-lg">
-            Strong background in defining data architecture standards, leading
-            engineering teams, mentoring engineers and aligning technical
-            strategy with business goals.
-          </p>
-        </motion.div>
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          
+          {/* Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionTitle as="h2" icon={<Workflow className="w-8 h-8" />}>
+              Data Analytics Engineer & Team Leader
+            </SectionTitle>
+          </motion.div>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-primary font-medium"
+          >
+            Azure Databricks · Python · PySpark · SQL · Power BI
+          </motion.p>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-4 text-muted-foreground text-base leading-relaxed"
+          >
+            <p>
+              Data Analytics Engineer & Team Leader with 15+ years of experience
+              leading data initiatives across engineering and analytics domains.
+            </p>
+
+            <p>
+              Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power
+              BI (Power Query, DAX, M and semantic modeling) within modern data
+              stack environments.
+            </p>
+
+            <p>
+              Delivered enterprise data modernization programs improving
+              analytical efficiency and governance maturity across multi-domain
+              environments.
+            </p>
+
+            <p>
+              Expert in building governed and secure data platforms, implementing
+              GDPR-compliant architectures and scalable distributed data pipelines.
+            </p>
+
+            <p>
+              Strong background in defining data architecture standards, leading
+              engineering teams and aligning technical strategy with business goals.
+            </p>
+          </motion.div>
+
+        </div>
       </Container>
     </section>
   );

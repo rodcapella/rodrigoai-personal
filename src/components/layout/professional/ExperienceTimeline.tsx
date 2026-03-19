@@ -17,14 +17,17 @@ interface ExperienceTimelineProps {
 }
 
 export default function ExperienceTimeline({
+  experiences,
 }: ExperienceTimelineProps) {
+  if (!experiences?.length) return null;
+
   return (
     <PageSection title="Professional Experience" icon={<Briefcase />}>
       <div className="relative w-full space-y-10">
         {/* vertical line */}
         <div className="absolute left-2 top-0 bottom-0 w-[2px] bg-primary/20" />
 
-        {(experiences ?? []).map((exp, idx) => (
+        {experiences.map((exp, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, y: 20 }}
@@ -37,33 +40,25 @@ export default function ExperienceTimeline({
             <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
 
             <PageCard>
-              {/* Role */}
               <h3 className="text-lg font-semibold mb-1">{exp.title}</h3>
 
-              {/* Company */}
               <p className="text-sm font-semibold text-primary mb-1">
                 {exp.company}
               </p>
 
-              {/* Meta */}
               <p className="text-xs text-muted-foreground mb-4">
                 {exp.location} • {exp.period}
               </p>
 
-              {/* Highlights */}
               <ul className="space-y-2 mb-5">
                 {(exp.highlights ?? []).map((highlight, i) => (
-                  <li
-                    key={i}
-                    className="flex gap-2 text-sm text-muted-foreground"
-                  >
+                  <li key={i} className="flex gap-2 text-sm text-muted-foreground">
                     <span className="text-primary">•</span>
                     <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Stack */}
               <div>
                 <p className="text-xs font-semibold mb-2 text-foreground">
                   Tech Stack
@@ -71,16 +66,16 @@ export default function ExperienceTimeline({
 
                 <div className="flex flex-wrap gap-2">
                   {(exp.stack ?? []).map((tech, i) => (
-                  <motion.span
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.04 }}
-                  className="tag-ai"
-                >
-                  {tech}
-                </motion.span>
+                    <motion.span
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: i * 0.04 }}
+                      className="tag-ai"
+                    >
+                      {tech}
+                    </motion.span>
                   ))}
                 </div>
               </div>

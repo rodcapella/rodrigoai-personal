@@ -8,6 +8,7 @@ interface CertificationsSectionProps {
 }
 
 export default function CertificationsSection({
+  certifications,
 }: CertificationsSectionProps) {
   return (
     <PageSection title="Certifications & Courses" icon={<Award />}>
@@ -23,7 +24,6 @@ export default function CertificationsSection({
           >
             <PageCard className="flex items-start gap-4">
               <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
-
               <p className="text-muted-foreground leading-relaxed">{cert}</p>
             </PageCard>
           </motion.div>
