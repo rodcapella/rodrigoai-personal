@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
@@ -6,14 +6,36 @@ import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
-import SectionLoader from "@/components/ui/SectionLoader";
-import { Layers, Zap, Users, Target, Brain, Lightbulb, ShieldCheck, Sparkles, BarChart3, Cpu  } from "@/lib/icons";
+import SectionContent from "@/components/layout/SectionContent";
+import {
+  Layers,
+  Zap,
+  Users,
+  Target,
+  Brain,
+  Lightbulb,
+  ShieldCheck,
+  Sparkles,
+  BarChart3,
+  Cpu,
+  Package,
+} from "@/lib/icons";
 
-const SectionLoader = () => (
+const CustomSectionLoader = () => (
   <div className="py-20 flex justify-center items-center">
     <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
   </div>
 );
+
+type SectionVariant = "default" | "muted" | "gradient" | "glass";
+
+type Section = {
+  title?: string;
+  icon?: React.ReactNode;
+  content: React.ReactNode;
+  variant?: SectionVariant;
+  useNewLayout?: boolean;
+};
 
 const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
   const differentiators = [
@@ -61,7 +83,6 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
     },
   ];
 
-
   const leadershipPillars = [
     {
       title: "Engineering First",
@@ -72,8 +93,8 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
       description: "Platforms are strategic infrastructure.",
     },
     {
-    title: "Calm & Clarity Under Pressure",
-    description: "A composed and thoughtful approach to challenges, enabling better decisions, stronger teams and sustainable outcomes.",
+      title: "Calm & Clarity Under Pressure",
+      description: "A composed and thoughtful approach to challenges, enabling better decisions, stronger teams and sustainable outcomes.",
     },
     {
       title: "Empathy & Understanding",
@@ -85,89 +106,87 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
     },
   ];
 
-  const sections: {
-    component: React.ReactNode;
-    variant?: SectionVariant;
-  }[] = [
+  const sections: Section[] = [
     {
-      component: (
-        <PageSection title="Leadership Philosophy" icon={<Brain />}>
-          <PageGrid cols={3}>
-            {leadershipPillars.map((pillar, idx) => (
+      title: "Leadership Philosophy",
+      icon: <Brain />,
+      useNewLayout: true,
+      content: (
+        <PageGrid cols={3}>
+          {leadershipPillars.map((pillar, idx) => (
+            <PageCard
+              key={idx}
+              title={pillar.title}
+              description={pillar.description}
+            />
+          ))}
+        </PageGrid>
+      ),
+    },
+    {
+      title: "What sets me apart",
+      icon: <Zap />,
+      variant: "muted",
+      content: (
+        <PageGrid cols={3}>
+          {differentiators.map((diff, idx) => {
+            const Icon = diff.icon;
+
+            return (
               <PageCard
                 key={idx}
-                title={pillar.title}
-                description={pillar.description}
+                icon={<Icon />}
+                title={diff.title}
+                description={diff.description}
+                highlight={diff.highlight}
               />
-            ))}
-          </PageGrid>
-        </PageSection>
+            );
+          })}
+        </PageGrid>
       ),
     },
     {
-      component: (
-        <PageSection title="What sets me apart" icon={<Zap />}>
-          <PageGrid cols={3}>
-            {differentiators.map((diff, idx) => {
-              const Icon = diff.icon;
-
-              return (
-                <PageCard
-                  key={idx}
-                  icon={<Icon />}
-                  title={diff.title}
-                  description={diff.description}
-                  highlight={diff.highlight}
-                />
-              );
-            })}
-          </PageGrid>
-        </PageSection>
+      title: "Strategic Vision",
+      icon: <Lightbulb />,
+      content: (
+        <PageGrid cols={3}>
+          <PageCard 
+            title="AI-Native Architecture" 
+            icon={<Cpu />} 
+            description="Transitioning from passive Data Platforms to proactive AI-Native Systems. Building event-driven backends and vector-ready infrastructures for RAG and Real-Time LLM integration." 
+          />
+          <PageCard 
+            title="Data as a Product" 
+            icon={<Package />} 
+            description="Shifting ownership to the source. Treating data with the same rigor as software: clear SLAs, robust Data Contracts, and high-fidelity discovery for seamless consumption." 
+          />
+          <PageCard 
+            title="Human-AI Augmentation" 
+            icon={<Users />} 
+            description="Focusing on the synergy between machine intelligence and human intuition. AI shouldn't just automate tasks; it should amplify human strategic potential and creative output." 
+          />
+          <PageCard 
+            title="Trust & Governance" 
+            icon={<ShieldCheck />} 
+            description="Ensuring ethical AI through 'Security by Design'. Implementing automated data lineage, privacy-preserving computation, and transparent model explainability." 
+          />
+        </PageGrid>
       ),
-      variant: "muted",
     },
     {
-  component: (
-    <PageSection title="Strategic Vision" icon={<Lightbulb />}>
-      <PageGrid cols={3}>
-        <PageCard
-          title="AI-Native Architecture"
-          icon={<Cpu />}
-          description="Transitioning from passive Data Platforms to proactive AI-Native Systems. Building event-driven backends and vector-ready infrastructures for RAG and Real-Time LLM integration."
-        />
-        <PageCard
-          title="Data as a Product"
-          icon={<Package />}
-          description="Shifting ownership to the source. Treating data with the same rigor as software: clear SLAs, robust Data Contracts, and high-fidelity discovery for seamless consumption."
-        />
-        <PageCard
-          title="Human-AI Augmentation"
-          icon={<Users />}
-          description="Focusing on the synergy between machine intelligence and human intuition. AI shouldn't just automate tasks; it should amplify human strategic potential and creative output."
-        />
-        <PageCard
-          title="Trust & Governance"
-          icon={<ShieldCheck />}
-          description="Ensuring ethical AI through 'Security by Design'. Implementing automated data lineage, privacy-preserving computation, and transparent model explainability."
-        />
-      </PageGrid>
-    </PageSection>
-  ),
-    },
-    {
-      component: (
-        <PageSection title="What This Means For You" icon={<Users />}>
-          <PageGrid cols={3}>
-            <PageCard title="AI-Ready Data Platforms" description="I design scalable architectures that support governance, analytics, and AI workloads from the same data foundation." />
-            <PageCard title="Applied AI Exploration" description="Sapiente.AI serves as a laboratory for new architectures and experimental systems." />
-            <PageCard title="Scaling Data Organizations" description="I build teams, define standards, and structure platforms for sustainable growth." />
-            <PageCard title="Trustworthy Data Foundations" description="Reliable pipelines, consistent metrics, and strong governance frameworks." />
-            <PageCard title="Data as Strategic Assets" description="Move from reporting to data products with ownership and measurable impact." />
-            <PageCard title="AI in Production" description="Align engineering, governance, and architecture to move AI into real systems" />
-          </PageGrid>
-        </PageSection>
-      ),
+      title: "What This Means For You",
+      icon: <Users />,
       variant: "glass",
+      content: (
+        <PageGrid cols={3}>
+          <PageCard title="AI-Ready Data Platforms" description="I design scalable architectures that support governance, analytics, and AI workloads from the same data foundation." />
+          <PageCard title="Applied AI Exploration" description="Sapiente.AI serves as a laboratory for new architectures and experimental systems." />
+          <PageCard title="Scaling Data Organizations" description="I build teams, define standards, and structure platforms for sustainable growth." />
+          <PageCard title="Trustworthy Data Foundations" description="Reliable pipelines, consistent metrics, and strong governance frameworks." />
+          <PageCard title="Data as Strategic Assets" description="Move from reporting to data products with ownership and measurable impact." />
+          <PageCard title="AI in Production" description="Align engineering, governance, and architecture to move AI into real systems" />
+        </PageGrid>
+      ),
     },
   ];
 
@@ -182,7 +201,6 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
         <title>Why Me? | Rodrigo Póvoa</title>
       </Helmet>
 
-      {/* HERO PADRONIZADO */}
       <PageSection variant="gradient" className="pt-32 pb-16">
         <PageHero
           variant="page"
@@ -192,14 +210,31 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
         />
       </PageSection>
 
-      {/* SECTIONS */}
-      {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
-          <PageSection variant={section.variant}>
-            {section.component}
-          </PageSection>
-        </Suspense>
-      ))}
+      {sections.map((section, index) => {
+        const isNewLayout = section.useNewLayout;
+
+        return (
+          <Suspense key={index} fallback={<CustomSectionLoader />}>
+            {isNewLayout && section.title ? (
+              <SectionContent
+                title={section.title}
+                icon={section.icon}
+                variant={section.variant}
+              >
+                {section.content}
+              </SectionContent>
+            ) : (
+              <PageSection
+                title={section.title}
+                icon={section.icon}
+                variant={section.variant}
+              >
+                {section.content}
+              </PageSection>
+            )}
+          </Suspense>
+        );
+      })}
     </MainLayout>
   );
 };

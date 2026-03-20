@@ -1,30 +1,18 @@
-import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
-import PageSection from "@/components/layout/PageSection";
-import PageCard from "@/components/layout/PageCard";
 import { User } from "@/lib/icons";
+import SectionContent from "@/components/layout/SectionContent";
 
 const AboutSection = () => {
   return (
-    <PageSection title={profile.name} icon={<User />}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="w-full flex justify-center"
-      >
-        <PageCard>
-          <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-            {profile.summary}
-          </p>
+    <SectionContent title={profile.name} icon={<User />}>
+      <p className="text-muted-foreground text-lg leading-relaxed">
+        {profile.summary}
+      </p>
 
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            {profile.positioning_statement}
-          </p>
-        </PageCard>
-      </motion.div>
-    </PageSection>
+      <p className="text-muted-foreground text-lg leading-relaxed">
+        {profile.positioning_statement}
+      </p>
+    </SectionContent>
   );
 };
 

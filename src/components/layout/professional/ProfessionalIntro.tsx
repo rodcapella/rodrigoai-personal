@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import PageSection from "@/components/layout/PageSection";
+import SectionContent from "@/components/layout/SectionContent";
 import { Workflow } from "@/lib/icons";
 
 export default function ProfessionalIntro() {
   return (
-    <PageSection
+    <SectionContent
       title="Data Analytics Engineer & Team Leader"
       icon={<Workflow className="w-6 h-6" />}
       variant="gradient"
@@ -59,6 +59,6 @@ export default function ProfessionalIntro() {
         </motion.div>
 
       </div>
-    </PageSection>
+    </SectionContent>
   );
 }
