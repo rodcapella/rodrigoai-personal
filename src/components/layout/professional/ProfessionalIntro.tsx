@@ -9,17 +9,6 @@ export default function ProfessionalIntro() {
       icon={<Workflow className="w-6 h-6" />}
       variant="gradient"
     >
-      {/* Subtitle */}
-      <motion.p
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-primary font-medium"
-      >
-        Azure Databricks · Python · PySpark · SQL · Power BI
-      </motion.p>
-
       <p className="text-lg text-muted-foreground leading-relaxed">
         Data Analytics Engineer & Team Leader with 15+ years of experience
         leading data initiatives across engineering and analytics domains.

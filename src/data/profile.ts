@@ -1,8 +1,7 @@
 import {
   Database,
   Cloud,
-  Layers,
-  BarChart3,
+  GraduationCap,
   Network,
   LineChart,
   Workflow,
@@ -27,15 +26,7 @@ export const profile = {
     },
     {
       icon: Cloud,
-      title: "Azure & Distributed Data Engineering",
-    },
-    {
-      icon: Layers,
-      title: "Databricks, Delta Lake & Modern Data Platform Architecture",
-    },
-    {
-      icon: BarChart3,
-      title: "Analytics Platform Strategy",
+      title: "Azure & Databricks & Distributed Data Engineering",
     },
     {
       icon: Network,
@@ -56,6 +47,10 @@ export const profile = {
     {
       icon: Users,
       title: "Technical Leadership & Team Development",
+    },
+    {
+      icon: GraduationCap,
+      title: "Mentoring Junior Members & Talent Cultivation",
     },
     {
       icon: GitBranch,

@@ -241,6 +241,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
                 title={section.title!}
                 icon={section.icon}
                 variant={section.variant}
+                centered={false}
               >
                 {section.content}
               </SectionContent>
