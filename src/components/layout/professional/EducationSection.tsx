@@ -28,14 +28,13 @@ export default function EducationSection({ education }: EducationSectionProps) {
     >
       <PageGrid cols={3} gap="md">
         {education.map((edu, i) => (
-          <PageCard
+          <motion.div
             key={i}
-            as={motion.div}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className={`${layers[i % 4]}`}
+            className="w-full flex justify-center"
           >
             <PageCard align="center" className={`${layers[i % 4]} group`}>
               <h3 className="text-lg font-semibold mb-2">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
-import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "@/lib/icons";
+import { BookOpen, Zap, Rocket, Lightbulb, Brain, Package  } from "@/lib/icons";
 
 const WhatDrivesMe = () => {
   const facts = [
