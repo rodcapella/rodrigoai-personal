@@ -44,7 +44,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
                 {edu.institution} • {edu.location} • {edu.year}
               </p>
             </PageCard>
-          </PageCard>
+          </motion.div>
         ))}
       </PageGrid>
     </PageSection>
