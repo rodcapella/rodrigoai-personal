@@ -9,7 +9,7 @@ export default function ProfessionalIntro() {
       icon={<Workflow className="w-6 h-6" />}
       variant="gradient"
     >
-      <div className="max-w-3xl mx-auto text-center space-y-6">
+      <div className="max-w-3xl space-y-6">
         
         {/* Subtitle */}
         <motion.p

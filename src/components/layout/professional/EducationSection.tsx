@@ -37,13 +37,14 @@ export default function EducationSection({ education }: EducationSectionProps) {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className={`${layers[i % 4]}`}
           >
-            <h3 className="text-lg font-semibold mb-2">
-              {edu.degree}
-            </h3>
-
-            <p className="text-sm text-muted-foreground">
-              {edu.institution} • {edu.location} • {edu.year}
-            </p>
+            <PageCard align="center" className={`${layers[idx % 4]} group`}>
+              <h3 className="text-lg font-semibold mb-2">
+                {edu.degree}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {edu.institution} • {edu.location} • {edu.year}
+              </p>
+            </PageCard>
           </PageCard>
         ))}
       </PageGrid>

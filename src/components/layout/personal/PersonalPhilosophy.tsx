@@ -10,7 +10,7 @@ export default function PersonalPhilosophy() {
       icon={<Heart className="w-6 h-6" />}
       variant="gradient"
     >
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto text-left">
         
         <PageCard
           as={motion.div}

@@ -34,7 +34,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
             transition={{ duration: 0.5, delay: idx * 0.08 }}
             className="w-full flex justify-center"
           >
-            <PageCard className={`${layers[idx % 4]} group`}>
+            <PageCard align="center" className={`${layers[idx % 4]} group`}>
               <h3 className="text-lg font-semibold mb-1">{lang.name}</h3>
               <p className="text-sm text-muted-foreground">{lang.level}</p>
             </PageCard>

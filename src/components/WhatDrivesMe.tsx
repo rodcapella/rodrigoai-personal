@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { lazy, Suspense } from "react";
+import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
+import PageCard from "@/components/layout/PageCard";
 import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "@/lib/icons";
-import SectionTitle from "@/components/layout/SectionTitle";
-import Container from "@/components/layout/Container";
-import PageGrid from "@/components/layout/PageGrid"
 
 const WhatDrivesMe = () => {
   const facts = [
@@ -12,76 +11,63 @@ const WhatDrivesMe = () => {
       title: "Continuous Learner",
       description:
         "I spend significant time learning new technologies, reading research papers, and exploring emerging trends in data engineering and AI.",
-      color: "from-yellow-500/20 to-yellow-500/5",
     },
     {
       icon: BookOpen,
       title: "Technical Writer",
       description:
         "I enjoy writing technical articles and documentation. Sharing knowledge helps solidify understanding and contributes to the community.",
-      color: "from-blue-500/20 to-blue-500/5",
     },
     {
       icon: Zap,
       title: "Open Source Enthusiast",
       description:
         "Active contributor to open-source projects. I believe in the power of collaborative development and community-driven innovation.",
-      color: "from-green-500/20 to-green-500/5",
     },
     {
       icon: Rocket,
       title: "Side Projects",
       description:
         "Always tinkering with new ideas and experimental projects. Some of my side projects have evolved into innovation.",
-      color: "from-purple-500/20 to-purple-500/5",
     },
   ];
 
+  const layers = ["layer-yellow", "layer-green", "layer-purple", "layer-blue"];
+
   return (
-    <section className="py-20 bg-gradient-to-br from-primary/10 to-transparent">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="w-full flex flex-col items-center"
-        >
-          <SectionTitle as="h2" icon={<Brain className="w-6 h-6" />}>
-            What Drives Me
-          </SectionTitle>
+    <PageSection
+      title="What Drives Me"
+      icon={<Brain className="w-6 h-6" />}
+      variant="gradient"
+    >
+      <PageGrid cols={3} gap="md">
+        {facts.map((fact, idx) => {
+          const Icon = fact.icon;
 
-          <div className="mt-10 grid md:grid-cols-3 gap-8 max-w-6xl w-full">
-            {facts.map((fact, idx) => {
-              const Icon = fact.icon;
+          return (
+            <PageCard
+              key={fact.title}
+              as={motion.div}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className={`${layers[idx % 4]}`}
+            >
+              <Icon className="w-8 h-8 text-primary mb-4" />
 
-              return (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className={`p-6 rounded-xl glass ${
-                    [
-                      "layer-yellow",
-                      "layer-green",
-                      "layer-purple",
-                      "layer-blue",
-                    ][idx % 4]
-                  }`}
-                >
-                  <Icon className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-xl font-bold mb-2">
+                {fact.title}
+              </h3>
 
-                  <h3 className="text-2xl font-bold mb-2">{fact.title}</h3>
-
-                  <p className="text-muted-foreground">{fact.description}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-      </Container>
-    </section>
+              <p className="text-muted-foreground">
+                {fact.description}
+              </p>
+            </PageCard>
+          );
+        })}
+      </PageGrid>
+    </PageSection>
   );
 };
 

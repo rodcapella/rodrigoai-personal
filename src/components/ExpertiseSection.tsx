@@ -8,7 +8,8 @@ import { Cpu } from "@/lib/icons";
 const ExpertiseSection = () => {
   return (
     <PageSection title="Core Skills" icon={<Cpu />} id="expertise">
-      <PageGrid cols={{ base: 2, md: 3, lg: 4 }} gap="sm">
+      
+      <PageGrid cols={4} gap="sm">
         {profile.core_skills.map((skill, i) => {
           const Icon = skill.icon;
 
@@ -32,6 +33,7 @@ const ExpertiseSection = () => {
           );
         })}
       </PageGrid>
+
     </PageSection>
   );
 };

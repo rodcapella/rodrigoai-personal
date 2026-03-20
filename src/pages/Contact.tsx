@@ -4,7 +4,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
-import { AlertCircle, CheckCircle, Linkedin } from "@/lib/icons";
+import { AlertCircle, CheckCircle } from "@/lib/icons";
 import FormField from "@/components/ui/FormField";
 
 interface ContactProps {
@@ -72,7 +72,9 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
     return Object.keys(e).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -109,10 +111,10 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Contact"
-        description="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
+        description="Whether it's a project, an idea or just a conversation."
       />
 
-      {/* HERO AGORA PADRONIZADO */}
+      {/* HERO */}
       <PageSection variant="gradient" className="pt-32 pb-16">
         <PageHero
           variant="page"
@@ -138,7 +140,9 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               className="glass p-10 rounded-2xl text-center glow-primary"
             >
               <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
-              <h3 className="text-xl font-semibold mb-2">Message Sent 🚀</h3>
+              <h3 className="text-xl font-semibold mb-2">
+                Message Sent 🚀
+              </h3>
               <p className="text-muted-foreground">
                 I’ll get back to you shortly.
               </p>
@@ -149,64 +153,96 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="glass p-8 rounded-2xl space-y-5 border border-primary/10 max-w-xl mx-auto"
+              className="
+                glass
+                p-10
+                rounded-2xl
+                space-y-6
+                border border-white/10
+                max-w-2xl
+                mx-auto
+              "
             >
-          <FormField
-            name="name"
-            placeholder="Full Name"
-            value={formData.name}
-            onChange={handleChange}
-            error={errors.name}
-          />
-
-          <FormField
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            error={errors.email}
-          />
-
-          <FormField
-            name="phone"
-            placeholder="Phone (optional)"
-            value={formData.phone}
-            onChange={handleChange}
-            error={errors.phone}
-          />
-
-          <FormField
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-            error={errors.subject}
-          />
-
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="Tell me about your idea, project or challenge..."
-                value={formData.message}
+              <FormField
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
                 onChange={handleChange}
-                className={`w-full p-3 rounded-lg border bg-background ${
-                  errors.message
-                    ? "border-red-500"
-                    : "border-border focus:border-primary focus:ring-2 focus:ring-primary/30"
-                }`}
+                error={errors.name}
               />
 
-              {errors.message && (
-                <p className="text-red-500 text-sm mt-1 flex gap-2 items-center">
-                  <AlertCircle className="w-4 h-4" />
-                  {errors.message}
-                </p>
-              )}
+              <FormField
+                name="email"
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                error={errors.email}
+              />
 
+              <FormField
+                name="phone"
+                placeholder="Phone (optional)"
+                value={formData.phone}
+                onChange={handleChange}
+                error={errors.phone}
+              />
+
+              <FormField
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                error={errors.subject}
+              />
+
+              {/* TEXTAREA */}
+              <div>
+                <textarea
+                  name="message"
+                  rows={5}
+                  placeholder="Tell me about your idea, project or challenge..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={`
+                    w-full
+                    px-4 py-4
+                    rounded-xl
+                    bg-white/5
+                    backdrop-blur-md
+                    border border-white/10
+                    text-foreground
+                    placeholder:text-muted-foreground/70
+                    transition-all duration-200
+                    outline-none
+                    ${
+                      errors.message
+                        ? "border-red-500"
+                        : "focus:border-primary/40 focus:ring-2 focus:ring-primary/20"
+                    }
+                  `}
+                />
+
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-2 flex gap-2 items-center">
+                    <AlertCircle className="w-4 h-4" />
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              {/* BUTTON */}
               <button
                 disabled={loading}
-                className="w-full py-3 rounded-lg bg-primary text-white font-semibold glow-primary-sm"
+                className="
+                  w-full py-4 rounded-xl
+                  bg-gradient-to-r from-primary to-secondary
+                  text-white font-semibold
+                  tracking-wide
+                  shadow-lg shadow-primary/20
+                  hover:scale-[1.02]
+                  transition-all duration-300
+                "
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>
@@ -217,4 +253,3 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
     </MainLayout>
   );
 }
-

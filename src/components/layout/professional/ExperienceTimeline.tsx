@@ -24,8 +24,9 @@ export default function ExperienceTimeline({
   return (
     <PageSection title="Professional Experience" icon={<Briefcase />}>
       <div className="relative w-full space-y-10">
-        {/* vertical line */}
-        <div className="absolute left-2 top-0 bottom-0 w-[2px] bg-primary/20" />
+  
+        {/* linha vertical */}
+        <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-primary/20" />
 
         {experiences.map((exp, idx) => (
           <motion.div
@@ -34,10 +35,11 @@ export default function ExperienceTimeline({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="w-full flex justify-center"
+            className="relative pl-12" // 👈 ESSENCIAL
           >
-            {/* timeline dot */}
-            <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+            
+            {/* dot alinhado */}
+            <div className="absolute left-2 top-3 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
 
             <PageCard>
               <h3 className="text-lg font-semibold mb-1">{exp.title}</h3>

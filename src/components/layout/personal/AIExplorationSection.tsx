@@ -5,7 +5,7 @@ import { Sparkles } from "@/lib/icons";
 
 interface AIPlatform {
   name: string;
-  type?: string; // LLM, Tool, Research, etc
+  type?: string;
 }
 
 const aiExploration: AIPlatform[] = [
@@ -21,7 +21,8 @@ const aiExploration: AIPlatform[] = [
 export default function AIExplorationSection() {
   return (
     <PageSection title="AI Ecosystem Exploration" icon={<Sparkles />}>
-      <div className="max-w-3xl mx-auto">
+      
+      <div className="max-w-3xl">
         
         <PageCard
           as={motion.div}
@@ -66,7 +67,7 @@ export default function AIExplorationSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className="tag-ai flex items-center gap-2"
+                  className="tag-ai flex items-center gap-2 group"
                 >
                   {platform.name}
 

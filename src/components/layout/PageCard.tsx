@@ -5,7 +5,12 @@ const variants = {
   default: "glass border border-border",
   glass: "bg-white/5 backdrop-blur-md border border-white/10",
   outline: "border border-border bg-transparent",
-  solid: "bg-primary text-white border border-primary"
+  solid: "bg-primary text-white border border-primary",
+};
+
+const alignMap = {
+  default: "",
+  center: "flex flex-col justify-center items-center text-center",
 };
 
 interface PageCardProps {
@@ -18,6 +23,7 @@ interface PageCardProps {
   className?: string;
   hover?: boolean;
   variant?: "default" | "glass" | "outline" | "solid";
+  align?: "default" | "center";
 }
 
 const PageCard = ({
@@ -30,6 +36,7 @@ const PageCard = ({
   className = "",
   hover = true,
   variant = "default",
+  align = "default",
   ...props
 }: PageCardProps) => {
   return (
@@ -42,12 +49,15 @@ const PageCard = ({
         relative
         p-6
         rounded-xl
-        glass
-        border border-border
         transition-all duration-300
         h-full
         ${variants[variant]}
-        ${hover ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]" : ""}
+        ${alignMap[align]}
+        ${
+          hover
+            ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
+            : ""
+        }
         ${className}
       `}
       {...props}

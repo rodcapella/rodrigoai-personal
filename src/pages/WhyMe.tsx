@@ -127,24 +127,32 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
       variant: "muted",
     },
     {
-      component: (
-        <PageSection title="My Vision" icon={<Lightbulb />}>
-          <PageGrid cols={3}>
-            <PageCard
-              title="Architecture"
-              description="Data Platforms → AI-Native Systems..."
-            />
-            <PageCard
-              title="Data as Products"
-              description="Clear ownership, accountability, and trust."
-            />
-            <PageCard
-              title="Impact"
-              description="AI Amplifies Humans..."
-            />
-          </PageGrid>
-        </PageSection>
-      ),
+  component: (
+    <PageSection title="Strategic Vision" icon={<Lightbulb />}>
+      <PageGrid cols={3}>
+        <PageCard
+          title="AI-Native Architecture"
+          icon={<Cpu />}
+          description="Transitioning from passive Data Platforms to proactive AI-Native Systems. Building event-driven backends and vector-ready infrastructures for RAG and Real-Time LLM integration."
+        />
+        <PageCard
+          title="Data as a Product"
+          icon={<Package />}
+          description="Shifting ownership to the source. Treating data with the same rigor as software: clear SLAs, robust Data Contracts, and high-fidelity discovery for seamless consumption."
+        />
+        <PageCard
+          title="Human-AI Augmentation"
+          icon={<Users />}
+          description="Focusing on the synergy between machine intelligence and human intuition. AI shouldn't just automate tasks; it should amplify human strategic potential and creative output."
+        />
+        <PageCard
+          title="Trust & Governance"
+          icon={<ShieldCheck />}
+          description="Ensuring ethical AI through 'Security by Design'. Implementing automated data lineage, privacy-preserving computation, and transparent model explainability."
+        />
+      </PageGrid>
+    </PageSection>
+  ),
     },
     {
       component: (
