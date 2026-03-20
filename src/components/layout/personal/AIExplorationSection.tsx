@@ -9,13 +9,13 @@ interface AIPlatform {
 }
 
 const aiExploration: AIPlatform[] = [
-  { name: "OpenAI",
-  { name: "Claude",
-  { name: "Gemini",
-  { name: "Perplexity",
-  { name: "Kimi",
-  { name: "Manus",
-  { name: "Notion",
+  { name: "OpenAI"},
+  { name: "Claude"},
+  { name: "Gemini"},
+  { name: "Perplexity"},
+  { name: "Kimi"},
+  { name: "Manus"},
+  { name: "Notion"},
 ];
 
 export default function AIExplorationSection() {
