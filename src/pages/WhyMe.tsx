@@ -21,6 +21,8 @@ import {
   Package,
 } from "@/lib/icons";
 
+const layers = ["layer-yellow", "layer-blue", "layer-purple", "layer-green"];
+
 const CustomSectionLoader = () => (
   <div className="py-20 flex justify-center items-center">
     <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
@@ -143,6 +145,7 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
                 title={diff.title}
                 description={diff.description}
                 highlight={diff.highlight}
+                className={`${layers[idx % 4]} group`}
               />
             );
           })}

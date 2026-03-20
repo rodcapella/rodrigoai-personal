@@ -7,7 +7,7 @@ export default function ProfessionalIntro() {
     <SectionContent
       title="Data Analytics Engineer & Team Leader"
       icon={<Workflow className="w-6 h-6" />}
-      variant="gradient"
+      variant="default"
     >
       <p className="text-lg text-muted-foreground leading-relaxed">
         Data Analytics Engineer & Team Leader with 15+ years of experience
