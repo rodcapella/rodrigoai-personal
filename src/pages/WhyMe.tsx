@@ -112,7 +112,7 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
     icon: <Brain />,
     useNewLayout: true,
     content: (
-      <div className="max-w-3xl space-y-6 text-muted-foreground text-lg leading-relaxed">
+      <div className="w-full space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
         <p>
           This leadership philosophy is grounded in an <strong>Engineering First</strong> mindset, where decisions are driven by strong principles and a focus on scalability rather than short-term gains. In parallel, <strong>Data Drives Decisions</strong> emphasizes that platforms are not just tools, but strategic infrastructure that should guide how organizations think, operate, and evolve.
         </p>

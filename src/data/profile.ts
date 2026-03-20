@@ -37,10 +37,6 @@ export const profile = {
       title: "BI Capability Building & KPI Structuring",
     },
     {
-      icon: Workflow,
-      title: "Scalable Data Pipelines & ELT Architecture",
-    },
-    {
       icon: ShieldCheck,
       title: "Data Governance, GDPR Compliance and Quality Frameworks",
     },

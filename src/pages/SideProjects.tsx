@@ -92,18 +92,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
       icon: <Cpu />,
       useNewLayout: true,
       content: (
-        <div className="max-w-3xl space-y-6">
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-primary font-medium"
-          >
-            AI-Native Data Platforms · Automation · Intelligent Systems
-          </motion.p>
-
+        <div className="w-full space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}

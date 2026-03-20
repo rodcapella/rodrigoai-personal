@@ -9,20 +9,21 @@ interface AIPlatform {
 }
 
 const aiExploration: AIPlatform[] = [
-  { name: "OpenAI"},
-  { name: "Claude"},
-  { name: "Gemini"},
-  { name: "Perplexity"},
-  { name: "Kimi"},
-  { name: "Manus"},
-  { name: "Notion"},
+  { name: "OpenAI" },
+  { name: "Claude" },
+  { name: "Gemini" },
+  { name: "Perplexity" },
+  { name: "Kimi" },
+  { name: "Manus" },
+  { name: "Notion" },
 ];
 
 export default function AIExplorationSection() {
   return (
     <PageSection title="AI Ecosystem Exploration" icon={<Sparkles />}>
-      
-      <div className="max-w-3xl">
+
+      {/* 🔥 remove max-w-3xl */}
+      <div className="w-full">
         
         <PageCard
           as={motion.div}
@@ -30,11 +31,11 @@ export default function AIExplorationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="space-y-6"
+          className="w-full space-y-6"
           hover={false}
         >
           {/* Text */}
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
+          <div className="space-y-4 text-muted-foreground text-lg leading-relaxed text-justify">
             <p>
               I actively explore modern AI systems through hands-on experimentation,
               focusing on real-world applicability within data engineering and analytics.
@@ -70,8 +71,7 @@ export default function AIExplorationSection() {
                   className="tag-ai flex items-center gap-2 group"
                 >
                   {platform.name}
-
-                  {platform.type}
+                  {platform.type && <span>{platform.type}</span>}
                 </motion.span>
               ))}
             </div>

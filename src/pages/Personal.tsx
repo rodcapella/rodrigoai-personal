@@ -37,13 +37,12 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
   }[] = [
     { component: <PersonalPhilosophy /> },
     { component: <LifeRelocation />, variant: "muted" },
-    { component: <CuriosityStackSection /> },
-    { component: <HobbiesSection />, variant: "muted" },
-    { component: <SportsSection /> },
-    { component: <ValuesSection />, variant: "muted" },
-    { component: <InfluencesSection /> },
-    { component: <VisionSection />, variant: "muted" },
-    { component: <AIExplorationSection />, variant: "glass" },
+    { component: <HobbiesSection /> },
+    { component: <SportsSection />, variant: "muted" },
+    { component: <ValuesSection /> },
+    { component: <InfluencesSection />, variant: "muted" },
+    { component: <VisionSection /> },
+    { component: <AIExplorationSection />, variant: "muted" },
   ];
 
   return (
