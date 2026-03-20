@@ -94,6 +94,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
               Databricks, Delta Lake and LLM-based architectures. It bridges the
               gap between traditional data engineering and next-generation
               intelligent systems.
+              
             </p>
               With over 15 years of experience in data engineering and
               analytics, this initiative focuses on transforming raw data into

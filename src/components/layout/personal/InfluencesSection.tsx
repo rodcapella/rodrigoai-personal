@@ -42,33 +42,31 @@ export default function InfluencesSection() {
     <PageSection title="Influences" icon={<BookOpen />}>
       <PageGrid cols={3} gap="md">
         {influences.map((section, idx) => (
-          <motion.div
+          <PageCard
             key={section.category}
+            as={motion.div}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
+            className={`${layers[idx % 4]} group`}
           >
-            <PageCard
-              className={`${layers[idx % 4]} group hover:scale-[1.02] transition-all duration-300`}
-            >
-              <p className="text-foreground font-semibold mb-3 tracking-tight">
-                {section.category}
-              </p>
+            <p className="text-foreground font-semibold mb-3 tracking-tight">
+              {section.category}
+            </p>
 
-              <ul className="space-y-2">
-                {section.items.map((item, i) => (
-                  <li
-                    key={item}
-                    className="flex gap-2 text-sm text-muted-foreground"
-                  >
-                    <span className="text-primary opacity-70">▸</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </PageCard>
-          </motion.div>
+            <ul className="space-y-2">
+              {section.items.map((item) => (
+                <li
+                  key={item}
+                  className="flex gap-2 text-sm text-muted-foreground"
+                >
+                  <span className="text-primary opacity-70">▸</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </PageCard>
         ))}
       </PageGrid>
     </PageSection>

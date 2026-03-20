@@ -128,19 +128,6 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
           Usually replies within 24 hours, often faster.
         </div>
 
-        {/* LinkedIn */}
-        <div className="flex justify-center mb-8 gap-3">
-          <a
-            href="https://www.linkedin.com/in/rodrigocspovoa/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my LinkedIn profile"
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-primary/10 transition-all hover:scale-105"
-          >
-            <Linkedin className="w-5 h-5 text-primary" />
-          </a>
-        </div>
-
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div

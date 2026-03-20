@@ -23,31 +23,30 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
           const Icon = competence.icon;
 
           return (
-            <motion.div
+            <PageCard
               key={i}
+              as={motion.div}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="w-full flex justify-center"
+              className="group text-center"
             >
-              <PageCard className="group">
-                <Icon
-                  className="
-                    w-6 h-6
-                    text-primary
-                    mb-3
-                    transition-all
-                    group-hover:scale-110
-                    group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
-                  "
-                />
+              <Icon
+                className="
+                  w-6 h-6
+                  text-primary
+                  mx-auto mb-3
+                  transition-all
+                  group-hover:scale-110
+                  group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
+                "
+              />
 
-                <p className="text-foreground font-medium">
-                  {competence.title}
-                </p>
-              </PageCard>
-            </motion.div>
+              <p className="text-foreground font-medium">
+                {competence.title}
+              </p>
+            </PageCard>
           );
         })}
       </PageGrid>

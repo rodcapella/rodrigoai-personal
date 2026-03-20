@@ -43,36 +43,34 @@ export default function CuriosityStackSection() {
           const Icon = item.icon;
 
           return (
-            <motion.div
+            <PageCard
               key={item.title}
+              as={motion.div}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="group"
             >
-              <PageCard className="group hover:scale-[1.02] transition-transform duration-300">
+              <Icon
+                className="
+                  w-7 h-7
+                  text-primary
+                  mb-3
+                  transition-all
+                  group-hover:scale-110
+                  group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]
+                "
+              />
 
-                <Icon
-                  className="
-                    w-7 h-7
-                    text-primary
-                    mb-3
-                    transition-all
-                    group-hover:scale-110
-                    group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]
-                  "
-                />
+              <p className="text-foreground font-semibold mb-1">
+                {item.title}
+              </p>
 
-                <p className="text-foreground font-semibold mb-1">
-                  {item.title}
-                </p>
-
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {item.description}
-                </p>
-
-              </PageCard>
-            </motion.div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {item.description}
+              </p>
+            </PageCard>
           );
         })}
       </PageGrid>

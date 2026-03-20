@@ -21,15 +21,17 @@ const aiExploration: AIPlatform[] = [
 export default function AIExplorationSection() {
   return (
     <PageSection title="AI Ecosystem Exploration" icon={<Sparkles />}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6 }}
-        className="max-w-3xl mx-auto space-y-6"
-      >
-        <PageCard className="space-y-6">
-
+      <div className="max-w-3xl mx-auto">
+        
+        <PageCard
+          as={motion.div}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="space-y-6"
+          hover={false}
+        >
           {/* Text */}
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
@@ -58,30 +60,28 @@ export default function AIExplorationSection() {
 
             <div className="flex flex-wrap gap-3">
               {aiExploration.map((platform, idx) => (
-                <motion.div
+                <motion.span
                   key={platform.name}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className="group"
+                  className="tag-ai flex items-center gap-2"
                 >
-                  <span className="tag-ai flex items-center gap-2">
-                    {platform.name}
+                  {platform.name}
 
-                    {platform.type && (
-                      <span className="text-[10px] opacity-60 group-hover:opacity-100 transition">
-                        {platform.type}
-                      </span>
-                    )}
-                  </span>
-                </motion.div>
+                  {platform.type && (
+                    <span className="text-[10px] opacity-60 group-hover:opacity-100 transition">
+                      {platform.type}
+                    </span>
+                  )}
+                </motion.span>
               ))}
             </div>
           </div>
 
         </PageCard>
-      </motion.div>
+      </div>
     </PageSection>
   );
 }

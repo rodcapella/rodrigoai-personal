@@ -55,36 +55,34 @@ export default function HobbiesSection() {
           const Icon = hobby.icon;
 
           return (
-            <motion.div
+            <PageCard
               key={hobby.title}
+              as={motion.div}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
+              className="group"
             >
-              <PageCard className="group hover:scale-[1.03] transition-all duration-300">
+              <Icon
+                className="
+                  w-7 h-7
+                  text-primary
+                  mb-3
+                  transition-all
+                  group-hover:scale-110
+                  group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]
+                "
+              />
 
-                <Icon
-                  className="
-                    w-7 h-7
-                    text-primary
-                    mb-3
-                    transition-all
-                    group-hover:scale-110
-                    group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]
-                  "
-                />
+              <p className="text-foreground font-semibold mb-1">
+                {hobby.title}
+              </p>
 
-                <p className="text-foreground font-semibold mb-1">
-                  {hobby.title}
-                </p>
-
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {hobby.description}
-                </p>
-
-              </PageCard>
-            </motion.div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {hobby.description}
+              </p>
+            </PageCard>
           );
         })}
       </PageGrid>

@@ -19,39 +19,41 @@ export default function SportsSection() {
     <PageSection title="Team Spirit" icon={<Trophy />}>
       <PageGrid cols={2} gap="md">
         {sportsTeams.map((team, idx) => (
-          <motion.div
+          <PageCard
             key={team.team}
+            as={motion.div}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
+            className="text-center group"
           >
-            <PageCard className="text-center group transition-all duration-300">
+            <motion.div
+              whileHover={{
+                boxShadow: `0 0 20px rgba(${team.color}, 0.6), 0 0 40px rgba(${team.color}, 0.4)`,
+                scale: 1.05,
+              }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              className="rounded-xl p-6 h-full flex flex-col justify-center"
+            >
               <motion.div
-                whileHover={{
-                  boxShadow: `0 0 20px rgba(${team.color}, 0.6), 0 0 40px rgba(${team.color}, 0.4)`,
-                  scale: 1.05,
-                }}
-                transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                className="rounded-xl p-6 h-full flex flex-col justify-center"
+                className="text-4xl mb-3"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                whileHover={{ scale: 1.2 }}
               >
-                <motion.div
-                  className="text-4xl mb-3"
-                  animate={{ y: [0, -2, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  whileHover={{ scale: 1.2 }}
-                >
-                  {team.emoji}
-                </motion.div>
-
-                <p className="text-lg font-semibold text-foreground">
-                  {team.team}
-                </p>
-
-                <p className="text-sm text-muted-foreground">{team.country}</p>
+                {team.emoji}
               </motion.div>
-            </PageCard>
-          </motion.div>
+
+              <p className="text-lg font-semibold text-foreground">
+                {team.team}
+              </p>
+
+              <p className="text-sm text-muted-foreground">
+                {team.country}
+              </p>
+            </motion.div>
+          </PageCard>
         ))}
       </PageGrid>
 

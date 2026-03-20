@@ -52,25 +52,25 @@ export default function ValuesSection() {
     <PageSection title="Core Values" icon={<Heart />} variant="gradient">
       <PageGrid cols={3} gap="md">
         {personalValues.map((value, idx) => (
-          <motion.div
+          <PageCard
             key={value.title}
+            as={motion.div}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
+            className="group"
           >
-            <PageCard className="group hover:scale-[1.03] transition-all duration-300">
-              <div className="w-6 h-[2px] bg-primary mb-3 opacity-70 group-hover:w-10 transition-all duration-300" />
+            <div className="w-6 h-[2px] bg-primary mb-3 opacity-70 group-hover:w-10 transition-all duration-300" />
 
-              <p className="text-foreground font-semibold mb-2">
-                {value.title}
-              </p>
+            <p className="text-foreground font-semibold mb-2">
+              {value.title}
+            </p>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {value.description}
-              </p>
-            </PageCard>
-          </motion.div>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {value.description}
+            </p>
+          </PageCard>
         ))}
       </PageGrid>
     </PageSection>

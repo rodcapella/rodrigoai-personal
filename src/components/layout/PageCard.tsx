@@ -1,25 +1,39 @@
-import React from "react"
-import { motion } from "framer-motion"
+import React from "react";
+import { motion } from "framer-motion";
+
+const variants = {
+  default: "glass border border-border",
+  glass: "bg-white/5 backdrop-blur-md border border-white/10",
+  outline: "border border-border bg-transparent",
+  solid: "bg-primary text-white border border-primary"
+};
 
 interface PageCardProps {
-  title?: string
-  description?: string
-  icon?: React.ReactNode
-  children?: React.ReactNode
-  highlight?: string
-  className?: string
+  as?: any;
+  title?: string;
+  description?: string;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
+  highlight?: string;
+  className?: string;
+  hover?: boolean;
+  variant?: "default" | "glass" | "outline" | "solid";
 }
 
 const PageCard = ({
+  as: Component = motion.div,
   title,
   description,
   icon,
   children,
   highlight,
-  className = ""
+  className = "",
+  hover = true,
+  variant = "default",
+  ...props
 }: PageCardProps) => {
   return (
-    <motion.div
+    <Component
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -31,32 +45,22 @@ const PageCard = ({
         glass
         border border-border
         transition-all duration-300
-        hover:-translate-y-1
-        hover:border-primary/40
-        hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]
+        h-full
+        ${variants[variant]}
+        ${hover ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]" : ""}
         ${className}
       `}
+      {...props}
     >
-
       {/* ICON */}
-      {icon && (
-        <div className="mb-4 text-primary">
-          {icon}
-        </div>
-      )}
+      {icon && <div className="mb-4 text-primary">{icon}</div>}
 
       {/* TITLE */}
-      {title && (
-        <h3 className="text-lg font-semibold mb-2">
-          {title}
-        </h3>
-      )}
+      {title && <h3 className="text-lg font-semibold mb-2">{title}</h3>}
 
       {/* DESCRIPTION */}
       {description && (
-        <p className="text-muted-foreground mb-3">
-          {description}
-        </p>
+        <p className="text-muted-foreground mb-3">{description}</p>
       )}
 
       {/* HIGHLIGHT */}
@@ -68,9 +72,8 @@ const PageCard = ({
 
       {/* CUSTOM CONTENT */}
       {children}
+    </Component>
+  );
+};
 
-    </motion.div>
-  )
-}
-
-export default PageCard
+export default PageCard;

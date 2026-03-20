@@ -13,22 +13,22 @@ const ExpertiseSection = () => {
           const Icon = skill.icon;
 
           return (
-            <motion.div
+            <PageCard
               key={skill.title}
+              as={motion.div}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="w-full"
+              className="group skill-card text-center"
+              hover
             >
-              <PageCard className="group skill-card text-center w-full h-full" hover>
-                <Icon className="w-5 h-5 text-primary mx-auto mb-3" />
+              <Icon className="w-5 h-5 text-primary mx-auto mb-3" />
 
-                <p className="text-foreground text-sm font-medium">
-                  {skill.title}
-                </p>
-              </PageCard>
-            </motion.div>
+              <p className="text-foreground text-sm font-medium">
+                {skill.title}
+              </p>
+            </PageCard>
           );
         })}
       </PageGrid>

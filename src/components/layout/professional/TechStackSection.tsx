@@ -36,8 +36,15 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
         className="w-full flex justify-center"
       >
         <PageGrid cols={3} gap="md">
-          {techStack.map((group) => (
-            <PageCard key={group.category}>
+          {techStack.map((group, i) => (
+            <PageCard
+              key={group.category}
+              as={motion.div}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
               <h3 className="text-lg font-semibold mb-4">
                 {group.category}
               </h3>
@@ -59,7 +66,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
                           {tech.name}
                         </span>
 
-                        <span className="text-primary text-xs font-medium">
+                        <span className="text-orange-500 text-xs font-medium">
                           {tech.years} yrs
                         </span>
                       </div>

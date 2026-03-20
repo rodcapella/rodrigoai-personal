@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
+import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import { Target } from "@/lib/icons";
+
+const layers = ["layer-yellow", "layer-blue", "layer-purple", "layer-green"];
 
 const longTermVision = [
   "Designing and building intelligent, scalable data systems",
@@ -14,22 +17,24 @@ const longTermVision = [
 
 export default function VisionSection() {
   return (
-    <PageSection title="Long-Term Vision" icon={<Target />} variant="gradient">
-      {longTermVision.map((item, idx) => (
-        <motion.div
-          key={item}
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4, delay: idx * 0.05 }}
-        >
-          <PageCard className="flex items-start gap-4 group hover:translate-x-1 transition-all duration-300">
-            <div className="w-3 h-3 rounded-full bg-primary mt-2 flex-shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
-
-            <p className="text-muted-foreground leading-relaxed">{item}</p>
+    <PageSection title="Long-Term Vision" icon={<Target />}>
+      <PageGrid cols={3} gap="md">
+        {longTermVision.map((item, idx) => (
+          <PageCard
+            key={item}
+            as={motion.div}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: idx * 0.08 }}
+            className={`${layers[idx % 4]} group`}
+          >
+            <p className="text-foreground font-semibold">
+              {item}
+            </p>
           </PageCard>
-        </motion.div>
-      ))}
+        ))}
+      </PageGrid>
     </PageSection>
   );
 }
