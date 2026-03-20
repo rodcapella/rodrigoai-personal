@@ -107,22 +107,26 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
   ];
 
   const sections: Section[] = [
-    {
-      title: "Leadership Philosophy",
-      icon: <Brain />,
-      useNewLayout: true,
-      content: (
-        <PageGrid cols={3}>
-          {leadershipPillars.map((pillar, idx) => (
-            <PageCard
-              key={idx}
-              title={pillar.title}
-              description={pillar.description}
-            />
-          ))}
-        </PageGrid>
-      ),
-    },
+  {
+    title: "Leadership Philosophy",
+    icon: <Brain />,
+    useNewLayout: true,
+    content: (
+      <div className="max-w-3xl space-y-6 text-muted-foreground text-lg leading-relaxed">
+        <p>
+          This leadership philosophy is grounded in an <strong>Engineering First</strong> mindset, where decisions are driven by strong principles and a focus on scalability rather than short-term gains. In parallel, <strong>Data Drives Decisions</strong> emphasizes that platforms are not just tools, but strategic infrastructure that should guide how organizations think, operate, and evolve.
+        </p>
+
+        <p>
+          In high-pressure environments, <strong>Calm & Clarity Under Pressure</strong> highlights the importance of maintaining a composed and thoughtful approach, enabling better decisions, stronger teams, and more sustainable outcomes. This is reinforced by <strong>Empathy & Understanding</strong>, recognizing that great systems are built by people, and that listening, embracing different perspectives, and fostering supportive environments are key to collective success.
+        </p>
+
+        <p>
+          Finally, <strong>Human-Centered AI</strong> reflects the belief that technology should amplify human capability. Rather than replacing people, it should empower them to achieve higher levels of performance, innovation, and long-term impact.
+        </p>
+      </div>
+    ),
+  },
     {
       title: "What sets me apart",
       icon: <Zap />,

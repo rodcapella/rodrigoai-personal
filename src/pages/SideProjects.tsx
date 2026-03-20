@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
@@ -91,39 +92,59 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
       icon: <Cpu />,
       useNewLayout: true,
       content: (
-        <div className="max-w-3xl text-muted-foreground text-lg leading-relaxed space-y-6">
-          <p>
-            Sapiente.AI is an AI innovation ecosystem focused on building
-            AI-native data platforms using modern technologies such as Azure,
-            Databricks, Delta Lake and LLM-based architectures. It bridges the
-            gap between traditional data engineering and next-generation
-            intelligent systems.
-          </p>
+        <div className="max-w-3xl space-y-6">
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-primary font-medium"
+          >
+            AI-Native Data Platforms · Automation · Intelligent Systems
+          </motion.p>
 
-          <p>
-            With over 15 years of experience in data engineering and analytics,
-            this initiative focuses on transforming raw data into scalable,
-            intelligent and automated decision systems.
-          </p>
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-4 text-muted-foreground text-lg leading-relaxed"
+          >
+            <p>
+              Sapiente.AI is an AI innovation ecosystem focused on building
+              AI-native data platforms using modern technologies such as Azure,
+              Databricks, Delta Lake and LLM-based architectures. It bridges the
+              gap between traditional data engineering and next-generation
+              intelligent systems.
+            </p>
 
-          <p>
-            Core areas of development include AI-powered data products,
-            intelligent automation frameworks, and modern data platforms
-            designed to support analytics, governance and AI workloads in a
-            unified architecture.
-          </p>
+            <p>
+              With over 15 years of experience in data engineering and
+              analytics, this initiative focuses on transforming raw data into
+              scalable, intelligent and automated decision systems.
+            </p>
 
-          <p>
-            Sapiente.AI also explores full-stack AI applications, combining
-            backend data pipelines with intelligent frontends to create adaptive
-            digital products and scalable brand ecosystems.
-          </p>
+            <p>
+              Core areas of development include AI-powered data products,
+              intelligent automation frameworks, and modern data platforms
+              designed to support analytics, governance and AI workloads in a
+              unified architecture.
+            </p>
 
-          <p>
-            The goal is to enable organizations to move beyond traditional
-            analytics and adopt AI-driven decision-making systems that are
-            reliable, governed and production-ready.
-          </p>
+            <p>
+              Sapiente.AI also explores full-stack AI applications, combining
+              backend data pipelines with intelligent frontends to create
+              adaptive digital products and scalable brand ecosystems.
+            </p>
+
+            <p>
+              The goal is to enable organizations to move beyond traditional
+              analytics and adopt AI-driven decision-making systems that are
+              reliable, governed and production-ready.
+            </p>
+          </motion.div>
         </div>
       ),
     },
