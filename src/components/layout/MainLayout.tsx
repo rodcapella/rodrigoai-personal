@@ -16,7 +16,6 @@ const MainLayout = ({ children, theme, onToggleTheme }: MainLayoutProps) => {
         {children}
       </main>
 
-      <Footer />
     </div>
   );
 };

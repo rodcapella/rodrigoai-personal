@@ -7,7 +7,7 @@ import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
-import { Layers, Zap, Users, Target, Brain, Lightbulb, ShieldCheck, Sparkles, BarChart3  } from "@/lib/icons";
+import { Layers, Zap, Users, Target, Brain, Lightbulb, ShieldCheck, Sparkles, BarChart3, Cpu  } from "@/lib/icons";
 
 const SectionLoader = () => (
   <div className="py-20 flex justify-center items-center">

@@ -37,7 +37,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className={`${layers[i % 4]}`}
           >
-            <PageCard align="center" className={`${layers[idx % 4]} group`}>
+            <PageCard align="center" className={`${layers[i % 4]} group`}>
               <h3 className="text-lg font-semibold mb-2">
                 {edu.degree}
               </h3>

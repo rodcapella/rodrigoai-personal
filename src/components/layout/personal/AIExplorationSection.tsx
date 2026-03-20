@@ -9,13 +9,13 @@ interface AIPlatform {
 }
 
 const aiExploration: AIPlatform[] = [
-  { name: "OpenAI", type: "LLM" },
-  { name: "Claude", type: "LLM" },
-  { name: "Gemini", type: "LLM" },
-  { name: "Perplexity", type: "Search AI" },
-  { name: "Kimi", type: "LLM" },
-  { name: "Manus", type: "Agent" },
-  { name: "Notion", type: "Knowledge" },
+  { name: "OpenAI",
+  { name: "Claude",
+  { name: "Gemini",
+  { name: "Perplexity",
+  { name: "Kimi",
+  { name: "Manus",
+  { name: "Notion",
 ];
 
 export default function AIExplorationSection() {
@@ -71,11 +71,7 @@ export default function AIExplorationSection() {
                 >
                   {platform.name}
 
-                  {platform.type && (
-                    <span className="text-[10px] opacity-60 group-hover:opacity-100 transition">
-                      {platform.type}
-                    </span>
-                  )}
+                  {platform.type}
                 </motion.span>
               ))}
             </div>
