@@ -19,7 +19,7 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
   return (
     <PageSection title="Core Competences" icon={<Award />}>
       <PageGrid cols={3} gap="md">
-        {(competences ?? []).map((competence, i) => {
+        {competences.map((competence, i) => {
           const Icon = competence.icon;
 
           return (
@@ -30,22 +30,22 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group text-center"
+              className="group space-tight"
+              align="center"
             >
               <Icon
                 className="
                   w-6 h-6
                   text-primary
-                  mx-auto mb-3
                   transition-all
                   group-hover:scale-110
                   group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
                 "
               />
 
-              <p className="text-foreground font-medium">
+              <span className="label">
                 {competence.title}
-              </p>
+              </span>
             </PageCard>
           );
         })}

@@ -62,24 +62,23 @@ export default function HobbiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="group"
+              className="group space-content"
             >
               <Icon
                 className="
                   w-7 h-7
                   text-primary
-                  mb-3
                   transition-all
                   group-hover:scale-110
                   group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]
                 "
               />
 
-              <p className="text-foreground font-semibold mb-1">
+              <h3 className="heading-sm">
                 {hobby.title}
-              </p>
+              </h3>
 
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="body-md">
                 {hobby.description}
               </p>
             </PageCard>

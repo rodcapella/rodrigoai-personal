@@ -114,9 +114,9 @@ body {
     @apply bg-background text-foreground font-body antialiased overflow-x-hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
-  }
+  h1 { @apply heading-xl; }
+  h2 { @apply heading-lg; }
+  h3 { @apply heading-md; }
 
   img,
   svg,
@@ -157,6 +157,74 @@ body {
 
   .tag-ai:hover {
     @apply bg-orange-50;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl font-bold tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-lg font-semibold;
+  }
+
+  .body-lg {
+    @apply text-lg leading-relaxed text-muted-foreground;
+  }
+
+  .body-md {
+    @apply text-base leading-relaxed text-muted-foreground;
+  }
+
+  .body-sm {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .label {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  .caption {
+    @apply text-xs text-muted-foreground;
+  }
+
+  .space-section {
+    @apply space-y-10;
+  }
+
+  .space-content {
+    @apply space-y-6;
+  }
+
+  .space-text {
+    @apply space-y-4;
+  }
+
+  .space-tight {
+    @apply space-y-2;
+  }
+
+  /* Margins padronizadas */
+  .mb-section {
+    @apply mb-12;
+  }
+
+  .mb-content {
+    @apply mb-6;
+  }
+
+  .mb-text {
+    @apply mb-4;
+  }
+
+  .mt-content {
+    @apply mt-6;
+  }
+  .stack-list {
+    @apply space-content md:space-section;
   }
 }
 

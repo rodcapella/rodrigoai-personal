@@ -52,15 +52,15 @@ const WhatDrivesMe = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`${layers[idx % 4]}`}
+              className={`${layers[idx % 4]} space-content`}
             >
-              <Icon className="w-8 h-8 text-primary mb-4" />
+              <Icon className="w-8 h-8 text-primary" />
 
-              <h3 className="text-xl font-bold mb-2">
+              <h3 className="heading-sm">
                 {fact.title}
               </h3>
 
-              <p className="text-muted-foreground">
+              <p className="body-md">
                 {fact.description}
               </p>
             </PageCard>

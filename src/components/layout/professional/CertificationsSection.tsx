@@ -12,7 +12,7 @@ export default function CertificationsSection({
 }: CertificationsSectionProps) {
   return (
     <PageSection title="Certifications & Courses" icon={<Award />}>
-      <div className="space-y-4 max-w-3xl mx-auto">
+      <div className="space-text max-w-3xl">
         {certifications?.map((cert, idx) => (
           <PageCard
             key={idx}
@@ -21,12 +21,12 @@ export default function CertificationsSection({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.05 }}
-            className="flex items-start gap-4"
+            className="flex items-start gap-3"
             hover={false}
           >
             <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="body-md text-justify">
               {cert}
             </p>
           </PageCard>

@@ -7,6 +7,7 @@ interface SectionTitleProps {
   align?: "left" | "center";
   variant?: "default" | "gradient";
   as?: "h2" | "h3";
+  className?: string;
 }
 
 export default function SectionTitle({
@@ -15,6 +16,7 @@ export default function SectionTitle({
   align = "left",
   variant = "gradient",
   as = "h2",
+  className = "",
 }: SectionTitleProps) {
   const isCenter = align === "center";
 
@@ -27,7 +29,7 @@ export default function SectionTitle({
   const MotionTag = motion(as);
 
   return (
-    <div className={`mb-14 ${isCenter ? "text-center" : ""}`}>
+    <div className={`mb-12 ${isCenter ? "text-center" : ""}`}>
       
       <MotionTag
         initial={{ opacity: 0, y: 24 }}
@@ -36,12 +38,10 @@ export default function SectionTitle({
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={`
           group
-          font-display
-          text-2xl md:text-3xl lg:text-4xl
-          font-bold
-          tracking-tight
+          heading-lg
           flex items-center gap-3
           ${isCenter ? "justify-center" : ""}
+          ${className}
         `}
       >
         {/* ICON */}

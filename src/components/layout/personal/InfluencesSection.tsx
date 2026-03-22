@@ -49,19 +49,21 @@ export default function InfluencesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
-            className={`${layers[idx % 4]} group`}
+            className={`${layers[idx % 4]} group space-content`}
           >
-            <p className="text-foreground font-semibold mb-3 tracking-tight">
+            {/* CATEGORY */}
+            <h3 className="heading-sm">
               {section.category}
-            </p>
+            </h3>
 
+            {/* ITEMS */}
             <ul className="space-y-2">
               {section.items.map((item) => (
                 <li
                   key={item}
-                  className="flex gap-2 text-sm text-muted-foreground"
+                  className="flex gap-2 body-sm items-start"
                 >
-                  <span className="text-primary opacity-70">▸</span>
+                  <span className="text-primary opacity-70 mt-[2px]">▸</span>
                   <span>{item}</span>
                 </li>
               ))}

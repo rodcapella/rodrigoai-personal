@@ -14,28 +14,28 @@ export default function LifeRelocation() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="space-y-5"
+          className="space-content"
           hover={false}
         >
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="body-md">
             In 2019, I made a defining decision: relocating to Portugal with my
             family in search of a better quality of life, stronger security and
             new professional challenges.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="body-md">
             The move was driven by the ambition to work on international
             projects, explore more mature data ecosystems and expand both
             technical and personal horizons.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="body-md">
             Today, Portugal is home. The family has grown, now with two dogs,
             and the balance between career evolution and personal life became a
             reality, not just a goal.
           </p>
 
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="body-md">
             This journey reflects how I approach life: intentional decisions,
             aligned with long-term vision, continuous growth and purpose.
           </p>

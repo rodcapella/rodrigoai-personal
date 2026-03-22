@@ -8,12 +8,12 @@ const projects = [
   {
     name: "TIP4Y - Automotive Intelligence - Portugal",
     description:
-      "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Medallion Architecture (bronze/silver/gold layers), implemented governance and quality validation frameworks, and delivered curated analytics through Power BI for business consumption.",
+      "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Medallion Architecture (bronze/silver/gold layers), implemented governance and quality validation frameworks and delivered curated analytics through Power BI for business consumption.",
     stack: [
       "Azure",
       "Databricks",
       "Delta Lake",
-      "Lakehouse Architecture",
+      "Medallion Architecture",
       "Power BI",
       "PySpark",
       "SQL",
@@ -44,8 +44,7 @@ const projects = [
       "Hadoop",
       "PySpark",
       "SQL",
-      "Big Data Engineering",
-      "Python",
+      "Big Data Engineering"
     ],
   },
   {
@@ -54,6 +53,7 @@ const projects = [
       "Led the creation of the Business Intelligence area from the ground up. Designed governance structures, data models, KPI frameworks and reporting standards. Built the analytical foundation that enabled executive-level decision making and operational visibility across the company.",
     stack: [
       "BI Strategy",
+      "Team Management",
       "Data Architecture",
       "KPI Framework",
       "Qlik Sense",
@@ -73,23 +73,26 @@ const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="w-full flex justify-center"
           >
-            <PageCard title={project.name}>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+            <PageCard title={project.name} className="space-content">
+              
+              {/* DESCRIPTION */}
+              <p className="body-md text-justify">
                 {project.description}
               </p>
 
+              {/* STACK */}
               <div className="flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="tag-ai flex items-center gap-2 group"
+                    className="tag-ai"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
+
             </PageCard>
           </motion.div>
         ))}

@@ -66,22 +66,32 @@ const PageCard = ({
       {icon && <div className="mb-4 text-primary">{icon}</div>}
 
       {/* TITLE */}
-      {title && <h3 className="text-lg font-semibold mb-2">{title}</h3>}
+      {title && (
+        <h3 className="heading-md mb-text">
+          {title}
+        </h3>
+      )}
 
       {/* DESCRIPTION */}
       {description && (
-        <p className="text-muted-foreground mb-3">{description}</p>
+        <p className="body-md mb-content">
+          {description}
+        </p>
       )}
 
       {/* HIGHLIGHT */}
       {highlight && (
-        <p className="text-sm text-primary font-semibold italic">
+        <p className="body-sm text-primary font-medium italic">
           {highlight}
         </p>
       )}
 
       {/* CUSTOM CONTENT */}
-      {children}
+      {children && (
+        <div className="mt-3 body-md">
+          {children}
+        </div>
+      )}
     </Component>
   );
 };

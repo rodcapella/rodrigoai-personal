@@ -23,8 +23,8 @@ export default function ExperienceTimeline({
 
   return (
     <PageSection title="Professional Experience" icon={<Briefcase />}>
-      <div className="relative w-full space-y-10">
-  
+      <div className="relative w-full space-section">
+        
         {/* linha vertical */}
         <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-primary/20" />
 
@@ -35,36 +35,39 @@ export default function ExperienceTimeline({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="relative pl-12" // 👈 ESSENCIAL
+            className="relative pl-12"
           >
-            
-            {/* dot alinhado */}
+            {/* dot */}
             <div className="absolute left-2 top-3 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
 
-            <PageCard>
-              <h3 className="text-lg font-semibold mb-1">{exp.title}</h3>
+            <PageCard className="space-content">
+              
+              {/* HEADER */}
+              <div className="space-tight">
+                <h3 className="heading-sm">{exp.title}</h3>
 
-              <p className="text-sm font-semibold text-primary mb-1">
-                {exp.company}
-              </p>
+                <span className="label text-primary">
+                  {exp.company}
+                </span>
 
-              <p className="text-xs text-muted-foreground mb-4">
-                {exp.location} • {exp.period}
-              </p>
+                <span className="body-sm">
+                  {exp.location} • {exp.period}
+                </span>
+              </div>
 
-              <ul className="space-y-2 mb-5">
+              {/* HIGHLIGHTS */}
+              <ul className="space-tight">
                 {(exp.highlights ?? []).map((highlight, i) => (
-                  <li key={i} className="flex gap-2 text-sm text-muted-foreground">
+                  <li key={i} className="flex gap-2 body-sm">
                     <span className="text-primary">•</span>
                     <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
 
-              <div>
-                <p className="text-xs font-semibold mb-2 text-foreground">
-                  Tech Stack
-                </p>
+              {/* STACK */}
+              <div className="space-tight">
+                <span className="label">Tech Stack</span>
 
                 <div className="flex flex-wrap gap-2">
                   {(exp.stack ?? []).map((tech, i) => (
@@ -81,6 +84,7 @@ export default function ExperienceTimeline({
                   ))}
                 </div>
               </div>
+
             </PageCard>
           </motion.div>
         ))}

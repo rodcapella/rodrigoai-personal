@@ -28,15 +28,22 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
         {languages.map((lang, idx) => (
           <motion.div
             key={idx}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="w-full flex justify-center"
           >
-            <PageCard align="center" className={`${layers[idx % 4]} group`}>
-              <h3 className="text-lg font-semibold mb-1">{lang.name}</h3>
-              <p className="text-sm text-muted-foreground">{lang.level}</p>
+            <PageCard
+              align="center"
+              className={`${layers[idx % 4]} space-tight`}
+            >
+              <h3 className="heading-sm">
+                {lang.name}
+              </h3>
+
+              <span className="body-sm">
+                {lang.level}
+              </span>
             </PageCard>
           </motion.div>
         ))}

@@ -35,7 +35,7 @@ export default function AIExplorationSection() {
           hover={false}
         >
           {/* Text */}
-          <div className="space-y-4 text-muted-foreground text-lg leading-relaxed text-justify">
+          <div className="space-text text-muted-foreground text-lg leading-relaxed text-justify">
             <p>
               I actively explore modern AI systems through hands-on experimentation,
               focusing on real-world applicability within data engineering and analytics.

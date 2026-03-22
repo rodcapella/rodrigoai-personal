@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { lazy, Suspense } from "react";
 import PageSection from "@/components/layout/PageSection";
 import PageCard from "@/components/layout/PageCard";
 import { Briefcase, ChevronRight } from "@/lib/icons";
@@ -17,7 +16,7 @@ const AboutMyCareer = () => {
 
   return (
     <PageSection title="About My Career" icon={<Briefcase />}>
-      <div className="space-y-6 max-w-3xl">
+      <div className="space-content md:space-section max-w-3xl">
         {funFacts.map((fact, idx) => (
           <motion.div
             key={idx}
@@ -27,18 +26,22 @@ const AboutMyCareer = () => {
             viewport={{ once: true }}
           >
             <PageCard className="group flex items-start gap-4">
-                <ChevronRight
-                  className="
-                    w-5 h-5 mt-1
-                    text-primary
-                    flex-shrink-0
-                    transition-all duration-300
-                    group-hover:translate-x-1
-                    group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
-                  "
-                />
+              
+              <ChevronRight
+                className="
+                  w-5 h-5 mt-1
+                  text-primary
+                  flex-shrink-0
+                  transition-all duration-300
+                  group-hover:translate-x-1
+                  group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
+                "
+              />
 
-              <p className="text-muted-foreground leading-relaxed">{fact}</p>
+              <p className="body-md">
+                {fact}
+              </p>
+
             </PageCard>
           </motion.div>
         ))}

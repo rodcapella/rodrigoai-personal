@@ -99,7 +99,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4 text-muted-foreground text-lg leading-relaxed"
+            className="space-text text-muted-foreground text-lg leading-relaxed"
           >
             <p>
               Sapiente.AI is an AI innovation ecosystem focused on building
@@ -178,7 +178,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             />
           </div>
 
-          <h3 className="text-2xl font-bold mb-2">Explore Sapiente.AI</h3>
+          <h3 className="text-2xl font-bold mb-text">Explore Sapiente.AI</h3>
 
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Sapiente.AI is my dedicated innovation lab focused on democratizing

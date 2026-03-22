@@ -27,7 +27,7 @@ const SectionContent = ({
         className={`w-full ${centered ? "flex justify-center" : ""}`}
       >
         <PageCard
-          className="space-y-6"
+          className="space-content"
           hover={false}
         >
           {children}

@@ -59,15 +59,18 @@ export default function ValuesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
-            className="group"
+            className="group space-content"
           >
-            <div className="w-6 h-[2px] bg-primary mb-3 opacity-70 group-hover:w-10 transition-all duration-300" />
+            {/* LINE */}
+            <div className="w-6 h-[2px] bg-primary opacity-70 group-hover:w-10 transition-all duration-300" />
 
-            <p className="text-foreground font-semibold mb-2">
+            {/* TITLE */}
+            <h3 className="heading-sm">
               {value.title}
-            </p>
+            </h3>
 
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            {/* DESCRIPTION */}
+            <p className="body-sm">
               {value.description}
             </p>
           </PageCard>

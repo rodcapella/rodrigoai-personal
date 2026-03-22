@@ -140,7 +140,7 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               className="glass p-10 rounded-2xl text-center glow-primary"
             >
               <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
-              <h3 className="text-xl font-semibold mb-2">
+              <h3 className="text-xl font-semibold mb-text">
                 Message Sent 🚀
               </h3>
               <p className="text-muted-foreground">

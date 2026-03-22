@@ -27,9 +27,9 @@ export default function VisionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className={`${layers[idx % 4]} group`}
+            className={`${layers[idx % 4]} group space-content`}
           >
-            <p className="text-foreground font-semibold">
+            <p className="heading-sm">
               {item}
             </p>
           </PageCard>

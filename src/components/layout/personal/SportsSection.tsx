@@ -17,6 +17,7 @@ const sportsTeams = [
 export default function SportsSection() {
   return (
     <PageSection title="Team Spirit" icon={<Trophy />}>
+      
       <PageGrid cols={2} gap="md">
         {sportsTeams.map((team, idx) => (
           <PageCard
@@ -26,7 +27,7 @@ export default function SportsSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className="text-center group"
+            className="group text-center space-content"
           >
             <motion.div
               whileHover={{
@@ -34,10 +35,10 @@ export default function SportsSection() {
                 scale: 1.05,
               }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="rounded-xl p-6 h-full flex flex-col justify-center"
+              className="flex flex-col items-center"
             >
               <motion.div
-                className="text-4xl mb-3"
+                className="text-4xl"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 whileHover={{ scale: 1.2 }}
@@ -45,11 +46,11 @@ export default function SportsSection() {
                 {team.emoji}
               </motion.div>
 
-              <p className="text-lg font-semibold text-foreground">
+              <h3 className="heading-sm">
                 {team.team}
-              </p>
+              </h3>
 
-              <p className="text-sm text-muted-foreground">
+              <p className="body-sm">
                 {team.country}
               </p>
             </motion.div>
@@ -57,11 +58,15 @@ export default function SportsSection() {
         ))}
       </PageGrid>
 
-      <p className="text-center text-muted-foreground mt-8 max-w-xl mx-auto leading-relaxed">
-        From Rio to Porto, football is more than a game, it’s identity, culture
-        and emotion. Supporting Flamengo and FC Porto connects two parts of my
-        life into one story.
-      </p>
+      {/* TEXT BLOCK */}
+      <div className="mt-section">
+        <p className="body-md text-center max-w-xl mx-auto">
+          From Rio to Porto, football is more than a game, it’s identity, culture
+          and emotion. Supporting Flamengo and FC Porto connects two parts of my
+          life into one story.
+        </p>
+      </div>
+
     </PageSection>
   );
 }
