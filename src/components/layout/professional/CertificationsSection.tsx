@@ -1,6 +1,6 @@
 import PageSection from "@/components/layout/PageSection";
 import PageCard from "@/components/layout/PageCard";
-import { Award } from "@/lib/icons";
+import { Award, CertificationsSection } from "@/lib/icons";
 
 interface CertificationsSectionProps {
   certifications: string[];

@@ -48,18 +48,21 @@ const WhatDrivesMe = () => {
             <PageCard
               key={fact.title}
               as={motion.div}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }} // 🔁 padrão global (não x)
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              transition={{ duration: 0.4, delay: idx * 0.05 }}
               className={`${layers[idx % 4]} space-content`}
             >
-              <Icon className="w-8 h-8 text-primary" />
+              {/* ICON */}
+              <Icon className="w-6 h-6 text-primary opacity-80" />
 
-              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
+              {/* TITLE (menos dominante) */}
+              <h3 className="label">
                 {fact.title}
               </h3>
 
+              {/* DESCRIPTION */}
               <p className="body-md">
                 {fact.description}
               </p>

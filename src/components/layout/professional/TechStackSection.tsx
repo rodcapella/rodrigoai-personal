@@ -65,7 +65,7 @@ export default function TechStackSection({ techStack }: Props) {
                       </span>
 
                       {/* YEARS (LARANJA 🔥) */}
-                      <span className="text-orange-500 text-sm font-semibold">
+                      <span className="text-orange-500 text-sm font-bold">
                         {tech.years} yrs
                       </span>
 

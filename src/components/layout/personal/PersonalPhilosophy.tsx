@@ -1,3 +1,5 @@
+import SectionContent from "@/components/layout/SectionContent";
+
 export default function PersonalPhilosophy() {
   return (
     <SectionContent
