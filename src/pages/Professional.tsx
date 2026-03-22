@@ -8,6 +8,7 @@ import { profile } from "@/data/profile";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
 import SectionContent from "@/components/layout/SectionContent";
+import {ChevronRight} from "@/lib/icons";
 
 interface ProfessionalProps {
   theme?: "dark" | "light";

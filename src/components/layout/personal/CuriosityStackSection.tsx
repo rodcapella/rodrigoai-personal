@@ -62,7 +62,7 @@ export default function CuriosityStackSection() {
                 "
               />
 
-              <h3 className="heading-sm">
+              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
                 {item.title}
               </h3>
 

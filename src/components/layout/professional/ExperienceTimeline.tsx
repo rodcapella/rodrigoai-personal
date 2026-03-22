@@ -46,7 +46,7 @@ export default function ExperienceTimeline({
               <div className="space-tight">
                 
                 {/* ROLE */}
-                <h3 className="heading-sm">
+                <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
                   {exp.title}
                 </h3>
 

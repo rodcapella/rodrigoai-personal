@@ -178,7 +178,9 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             />
           </div>
 
-          <h3 className="text-2xl font-bold mb-text">Explore Sapiente.AI</h3>
+          <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
+            Explore Sapiente.AI
+          </h3>
 
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Sapiente.AI is my dedicated innovation lab focused on democratizing

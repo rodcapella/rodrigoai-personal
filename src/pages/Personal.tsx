@@ -4,8 +4,8 @@ import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
-import SectionLoader from "@/components/ui/SectionLoader";
 import SectionContent from "@/components/layout/SectionContent";
+import SectionLoader from "@/components/ui/SectionLoader";
 
 interface PersonalProps {
   theme?: "dark" | "light";

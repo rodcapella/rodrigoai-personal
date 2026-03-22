@@ -40,7 +40,7 @@ export default function EducationSection({ education }: EducationSectionProps) {
               align="center"
               className={`${layers[i % 4]} space-tight max-w-[280px] w-full`}
             >
-              <h3 className="heading-sm">
+              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
                 {edu.degree}
               </h3>
 

@@ -46,7 +46,7 @@ export default function SportsSection() {
                 {team.emoji}
               </motion.div>
 
-              <h3 className="heading-sm">
+              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
                 {team.team}
               </h3>
 

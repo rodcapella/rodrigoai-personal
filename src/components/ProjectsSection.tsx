@@ -74,25 +74,28 @@ const ProjectsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
-            <PageCard title={project.name} className="space-content">
-              
+            <PageCard>
+              {/* TITLE */}
+              <h3 className="heading-sm text-primary mb-2">
+                {project.name}
+              </h3>
+
               {/* DESCRIPTION */}
-              <p className="body-md text-justify">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {project.description}
               </p>
 
               {/* STACK */}
-              <div className="flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="tag-ai"
+                    className="tag-ai text-[0.7rem] px-3 py-1 font-medium"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-
             </PageCard>
           </motion.div>
         ))}

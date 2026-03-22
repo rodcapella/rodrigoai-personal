@@ -37,7 +37,7 @@ export default function LanguagesSection({ languages }: LanguagesSectionProps) {
               align="center"
               className={`${layers[idx % 4]} space-tight`}
             >
-              <h3 className="heading-sm">
+              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
                 {lang.name}
               </h3>
 

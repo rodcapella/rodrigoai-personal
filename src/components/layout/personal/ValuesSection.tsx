@@ -65,7 +65,7 @@ export default function ValuesSection() {
             <div className="w-6 h-[2px] bg-primary opacity-70 group-hover:w-10 transition-all duration-300" />
 
             {/* TITLE */}
-            <h3 className="heading-sm">
+            <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
               {value.title}
             </h3>
 

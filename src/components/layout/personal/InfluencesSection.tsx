@@ -52,7 +52,7 @@ export default function InfluencesSection() {
             className={`${layers[idx % 4]} group space-content`}
           >
             {/* CATEGORY */}
-            <h3 className="heading-sm">
+            <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
               {section.category}
             </h3>
 

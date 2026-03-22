@@ -41,7 +41,7 @@ export default function TechStackSection({ techStack }: Props) {
             className="space-content"
           >
             {/* CATEGORY (DISCRETA) */}
-            <h3 className="body-sm opacity-60 uppercase tracking-wide">
+            <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
               {group.category}
             </h3>
 

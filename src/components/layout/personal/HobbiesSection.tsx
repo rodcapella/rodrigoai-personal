@@ -74,7 +74,7 @@ export default function HobbiesSection() {
                 "
               />
 
-              <h3 className="heading-sm">
+              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2"></h3><h3 className="heading-sm">
                 {hobby.title}
               </h3>
 
