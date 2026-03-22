@@ -1,10 +1,11 @@
 import SectionContent from "@/components/layout/SectionContent";
+import { Heart } from "@/lib/icons"; 
 
 export default function PersonalPhilosophy() {
   return (
     <SectionContent
       title="Personal Philosophy"
-      icon={<Heart className="w-6 h-6" />}
+      icon={<Heart className="w-6 h-6 opacity-80" />}
       variant="default"
     >
       <div className="space-content">

@@ -1,6 +1,6 @@
 import PageSection from "@/components/layout/PageSection";
 import PageCard from "@/components/layout/PageCard";
-import { Award, CertificationsSection } from "@/lib/icons";
+import { Award, ChevronRight } from "@/lib/icons";
 
 interface CertificationsSectionProps {
   certifications: string[];
@@ -17,7 +17,7 @@ export default function CertificationsSection({
               
               <ChevronRight
                 className="
-                  w-5 h-5 mt-1
+                  w-6 h-6 opacity-80
                   text-primary
                   flex-shrink-0
                   transition-all duration-300

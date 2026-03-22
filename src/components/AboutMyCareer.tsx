@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
-import PageCard from "@/components/layout/PageCard";
+import ListCard from "@/components/ui/ListCard";
 import { Briefcase, ChevronRight } from "@/lib/icons";
 
 const AboutMyCareer = () => {
@@ -25,24 +25,18 @@ const AboutMyCareer = () => {
             transition={{ duration: 0.5, delay: idx * 0.05 }}
             viewport={{ once: true }}
           >
-            <PageCard className="group flex items-start gap-4">
-              
-              <ChevronRight
-                className="
-                  w-5 h-5 mt-1
-                  text-primary
-                  flex-shrink-0
-                  transition-all duration-300
-                  group-hover:translate-x-1
-                  group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
-                "
-              />
-
-              <p className="body-md">
+           <div className="space-content md:space-section max-w-3xl">
+            {funFacts.map((fact, idx) => (
+              <ListCard
+                key={idx}
+                icon={
+                  <ChevronRight className="w-4 h-4 transition-all group-hover:translate-x-1" />
+                }
+              >
                 {fact}
-              </p>
-
-            </PageCard>
+              </ListCard>
+            ))}
+          </div>
           </motion.div>
         ))}
       </div>

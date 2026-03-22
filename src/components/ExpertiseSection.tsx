@@ -25,7 +25,7 @@ const ExpertiseSection = () => {
               hover
               align="center"
             >
-              <Icon className="w-5 h-5 text-primary" />
+              <Icon className="w-6 h-6 opacity-80" />
 
               <span className="label">
                 {skill.title}

@@ -37,7 +37,7 @@ const WhatDrivesMe = () => {
   return (
     <PageSection
       title="What Drives Me"
-      icon={<Brain className="w-6 h-6" />}
+      icon={<Brain className="w-6 h-6 opacity-80" />}
       variant="gradient"
     >
       <PageGrid cols={3} gap="md">
@@ -55,7 +55,7 @@ const WhatDrivesMe = () => {
               className={`${layers[idx % 4]} space-content`}
             >
               {/* ICON */}
-              <Icon className="w-6 h-6 text-primary opacity-80" />
+              <Icon className="w-6 h-6 opacity-80" />
 
               {/* TITLE (menos dominante) */}
               <h3 className="label">

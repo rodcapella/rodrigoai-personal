@@ -10,7 +10,7 @@ const variants = {
 
 const alignMap = {
   default: "",
-  center: "flex flex-col justify-center items-center text-center",
+  center: "flex flex-col items-center text-center",
 };
 
 interface PageCardProps {
@@ -44,18 +44,18 @@ const PageCard = ({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
       className={`
         relative
-        p-6
+        p-5                     /* 🔥 menor e mais elegante */
         rounded-xl
-        transition-all duration-300
         h-full
+        transition-all duration-300
         ${variants[variant]}
         ${alignMap[align]}
         ${
           hover
-            ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]"
+            ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.12)]"
             : ""
         }
         ${className}
@@ -63,35 +63,37 @@ const PageCard = ({
       {...props}
     >
       {/* ICON */}
-      {icon && <div className="mb-4 text-primary">{icon}</div>}
+      {icon && (
+        <div className="mb-3 text-primary opacity-80 flex items-center">
+          {React.cloneElement(icon as React.ReactElement, {
+            className: "w-6 h-6",
+          })}
+        </div>
+      )}
 
-      {/* TITLE */}
+      {/* TITLE (sempre discreto por padrão) */}
       {title && (
-        <h3 className="heading-md mb-text">
+        <h3 className="label">
           {title}
         </h3>
       )}
 
       {/* DESCRIPTION */}
       {description && (
-        <p className="body-md mb-content">
+        <p className="body-md">
           {description}
         </p>
       )}
 
       {/* HIGHLIGHT */}
       {highlight && (
-        <p className="body-sm text-primary font-medium italic">
+        <p className="body-sm text-primary font-medium">
           {highlight}
         </p>
       )}
 
       {/* CUSTOM CONTENT */}
-      {children && (
-        <div className="mt-3 body-md">
-          {children}
-        </div>
-      )}
+      {children}
     </Component>
   );
 };

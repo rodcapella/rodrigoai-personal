@@ -160,7 +160,7 @@ import { m } from "framer-motion"
                 onClick={onToggle}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6 opacity-80" />
               </button>
             </div>
 

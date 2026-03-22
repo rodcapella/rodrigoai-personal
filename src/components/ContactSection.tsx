@@ -20,7 +20,7 @@ import SectionTitle from "@/components/layout/SectionTitle";
     hover:bg-primary/10 hover:border-primary/30
   "
 >
-  <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+  <Linkedin className="w-6 h-6 opacity-80 text-muted-foreground group-hover:text-primary transition-colors" />
 </a>
 
 const isMobile = window.innerWidth < 768;
@@ -67,7 +67,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="flex items-center justify-center h-12 w-12 rounded-lg border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-6 h-6 opacity-80" />
             </a>
           </div>
         </motion.div>

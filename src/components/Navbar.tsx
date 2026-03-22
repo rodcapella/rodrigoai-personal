@@ -126,7 +126,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
                 className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
                 aria-label="Toggle theme"
               >
-                {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {theme === "dark" ? <Sun className="w-6 h-6 opacity-80" /> : <Moon className="w-6 h-6 opacity-80" />}
               </button>
 
               {/* Linkedin */}
@@ -136,7 +136,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-6 h-6 opacity-80" />
               </a>
 
               {/* Github */}
@@ -146,7 +146,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-6 h-6 opacity-80" />
               </a>
 
               {/* Mobile Menu Button */}

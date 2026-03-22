@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
-import PageCard from "@/components/layout/PageCard";
+import ListCard from "@/components/ui/ListCard";
 import { Award } from "@/lib/icons";
 
 interface Competence {
@@ -23,30 +22,15 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
           const Icon = competence.icon;
 
           return (
-            <PageCard
+            <ListCard
               key={i}
-              as={motion.div}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group space-tight"
-              align="center"
+              className="items-center justify-center text-center space-tight"
+              icon={<Icon className="w-5 h-5" />}
             >
-              <Icon
-                className="
-                  w-6 h-6
-                  text-primary
-                  transition-all
-                  group-hover:scale-110
-                  group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
-                "
-              />
-
               <span className="label">
                 {competence.title}
               </span>
-            </PageCard>
+            </ListCard>
           );
         })}
       </PageGrid>
