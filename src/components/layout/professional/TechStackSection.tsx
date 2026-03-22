@@ -40,11 +40,11 @@ export default function TechStackSection({ techStack }: Props) {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="space-content"
           >
-            {/* CATEGORY (DISCRETA) */}
-            <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
-              {group.category}
+            {/* CATEGORY */}
+            <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
+                {group.category}
             </h3>
-
+            
             {/* TECH LIST */}
             <div className="space-content">
               {group.items.map((tech) => {

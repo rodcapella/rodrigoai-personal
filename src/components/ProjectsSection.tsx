@@ -76,7 +76,7 @@ const ProjectsSection = () => {
           >
             <PageCard>
               {/* TITLE */}
-              <h3 className="heading-sm text-primary mb-2">
+              <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
                 {project.name}
               </h3>
 

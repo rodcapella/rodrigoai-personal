@@ -62,20 +62,21 @@ const PageCard = ({
       `}
       {...props}
     >
-      {/* ICON */}
-      {icon && (
-        <div className="mb-3 text-primary opacity-80 flex items-center">
-          {React.cloneElement(icon as React.ReactElement, {
-            className: "w-6 h-6",
-          })}
-        </div>
-      )}
 
-      {/* TITLE (sempre discreto por padrão) */}
-      {title && (
-        <h3 className="label">
-          {title}
-        </h3>
+      {/* HEADER (ICON + TITLE) */}
+      {(icon || title) && (
+        <div className="flex items-center gap-2 mb-3">
+          {icon &&
+            React.cloneElement(icon as React.ReactElement, {
+              className: "w-6 h-6 text-primary opacity-80",
+            })}
+          
+          {title && (
+            <h3 className="heading-sm text-foreground">
+              {title}
+            </h3>
+          )}
+        </div>
       )}
 
       {/* DESCRIPTION */}

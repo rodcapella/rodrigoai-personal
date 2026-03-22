@@ -61,11 +61,9 @@ export default function CuriosityStackSection() {
                   group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]
                 "
               />
-
-              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
+              <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
                 {item.title}
               </h3>
-
               <p className="body-md">
                 {item.description}
               </p>

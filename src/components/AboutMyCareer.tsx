@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import ListCard from "@/components/ui/ListCard";
 import { Briefcase, ChevronRight } from "@/lib/icons";
@@ -16,15 +15,6 @@ const AboutMyCareer = () => {
 
   return (
     <PageSection title="About My Career" icon={<Briefcase />}>
-      <div className="space-content md:space-section">
-        {funFacts.map((fact, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: idx * 0.05 }}
-            viewport={{ once: true }}
-          >
            <div className="space-content md:space-section max-w-3xl">
             {funFacts.map((fact, idx) => (
               <ListCard
@@ -37,9 +27,6 @@ const AboutMyCareer = () => {
               </ListCard>
             ))}
           </div>
-          </motion.div>
-        ))}
-      </div>
     </PageSection>
   );
 };

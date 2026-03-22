@@ -1,6 +1,6 @@
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
-import ListCard from "@/components/ui/ListCard";
+import PageCard from "@/components/layout/PageCard";
 import { Award } from "@/lib/icons";
 
 interface Competence {
@@ -22,15 +22,24 @@ const CoreCompetencesSection = ({ competences }: CoreCompetencesSectionProps) =>
           const Icon = competence.icon;
 
           return (
-            <ListCard
+            <PageCard
               key={i}
-              className="items-center justify-center text-center space-tight"
-              icon={<Icon className="w-5 h-5" />}
+              align="center"
+              className="space-tight"
+              hover
             >
-              <span className="label">
-                {competence.title}
-              </span>
-            </ListCard>
+              <div className="flex flex-col items-center gap-2 text-center">
+                
+                {/* ICON */}
+                <Icon className="w-6 h-6 text-primary" />
+
+                {/* TITLE */}
+                <span className="label">
+                  {competence.title}
+                </span>
+
+              </div>
+            </PageCard>
           );
         })}
       </PageGrid>

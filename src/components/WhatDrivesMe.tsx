@@ -57,8 +57,8 @@ const WhatDrivesMe = () => {
               {/* ICON */}
               <Icon className="w-6 h-6 opacity-80" />
 
-              {/* TITLE (menos dominante) */}
-              <h3 className="label">
+              {/* TITLE */}
+              <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
                 {fact.title}
               </h3>
 

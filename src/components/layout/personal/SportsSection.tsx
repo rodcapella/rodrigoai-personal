@@ -5,13 +5,13 @@ import PageCard from "@/components/layout/PageCard";
 import { Trophy } from "@/lib/icons";
 
 const sportsTeams = [
-  { team: "Flamengo", country: "Brazil", emoji: "🔴⚫", color: "255, 0, 0" }, // vermelho
+  { team: "Flamengo", country: "Brazil", emoji: "🔴⚫", color: "255, 0, 0" },
   {
     team: "FC Porto",
     country: "Portugal",
     emoji: "🔵⚪",
     color: "37, 99, 235",
-  }, // azul
+  },
 ];
 
 export default function SportsSection() {
@@ -37,8 +37,10 @@ export default function SportsSection() {
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
               className="flex flex-col items-center"
             >
+              
+              {/* EMOJI */}
               <motion.div
-                className="text-4xl"
+                className="text-4xl mb-1"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 whileHover={{ scale: 1.2 }}
@@ -46,13 +48,14 @@ export default function SportsSection() {
                 {team.emoji}
               </motion.div>
 
-              <h3 className="text-xs uppercase tracking-wide text-muted-foreground/70 mb-2">
+              {/* TITLE */}
+              <h3
+                className="text-lg font-bold mt-1 transition-all duration-300"
+                style={{ color: `rgb(${team.color})` }}
+              >
                 {team.team}
               </h3>
 
-              <p className="body-sm">
-                {team.country}
-              </p>
             </motion.div>
           </PageCard>
         ))}
@@ -61,7 +64,7 @@ export default function SportsSection() {
       {/* TEXT BLOCK */}
       <div className="mt-section">
         <p className="body-md text-center max-w-xl mx-auto">
-          From Rio to Porto, football is more than a game, it’s identity, culture
+          From Rio to Porto, soccer is more than a game, it’s identity, culture
           and emotion. Supporting Flamengo and FC Porto connects two parts of my
           life into one story.
         </p>
