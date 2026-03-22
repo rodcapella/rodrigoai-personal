@@ -35,7 +35,7 @@ export {
   Mail,
   Eye,
   Star,
-  
+
   // Dados e Infraestrutura
   Globe,
   Database,
@@ -48,6 +48,7 @@ export {
   Network,
   GitBranch,
   FlaskConical,
+  Repeat,
   
   // Negócios e Análise
   TrendingUp,
