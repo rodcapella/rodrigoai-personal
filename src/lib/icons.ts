@@ -34,6 +34,7 @@ export {
   X,
   Mail,
   Eye,
+  Star,
   
   // Dados e Infraestrutura
   Globe,
