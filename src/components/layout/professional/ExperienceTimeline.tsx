@@ -41,18 +41,31 @@ export default function ExperienceTimeline({
             <div className="absolute left-2 top-3 w-4 h-4 rounded-full bg-primary shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
 
             <PageCard className="space-content">
-              
+  
               {/* HEADER */}
               <div className="space-tight">
-                <h3 className="heading-sm">{exp.title}</h3>
+                
+                {/* ROLE */}
+                <h3 className="heading-sm">
+                  {exp.title}
+                </h3>
 
-                <span className="label text-primary">
-                  {exp.company}
+                {/* COMPANY + PERIOD */}
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="body-md text-primary font-medium">
+                    {exp.company}
+                  </span>
+
+                  <span className="body-sm opacity-70">
+                    {exp.period}
+                  </span>
+                </div>
+
+                {/* LOCATION */}
+                <span className="body-sm opacity-70">
+                  {exp.location}
                 </span>
 
-                <span className="body-sm">
-                  {exp.location} • {exp.period}
-                </span>
               </div>
 
               {/* HIGHLIGHTS */}
@@ -67,7 +80,11 @@ export default function ExperienceTimeline({
 
               {/* STACK */}
               <div className="space-tight">
-                <span className="label">Tech Stack</span>
+                
+                {/* label mais discreta */}
+                <span className="body-xs opacity-50 uppercase tracking-wide">
+                  Tech Stack
+                </span>
 
                 <div className="flex flex-wrap gap-2">
                   {(exp.stack ?? []).map((tech, i) => (
@@ -83,6 +100,7 @@ export default function ExperienceTimeline({
                     </motion.span>
                   ))}
                 </div>
+
               </div>
 
             </PageCard>

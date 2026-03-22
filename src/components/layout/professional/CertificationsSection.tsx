@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import PageCard from "@/components/layout/PageCard";
 import { Award } from "@/lib/icons";
@@ -12,24 +11,26 @@ export default function CertificationsSection({
 }: CertificationsSectionProps) {
   return (
     <PageSection title="Certifications & Courses" icon={<Award />}>
-      <div className="space-text max-w-3xl">
+      <div className="space-content md:space-section">
         {certifications?.map((cert, idx) => (
-          <PageCard
-            key={idx}
-            as={motion.div}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.05 }}
-            className="flex items-start gap-3"
-            hover={false}
-          >
-            <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0" />
+          <PageCard className="group flex items-start gap-4">
+              
+              <ChevronRight
+                className="
+                  w-5 h-5 mt-1
+                  text-primary
+                  flex-shrink-0
+                  transition-all duration-300
+                  group-hover:translate-x-1
+                  group-hover:drop-shadow-[0_0_6px_rgba(59,130,246,0.6)]
+                "
+              />
 
-            <p className="body-md text-justify">
-              {cert}
-            </p>
-          </PageCard>
+              <p className="body-md">
+                {cert}
+              </p>
+
+            </PageCard>
         ))}
       </div>
     </PageSection>

@@ -16,15 +16,16 @@ interface TechGroup {
 
 interface Props {
   techStack: TechGroup[];
-  maxYears: number;
 }
 
-export default function TechStackSection({ techStack, maxYears }: Props) {
+const MAX_YEARS = 20;
+
+export default function TechStackSection({ techStack }: Props) {
   if (!techStack?.length) return null;
 
   return (
     <PageSection
-      title="Core Technology Stack & Experience Depth"
+      title="Technology Stack & Experience Depth"
       icon={<Layers />}
       variant="gradient"
     >
@@ -39,29 +40,35 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
             transition={{ duration: 0.5, delay: i * 0.08 }}
             className="space-content"
           >
-            {/* CATEGORY */}
-            <h3 className="heading-sm">
+            {/* CATEGORY (DISCRETA) */}
+            <h3 className="body-sm opacity-60 uppercase tracking-wide">
               {group.category}
             </h3>
 
             {/* TECH LIST */}
             <div className="space-content">
               {group.items.map((tech) => {
-                const safeMax = maxYears || 1;
-                const width = Math.min((tech.years / safeMax) * 100, 100);
+                const width = Math.min(
+                  (tech.years / MAX_YEARS) * 100,
+                  100
+                );
 
                 return (
                   <div key={tech.name} className="space-tight">
                     
                     {/* HEADER */}
                     <div className="flex justify-between items-center">
-                      <span className="label">
+                      
+                      {/* TECH NAME */}
+                      <span className="body-md">
                         {tech.name}
                       </span>
 
-                      <span className="label text-primary">
+                      {/* YEARS (LARANJA 🔥) */}
+                      <span className="text-orange-500 text-sm font-semibold">
                         {tech.years} yrs
                       </span>
+
                     </div>
 
                     {/* PROGRESS BAR */}
@@ -74,6 +81,7 @@ export default function TechStackSection({ techStack, maxYears }: Props) {
                         className="h-full bg-gradient-to-r from-primary to-secondary"
                       />
                     </div>
+
                   </div>
                 );
               })}

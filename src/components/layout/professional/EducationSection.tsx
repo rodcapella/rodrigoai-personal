@@ -34,10 +34,11 @@ export default function EducationSection({ education }: EducationSectionProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="flex justify-center"
           >
             <PageCard
               align="center"
-              className={`${layers[i % 4]} space-tight`}
+              className={`${layers[i % 4]} space-tight max-w-[280px] w-full`}
             >
               <h3 className="heading-sm">
                 {edu.degree}

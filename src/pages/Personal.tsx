@@ -5,6 +5,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
+import SectionContent from "@/components/layout/SectionContent";
 
 interface PersonalProps {
   theme?: "dark" | "light";
@@ -12,7 +13,6 @@ interface PersonalProps {
 }
 
 const PersonalPhilosophy = lazy(() => import("@/components/layout/personal/PersonalPhilosophy"));
-const CuriosityStackSection = lazy(() => import("@/components/layout/personal/CuriosityStackSection"));
 const LifeRelocation = lazy(() => import("@/components/layout/personal/LifeRelocation"));
 const HobbiesSection = lazy(() => import("@/components/layout/personal/HobbiesSection"));
 const SportsSection = lazy(() => import("@/components/layout/personal/SportsSection"));

@@ -7,6 +7,7 @@ import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { profile } from "@/data/profile";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
+import SectionContent from "@/components/layout/SectionContent";
 
 interface ProfessionalProps {
   theme?: "dark" | "light";

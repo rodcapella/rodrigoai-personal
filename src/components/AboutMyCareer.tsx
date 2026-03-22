@@ -16,7 +16,7 @@ const AboutMyCareer = () => {
 
   return (
     <PageSection title="About My Career" icon={<Briefcase />}>
-      <div className="space-content md:space-section max-w-3xl">
+      <div className="space-content md:space-section">
         {funFacts.map((fact, idx) => (
           <motion.div
             key={idx}
