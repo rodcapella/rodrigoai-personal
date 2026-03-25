@@ -26,19 +26,18 @@ export default function EducationSection({ education }: EducationSectionProps) {
       icon={<GraduationCap />}
       variant="gradient"
     >
-      <PageGrid cols={3} gap="md" className="max-w-5xl">
+      <PageGrid cols={3} gap="md">
         {education.map((edu, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="flex justify-center"
           >
             <PageCard
               align="center"
-              className={`${layers[i % 4]} space-tight max-w-[280px] w-full`}
+              className={`${layers[i % 4]} space-tight`}
             >
               <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
                 {edu.degree}

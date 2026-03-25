@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
-import { BookOpen, Zap, Rocket, Lightbulb, Brain, Package  } from "@/lib/icons";
+import { BookOpen, Zap, Rocket, Lightbulb, Brain, Package } from "@/lib/icons";
 
 const WhatDrivesMe = () => {
   const facts = [
@@ -46,27 +46,12 @@ const WhatDrivesMe = () => {
 
           return (
             <PageCard
-              key={fact.title}
-              as={motion.div}
-              initial={{ opacity: 0, y: 20 }} // 🔁 padrão global (não x)
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className={`${layers[idx % 4]} space-content`}
-            >
-              {/* ICON */}
-              <Icon className="w-6 h-6 opacity-80" />
-
-              {/* TITLE */}
-              <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
-                {fact.title}
-              </h3>
-
-              {/* DESCRIPTION */}
-              <p className="body-md">
-                {fact.description}
-              </p>
-            </PageCard>
+              key={idx}
+              icon={<Icon />}
+              title={fact.title}
+              description={fact.description}
+              className={`${layers[idx % 4]} group`}
+            ></PageCard>
           );
         })}
       </PageGrid>

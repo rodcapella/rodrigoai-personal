@@ -44,7 +44,7 @@ const ContactSection = () => {
           </SectionTitle>
 
           <p className="text-muted-foreground text-lg mb-10 max-w-xl">
-            Building modern data platforms, AI systems, or intelligent digital
+            Building modern data platforms, AI systems or intelligent digital
             products? Let’s connect and explore what’s possible.
           </p>
 

@@ -45,66 +45,37 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
       icon: Layers,
       title: "Three Levels of Mastery",
       description:
-        "Enterprise BI → Analytics Engineering → Modern Data Platforms. I connect data architecture with real business insights—building decision platforms, not just pipelines.",
-      highlight: "Few leaders operate across all three layers",
+        "Enterprise BI → Analytics Engineering → Modern Data Platforms. I connect data architecture with real business insights, building decision platforms not just pipelines.",
     },
     {
       icon: Target,
       title: "Architecture Over Tools",
       description:
-        "Technology changes fast, but good engineering principles last decades. I solve problems at the architectural and organizational level—where real value lives.",
-      highlight: "Most data problems aren't technical; they're structural",
+        "Technology changes fast, but good engineering principles last decades. I solve problems at the architectural and organizational level, where real value lives.",
     },
     {
       icon: Users,
       title: "People Amplified by AI",
       description:
         "AI and automation enhance human capability, they don't replace it. My philosophy centers on building systems where technology multiplies team effectiveness.",
-      highlight: "Productivity through intelligent infrastructure",
     },
     {
       icon: ShieldCheck,
       title: "End-to-End Ownership",
       description:
         "I take full responsibility from problem definition to production impact—ensuring solutions are not only built, but adopted, trusted and measurable.",
-      highlight: "From idea to impact, not just implementation",
     },
     {
       icon: Sparkles,
       title: "Relentless Focus on Quality",
       description:
-        "I don’t settle for 'working solutions'. I push for robust, scalable and elegant systems—always aiming for the best possible implementation.",
-      highlight: "Good enough is never the finish line",
+        "I don’t settle for 'working solutions'. I push for robust, scalable and elegant systems. Always aiming for the best possible implementation.",
     },
     {
       icon: BarChart3,
       title: "Business-Driven Engineering",
       description:
-        "I translate complex data systems into clear business value—aligning engineering decisions with measurable outcomes and strategic goals.",
-      highlight: "Bridging the gap between data and decisions",
-    },
-  ];
-
-  const leadershipPillars = [
-    {
-      title: "Engineering First",
-      description: "Principles over tools. Scalability over quick wins.",
-    },
-    {
-      title: "Data Drives Decisions",
-      description: "Platforms are strategic infrastructure.",
-    },
-    {
-      title: "Calm & Clarity Under Pressure",
-      description: "A composed and thoughtful approach to challenges, enabling better decisions, stronger teams and sustainable outcomes.",
-    },
-    {
-      title: "Empathy & Understanding",
-      description: "Great systems are built by people. I value listening, understanding different perspectives and creating environments where individuals can thrive.",
-    },
-    {
-      title: "Human-Centered AI",
-      description: "Technology amplifies capability.",
+        "I translate complex data systems into clear business value, always aligning engineering decisions with measurable outcomes and strategic goals.",
     },
   ];
 
@@ -116,15 +87,15 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
     content: (
       <div className="w-full space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
         <p>
-          This leadership philosophy is grounded in an <strong>Engineering First</strong> mindset, where decisions are driven by strong principles and a focus on scalability rather than short-term gains. In parallel, <strong>Data Drives Decisions</strong> emphasizes that platforms are not just tools, but strategic infrastructure that should guide how organizations think, operate, and evolve.
+          This leadership philosophy is grounded in an <strong>Engineering First</strong> mindset, where decisions are driven by strong principles and a focus on scalability rather than short-term gains. In parallel, <strong>Data Drives Decisions</strong> emphasizes that platforms are not just tools, but strategic infrastructure that should guide how organizations think, operate and evolve.
         </p>
 
         <p>
-          In high-pressure environments, <strong>Calm & Clarity Under Pressure</strong> highlights the importance of maintaining a composed and thoughtful approach, enabling better decisions, stronger teams, and more sustainable outcomes. This is reinforced by <strong>Empathy & Understanding</strong>, recognizing that great systems are built by people, and that listening, embracing different perspectives, and fostering supportive environments are key to collective success.
+          In high-pressure environments, <strong>Calm & Clarity Under Pressure</strong> highlights the importance of maintaining a composed and thoughtful approach, enabling better decisions, stronger teams and more sustainable outcomes. This is reinforced by <strong>Empathy & Understanding</strong>, recognizing that great systems are built by people, and that listening, embracing different perspectives and fostering supportive environments are key to collective success.
         </p>
 
         <p>
-          Finally, <strong>Human-Centered AI</strong> reflects the belief that technology should amplify human capability. Rather than replacing people, it should empower them to achieve higher levels of performance, innovation, and long-term impact.
+          Finally, <strong>Human-Centered AI</strong> reflects the belief that technology should amplify human capability. Rather than replacing people, it should empower them to achieve higher levels of performance, innovation and long-term impact.
         </p>
       </div>
     ),
@@ -144,7 +115,6 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
                 icon={<Icon />}
                 title={diff.title}
                 description={diff.description}
-                highlight={diff.highlight}
                 className={`${layers[idx % 4]} group`}
               />
             );
@@ -158,14 +128,14 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
       content: (
         <PageGrid cols={3}>
           <PageCard 
+            title="Data as a Product" 
+            icon={<Package />} 
+            description="Shifting ownership to the source. Treating data with the same rigor as software: clear SLAs, robust Data Contracts and high-fidelity discovery for seamless consumption." 
+          />
+          <PageCard 
             title="AI-Native Architecture" 
             icon={<Cpu />} 
             description="Transitioning from passive Data Platforms to proactive AI-Native Systems. Building event-driven backends and vector-ready infrastructures for RAG and Real-Time LLM integration." 
-          />
-          <PageCard 
-            title="Data as a Product" 
-            icon={<Package />} 
-            description="Shifting ownership to the source. Treating data with the same rigor as software: clear SLAs, robust Data Contracts, and high-fidelity discovery for seamless consumption." 
           />
           <PageCard 
             title="Human-AI Augmentation" 
@@ -175,7 +145,7 @@ const WhyMe = ({ theme = "dark", onToggleTheme }: any) => {
           <PageCard 
             title="Trust & Governance" 
             icon={<ShieldCheck />} 
-            description="Ensuring ethical AI through 'Security by Design'. Implementing automated data lineage, privacy-preserving computation, and transparent model explainability." 
+            description="Ensuring ethical AI through 'Security by Design'. Implementing automated data lineage, privacy-preserving computation and transparent model explainability." 
           />
         </PageGrid>
       ),

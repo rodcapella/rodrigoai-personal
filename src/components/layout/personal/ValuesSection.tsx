@@ -81,9 +81,6 @@ export default function ValuesSection() {
               transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="group space-content"
             >
-              {/* LINE */}
-              <div className="w-6 h-[2px] bg-primary opacity-70 group-hover:w-10 transition-all duration-300" />
-
               {/* TITLE + ICON */}
               <div className="flex items-center gap-2 mt-2">
                 <Icon className="w-4 h-4 text-primary transition-transform group-hover:scale-110" />

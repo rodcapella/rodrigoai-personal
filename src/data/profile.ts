@@ -58,9 +58,9 @@ export const profile = {
     {
       category: "Languages & Processing",
       items: [
-        { name: "SQL", years: 15 },
-        { name: "T-SQL", years: 7 },
-        { name: "PL/SQL", years: 7 },
+        { name: "SQL", years: 18 },
+        { name: "PL/SQL", years: 10 },
+        { name: "T-SQL", years: 8 },   
         { name: "Python", years: 5 },
         { name: "PySpark", years: 3 },
       ],
@@ -68,12 +68,12 @@ export const profile = {
     {
       category: "Data Engineering & Platforms",
       items: [
-        { name: "ELT / ETL Pipelines", years: 15 },
-        { name: "Azure", years: 3 },
-        { name: "Azure Databricks", years: 3 },
+        { name: "ELT / ETL Pipelines", years: 10 },
+        { name: "Azure", years: 4 },
+        { name: "Databricks", years: 3 },
         { name: "Delta Lake", years: 3 },
         { name: "Hive", years: 3 },
-        { name: "Hadoop Ecosystem", years: 2 },
+        { name: "Hadoop Ecosystem", years: 3 },
         { name: "ElasticSearch", years: 2 },
       ],
     },
@@ -83,7 +83,7 @@ export const profile = {
         { name: "Oracle", years: 10 },
         { name: "SQL Server", years: 8 },
         { name: "MySQL", years: 5 },
-        { name: "PostgreSQL", years: 2 },
+        { name: "Postgress", years: 2 },
         { name: "BigQuery", years: 1 },
         { name: "MongoDB", years: 1 },
       ],
@@ -91,8 +91,8 @@ export const profile = {
     {
       category: "BI & Analytics Platforms",
       items: [
-        { name: "IBM Cognos", years: 7 },
-        { name: "Power BI", years: 5 },
+        { name: "Power BI", years: 6 },
+        { name: "IBM Cognos", years: 5 },   
         { name: "Tableau", years: 3 },
         { name: "MicroStrategy", years: 2 },
         { name: "Kibana", years: 2 },
@@ -111,10 +111,10 @@ export const profile = {
     {
       category: "Data Architecture & Governance",
       items: [
-        { name: "Dimensional Modeling", years: 12 },
+        { name: "Dimensional Modeling", years: 10 },
         { name: "Data Architecture", years: 6 },
         { name: "Semantic Modeling", years: 5 },
-        { name: "Data Governance", years: 4 },
+        { name: "Data Governance", years: 3 },
       ],
     },
   ],

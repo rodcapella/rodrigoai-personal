@@ -18,7 +18,6 @@ const HobbiesSection = lazy(() => import("@/components/layout/personal/HobbiesSe
 const SportsSection = lazy(() => import("@/components/layout/personal/SportsSection"));
 const ValuesSection = lazy(() => import("@/components/layout/personal/ValuesSection"));
 const InfluencesSection = lazy(() => import("@/components/layout/personal/InfluencesSection"));
-const VisionSection = lazy(() => import("@/components/layout/personal/VisionSection"));
 const AIExplorationSection = lazy(() => import("@/components/layout/personal/AIExplorationSection"));
 
 const SectionLoader = () => (
@@ -41,7 +40,6 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
     { component: <SportsSection />, variant: "muted" },
     { component: <ValuesSection /> },
     { component: <InfluencesSection />, variant: "muted" },
-    { component: <VisionSection /> },
     { component: <AIExplorationSection />, variant: "muted" },
   ];
 

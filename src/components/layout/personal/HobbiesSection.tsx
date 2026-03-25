@@ -64,19 +64,15 @@ export default function HobbiesSection() {
               transition={{ duration: 0.4, delay: idx * 0.05 }}
               className="group space-content"
             >
-              <Icon
-                className="
-                  w-7 h-7
-                  text-primary
-                  transition-all
-                  group-hover:scale-110
-                  group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]
-                "
-              />
+              {/* TITLE + ICON */}
+              <div className="flex items-center gap-2 mt-2">
+                <Icon className="w-4 h-4 text-primary transition-transform group-hover:scale-110" />
 
               <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
                 {hobby.title}
               </h3>
+              </div>
+
               <p className="body-md">
                 {hobby.description}
               </p>
