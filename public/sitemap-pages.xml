@@ -3,21 +3,23 @@ import fs from "fs";
 
 const lastCommitDate = execSync("git log -1 --format=%cI").toString().trim();
 
-const pages = [
-  "https://www.rpovoadata.tech/",
-  "https://www.rpovoadata.tech/about",
-  "https://www.rpovoadata.tech/personal",
-  "https://www.rpovoadata.tech/professional",
-  "https://www.rpovoadata.tech/why-me",
-  "https://www.rpovoadata.tech/side-projects",
-  "https://www.rpovoadata.tech/contact",
+const baseUrl = "https://www.rpovoadata.tech";
 
+const pages = [
+  `${baseUrl}/`,
+  `${baseUrl}/personal`,
+  `${baseUrl}/professional`,
+  `${baseUrl}/why-me`,
+  `${baseUrl}/side-projects`,
+  `${baseUrl}/contact`
 ];
 
 const urls = pages.map(url => `
   <url>
     <loc>${url}</loc>
     <lastmod>${lastCommitDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${url === "https://www.rpovoadata.tech/" ? "1.0" : "0.8"}</priority>
   </url>
 `).join("");
 
@@ -27,4 +29,4 @@ const sitemapPages = `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>`;
 
 // 👉 AQUI MUDA O NOME
-fs.writeFileSync("./dist/sitemap-pages.xml", sitemapPages);
+fs.writeFileSync("./public/sitemap-pages.xml", sitemapPages);

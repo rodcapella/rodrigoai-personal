@@ -8,9 +8,9 @@ Disallow: /admin
 Disallow: /private
 Disallow: /api
 
-# Allow important assets
-Allow: /assets/
-Allow: /images/
+# Optional: block technical folders
+Disallow: /node_modules/
+Disallow: /.git/
 
 # Sitemaps
 Sitemap: https://www.rpovoadata.tech/sitemap-index.xml
