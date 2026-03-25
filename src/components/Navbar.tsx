@@ -25,7 +25,7 @@ interface NavbarProps {
   onToggleTheme?: () => void;
 }
 
-const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
+const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -122,7 +122,7 @@ const Navbar = ({ theme = "dark", onToggleTheme }: NavbarProps) => {
             <div className="flex items-center gap-4">
               {/* Theme Toggle */}
               <button
-                onClick={onToggleTheme}
+                onClick={() => onToggleTheme?.()}
                 className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
                 aria-label="Toggle theme"
               >

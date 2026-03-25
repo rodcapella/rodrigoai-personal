@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
@@ -7,45 +8,48 @@ import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { profile } from "@/data/profile";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
-import SectionContent from "@/components/layout/SectionContent";
-import {ChevronRight} from "@/lib/icons";
-
-interface ProfessionalProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
 
 const ProfessionalIntro = lazy(() => import("@/components/layout/professional/ProfessionalIntro"));
-const CoreCompetencesSection = lazy(() => import("@/components/layout/professional/CoreCompetencesSection"));
 const TechStackSection = lazy(() => import("@/components/layout/professional/TechStackSection"));
 const ExperienceTimeline = lazy(() => import("@/components/layout/professional/ExperienceTimeline"));
 const EducationSection = lazy(() => import("@/components/layout/professional/EducationSection"));
 const CertificationsSection = lazy(() => import("@/components/layout/professional/CertificationsSection"));
 const LanguagesSection = lazy(() => import("@/components/layout/professional/LanguagesSection"));
 
-const SectionLoader = () => (
-  <div className="py-20 flex justify-center items-center">
-    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
-
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
 const maxYears = 20;
 
-const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
+export default function Professional() {
+  const { theme, onToggleTheme } = useOutletContext<{
+    theme: "dark" | "light";
+    onToggleTheme: () => void;
+  }>();
 
   const sections: {
     component: React.ReactNode;
     variant?: SectionVariant;
   }[] = [
     { component: <ProfessionalIntro /> },
-    { component: <CoreCompetencesSection competences={profile.core_skills} />, variant: "muted" },
-    { component: <TechStackSection maxYears={maxYears} techStack={profile.technical_stack} /> },
-    { component: <ExperienceTimeline experiences={profile.experience} />, variant: "muted" },
-    { component: <EducationSection education={profile.education} /> },
-    { component: <CertificationsSection certifications={profile.certifications} />, variant: "muted" },
-    { component: <LanguagesSection languages={profile.languages} />, variant: "glass" },
+    {
+      component: (
+        <TechStackSection
+          maxYears={maxYears}
+          techStack={profile.technical_stack}
+        />
+      ),
+      variant: "muted",
+    },
+    { component: <ExperienceTimeline experiences={profile.experience} /> },
+    {
+      component: <EducationSection education={profile.education} />,
+      variant: "muted",
+    },
+    { component: <CertificationsSection certifications={profile.certifications} /> },
+    {
+      component: <LanguagesSection languages={profile.languages} />,
+      variant: "glass",
+    },
   ];
 
   return (
@@ -75,7 +79,7 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
         ]}
       />
 
-      {/* HERO PADRONIZADO */}
+      {/* HERO */}
       <PageSection variant="gradient" className="pt-32 pb-16">
         <PageHero
           variant="page"
@@ -85,9 +89,9 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
         />
       </PageSection>
 
-      {/* SECTIONS DINÂMICAS */}
+      {/* SECTIONS */}
       {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
+        <Suspense key={index} fallback={<SectionLoader />}>
           <PageSection variant={section.variant}>
             {section.component}
           </PageSection>
@@ -95,6 +99,4 @@ const Professional = ({ theme = "dark", onToggleTheme }: ProfessionalProps) => {
       ))}
     </MainLayout>
   );
-};
-
-export default Professional;
+}

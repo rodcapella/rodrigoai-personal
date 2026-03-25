@@ -1,16 +1,12 @@
+import { useOutletContext } from "react-router-dom";
+import MainLayout from "@/components/layout/MainLayout";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import { AlertCircle, CheckCircle } from "@/lib/icons";
 import FormField from "@/components/ui/FormField";
-
-interface ContactProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
 
 type FormData = {
   name: string;
@@ -20,7 +16,12 @@ type FormData = {
   message: string;
 };
 
-export default function Contact({ theme, onToggleTheme }: ContactProps) {
+export default function Contact() {
+  const { theme, onToggleTheme } = useOutletContext<{
+    theme: "dark" | "light";
+    onToggleTheme: () => void;
+  }>();
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -126,10 +127,6 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
 
       {/* FORM */}
       <PageSection variant="glass">
-        <div className="text-center mb-6 text-sm text-muted-foreground">
-          Usually replies within 24 hours, often faster.
-        </div>
-
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div
@@ -166,6 +163,7 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               <FormField
                 name="name"
                 placeholder="Full Name"
+                disabled={loading}
                 value={formData.name}
                 onChange={handleChange}
                 error={errors.name}
@@ -175,6 +173,7 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
                 name="email"
                 type="email"
                 placeholder="Email"
+                disabled={loading}
                 value={formData.email}
                 onChange={handleChange}
                 error={errors.email}
@@ -183,6 +182,7 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               <FormField
                 name="phone"
                 placeholder="Phone (optional)"
+                disabled={loading}
                 value={formData.phone}
                 onChange={handleChange}
                 error={errors.phone}
@@ -191,30 +191,34 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
               <FormField
                 name="subject"
                 placeholder="Subject"
+                disabled={loading}
                 value={formData.subject}
                 onChange={handleChange}
                 error={errors.subject}
               />
 
               {/* TEXTAREA */}
-              <div>
+              <div className="space-y-2">
                 <textarea
                   name="message"
-                  rows={5}
+                  rows={4}
                   placeholder="Tell me about your idea, project or challenge..."
                   value={formData.message}
                   onChange={handleChange}
                   className={`
                     w-full
-                    px-4 py-4
+                    px-4 py-3
                     rounded-xl
                     bg-white/5
                     backdrop-blur-md
                     border border-white/10
+                    text-sm
                     text-foreground
                     placeholder:text-muted-foreground/70
+                    leading-relaxed
                     transition-all duration-200
                     outline-none
+                    resize-none
                     ${
                       errors.message
                         ? "border-red-500"
@@ -224,7 +228,7 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
                 />
 
                 {errors.message && (
-                  <p className="text-red-500 text-sm mt-2 flex gap-2 items-center">
+                  <p className="text-red-500 text-xs mt-1 flex gap-2 items-center">
                     <AlertCircle className="w-4 h-4" />
                     {errors.message}
                   </p>
@@ -244,7 +248,7 @@ export default function Contact({ theme, onToggleTheme }: ContactProps) {
                   transition-all duration-300
                 "
               >
-                {loading ? "Sending..." : "Send Message"}
+                {loading ? "Sending message ..." : "Send Message"}
               </button>
             </motion.form>
           )}

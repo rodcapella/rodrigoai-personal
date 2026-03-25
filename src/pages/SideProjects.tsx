@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
@@ -20,20 +21,14 @@ import {
   FlaskConical,
 } from "@/lib/icons";
 
-interface SideProjectsProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
-
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
-const SectionLoader = () => (
-  <div className="py-20 flex justify-center items-center">
-    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
+export default function SideProjects() {
+  const { theme, onToggleTheme } = useOutletContext<{
+    theme: "dark" | "light";
+    onToggleTheme: () => void;
+  }>();
 
-const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
   const projectCategories = [
     {
       icon: Cpu,
@@ -79,62 +74,40 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
     },
   ];
 
-  const sections: {
-    title?: string;
-    icon?: React.ReactNode;
-    content: React.ReactNode;
-    variant?: SectionVariant;
-    useNewLayout?: boolean;
-  }[] = [
+  const sections = [
     {
       title:
         "Sapiente.AI: Maximizing human potential through Artificial Intelligence",
       icon: <Cpu />,
       useNewLayout: true,
       content: (
-        <div className="w-full space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-text text-muted-foreground text-lg leading-relaxed"
-          >
-            <p>
-              Sapiente.AI is an AI innovation ecosystem focused on building
-              AI-native data platforms using modern technologies such as Azure,
-              Databricks, Delta Lake and LLM-based architectures. It bridges the
-              gap between traditional data engineering and next-generation
-              intelligent systems.
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="space-text text-muted-foreground text-lg leading-relaxed"
+        >
+          <p>
+            Sapiente.AI is an innovation ecosystem focused on building intelligent solutions that combine technology, strategy, and creativity to solve real-world problems.
+          </p>
 
-            <p>
-              With over 15 years of experience in data engineering and
-              analytics, this initiative focuses on transforming raw data into
-              scalable, intelligent and automated decision systems.
-            </p>
+          <p>
+            More than a data-driven initiative, Sapiente.AI operates at the intersection of Artificial Intelligence, digital products, automation, and organizational transformation. Its mission is to help companies and ideas evolve from traditional operations into adaptive, intelligent and value-driven systems.
+          </p>
 
-            <p>
-              Core areas of development include AI-powered data products,
-              intelligent automation frameworks, and modern data platforms
-              designed to support analytics, governance and AI workloads in a
-              unified architecture.
-            </p>
+          <p>
+            With a strong technology foundation and an experimentation-first mindset, Sapiente.AI creates everything from AI-powered platforms to end-to-end digital experiences—integrating backend systems, intelligent logic and modern user interfaces into scalable solutions.
+          </p>
 
-            <p>
-              Sapiente.AI also explores full-stack AI applications, combining
-              backend data pipelines with intelligent frontends to create
-              adaptive digital products and scalable brand ecosystems.
-            </p>
+          <p>
+            Its areas of focus include digital product development, intelligent automation, technology platforms, digital branding and the exploration of new AI-driven business models.
+          </p>
 
-            <p>
-              The goal is to enable organizations to move beyond traditional
-              analytics and adopt AI-driven decision-making systems that are
-              reliable, governed and production-ready.
-            </p>
-          </motion.div>
-        </div>
+          <p>
+            The vision is simple: turn ideas into living systems, capable of learning, adapting and growing—enabling organizations to innovate continuously and sustainably.
+          </p>
+        </motion.div>
       ),
     },
     {
@@ -178,7 +151,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
             />
           </div>
 
-          <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
+          <h3 className="text-base font-semibold text-foreground">
             Explore Sapiente.AI
           </h3>
 
@@ -211,7 +184,7 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
         <title>Rodrigo Póvoa – Sapiente.AI Innovation Hub</title>
       </Helmet>
 
-      {/* HERO PADRONIZADO */}
+      {/* HERO */}
       <PageSection variant="gradient" className="pt-32 pb-16">
         <PageHero
           variant="page"
@@ -223,11 +196,11 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
 
       {/* SECTIONS */}
       {sections.map((section, index) => {
-        const isSapienteMain = section.useNewLayout;
+        const isMain = section.useNewLayout;
 
         return (
           <Suspense key={index} fallback={<SectionLoader />}>
-            {isSapienteMain ? (
+            {isMain ? (
               <SectionContent
                 title={section.title!}
                 icon={section.icon}
@@ -250,6 +223,4 @@ const SideProjects = ({ theme = "dark", onToggleTheme }: SideProjectsProps) => {
       })}
     </MainLayout>
   );
-};
-
-export default SideProjects;
+}

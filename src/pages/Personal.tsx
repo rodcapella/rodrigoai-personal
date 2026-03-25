@@ -1,16 +1,11 @@
 import { Suspense, lazy } from "react";
+import { useOutletContext } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
-import SectionContent from "@/components/layout/SectionContent";
 import SectionLoader from "@/components/ui/SectionLoader";
-
-interface PersonalProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
 
 const PersonalPhilosophy = lazy(() => import("@/components/layout/personal/PersonalPhilosophy"));
 const LifeRelocation = lazy(() => import("@/components/layout/personal/LifeRelocation"));
@@ -20,16 +15,14 @@ const ValuesSection = lazy(() => import("@/components/layout/personal/ValuesSect
 const InfluencesSection = lazy(() => import("@/components/layout/personal/InfluencesSection"));
 const AIExplorationSection = lazy(() => import("@/components/layout/personal/AIExplorationSection"));
 
-const SectionLoader = () => (
-  <div className="py-20 flex justify-center items-center">
-    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
-
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
-const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
-  
+export default function Personal() {
+  const { theme, onToggleTheme } = useOutletContext<{
+    theme: "dark" | "light";
+    onToggleTheme: () => void;
+  }>();
+
   const sections: {
     component: React.ReactNode;
     variant?: SectionVariant;
@@ -61,7 +54,7 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         <link rel="canonical" href="https://www.rpovoadata.tech/personal" />
       </Helmet>
 
-      {/* HERO PADRONIZADO */}
+      {/* HERO */}
       <PageSection variant="gradient" className="pt-32 pb-16">
         <PageHero
           variant="page"
@@ -71,9 +64,9 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
         />
       </PageSection>
 
-      {/* SECTIONS DINÂMICAS */}
+      {/* SECTIONS */}
       {sections.map((section, index) => (
-        <Suspense key={index} fallback={<SectionLoader size="lg" />}>
+        <Suspense key={index} fallback={<SectionLoader />}>
           <PageSection variant={section.variant}>
             {section.component}
           </PageSection>
@@ -81,6 +74,4 @@ const Personal = ({ theme = "dark", onToggleTheme }: PersonalProps) => {
       ))}
     </MainLayout>
   );
-};
-
-export default Personal;
+}
