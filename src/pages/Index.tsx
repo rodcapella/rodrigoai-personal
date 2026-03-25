@@ -7,7 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import PageSection from "@/components/layout/PageSection";
 import SectionLoader from "@/components/ui/SectionLoader";
 
-import { Award, Database, Brain, BarChart3 } from "@/lib/icons";
+import { Cpu, Award, Network, Database, Lightbulb, ShieldCheck, Brain, BarChart3, Workflow } from "@/lib/icons";
 
 const AboutSection = lazy(() => import("@/components/AboutSection"));
 const CoreCompetencesSection = lazy(() => import("@/components/CoreCompetencesSection"));
@@ -22,12 +22,17 @@ export default function Index() {
     onToggleTheme: () => void;
   }>();
 
-  const competences = [
-    { icon: Database, title: "Data Architecture" },
-    { icon: Brain, title: "AI & Analytics" },
-    { icon: BarChart3, title: "Business Intelligence" },
-    { icon: Award, title: "Data Governance" },
-  ];
+const competences = [
+  { icon: Cpu, title: "Data Engineering" },
+  { icon: Database, title: "Data Architecture" },
+  { icon: Brain, title: "Data Analytics" },
+  { icon: BarChart3, title: "Business Intelligence" },
+  { icon: Award, title: "Data Governance" },
+  { icon: Workflow, title: "Intelligent Automation" },
+  { icon: Network, title: "System Integration" },
+  { icon: Lightbulb, title: "Innovation & Strategy" },
+  { icon: ShieldCheck, title: "AI Governance & Ethics" },
+];
 
   const sections = [
     { component: <AboutSection /> },
