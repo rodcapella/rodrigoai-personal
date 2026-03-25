@@ -60,16 +60,6 @@ export default function SportsSection() {
           </PageCard>
         ))}
       </PageGrid>
-
-      {/* TEXT BLOCK */}
-      <div className="mt-section">
-        <p className="body-md text-center max-w-xl mx-auto">
-          From Rio to Porto, soccer is more than a game, it’s identity, culture
-          and emotion. Supporting Flamengo and FC Porto connects two parts of my
-          life into one story.
-        </p>
-      </div>
-
     </PageSection>
   );
 }

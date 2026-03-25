@@ -56,9 +56,9 @@ export default function AIExplorationSection() {
 
           {/* Platforms */}
           <div>
-            <p className="text-sm font-semibold mb-4 text-foreground">
+            <span className="text-xs font-medium tracking-wide text-orange-400/80 uppercase">
               Platforms Explored
-            </p>
+            </span>
 
             <div className="flex flex-wrap gap-3">
               {aiExploration.map((platform, idx) => (

@@ -148,15 +148,14 @@ body {
   }
 
   .tag-ai {
-    @apply px-4 py-1.5 rounded-full 
-           bg-white text-orange-500 
-           text-xs font-bold 
-           border border-orange-500/20
-           transition-all;
-  }
-
-  .tag-ai:hover {
-    @apply bg-orange-50;
+    @apply px-4 py-1.5 rounded-full
+          bg-gradient-to-r from-orange-500 to-orange-400
+          text-white
+          text-sm font-extrabold tracking-wide
+          border border-orange-300/40
+          shadow-md shadow-orange-500/30
+          hover:scale-105
+          transition-all duration-200;
   }
 
   .heading-xl {

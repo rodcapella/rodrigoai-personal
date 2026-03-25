@@ -82,7 +82,7 @@ export default function ExperienceTimeline({
               <div className="space-tight">
                 
                 {/* label mais discreta */}
-                <span className="body-xs opacity-50 tracking-wide">
+                <span className="text-xs font-medium tracking-wide text-orange-400/80 uppercase">
                   Tech Stack
                 </span>
 

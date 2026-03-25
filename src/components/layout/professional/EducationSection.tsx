@@ -37,7 +37,9 @@ export default function EducationSection({ education }: EducationSectionProps) {
           >
             <PageCard
               align="center"
-              className={`${layers[i % 4]} space-tight`}
+              className={`${layers[i % 4]} space-tight ${
+                education.length === 1 ? "col-span-3 max-w-md mx-auto" : ""
+              }`}
             >
               <h3 className="text-base font-semibold text-foreground transition-all duration-300 group-hover:text-primary">
                 {edu.degree}
