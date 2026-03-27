@@ -56,17 +56,13 @@ export default function Professional() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Professional"
-        description="Over 15 years leading data engineering projects, building Azure Databricks platforms and scalable analytics architectures in Europe and Brazil."
+        description="Explore Rodrigo Póvoa’s professional journey in Data Analytics Engineer, including Azure Databricks, PySpark, distributed systems and enterprise data platform architecture." 
       />
 
       <Helmet>
         <title>
           Professional Experience | Rodrigo Póvoa - Data Analytics Engineer Leader
         </title>
-        <meta
-          name="description"
-          content="Over 15 years leading data engineering projects, building Azure Databricks platforms and scalable analytics architectures in Europe and Brazil."
-        />
       </Helmet>
 
       <BreadcrumbSchema

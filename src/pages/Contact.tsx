@@ -112,7 +112,7 @@ export default function Contact() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Contact"
-        description="Whether it's a project, an idea or just a conversation."
+        description="Get in touch with Rodrigo Póvoa to discuss data engineering, AI systems, analytics platforms or strategic technology initiatives." 
       />
 
       {/* HERO */}

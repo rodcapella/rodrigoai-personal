@@ -177,7 +177,7 @@ export default function SideProjects() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Sapiente.AI | AI Innovation Hub"
-        description="AI innovation hub focused on data platforms, automation and AI-native systems using Azure, Databricks and modern architectures."
+        description="Explore Sapiente.AI and innovation projects focused on AI systems, intelligent automation and modern data platforms built by Rodrigo Póvoa." 
       />
 
       <Helmet>

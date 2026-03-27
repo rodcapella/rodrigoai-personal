@@ -163,7 +163,7 @@ export default function WhyMe() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Why Me?"
-        description="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+        description="Why work with Rodrigo Póvoa: 15+ years building data platforms, combining architecture expertise, AI-driven thinking and business-focused engineering." 
       />
 
       <Helmet>

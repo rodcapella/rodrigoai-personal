@@ -40,17 +40,11 @@ export default function Personal() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Personal"
-        description="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
+        description="Discover the personal mindset, values, hobbies and influences of Rodrigo Póvoa, combining analytical thinking, cultural curiosity and AI exploration." 
       />
 
       <Helmet>
         <title>Personal | Rodrigo Póvoa – Values, Vision & AI Exploration</title>
-
-        <meta
-          name="description"
-          content="Personal profile of Rodrigo Póvoa — exploring philosophy, leadership values, cultural influences, sports passion and AI ecosystem experimentation."
-        />
-
         <link rel="canonical" href="https://www.rpovoadata.tech/personal" />
       </Helmet>
 
