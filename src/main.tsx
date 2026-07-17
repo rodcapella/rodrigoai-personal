@@ -5,6 +5,9 @@ import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { router } from "./router";
+import { initializeConsentMode } from "./lib/analytics";
+
+initializeConsentMode();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

@@ -61,6 +61,20 @@ The platform is designed to communicate:
 
 ---
 
+## 📊 Google Analytics and privacy consent
+
+The site loads Google Analytics only after explicit visitor consent and tracks SPA route changes manually.
+
+1. Create a GA4 web data stream for `https://www.rpovoadata.tech`.
+2. In Vercel, open **Project Settings → Environment Variables**.
+3. Add `VITE_GA_MEASUREMENT_ID` with the GA4 Measurement ID (`G-XXXXXXXXXX`) for Production, Preview and Development as needed.
+4. Redeploy the project.
+5. In GA4 Enhanced Measurement, disable automatic **Page changes based on browser history events** because pageviews are sent manually by the application.
+
+Consent preferences can be changed from the footer and are explained at `/privacy`.
+
+---
+
 ## 🤝 Let’s Connect
 
 If you're building data platforms, scaling analytics or exploring AI-native systems:

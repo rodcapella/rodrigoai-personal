@@ -9,6 +9,7 @@ const links = [
   { href: "/why-me", label: "Why Me?" },
   { href: "/professional", label: "Professional" },
   { href: "/personal", label: "Personal" },
+  { href: "/blog", label: "Blog" },
   { href: "/side-projects", label: "Innovation Hub" },
 ];
 
@@ -17,6 +18,7 @@ const preloadMap: Record<string, () => Promise<any>> = {
   "/personal": () => import("../pages/Personal"),
   "/why-me": () => import("../pages/WhyMe"),
   "/side-projects": () => import("../pages/SideProjects"),
+  "/blog": () => import("../pages/Blog"),
   "/contact": () => import("../pages/Contact"),
 };
 
@@ -62,11 +64,12 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
         <Container>
           <div className="flex items-center justify-between">
             {/* LEFT — Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-5 xl:gap-7">
               {links.map((link) => (
                 <NavLink
                   key={link.href}
                   to={link.href}
+                  end={link.href === "/"}
                   onMouseEnter={() => preloadMap[link.href]?.()}
                   onTouchStart={() => preloadMap[link.href]?.()}
                   className="relative text-sm font-medium transition-colors duration-300"
@@ -134,6 +137,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                 href="https://www.linkedin.com/in/rodrigocspovoa"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn de Rodrigo Póvoa"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin className="w-6 h-6 opacity-80" />
@@ -144,6 +148,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                 href="https://github.com/rodcapella"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub de Rodrigo Póvoa"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Github className="w-6 h-6 opacity-80" />
@@ -152,7 +157,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 text-foreground"
+                className="lg:hidden p-2 text-foreground"
                 aria-label="Toggle menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -169,7 +174,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
-              className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 md:hidden"
+              className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden"
             >
               <Container>
                 <div className="flex flex-col gap-6 py-6">
@@ -177,6 +182,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                     <NavLink
                       key={link.href}
                       to={link.href}
+                      end={link.href === "/"}
                       onClick={() => setMobileMenuOpen(false)}
                       className={({ isActive }) =>
                         `font-medium text-lg transition-all duration-300 ${

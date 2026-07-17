@@ -6,6 +6,9 @@ const pages = [
   "/professional",
   "/personal",
   "/side-projects",
+  "/blog",
+  "/blog/sem-dados-de-qualidade-nao-ha-ia-que-salve-o-negocio",
+  "/privacy",
   "/contact",
 ];
 

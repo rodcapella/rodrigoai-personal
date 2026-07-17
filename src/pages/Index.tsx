@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import SEO from "@/components/SEO";
 import MainLayout from "@/components/layout/MainLayout";
 import HeroSection from "@/components/HeroSection";
 import PageSection from "@/components/layout/PageSection";
@@ -54,22 +54,17 @@ const competences = [
 
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
-      <Helmet>
-        <title>
-          Rodrigo Póvoa | Technical Data Leader & Data Analytics Engineer
-        </title>
-
-        <meta
-          name="description"
-          content="Rodrigo Póvoa is a Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
-        />
-      </Helmet>
+      <SEO
+        title="Rodrigo Póvoa | Technical Data Leader & Data Analytics Engineer"
+        description="Rodrigo Póvoa is a Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
+        keywords="Rodrigo Póvoa, technical data leader, data analytics engineer, data engineering, AI systems"
+      />
 
       <BreadcrumbSchema
         items={[{ name: "Home", url: "https://www.rpovoadata.tech/" }]}
       />
 
-      <main id="main-content">
+      <div>
         <HeroSection
           onOpenChat={() => {
             console.warn("Chat not implemented yet");
@@ -83,7 +78,7 @@ const competences = [
             </PageSection>
           </Suspense>
         ))}
-      </main>
+      </div>
     </MainLayout>
   );
 }
