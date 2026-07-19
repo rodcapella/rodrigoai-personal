@@ -4,7 +4,6 @@ import { Link, Navigate, useOutletContext, useParams } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
-import CommentSection from "@/components/blog/CommentSection";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { getBlogPost } from "@/data/blogPosts";
 
@@ -175,7 +174,6 @@ export default function BlogPost() {
                 )}
               </div>
             </div>
-            <CommentSection slug={post.slug} />
           </article>
           <aside className="hidden lg:block">
             <div className="sticky top-28 rounded-xl border border-primary/15 bg-card/60 p-5">
