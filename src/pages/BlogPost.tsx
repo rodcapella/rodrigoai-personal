@@ -105,16 +105,10 @@ export default function BlogPost() {
 
       <PageSection variant="gradient" spacing="none" className="pt-28 pb-8 md:pt-32 md:pb-10">
         <div className="mx-auto max-w-4xl">
-          <Link to="/blog" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
-            <ArrowLeft className="h-4 w-4" /> Back to blog
-          </Link>
           <div className="mb-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-semibold text-primary">{post.category}</span>
             <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-4 w-4" />{formatDate(post.publishedAt)}</span>
             <span className="inline-flex items-center gap-1.5"><Clock3 className="h-4 w-4" />{post.readingTime}</span>
-            {post.updatedAt && post.updatedAt !== post.publishedAt && (
-              <span>Updated {formatDate(post.updatedAt)}</span>
-            )}
           </div>
           <h1 className="max-w-4xl font-display text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">{post.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">{post.excerpt}</p>
@@ -174,6 +168,12 @@ export default function BlogPost() {
                 )}
               </div>
             </div>
+            <Link
+              to="/blog"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <ArrowLeft className="h-4 w-4" /> Back to blog
+            </Link>
           </article>
           <aside className="hidden lg:block">
             <div className="sticky top-28 rounded-xl border border-primary/15 bg-card/60 p-5">
