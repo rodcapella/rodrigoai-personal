@@ -13,7 +13,7 @@ const links = [
   { href: "/side-projects", label: "Innovation Hub" },
 ];
 
-const preloadMap: Record<string, () => Promise<any>> = {
+const preloadMap: Record<string, () => Promise<unknown>> = {
   "/professional": () => import("../pages/Professional"),
   "/personal": () => import("../pages/Personal"),
   "/why-me": () => import("../pages/WhyMe"),
@@ -26,6 +26,10 @@ interface NavbarProps {
   theme?: "dark" | "light";
   onToggleTheme?: () => void;
 }
+
+const scrollToPageTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+};
 
 const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
@@ -70,6 +74,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                   key={link.href}
                   to={link.href}
                   end={link.href === "/"}
+                  onClick={scrollToPageTop}
                   onMouseEnter={() => preloadMap[link.href]?.()}
                   onTouchStart={() => preloadMap[link.href]?.()}
                   className="relative text-sm font-medium transition-colors duration-300"
@@ -112,6 +117,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               >
                 <NavLink
                   to="/contact"
+                  onClick={scrollToPageTop}
                   onMouseEnter={() => preloadMap["/contact"]?.()}
                   onTouchStart={() => preloadMap["/contact"]?.()}
                   className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
@@ -183,7 +189,10 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                       key={link.href}
                       to={link.href}
                       end={link.href === "/"}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        scrollToPageTop();
+                      }}
                       className={({ isActive }) =>
                         `font-medium text-lg transition-all duration-300 ${
                           isActive
@@ -198,7 +207,10 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
 
                   <NavLink
                     to="/contact"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      scrollToPageTop();
+                    }}
                     className="mt-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-center font-medium"
                   >
                     Contact

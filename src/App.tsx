@@ -28,6 +28,10 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [location.pathname, location.search]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
+
   return (
     <>
       <Outlet context={{ theme, onToggleTheme: handleToggleTheme }} />

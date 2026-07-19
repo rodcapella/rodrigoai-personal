@@ -11,6 +11,10 @@ const navigation = [
   { to: "/side-projects", label: "Innovation Hub" },
 ];
 
+const scrollToPageTop = () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+};
+
 const Footer = () => {
   return (
     <footer className="site-footer border-t border-primary/10 bg-card/20 py-8">
@@ -52,7 +56,7 @@ const Footer = () => {
             <ul className="mt-3 space-y-2 text-sm">
               {navigation.map((item) => (
                 <li key={item.to}>
-                  <Link to={item.to} className="text-muted-foreground transition hover:text-primary">
+                  <Link to={item.to} onClick={scrollToPageTop} className="text-muted-foreground transition hover:text-primary">
                     {item.label}
                   </Link>
                 </li>
@@ -63,8 +67,8 @@ const Footer = () => {
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">Information</h2>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><Link to="/contact" className="text-muted-foreground transition hover:text-primary">Contact</Link></li>
-              <li><Link to="/privacy" className="text-muted-foreground transition hover:text-primary">Privacy Policy</Link></li>
+              <li><Link to="/contact" onClick={scrollToPageTop} className="text-muted-foreground transition hover:text-primary">Contact</Link></li>
+              <li><Link to="/privacy" onClick={scrollToPageTop} className="text-muted-foreground transition hover:text-primary">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
