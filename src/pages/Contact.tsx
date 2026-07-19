@@ -209,9 +209,9 @@ export default function Contact() {
                     w-full
                     px-4 py-3
                     rounded-xl
-                    bg-white/5
+                    bg-background
                     backdrop-blur-md
-                    border border-white/10
+                    border border-border
                     text-sm
                     text-foreground
                     placeholder:text-muted-foreground/70
@@ -222,7 +222,7 @@ export default function Contact() {
                     ${
                       errors.message
                         ? "border-red-500"
-                        : "focus:border-primary/40 focus:ring-2 focus:ring-primary/20"
+                        : "focus:border-primary focus:ring-2 focus:ring-primary/30"
                     }
                   `}
                 />

@@ -8,27 +8,27 @@ import { openPrivacyConsent } from "@/lib/privacyConsent";
 const sections = [
   {
     icon: Database,
-    title: "Dados tratados",
+    title: "Data we process",
     content:
-      "Quando autoriza a medição de audiência, podem ser tratados dados técnicos como páginas visitadas, horário, origem aproximada da visita, tipo de dispositivo, navegador e interações de navegação. O site não solicita que forneça dados pessoais para fins de Analytics.",
+      "When you consent to audience measurement, technical data may be processed, including pages visited, time of access, approximate traffic source, device type, browser and navigation interactions. The website does not ask you to provide personal data for Analytics purposes.",
   },
   {
     icon: BarChart3,
     title: "Google Analytics",
     content:
-      "O Google Analytics é usado exclusivamente para compreender o desempenho do site e melhorar os conteúdos. A medição só é ativada após consentimento. O armazenamento publicitário, os sinais do Google e a personalização de anúncios permanecem desativados.",
+      "Google Analytics is used exclusively to understand website performance and improve its content. Measurement is activated only after consent. Advertising storage, Google signals and ad personalisation remain disabled.",
   },
   {
     icon: Cookie,
-    title: "Armazenamento local e cookies",
+    title: "Local storage and cookies",
     content:
-      "O site guarda localmente a preferência de tema e a decisão de consentimento. Se aceitar Analytics, o Google pode criar identificadores de medição no seu navegador. Se recusar ou retirar o consentimento, o site atualiza o estado para negado e tenta remover os cookies de Analytics do domínio.",
+      "The website stores your theme preference and consent decision locally. If you accept Analytics, Google may create measurement identifiers in your browser. If you refuse or withdraw consent, the website updates the status to denied and attempts to remove Analytics cookies from the domain.",
   },
   {
     icon: MessageCircle,
-    title: "Comentários públicos",
+    title: "Public comments",
     content:
-      "Ao publicar um comentário, o nome escolhido, o texto e a data de publicação ficam visíveis publicamente. Não inclua email, telefone ou outros dados pessoais no comentário. O conteúdo pode ser removido quando necessário para segurança, prevenção de abuso ou cumprimento legal.",
+      "When you publish a comment, your chosen name, the comment text and publication date become publicly visible. Do not include an email address, telephone number or other personal data. Content may be removed when necessary for security, abuse prevention or legal compliance.",
   },
 ];
 
@@ -41,9 +41,9 @@ export default function Privacy() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Política de Privacidade | Rodrigo Póvoa"
-        description="Saiba como o site de Rodrigo Póvoa trata preferências, comentários e dados de navegação, e como gerir o consentimento do Google Analytics."
-        language="pt-PT"
+        title="Privacy Policy | Rodrigo Póvoa"
+        description="Learn how Rodrigo Póvoa's website handles preferences, comments and navigation data, and how to manage Google Analytics consent."
+        language="en-GB"
       />
 
       <PageSection variant="gradient" className="pt-32 pb-16">
@@ -52,12 +52,12 @@ export default function Privacy() {
             <ShieldCheck className="h-6 w-6" />
           </div>
           <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
-            Política de Privacidade
+            Privacy Policy
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
-            Transparência sobre os dados utilizados neste site e controlo sobre a sua escolha de medição de audiência.
+            Clear information about the data used by this website and control over your audience measurement choice.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">Última atualização: 17 de julho de 2026</p>
+          <p className="mt-4 text-sm text-muted-foreground">Last updated: 19 July 2026</p>
         </div>
       </PageSection>
 
@@ -80,40 +80,40 @@ export default function Privacy() {
           </div>
 
           <section className="mt-10 space-y-4">
-            <h2 className="font-display text-2xl font-semibold">Finalidade e controlo</h2>
+            <h2 className="font-display text-2xl font-semibold">Purpose and control</h2>
             <p className="leading-7 text-muted-foreground">
-              O tratamento de dados de medição baseia-se no seu consentimento. Pode aceitar, recusar ou retirar essa autorização a qualquer momento através do botão abaixo. A recusa não limita o acesso ao site.
+              Measurement data is processed on the basis of your consent. You may accept, refuse or withdraw that consent at any time using the button below. Refusing consent does not restrict access to the website.
             </p>
             <button
               type="button"
               onClick={openPrivacyConsent}
               className="rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90"
             >
-              Gerir preferências de privacidade
+              Manage privacy preferences
             </button>
           </section>
 
           <section className="mt-10 space-y-4">
-            <h2 className="font-display text-2xl font-semibold">Os seus direitos</h2>
+            <h2 className="font-display text-2xl font-semibold">Your rights</h2>
             <p className="leading-7 text-muted-foreground">
-              Pode solicitar informação, correção ou eliminação de dados relacionados consigo, bem como retirar o consentimento. Para pedidos de privacidade, utilize a{" "}
+              You may request information about, correction of or deletion of data relating to you, and you may withdraw consent. For privacy requests, use the{" "}
               <Link to="/contact" className="font-semibold text-primary hover:underline">
-                página de contacto
+                contact page
               </Link>.
             </p>
           </section>
 
           <section className="mt-10 space-y-4">
-            <h2 className="font-display text-2xl font-semibold">Serviços externos</h2>
+            <h2 className="font-display text-2xl font-semibold">External services</h2>
             <p className="leading-7 text-muted-foreground">
-              A medição é prestada pela Google. Consulte também a{" "}
+              Audience measurement is provided by Google. You can also review the{" "}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-primary hover:underline"
               >
-                Política de Privacidade da Google
+                Google Privacy Policy
               </a>.
             </p>
           </section>

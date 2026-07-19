@@ -47,8 +47,8 @@ export default function PrivacyConsent() {
         type="button"
         onClick={() => setOpen(true)}
         className="group fixed bottom-5 left-5 z-[80] flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/25 bg-background/90 p-2 shadow-lg shadow-primary/15 backdrop-blur-md transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
-        aria-label="Abrir preferências de privacidade e cookies"
-        title="Preferências de privacidade"
+        aria-label="Open cookie and privacy preferences"
+        title="Cookie and privacy preferences"
       >
         <img
           src="/cookie-privacy-button.webp"
@@ -73,7 +73,7 @@ export default function PrivacyConsent() {
             type="button"
             onClick={() => setOpen(false)}
             className="float-right rounded-lg p-2 text-muted-foreground transition hover:bg-primary/10 hover:text-primary"
-            aria-label="Fechar preferências de privacidade"
+            aria-label="Close privacy preferences"
           >
             <X className="h-5 w-5" />
           </button>
@@ -83,10 +83,10 @@ export default function PrivacyConsent() {
           <ShieldCheck className="h-6 w-6" />
         </div>
         <h2 id="privacy-consent-title" className="font-display text-2xl font-semibold sm:text-3xl">
-          A sua privacidade importa
+          Your privacy matters
         </h2>
         <p id="privacy-consent-description" className="mt-4 leading-relaxed text-muted-foreground">
-          Este site utiliza armazenamento estritamente necessário para guardar as suas preferências. Com a sua autorização, também usamos o Google Analytics para compreender a navegação e melhorar o conteúdo.
+          This website uses strictly necessary storage to remember your preferences. With your permission, we also use Google Analytics to understand navigation and improve the content.
         </p>
 
         <button
@@ -95,7 +95,7 @@ export default function PrivacyConsent() {
           className="mt-5 text-sm font-semibold text-primary hover:underline"
           aria-expanded={showDetails}
         >
-          {showDetails ? "Ocultar detalhes" : "Ver detalhes e preferências"}
+          {showDetails ? "Hide details" : "View details and preferences"}
         </button>
 
         {showDetails && (
@@ -104,11 +104,11 @@ export default function PrivacyConsent() {
               <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div>
                 <div className="flex items-center gap-2">
-                  <h3 className="font-semibold">Armazenamento necessário</h3>
-                  <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">Sempre ativo</span>
+                  <h3 className="font-semibold">Necessary storage</h3>
+                  <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">Always active</span>
                 </div>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Guarda o tema escolhido e a decisão de privacidade. Não é usado para publicidade.
+                  Stores your chosen theme and privacy decision. It is not used for advertising.
                 </p>
               </div>
             </div>
@@ -116,25 +116,25 @@ export default function PrivacyConsent() {
             <div className="flex gap-3 rounded-xl border border-primary/10 bg-card/50 p-4">
               <BarChart3 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div>
-                <h3 className="font-semibold">Medição de audiência</h3>
+                <h3 className="font-semibold">Audience measurement</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                  Mede páginas visitadas, origem aproximada da visita, dispositivo e interação técnica. Publicidade e personalização permanecem desativadas.
+                  Measures pages visited, approximate traffic source, device and technical interactions. Advertising and personalisation remain disabled.
                 </p>
               </div>
             </div>
 
             {!isAnalyticsConfigured() && (
               <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-500">
-                A medição de audiência ainda não está configurada neste ambiente.
+                Audience measurement is not yet configured in this environment.
               </p>
             )}
           </div>
         )}
 
         <p className="mt-5 text-sm text-muted-foreground">
-          Pode alterar esta escolha a qualquer momento através do botão de cookies no canto inferior esquerdo. Consulte a{" "}
+          You can change this choice at any time using the cookie button in the lower-left corner. Read the{" "}
           <Link to="/privacy" onClick={() => setOpen(false)} className="font-semibold text-primary hover:underline">
-            Política de Privacidade
+            Privacy Policy
           </Link>.
         </p>
 
@@ -144,14 +144,14 @@ export default function PrivacyConsent() {
             onClick={acceptAnalytics}
             className="rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90"
           >
-            Aceitar Analytics
+            Accept Analytics
           </button>
           <button
             type="button"
             onClick={rejectAnalytics}
             className="rounded-xl border border-primary/20 px-5 py-3 font-semibold transition hover:border-primary/40 hover:text-primary"
           >
-            Apenas necessários
+            Necessary only
           </button>
         </div>
       </div>
