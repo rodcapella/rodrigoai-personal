@@ -4,9 +4,9 @@ import Container from "@/components/layout/Container";
 
 const navigation = [
   { to: "/", label: "Home" },
+  { to: "/why-me", label: "Why Me?" },
   { to: "/professional", label: "Professional" },
   { to: "/personal", label: "Personal" },
-  { to: "/why-me", label: "Why Me?" },
   { to: "/blog", label: "Blog" },
   { to: "/side-projects", label: "Innovation Hub" },
 ];
