@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <sitemap>
     <loc>https://www.rpovoadata.tech/sitemap-pages.xml</loc>
-    <lastmod>DINÂMICO</lastmod>
+    <lastmod>2026-07-15T11:28:45+00:00</lastmod>
   </sitemap>
-
-  <sitemap>
-    <loc>https://www.rpovoadata.tech/sitemap-projects.xml</loc>
-    <lastmod>DINÂMICO</lastmod>
-  </sitemap>
-
 </sitemapindex>

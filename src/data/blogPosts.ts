@@ -12,9 +12,14 @@ export type BlogPost = {
   publishedAt: string;
   updatedAt?: string;
   readingTime: string;
+  language: "pt-PT" | "en-GB";
+  keywords: string[];
   image: string;
   imageAlt: string;
-  source: { name: string; url: string; linkedInUrl: string };
+  imageWidth?: number;
+  imageHeight?: number;
+  source: { name: string; url: string; linkedInUrl?: string };
+  references?: { name: string; url: string }[];
   sections: BlogSection[];
 };
 
@@ -28,9 +33,19 @@ export const blogPosts: BlogPost[] = [
     publishedAt: "2026-07-15T10:42:51+00:00",
     updatedAt: "2026-07-15T11:28:45+00:00",
     readingTime: "7 min read",
+    language: "pt-PT",
+    keywords: [
+      "data quality",
+      "inteligência artificial",
+      "governação de dados",
+      "PME",
+      "transformação digital",
+    ],
     image: "/blog-data-quality-ai-cover.png",
     imageAlt:
       "Fluxos de dados fragmentados atravessam camadas de validação antes de alimentar um sistema de inteligência artificial",
+    imageWidth: 1672,
+    imageHeight: 941,
     source: {
       name: "IA Hoje",
       url: "https://inteligenciaartificialhoje.pt/sem-dados-de-qualidade-nao-ha-ia-que-salve-o-negocio/",
@@ -108,6 +123,107 @@ export const blogPosts: BlogPost[] = [
           "Se houvesse apenas uma ideia a reter deste artigo, seria esta: a IA é uma ferramenta poderosa, mas continua a precisar de contexto, supervisão e conhecimento humano para gerar valor real.",
           "As organizações que conseguirem combinar uma cultura sólida de governação de dados com o potencial de automação da Inteligência Artificial estarão melhor preparadas para transformar informação em vantagem competitiva sustentável.",
           "E é nisto que acredito: quem juntar as duas coisas sai à frente.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "next-challenge-data-engineering-isnt-scale-its-ai-governance",
+    title: "The next challenge for Data Engineering isn't scale. It's AI Governance.",
+    excerpt:
+      "As AI agents become major consumers of enterprise data platforms, governance must expand beyond data access to models, tools, permissions, lineage and automated actions.",
+    category: "Data Engineering & AI",
+    publishedAt: "2026-07-09T11:23:54+00:00",
+    updatedAt: "2026-07-09T11:24:24+00:00",
+    readingTime: "2 min read",
+    language: "en-GB",
+    keywords: [
+      "data engineering",
+      "AI governance",
+      "data architecture",
+      "Databricks",
+      "Unity Catalog",
+      "AI agents",
+      "data governance",
+    ],
+    image: "/next_challenge_for_DE.webp",
+    imageAlt:
+      "Diagram showing the evolution from data platforms built for human users to AI-ready platforms governed for autonomous agents",
+    imageWidth: 1536,
+    imageHeight: 1024,
+    source: {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/pulse/next-challenge-data-engineering-isnt-scale-its-ai-governance-p%C3%B3voa-8zi5e",
+    },
+    references: [
+      {
+        name: "Governing AI agents at scale with Unity Catalog — Databricks",
+        url: "https://www.databricks.com/blog/governing-ai-agents-scale-unity-catalog",
+      },
+    ],
+    sections: [
+      {
+        paragraphs: [
+          "After reading Databricks' latest updates on Unity Catalog, I started wondering...",
+          "For years, the most important question in a data platform was simple:",
+        ],
+        quote: "Who can access this table?",
+      },
+      {
+        heading: "The question is changing",
+        paragraphs: [
+          "With AI agents on the rise, that question is changing fast.",
+          "Now it's:",
+        ],
+        quote: "Which agents can use this data to make decisions or take actions?",
+      },
+      {
+        heading: "A new phase of Data Engineering",
+        paragraphs: [
+          "We are entering a new phase of Data Engineering and Data Architecture: AI Governance.",
+          "Until now, most organizations have designed their data architectures for users such as:",
+          "• Analysts",
+          "• Data Engineers",
+          "• Data Scientists",
+          "• Business teams",
+          "But the next major consumer of your data platform probably won't be a person.",
+          "It will be an AI agent.",
+          "An agent capable of querying tables, combining information, calling APIs, executing workflows, opening tickets, generating reports, or even initiating business processes automatically.",
+        ],
+      },
+      {
+        heading: "New questions for AI-ready platforms",
+        paragraphs: [
+          "And that raises new questions:",
+          "What data can this agent access?",
+          "Which tools is it allowed to use?",
+          "What actions is it authorized to perform?",
+          "How do we audit its decisions?",
+          "Who is accountable when something goes wrong?",
+          "Concepts such as:",
+          "• AI Governance",
+          "• Agent Permissions",
+          "• AI Lineage",
+          "• Model Governance",
+          "• Data Policies",
+          "are becoming just as important as ETL, ELT, Data Quality, and Observability.",
+        ],
+      },
+      {
+        heading: "Unity Catalog as a governance layer",
+        paragraphs: [
+          "Recently, Databricks shared its vision for this challenge through the evolution of Unity Catalog.",
+          "The platform is no longer positioning Unity Catalog simply as a data catalog, but as a central governance layer for data, models, tools, and AI agents.",
+          "One of the biggest architectural shifts of the coming years may be this:",
+        ],
+        quote:
+          "The challenge is no longer just governing data. Now we need to govern the intelligence that uses that data.",
+      },
+      {
+        heading: "Are our architectures ready?",
+        paragraphs: [
+          "Are we ready to design architectures built for AI agents rather than just human users?",
+          "How is your organization preparing for AI Governance?",
         ],
       },
     ],

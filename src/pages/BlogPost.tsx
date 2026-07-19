@@ -5,6 +5,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import CommentSection from "@/components/blog/CommentSection";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { getBlogPost } from "@/data/blogPosts";
 
 const baseUrl = "https://www.rpovoadata.tech";
@@ -15,6 +16,9 @@ const formatDate = (date: string) =>
     month: "long",
     year: "numeric",
   }).format(new Date(date));
+
+const countWords = (values: string[]) =>
+  values.join(" ").trim().split(/\s+/).filter(Boolean).length;
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -27,19 +31,52 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/blog" replace />;
 
   const articleUrl = `${baseUrl}/blog/${post.slug}`;
+  const authorId = `${baseUrl}/professional#person`;
+  const imageObject = {
+    "@type": "ImageObject",
+    url: `${baseUrl}${post.image}`,
+    ...(post.imageWidth ? { width: post.imageWidth } : {}),
+    ...(post.imageHeight ? { height: post.imageHeight } : {}),
+  };
+  const articleText = post.sections.flatMap((section) => [
+    section.heading || "",
+    ...section.paragraphs,
+    section.quote || "",
+  ]);
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${articleUrl}#article`,
+    url: articleUrl,
     headline: post.title,
     description: post.excerpt,
-    image: `${baseUrl}${post.image}`,
+    image: imageObject,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt || post.publishedAt,
-    mainEntityOfPage: articleUrl,
-    inLanguage: "pt-PT",
-    author: { "@type": "Person", name: "Rodrigo Póvoa", url: baseUrl },
-    publisher: { "@type": "Person", name: "Rodrigo Póvoa", url: baseUrl },
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    inLanguage: post.language,
+    articleSection: post.category,
+    keywords: post.keywords.join(", "),
+    wordCount: countWords(articleText),
+    isAccessibleForFree: true,
+    author: {
+      "@type": "Person",
+      "@id": authorId,
+      name: "Rodrigo Póvoa",
+      url: `${baseUrl}/professional`,
+      sameAs: ["https://www.linkedin.com/in/rodrigocspovoa", "https://github.com/rodcapella"],
+    },
+    publisher: {
+      "@type": "Person",
+      "@id": authorId,
+      name: "Rodrigo Póvoa",
+      url: `${baseUrl}/professional`,
+    },
     isBasedOn: post.source.url,
+    sameAs: post.source.url,
+    ...(post.references?.length
+      ? { citation: post.references.map((reference) => reference.url) }
+      : {}),
   };
 
   return (
@@ -48,16 +85,24 @@ export default function BlogPost() {
         title={`${post.title} | Rodrigo Póvoa`}
         description={post.excerpt}
         image={post.image}
+        imageAlt={post.imageAlt}
         type="article"
-        keywords="data quality, inteligência artificial, governação de dados, PME, transformação digital"
+        keywords={post.keywords.join(", ")}
         publishedTime={post.publishedAt}
         modifiedTime={post.updatedAt}
         author="Rodrigo Póvoa"
-        language="pt-PT"
+        language={post.language}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
       </Helmet>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: `${baseUrl}/` },
+          { name: "Blog", url: `${baseUrl}/blog` },
+          { name: post.title, url: articleUrl },
+        ]}
+      />
 
       <PageSection variant="gradient" className="pt-32 pb-14">
         <div className="mx-auto max-w-4xl">
@@ -68,6 +113,9 @@ export default function BlogPost() {
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-semibold text-primary">{post.category}</span>
             <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-4 w-4" />{formatDate(post.publishedAt)}</span>
             <span className="inline-flex items-center gap-1.5"><Clock3 className="h-4 w-4" />{post.readingTime}</span>
+            {post.updatedAt && post.updatedAt !== post.publishedAt && (
+              <span>Updated {formatDate(post.updatedAt)}</span>
+            )}
           </div>
           <h1 className="max-w-4xl font-display text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">{post.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">{post.excerpt}</p>
@@ -78,9 +126,22 @@ export default function BlogPost() {
         </div>
       </PageSection>
 
+      <PageSection className="pt-10 pb-0">
+        <figure className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-primary/15 bg-card/50 shadow-xl">
+          <img
+            src={post.image}
+            alt={post.imageAlt}
+            width={post.imageWidth}
+            height={post.imageHeight}
+            loading="eager"
+            className="h-auto w-full object-cover"
+          />
+        </figure>
+      </PageSection>
+
       <PageSection className="pt-14">
         <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_220px]">
-          <article className="min-w-0">
+          <article className="min-w-0" lang={post.language}>
             <div className="space-y-12">
               {post.sections.map((section, index) => (
                 <section key={section.heading || index} className="space-y-5">
@@ -90,12 +151,28 @@ export default function BlogPost() {
                 </section>
               ))}
             </div>
+            {post.references?.length ? (
+              <div className="mt-10 rounded-2xl border border-primary/15 bg-card/50 p-6 sm:p-8">
+                <h2 className="font-display text-xl font-semibold">References and further reading</h2>
+                <ul className="mt-4 space-y-3">
+                  {post.references.map((reference) => (
+                    <li key={reference.url}>
+                      <a href={reference.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+                        {reference.name}<ExternalLink className="h-4 w-4 shrink-0" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <div className="mt-14 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
               <p className="text-sm font-semibold uppercase tracking-wider text-primary">Original publication</p>
-              <p className="mt-3 text-muted-foreground">This article was written by Rodrigo Póvoa and originally published by IA Hoje.</p>
+              <p className="mt-3 text-muted-foreground">This article was written by Rodrigo Póvoa and originally published on {post.source.name}.</p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <a href={post.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Read on {post.source.name}<ExternalLink className="h-4 w-4" /></a>
-                <a href={post.source.linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold transition-colors hover:border-primary/40 hover:text-primary">LinkedIn post<Linkedin className="h-4 w-4" /></a>
+                {post.source.linkedInUrl && post.source.linkedInUrl !== post.source.url && (
+                  <a href={post.source.linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold transition-colors hover:border-primary/40 hover:text-primary">LinkedIn post<Linkedin className="h-4 w-4" /></a>
+                )}
               </div>
             </div>
             <CommentSection slug={post.slug} />

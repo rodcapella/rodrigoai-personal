@@ -6,20 +6,24 @@ import { trackPageView } from "@/lib/analytics";
 
 export default function App() {
   const location = useLocation();
-  const [theme, setTheme] = useState<"dark" | "light">(() => {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [themeReady, setThemeReady] = useState(false);
+
+  useEffect(() => {
     const stored = localStorage.getItem("theme");
-    if (stored === "dark" || stored === "light") return stored;
-    return "dark";
-  });
+    if (stored === "dark" || stored === "light") setTheme(stored);
+    setThemeReady(true);
+  }, []);
 
   const handleToggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   useEffect(() => {
+    if (!themeReady) return;
     document.documentElement.classList.toggle("light", theme === "light");
     localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, [theme, themeReady]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {

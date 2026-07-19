@@ -1,10 +1,12 @@
 import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 import { Link, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { blogPosts } from "@/data/blogPosts";
 
 const formatDate = (date: string) =>
@@ -19,6 +21,43 @@ export default function Blog() {
     theme: "dark" | "light";
     onToggleTheme: () => void;
   }>();
+  const baseUrl = "https://www.rpovoadata.tech";
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${baseUrl}/blog#blog`,
+    url: `${baseUrl}/blog`,
+    name: "Rodrigo Póvoa Blog",
+    description:
+      "Articles and reflections on data, artificial intelligence, technical leadership and digital transformation.",
+    inLanguage: "en-GB",
+    author: {
+      "@type": "Person",
+      "@id": `${baseUrl}/professional#person`,
+      name: "Rodrigo Póvoa",
+      url: `${baseUrl}/professional`,
+    },
+    blogPost: blogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      "@id": `${baseUrl}/blog/${post.slug}#article`,
+      url: `${baseUrl}/blog/${post.slug}`,
+      headline: post.title,
+      datePublished: post.publishedAt,
+      dateModified: post.updatedAt || post.publishedAt,
+      inLanguage: post.language,
+      image: `${baseUrl}${post.image}`,
+    })),
+  };
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: blogPosts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: post.title,
+      url: `${baseUrl}/blog/${post.slug}`,
+    })),
+  };
 
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
@@ -27,6 +66,16 @@ export default function Blog() {
         description="Articles and reflections by Rodrigo Póvoa on data, artificial intelligence, technical leadership and digital transformation."
         keywords="Rodrigo Póvoa, data blog, artificial intelligence, data engineering, data quality, technical leadership"
         language="en-GB"
+      />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+      </Helmet>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: `${baseUrl}/` },
+          { name: "Blog", url: `${baseUrl}/blog` },
+        ]}
       />
 
       <PageSection variant="gradient" className="pt-32 pb-16">
