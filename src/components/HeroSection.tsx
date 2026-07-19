@@ -12,7 +12,8 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
     <PageSection
       variant="gradient"
       container={true}
-      className="relative overflow-hidden pt-32 pb-14"
+      spacing="none"
+      className="relative overflow-hidden pt-28 pb-6 md:pt-32 md:pb-8"
     >
       {/* Grid background */}
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
@@ -66,7 +67,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-3"
       >
         <Link
           to="/professional"

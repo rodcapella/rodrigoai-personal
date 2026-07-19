@@ -78,7 +78,7 @@ export default function Blog() {
         ]}
       />
 
-      <PageSection variant="gradient" className="pt-32 pb-16">
+      <PageSection variant="gradient" spacing="none" className="pt-28 pb-8 md:pt-32 md:pb-10">
         <PageHero
           variant="page"
           title="BLOG"

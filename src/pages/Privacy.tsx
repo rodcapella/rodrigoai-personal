@@ -46,7 +46,7 @@ export default function Privacy() {
         language="en-GB"
       />
 
-      <PageSection variant="gradient" className="pt-32 pb-16">
+      <PageSection variant="gradient" spacing="none" className="pt-28 pb-8 md:pt-32 md:pb-10">
         <div className="mx-auto max-w-4xl">
           <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
             <ShieldCheck className="h-6 w-6" />
