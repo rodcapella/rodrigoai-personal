@@ -17,9 +17,9 @@ const scrollToPageTop = () => {
 
 const Footer = () => {
   return (
-    <footer className="site-footer border-t border-primary/10 bg-card/20 py-8">
+    <footer className="site-footer border-t border-primary/10 bg-card/20 py-4 md:py-5">
       <Container>
-        <div className="grid gap-6 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
+        <div className="grid gap-4 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
           <div>
             <img
               src="/logo_fundo_transparente.webp"
@@ -53,7 +53,7 @@ const Footer = () => {
 
           <nav aria-label="Footer navigation">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">Navigation</h2>
-            <ul className="mt-3 space-y-2 text-sm">
+            <ul className="mt-2 space-y-1.5 text-sm">
               {navigation.map((item) => (
                 <li key={item.to}>
                   <Link to={item.to} onClick={scrollToPageTop} className="text-muted-foreground transition hover:text-primary">
@@ -66,14 +66,14 @@ const Footer = () => {
 
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">Information</h2>
-            <ul className="mt-3 space-y-2 text-sm">
+            <ul className="mt-2 space-y-1.5 text-sm">
               <li><Link to="/contact" onClick={scrollToPageTop} className="text-muted-foreground transition hover:text-primary">Contact</Link></li>
               <li><Link to="/privacy" onClick={scrollToPageTop} className="text-muted-foreground transition hover:text-primary">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-6 border-t border-primary/10 pt-4 text-sm text-muted-foreground">
+        <div className="mt-4 border-t border-primary/10 pt-3 text-sm text-muted-foreground">
           © {new Date().getFullYear()} Rodrigo Póvoa — Data Analytics Engineer & Team Leader
         </div>
       </Container>
