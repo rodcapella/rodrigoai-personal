@@ -33,7 +33,7 @@ export default function Personal() {
     { component: <SportsSection />, variant: "muted" },
     { component: <ValuesSection /> },
     { component: <InfluencesSection />, variant: "muted" },
-    { component: <AIExplorationSection />, variant: "muted" },
+    { component: <AIExplorationSection /> },
   ];
 
   return (
