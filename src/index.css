@@ -149,11 +149,11 @@ body {
 
   .tag-ai {
     @apply px-4 py-1.5 rounded-full
-          bg-gradient-to-r from-orange-500 to-orange-400
-          text-white
+          bg-[#FAC65B]
+          text-slate-900
           text-sm font-extrabold tracking-wide
-          border border-orange-300/40
-          shadow-md shadow-orange-500/30
+          border border-[#FAC65B]/60
+          shadow-md shadow-[#FAC65B]/25
           hover:scale-105
           transition-all duration-200;
   }
@@ -251,6 +251,12 @@ body {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid hsl(var(--glass-border) / 0.5);
+  }
+
+  .light .site-header,
+  .light .site-header.glass,
+  .light .site-footer {
+    background: #94e7ff;
   }
 
   /* Grid pattern */

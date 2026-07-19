@@ -59,10 +59,17 @@ export default async function handler(
   response: ServerResponse,
 ) {
   try {
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.error("Comments API: BLOB_READ_WRITE_TOKEN is not configured");
+      return sendJson(response, 503, {
+        error: "Comments are temporarily unavailable.",
+      });
+    }
+
     if (request.method === "GET") {
       const slug = getSlug(request);
       if (!SLUG_PATTERN.test(slug)) {
-        return sendJson(response, 400, { error: "Artigo inválido." });
+        return sendJson(response, 400, { error: "Invalid article." });
       }
 
       const comments = await readComments(slug);
@@ -78,21 +85,21 @@ export default async function handler(
 
       if (website) return sendJson(response, 201, { ok: true });
       if (!SLUG_PATTERN.test(slug)) {
-        return sendJson(response, 400, { error: "Artigo inválido." });
+        return sendJson(response, 400, { error: "Invalid article." });
       }
       if (name.length < 2 || name.length > 60) {
         return sendJson(response, 400, {
-          error: "O nome deve ter entre 2 e 60 caracteres.",
+          error: "The name must be between 2 and 60 characters.",
         });
       }
       if (message.length < 3 || message.length > 1200) {
         return sendJson(response, 400, {
-          error: "O comentário deve ter entre 3 e 1200 caracteres.",
+          error: "The comment must be between 3 and 1,200 characters.",
         });
       }
       if ((message.match(/https?:\/\//gi) || []).length > 2) {
         return sendJson(response, 400, {
-          error: "O comentário contém demasiados links.",
+          error: "The comment contains too many links.",
         });
       }
 
@@ -118,11 +125,11 @@ export default async function handler(
     }
 
     response.setHeader("Allow", "GET, POST");
-    return sendJson(response, 405, { error: "Método não permitido." });
+    return sendJson(response, 405, { error: "Method not allowed." });
   } catch (error) {
     console.error("Comments API error", error);
     return sendJson(response, 503, {
-      error: "Os comentários estão temporariamente indisponíveis.",
+      error: "Comments are temporarily unavailable.",
     });
   }
 }

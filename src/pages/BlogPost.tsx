@@ -10,7 +10,7 @@ import { getBlogPost } from "@/data/blogPosts";
 const baseUrl = "https://www.rpovoadata.tech";
 
 const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("pt-PT", {
+  new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -62,7 +62,7 @@ export default function BlogPost() {
       <PageSection variant="gradient" className="pt-32 pb-14">
         <div className="mx-auto max-w-4xl">
           <Link to="/blog" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary">
-            <ArrowLeft className="h-4 w-4" /> Voltar ao blog
+            <ArrowLeft className="h-4 w-4" /> Back to blog
           </Link>
           <div className="mb-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-semibold text-primary">{post.category}</span>
@@ -91,21 +91,21 @@ export default function BlogPost() {
               ))}
             </div>
             <div className="mt-14 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">Publicação original</p>
-              <p className="mt-3 text-muted-foreground">Este artigo é da autoria de Rodrigo Póvoa e foi publicado originalmente no IA Hoje.</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary">Original publication</p>
+              <p className="mt-3 text-muted-foreground">This article was written by Rodrigo Póvoa and originally published by IA Hoje.</p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <a href={post.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Ver no {post.source.name}<ExternalLink className="h-4 w-4" /></a>
-                <a href={post.source.linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold transition-colors hover:border-primary/40 hover:text-primary">Publicação no LinkedIn<Linkedin className="h-4 w-4" /></a>
+                <a href={post.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Read on {post.source.name}<ExternalLink className="h-4 w-4" /></a>
+                <a href={post.source.linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold transition-colors hover:border-primary/40 hover:text-primary">LinkedIn post<Linkedin className="h-4 w-4" /></a>
               </div>
             </div>
             <CommentSection slug={post.slug} />
           </article>
           <aside className="hidden lg:block">
             <div className="sticky top-28 rounded-xl border border-primary/15 bg-card/60 p-5">
-              <p className="text-xs font-semibold uppercase tracking-wider text-primary">Sobre o autor</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary">About the author</p>
               <p className="mt-3 font-semibold">Rodrigo Póvoa</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Líder técnico de dados, Data Analytics Engineer e fundador da Sapiente.AI.</p>
-              <Link to="/professional" className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline">Ver perfil profissional</Link>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Technical Data Leader, Data Analytics Engineer and founder of Sapiente.AI.</p>
+              <Link to="/professional" className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline">View professional profile</Link>
             </div>
           </aside>
         </div>

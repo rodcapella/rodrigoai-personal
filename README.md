@@ -71,7 +71,20 @@ The site loads Google Analytics only after explicit visitor consent and tracks S
 4. Redeploy the project.
 5. In GA4 Enhanced Measurement, disable automatic **Page changes based on browser history events** because pageviews are sent manually by the application.
 
-Consent preferences can be changed from the footer and are explained at `/privacy`.
+Consent preferences can be changed from the cookie button in the lower-left corner and are explained at `/privacy`.
+
+---
+
+## Blog comments
+
+Public blog comments are stored in Vercel Blob by the server-side `/api/comments` endpoint.
+
+1. In the Vercel project, open **Storage** and create or connect a Blob store.
+2. Confirm that Vercel added `BLOB_READ_WRITE_TOKEN` to the Production environment.
+3. Redeploy the project so the serverless function receives the token.
+4. Verify `/api/comments?slug=sem-dados-de-qualidade-nao-ha-ia-que-salve-o-negocio` returns HTTP 200 with a `comments` array.
+
+The Blob store must use public access because published comments are public content. The read-write token remains server-side and must never use the `VITE_` prefix.
 
 ---
 

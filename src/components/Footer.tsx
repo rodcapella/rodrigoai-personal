@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, ShieldCheck } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Container from "@/components/layout/Container";
-import { openPrivacyConsent } from "@/lib/privacyConsent";
 
 const navigation = [
   { to: "/", label: "Home" },
@@ -14,7 +13,7 @@ const navigation = [
 
 const Footer = () => {
   return (
-    <footer className="border-t border-primary/10 bg-card/20 py-12">
+    <footer className="site-footer border-t border-primary/10 bg-card/20 py-12">
       <Container>
         <div className="grid gap-10 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
           <div>
@@ -66,11 +65,6 @@ const Footer = () => {
             <ul className="mt-4 space-y-3 text-sm">
               <li><Link to="/contact" className="text-muted-foreground transition hover:text-primary">Contacto</Link></li>
               <li><Link to="/privacy" className="text-muted-foreground transition hover:text-primary">Política de Privacidade</Link></li>
-              <li>
-                <button type="button" onClick={openPrivacyConsent} className="inline-flex items-center gap-2 text-left text-muted-foreground transition hover:text-primary">
-                  <ShieldCheck className="h-4 w-4" /> Gerir privacidade
-                </button>
-              </li>
             </ul>
           </div>
         </div>

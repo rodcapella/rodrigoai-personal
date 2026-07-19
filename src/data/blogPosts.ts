@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     category: "Data & AI",
     publishedAt: "2026-07-15T10:42:51+00:00",
     updatedAt: "2026-07-15T11:28:45+00:00",
-    readingTime: "7 min de leitura",
+    readingTime: "7 min read",
     image: "/blog-data-quality-ai-cover.png",
     imageAlt:
       "Fluxos de dados fragmentados atravessam camadas de validação antes de alimentar um sistema de inteligência artificial",

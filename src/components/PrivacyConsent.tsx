@@ -67,7 +67,7 @@ export default function PrivacyConsent() {
       aria-labelledby="privacy-consent-title"
       aria-describedby="privacy-consent-description"
     >
-      <div ref={dialogRef} tabIndex={-1} className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background p-6 shadow-2xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
+      <div ref={dialogRef} tabIndex={-1} className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/75 p-6 shadow-2xl backdrop-blur-xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
         {getAnalyticsConsent() !== null && (
           <button
             type="button"
@@ -132,7 +132,7 @@ export default function PrivacyConsent() {
         )}
 
         <p className="mt-5 text-sm text-muted-foreground">
-          Pode alterar esta escolha a qualquer momento no footer. Consulte a{" "}
+          Pode alterar esta escolha a qualquer momento através do botão de cookies no canto inferior esquerdo. Consulte a{" "}
           <Link to="/privacy" onClick={() => setOpen(false)} className="font-semibold text-primary hover:underline">
             Política de Privacidade
           </Link>.

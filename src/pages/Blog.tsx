@@ -1,13 +1,14 @@
-import { ArrowRight, BookOpen, CalendarDays, Clock3 } from "lucide-react";
+import { ArrowRight, CalendarDays, Clock3 } from "lucide-react";
 import { Link, useOutletContext } from "react-router-dom";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
+import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import { blogPosts } from "@/data/blogPosts";
 
 const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("pt-PT", {
+  new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -23,30 +24,19 @@ export default function Blog() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Blog | Rodrigo Póvoa"
-        description="Artigos e reflexões de Rodrigo Póvoa sobre dados, inteligência artificial, liderança técnica e transformação digital."
-        keywords="Rodrigo Póvoa, blog de dados, inteligência artificial, data engineering, data quality, liderança técnica"
-        language="pt-PT"
+        description="Articles and reflections by Rodrigo Póvoa on data, artificial intelligence, technical leadership and digital transformation."
+        keywords="Rodrigo Póvoa, data blog, artificial intelligence, data engineering, data quality, technical leadership"
+        language="en-GB"
       />
 
-      <PageSection variant="gradient" className="pt-32 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-          className="max-w-3xl"
-        >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-            <BookOpen className="h-4 w-4" />
-            Ideias, experiências e publicações
-          </div>
-          <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Blog
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Reflexões pessoais e artigos publicados noutras plataformas sobre
-            dados, IA, tecnologia e liderança.
-          </p>
-        </motion.div>
+      <PageSection variant="gradient" className="pt-32 pb-16">
+        <PageHero
+          variant="page"
+          title="BLOG"
+          subtitle="Ideas, experiences and publications on data, AI, technology and leadership."
+          description="Personal reflections and articles originally published here or on other platforms."
+          image="/rodrigo_blog_image.webp"
+        />
       </PageSection>
 
       <PageSection>
@@ -89,7 +79,7 @@ export default function Blog() {
                     {post.excerpt}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 font-semibold text-primary">
-                    Ler artigo
+                    Read article
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>

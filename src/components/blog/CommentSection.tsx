@@ -14,7 +14,7 @@ type CommentSectionProps = {
 };
 
 const formatDate = (date: string) =>
-  new Intl.DateTimeFormat("pt-PT", {
+  new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -39,13 +39,23 @@ export default function CommentSection({ slug }: CommentSectionProps) {
       signal: controller.signal,
     })
       .then(async (response) => {
-        if (!response.ok) throw new Error("Comentários indisponíveis");
-        return response.json() as Promise<{ comments: Comment[] }>;
+        const data = (await response.json()) as {
+          comments?: Comment[];
+          error?: string;
+        };
+        if (!response.ok || !data.comments) {
+          throw new Error(data.error || "Comments are unavailable");
+        }
+        return data.comments;
       })
-      .then((data) => setComments(data.comments))
+      .then(setComments)
       .catch((reason: unknown) => {
         if (reason instanceof DOMException && reason.name === "AbortError") return;
-        setError("Não foi possível carregar os comentários agora.");
+        setError(
+          reason instanceof Error
+            ? reason.message
+            : "Comments could not be loaded right now.",
+        );
       })
       .finally(() => setLoading(false));
 
@@ -61,11 +71,11 @@ export default function CommentSection({ slug }: CommentSectionProps) {
     const cleanMessage = message.trim();
 
     if (cleanName.length < 2 || cleanName.length > 60) {
-      setError("Indique um nome entre 2 e 60 caracteres.");
+      setError("Enter a name between 2 and 60 characters.");
       return;
     }
     if (cleanMessage.length < 3 || cleanMessage.length > 1200) {
-      setError("O comentário deve ter entre 3 e 1200 caracteres.");
+      setError("Your comment must be between 3 and 1,200 characters.");
       return;
     }
 
@@ -78,7 +88,7 @@ export default function CommentSection({ slug }: CommentSectionProps) {
       });
       const data = (await response.json()) as { comment?: Comment; error?: string };
       if (!response.ok || !data.comment) {
-        throw new Error(data.error || "Não foi possível publicar o comentário.");
+        throw new Error(data.error || "Your comment could not be published.");
       }
 
       setComments((current) => [...current, data.comment as Comment]);
@@ -89,7 +99,7 @@ export default function CommentSection({ slug }: CommentSectionProps) {
       setError(
         reason instanceof Error
           ? reason.message
-          : "Não foi possível publicar o comentário.",
+          : "Your comment could not be published.",
       );
     } finally {
       setSubmitting(false);
@@ -103,18 +113,18 @@ export default function CommentSection({ slug }: CommentSectionProps) {
           <MessageCircle className="h-5 w-5" />
         </span>
         <div>
-          <h2 className="font-display text-2xl font-semibold">Comentários</h2>
+          <h2 className="font-display text-2xl font-semibold">Comments</h2>
           <p className="text-sm text-muted-foreground">
             {comments.length === 0
-              ? "Partilhe a sua opinião sobre este artigo."
-              : `${comments.length} ${comments.length === 1 ? "comentário" : "comentários"}`}
+              ? "Share your thoughts on this article."
+              : `${comments.length} ${comments.length === 1 ? "comment" : "comments"}`}
           </p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="rounded-2xl border border-primary/15 bg-card/60 p-5 sm:p-7">
         <label htmlFor="comment-name" className="mb-2 block text-sm font-semibold">
-          Nome
+          Name
         </label>
         <input
           id="comment-name"
@@ -122,12 +132,12 @@ export default function CommentSection({ slug }: CommentSectionProps) {
           onChange={(event) => setName(event.target.value)}
           maxLength={60}
           autoComplete="name"
-          placeholder="Como quer ser identificado?"
+          placeholder="How would you like to be identified?"
           className="w-full rounded-xl border border-primary/15 bg-background/60 px-4 py-3 outline-none transition focus:border-primary/50 focus:ring-2 focus:ring-primary/15"
         />
 
         <label htmlFor="comment-message" className="mb-2 mt-5 block text-sm font-semibold">
-          Comentário
+          Comment
         </label>
         <textarea
           id="comment-message"
@@ -135,11 +145,11 @@ export default function CommentSection({ slug }: CommentSectionProps) {
           onChange={(event) => setMessage(event.target.value)}
           maxLength={1200}
           rows={5}
-          placeholder="Escreva o seu comentário..."
+          placeholder="Write your comment..."
           className="w-full resize-y rounded-xl border border-primary/15 bg-background/60 px-4 py-3 leading-relaxed outline-none transition focus:border-primary/50 focus:ring-2 focus:ring-primary/15"
         />
         <div className="mt-1 flex justify-between gap-4 text-xs text-muted-foreground">
-          <span>O comentário ficará visível publicamente. Não inclua dados pessoais.</span>
+          <span>Your comment will be public. Do not include personal information.</span>
           <span className="shrink-0">{message.length}/1200</span>
         </div>
 
@@ -161,7 +171,7 @@ export default function CommentSection({ slug }: CommentSectionProps) {
         )}
         {success && (
           <p role="status" className="mt-4 flex items-center gap-2 text-sm text-green-600">
-            <CheckCircle2 className="h-4 w-4 shrink-0" /> Comentário publicado.
+            <CheckCircle2 className="h-4 w-4 shrink-0" /> Comment published.
           </p>
         )}
 
@@ -171,12 +181,12 @@ export default function CommentSection({ slug }: CommentSectionProps) {
           className="mt-5 inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
           <Send className="h-4 w-4" />
-          {submitting ? "A publicar..." : "Publicar comentário"}
+          {submitting ? "Publishing..." : "Publish comment"}
         </button>
       </form>
 
       <div className="mt-10 space-y-5" aria-live="polite">
-        {loading && <p className="text-sm text-muted-foreground">A carregar comentários...</p>}
+        {loading && <p className="text-sm text-muted-foreground">Loading comments...</p>}
         {!loading && comments.map((comment) => (
           <article key={comment.id} className="rounded-xl border border-primary/10 bg-card/40 p-5">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
