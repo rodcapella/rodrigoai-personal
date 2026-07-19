@@ -12,7 +12,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
     <PageSection
       variant="gradient"
       container={true}
-      className="relative overflow-hidden pt-32 pb-20"
+      className="relative overflow-hidden pt-32 pb-14"
     >
       {/* Grid background */}
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />

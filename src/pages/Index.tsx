@@ -16,6 +16,8 @@ const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
 const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 
+type SectionVariant = "default" | "muted" | "gradient" | "glass";
+
 export default function Index() {
   const { theme, onToggleTheme } = useOutletContext<{
     theme: "dark" | "light";
@@ -34,7 +36,7 @@ const competences = [
   { icon: ShieldCheck, title: "AI Governance & Ethics" },
 ];
 
-  const sections = [
+  const sections: { component: React.ReactNode; variant?: SectionVariant }[] = [
     { component: <AboutSection /> },
     {
       component: <CoreCompetencesSection competences={competences} />,
@@ -73,7 +75,11 @@ const competences = [
 
         {sections.map((section, index) => (
           <Suspense key={index} fallback={<SectionLoader />}>
-            <PageSection variant={section.variant as any}>
+            <PageSection
+              variant={section.variant}
+              spacing="none"
+              container={false}
+            >
               {section.component}
             </PageSection>
           </Suspense>

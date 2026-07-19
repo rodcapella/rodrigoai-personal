@@ -61,7 +61,11 @@ export default function Personal() {
       {/* SECTIONS */}
       {sections.map((section, index) => (
         <Suspense key={index} fallback={<SectionLoader />}>
-          <PageSection variant={section.variant}>
+          <PageSection
+            variant={section.variant}
+            spacing="none"
+            container={false}
+          >
             {section.component}
           </PageSection>
         </Suspense>

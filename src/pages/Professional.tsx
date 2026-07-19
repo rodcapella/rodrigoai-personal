@@ -76,7 +76,7 @@ export default function Professional() {
       />
 
       {/* HERO */}
-      <PageSection variant="gradient" className="pt-32 pb-16">
+      <PageSection variant="gradient" className="pt-32 pb-12">
         <PageHero
           variant="page"
           title="PROFESSIONAL JOURNEY"
@@ -88,7 +88,11 @@ export default function Professional() {
       {/* SECTIONS */}
       {sections.map((section, index) => (
         <Suspense key={index} fallback={<SectionLoader />}>
-          <PageSection variant={section.variant}>
+          <PageSection
+            variant={section.variant}
+            spacing="none"
+            container={false}
+          >
             {section.component}
           </PageSection>
         </Suspense>

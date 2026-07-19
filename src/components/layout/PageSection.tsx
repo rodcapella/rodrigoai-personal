@@ -10,7 +10,7 @@ interface PageSectionProps {
   containerClassName?: string
   variant?: "default" | "muted" | "gradient" | "glass"
   container?: boolean
-  spacing?: "default" | "sm" | "lg"
+  spacing?: "none" | "default" | "sm" | "lg"
 }
 
 const variants = {
@@ -21,9 +21,10 @@ const variants = {
 }
 
 const spacingMap = {
-  sm: "py-10",
-  default: "py-20",
-  lg: "py-32"
+  none: "py-0",
+  sm: "py-8 md:py-10",
+  default: "py-12 md:py-16",
+  lg: "py-20 md:py-24"
 }
 
 const PageSection = ({
@@ -38,7 +39,7 @@ const PageSection = ({
 }: PageSectionProps) => {
 
   const content = (
-    <div className="space-y-10">
+    <div className="space-y-7 md:space-y-8">
       {/* 🔥 Title */}
       {title && (
         <div>
