@@ -2,6 +2,7 @@ interface FormFieldProps {
   name: string;
   type?: string;
   placeholder?: string;
+  disabled?: boolean;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
@@ -11,6 +12,7 @@ const FormField = ({
   name,
   type = "text",
   placeholder,
+  disabled = false,
   value,
   onChange,
   error,
@@ -21,6 +23,7 @@ const FormField = ({
         type={type}
         name={name}
         placeholder={placeholder}
+        disabled={disabled}
         value={value}
         onChange={onChange}
         className={`w-full p-3 rounded-lg border bg-background ${
