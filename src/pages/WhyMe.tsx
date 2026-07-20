@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, type ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
@@ -33,13 +33,21 @@ const CustomSectionLoader = () => (
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
-type Section = {
-  title?: string;
-  icon?: React.ReactNode;
-  content: React.ReactNode;
-  variant?: SectionVariant;
-  useNewLayout?: boolean;
-};
+type Section =
+  | {
+      useNewLayout: true;
+      title: string;
+      icon: ReactNode;
+      content: ReactNode;
+      variant?: "default" | "gradient";
+    }
+  | {
+      useNewLayout?: false;
+      title?: string;
+      icon?: ReactNode;
+      content: ReactNode;
+      variant?: SectionVariant;
+    };
 
 export default function WhyMe() {
   const { theme, onToggleTheme } = useOutletContext<{
