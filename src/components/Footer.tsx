@@ -73,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-4 border-t border-primary/10 pt-3 text-sm text-muted-foreground">
+        <div className="mt-4 border-t border-primary/10 pt-3 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Rodrigo Póvoa — Data Analytics Engineer & Team Leader
         </div>
       </Container>
