@@ -97,7 +97,7 @@ export default function SideProjects() {
           </p>
 
           <p>
-            With a strong technology foundation and an experimentation-first mindset, Sapiente.AI creates everything from AI-powered platforms to end-to-end digital experiences—integrating backend systems, intelligent logic and modern user interfaces into scalable solutions.
+            With a strong technology foundation and an experimentation-first mindset, Sapiente.AI creates everything from AI-powered platforms to end-to-end digital experiences: integrating backend systems, intelligent logic and modern user interfaces into scalable solutions.
           </p>
 
           <p>
@@ -105,7 +105,7 @@ export default function SideProjects() {
           </p>
 
           <p>
-            The vision is simple: turn ideas into living systems, capable of learning, adapting and growing—enabling organizations to innovate continuously and sustainably.
+            The vision is simple: turn ideas into living systems, capable of learning, adapting and growing. Enabling organizations to innovate continuously and sustainably.
           </p>
         </motion.div>
       ),
