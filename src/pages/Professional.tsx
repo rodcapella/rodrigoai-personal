@@ -18,8 +18,6 @@ const LanguagesSection = lazy(() => import("@/components/layout/professional/Lan
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
-const maxYears = 20;
-
 export default function Professional() {
   const { theme, onToggleTheme } = useOutletContext<{
     theme: "dark" | "light";
@@ -33,10 +31,7 @@ export default function Professional() {
     { component: <ProfessionalIntro /> },
     {
       component: (
-        <TechStackSection
-          maxYears={maxYears}
-          techStack={profile.technical_stack}
-        />
+        <TechStackSection techStack={profile.technical_stack} />
       ),
       variant: "muted",
     },
