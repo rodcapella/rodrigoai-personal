@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, type ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
@@ -22,6 +22,22 @@ import {
 } from "@/lib/icons";
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
+
+type SectionConfig =
+  | {
+      useNewLayout: true;
+      title: string;
+      icon: ReactNode;
+      variant?: "default" | "gradient";
+      content: ReactNode;
+    }
+  | {
+      useNewLayout?: false;
+      title?: string;
+      icon?: ReactNode;
+      variant?: SectionVariant;
+      content: ReactNode;
+    };
 
 export default function SideProjects() {
   const { theme, onToggleTheme } = useOutletContext<{
@@ -74,7 +90,7 @@ export default function SideProjects() {
     },
   ];
 
-  const sections = [
+  const sections: SectionConfig[] = [
     {
       title:
         "Sapiente.AI: Maximizing human potential through Artificial Intelligence",
