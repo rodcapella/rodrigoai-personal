@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
 const variants = {
   default: "glass border border-border",
@@ -13,8 +13,8 @@ const alignMap = {
   center: "flex flex-col items-center text-center",
 };
 
-interface PageCardProps {
-  as?: any;
+interface PageCardProps extends Omit<HTMLMotionProps<"div">, "title"> {
+  as?: typeof motion.div;
   title?: string;
   description?: string;
   icon?: React.ReactNode;

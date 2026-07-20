@@ -3,6 +3,7 @@ import Container from "@/components/layout/Container"
 import SectionTitle from "@/components/layout/SectionTitle"
 
 interface PageSectionProps {
+  id?: string
   title?: string
   icon?: React.ReactNode
   children: React.ReactNode
@@ -28,6 +29,7 @@ const spacingMap = {
 }
 
 const PageSection = ({
+  id,
   title,
   icon,
   children,
@@ -62,6 +64,7 @@ const PageSection = ({
 
   return (
     <section
+      id={id}
       className={`relative ${spacingMap[spacing]} ${variants[variant]} ${className}`}
     >
       {container ? (
