@@ -13,7 +13,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
       variant="gradient"
       container={true}
       spacing="none"
-      className="relative overflow-hidden pt-28 pb-6 md:pt-32 md:pb-8"
+      className="relative overflow-hidden pt-12 pb-6 md:pt-16 md:pb-8"
     >
       {/* Grid background */}
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />

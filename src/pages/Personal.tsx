@@ -49,7 +49,7 @@ export default function Personal() {
       </Helmet>
 
       {/* HERO */}
-      <PageSection variant="gradient" spacing="none" className="pt-28 pb-8 md:pt-32 md:pb-10">
+      <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">
         <PageHero
           variant="page"
           title="PERSONAL"

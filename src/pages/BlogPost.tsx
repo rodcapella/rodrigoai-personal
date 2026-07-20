@@ -103,7 +103,7 @@ export default function BlogPost() {
         ]}
       />
 
-      <PageSection variant="gradient" spacing="none" className="pt-28 pb-8 md:pt-32 md:pb-10">
+      <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">
         <div className="mx-auto max-w-4xl">
           <div className="mb-5 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-semibold text-primary">{post.category}</span>
