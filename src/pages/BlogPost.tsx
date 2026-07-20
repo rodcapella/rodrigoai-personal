@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, CalendarDays, Clock3, ExternalLink, Linkedin } from "lucide-react";
+import { ArrowLeft, CalendarDays, Clock3, ExternalLink, Linkedin } from "@/lib/icons";
 import { Link, Navigate, useOutletContext, useParams } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";

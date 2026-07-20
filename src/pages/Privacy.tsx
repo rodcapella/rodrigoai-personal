@@ -1,5 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom";
-import { BarChart3, Cookie, Database, MessageCircle, ShieldCheck } from "lucide-react";
+import { BarChart3, Cookie, Database, MessageCircle, ShieldCheck } from "@/lib/icons";
 import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";

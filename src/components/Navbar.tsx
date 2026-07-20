@@ -18,7 +18,6 @@ const preloadMap: Record<string, () => Promise<unknown>> = {
   "/personal": () => import("../pages/Personal"),
   "/why-me": () => import("../pages/WhyMe"),
   "/side-projects": () => import("../pages/SideProjects"),
-  "/blog": () => import("../pages/Blog"),
   "/contact": () => import("../pages/Contact"),
 };
 

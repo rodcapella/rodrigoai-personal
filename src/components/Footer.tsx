@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "@/lib/icons";
 import Container from "@/components/layout/Container";
 
 const navigation = [

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { BarChart3, Cookie, ShieldCheck, X } from "lucide-react";
+import { BarChart3, Cookie, ShieldCheck, X } from "@/lib/icons";
 import {
   disableAnalytics,
   enableAnalytics,

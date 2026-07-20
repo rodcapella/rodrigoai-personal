@@ -61,11 +61,18 @@ export {
   Users,
   User,
   MessageSquare,
+  MessageCircle,
   AlertTriangle,
   CheckCircle,
   AlertCircle,
   ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  CalendarDays,
+  Clock3,
   Compass,
+  Cookie,
+  ExternalLink,
   Package
 
 } from "lucide-react";
