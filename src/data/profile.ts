@@ -4,7 +4,6 @@ import {
   GraduationCap,
   Network,
   LineChart,
-  Workflow,
   ShieldCheck,
   Users,
   GitBranch,
@@ -16,7 +15,7 @@ export const profile = {
   title: "Technical Data Leader | Data Analytics Engineer",
 
   summary: [
-    "Technical Data Leader specialized in in turning fragmented data landscapes into strategic assets. My work exists at the intersection of Data Analytics Engineer and Generative AI.                               While I architect robust platforms for global players, I also lead Sapiente.AI, an innovation hub dedicated to maximizing human potential through intelligent applications, custom branding, and autonomous data-driven systems.",
+    "Technical Data Leader specialized in turning fragmented data landscapes into strategic assets. My work exists at the intersection of Data Analytics Engineer and Generative AI.                               While I architect robust platforms for global players, I also lead Sapiente.AI, an innovation hub dedicated to maximizing human potential through intelligent applications, custom branding, and autonomous data-driven systems.",
   ],
 
   core_skills: [
@@ -69,8 +68,12 @@ export const profile = {
       category: "Data Engineering & Platforms",
       items: [
         { name: "ELT / ETL Pipelines", years: 10 },
+        { name: "Data Quality / Auditing", years: 10 },
+        { name: "Orchestration", years: 10 },
+        { name: "Slowly Changing Dimension (SCD)", years: 6 },
         { name: "Azure", years: 4 },
         { name: "Databricks", years: 3 },
+        { name: "Unity Catalog", years: 3 },
         { name: "Delta Lake", years: 3 },
         { name: "Hive", years: 3 },
         { name: "Hadoop Ecosystem", years: 3 },
@@ -83,7 +86,9 @@ export const profile = {
         { name: "Oracle", years: 10 },
         { name: "SQL Server", years: 8 },
         { name: "MySQL", years: 5 },
+        { name: "Azure SQL Database", years: 4 },
         { name: "Postgress", years: 2 },
+        { name: "Snowflake", years: 1 },
         { name: "BigQuery", years: 1 },
         { name: "MongoDB", years: 1 },
       ],
@@ -91,7 +96,6 @@ export const profile = {
     {
       category: "BI & Analytics Platforms",
       items: [
-        { name: "Power BI", years: 6 },
         { name: "IBM Cognos", years: 5 },   
         { name: "Tableau", years: 3 },
         { name: "MicroStrategy", years: 2 },
@@ -103,6 +107,7 @@ export const profile = {
     {
       category: "Microsoft BI Stack",
       items: [
+        { name: "Power BI", years: 6 },
         { name: "SSIS", years: 4 },
         { name: "SSAS", years: 4 },
         { name: "SSRS", years: 4 },
@@ -112,9 +117,33 @@ export const profile = {
       category: "Data Architecture & Governance",
       items: [
         { name: "Dimensional Modeling", years: 10 },
+        { name: "Data Quality", years: 10 },
         { name: "Data Architecture", years: 6 },
         { name: "Semantic Modeling", years: 5 },
+        { name: "Auditability", years: 5 },
         { name: "Data Governance", years: 3 },
+        { name: "Data Lineage", years: 3 },
+        { name: "Data Catalogs", years: 3 },
+        { name: "Metadata Management", years: 3 },
+        { name: "Access Control / RBAC", years: 3 },
+      ],
+    },
+    {
+      category: "Collaboration & Delivery",
+      items: [
+        { name: "Git", years: 8 },
+        { name: "SCRUM", years: 8 },
+        { name: "Jira", years: 5 },
+        { name: "Confluence", years: 5 },
+        { name: "Kanban", years: 2 },
+      ],
+    },
+    {
+      category: "DevOps & Engineering",
+      items: [
+        { name: "GitHub / GitLab / Bitbucket", years: 8 },
+        { name: "Code Review", years: 5 },
+        { name: "CI/CD", years: 3 },
       ],
     },
   ],
