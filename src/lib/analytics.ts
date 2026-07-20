@@ -52,7 +52,7 @@ export const enableAnalytics = () => {
   const script = document.createElement("script");
   script.id = SCRIPT_ID;
   script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+  script.src = `/gtag/js?id=${encodeURIComponent(measurementId)}`;
   document.head.appendChild(script);
 
   window.gtag("js", new Date());

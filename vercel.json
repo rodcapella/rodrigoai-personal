@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/gtag/js",
+      "destination": "https://www.googletagmanager.com/gtag/js"
+    },
+    {
+      "source": "/gtm.js",
+      "destination": "https://www.googletagmanager.com/gtm.js"
+    },
+    {
       "source": "/blog",
       "destination": "/blog/index.html"
     },
