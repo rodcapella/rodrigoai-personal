@@ -50,19 +50,19 @@ export default function SideProjects() {
       icon: Cpu,
       title: "AI Systems Exploration",
       description:
-        "Systematic experimentation with modern AI ecosystems, evaluating architectural trade-offs and integration patterns.",
+        "Systematic experimentation with modern AI ecosystems, evaluating architectural trade-offs, behaviors and integration patterns.",
     },
     {
       icon: Database,
       title: "AI-Augmented Data Platforms",
       description:
-        "Designing data architectures enhanced by artificial intelligence.",
+        "Designing data architectures enhanced by artificial intelligence to improve insight, responsiveness, and decision-making.",
     },
     {
       icon: Zap,
       title: "Intelligent Automation",
       description:
-        "Developing automation frameworks that integrate AI capabilities into operational workflows.",
+        "Building automation frameworks that combine AI capabilities with operational workflows.",
     },
     {
       icon: Sparkles,
@@ -74,7 +74,7 @@ export default function SideProjects() {
       icon: TrendingUp,
       title: "AI-Driven Digital Strategy",
       description:
-        "Applying AI to SEO, content systems and digital positioning strategies.",
+        "Applying AI to SEO, content systems and digital positioning strategies with a practical business lens.",
     },
     {
       icon: MessageSquare,
@@ -113,7 +113,7 @@ export default function SideProjects() {
           </p>
 
           <p>
-            With a strong technology foundation and an experimentation-first mindset, Sapiente.AI creates everything from AI-powered platforms to end-to-end digital experiences: integrating backend systems, intelligent logic and modern user interfaces into scalable solutions.
+            Built on a strong technology foundation and an experimentation-first mindset, Sapiente.AI turns ideas into scalable systems that can learn, adapt, and grow.
           </p>
 
           <p>
@@ -121,7 +121,7 @@ export default function SideProjects() {
           </p>
 
           <p>
-            The vision is simple: turn ideas into living systems, capable of learning, adapting and growing. Enabling organizations to innovate continuously and sustainably.
+            The goal is simple: help organizations move from traditional operations to more adaptive, intelligent, and value-driven systems.
           </p>
         </motion.div>
       ),
@@ -172,12 +172,13 @@ export default function SideProjects() {
           </h3>
 
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Sapiente.AI is my dedicated innovation lab focused on democratizing
-            the use of Generative AI.
+            Sapiente.AI is my dedicated innovation lab focused on expanding what generative AI can do in practice.
+
+            It is where I test ideas, refine patterns, and build systems that bridge experimentation and real-world application.
           </p>
 
           <a
-            href="https://sapienteai.com"
+            href="https://www.sapienteai.com"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"

@@ -8,56 +8,61 @@ const projects = [
   {
     name: "TIP4Y - Automotive Intelligence - Portugal",
     description:
-      "Designed and implemented a full Data Lakehouse architecture using Azure and Databricks. Built structured Medallion Architecture (bronze/silver/gold layers), implemented governance and quality validation frameworks and delivered curated analytics through Power BI for business consumption.",
+      "Designed and implemented a full governed Data Lakehouse architecture on Azure Databricks and ADLS Gen2, leveraging Unity Catalog for centralized governance, access control, and data lineage. Built a structured Medallion Architecture across bronze, silver, and gold layers, implemented data quality and validation frameworks, and delivered curated analytics through Power BI for business consumption.",
     stack: [
       "Azure",
       "Databricks",
-      "Delta Lake",
-      "Medallion Architecture",
-      "Power BI",
       "PySpark",
       "SQL",
+      "ADLS",
+      "Delta Lake",
+      "Medallion Architecture",
+      "Unity Catalog",
+      "Power BI",
+      "SCRUM",
     ],
   },
   {
     name: "ARPA Elastic Solutions - Portugal",
     description:
-      "Managed projects and analytics teams within an Operations Analytics division. Delivered cross-technology initiatives integrating ElasticSearch and Power BI, enabling operational monitoring, performance analysis and strategic reporting across distinct business domains.",
+      "Led projects and analytics teams within an Operations Analytics division, delivering cross-technology initiatives that combined ElasticSearch and Power BI to enable operational monitoring, performance analysis, and strategic reporting across business domains.",
     stack: [
+      "Operational Analytics",
       "Project Leadership",
+      "Team Management",
       "ElasticSearch",
       "Power BI",
-      "Operational Analytics",
-      "Team Management",
       "Python",
       "SQL",
       "T-SQL",
+      "SCRUM",
     ],
   },
   {
     name: "Sonae MC - Portugal",
     description:
-      "Worked as Senior Data Engineer handling large-scale data environments across Azure and Hadoop ecosystems. Developed scalable data pipelines, optimized distributed processing workloads and contributed to high-volume data transformation initiatives within enterprise-grade infrastructure.",
+      "Worked as a Senior Data Engineer in large-scale Azure and Hadoop ecosystems, developing scalable data pipelines, optimizing distributed processing workloads, and contributing to high-volume transformation initiatives within enterprise-grade infrastructure.",
     stack: [
       "Azure",
       "Databricks",
       "Hadoop",
       "PySpark",
       "SQL",
-      "Big Data Engineering"
+      "Big Data Engineering",
+      "SCRUM",
     ],
   },
   {
     name: "Celular Direto - Brazil",
     description:
-      "Led the creation of the Business Intelligence area from the ground up. Designed governance structures, data models, KPI frameworks and reporting standards. Built the analytical foundation that enabled executive-level decision making and operational visibility across the company.",
+      "Led the creation of the Business Intelligence area from the ground up, designing governance structures, data models, KPI frameworks, and reporting standards. Built the analytical foundation that enabled executive decision-making and operational visibility across the company.",
     stack: [
       "BI Strategy",
       "Team Management",
       "Data Architecture",
-      "KPI Framework",
-      "Qlik Sense",
       "Analytics Governance",
+      "Qlik Sense",
+      "SQL",  
     ],
   },
 ];

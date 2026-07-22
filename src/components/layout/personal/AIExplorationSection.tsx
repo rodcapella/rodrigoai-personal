@@ -37,20 +37,15 @@ export default function AIExplorationSection() {
           {/* Text */}
           <div className="space-text text-muted-foreground text-lg leading-relaxed text-justify">
             <p>
-              I actively explore modern AI systems through hands-on experimentation,
-              focusing on real-world applicability within data engineering and analytics.
+              I explore modern AI systems with a long-term perspective, looking beyond features to understand how they can reshape the future of data engineering and analytics.
             </p>
 
             <p>
-              My approach combines behavioral analysis, architectural evaluation and
-              integration testing, aiming to understand how AI systems can enhance
-              decision-making pipelines and scalable data platforms.
+              My work combines behavioral insight, architectural thinking, and integration testing to identify how AI can evolve from a support layer into a true decision-making partner.
             </p>
 
             <p>
-              All experiments are documented in structured knowledge systems,
-              creating a growing internal framework of patterns, insights and
-              practical use cases.
+              Through structured experimentation and knowledge building, I aim to turn emerging patterns into practical foundations for intelligent, scalable, and adaptive data platforms.
             </p>
           </div>
 

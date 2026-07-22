@@ -15,7 +15,7 @@ export const profile = {
   title: "Technical Data Leader | Data Analytics Engineer",
 
   summary: [
-    "Technical Data Leader specialized in turning fragmented data landscapes into strategic assets. My work exists at the intersection of Data Analytics Engineer and Generative AI.                               While I architect robust platforms for global players, I also lead Sapiente.AI, an innovation hub dedicated to maximizing human potential through intelligent applications, custom branding, and autonomous data-driven systems.",
+    "Technical Data Leader specialized in turning fragmented data landscapes into strategic assets. My work sits at the intersection of Data Engineering, Analytics, and Generative AI. While I architect robust platforms for global organizations, I also lead Sapiente.AI, an innovation hub focused on intelligent applications, custom branding, and autonomous data-driven systems.",
   ],
 
   core_skills: [

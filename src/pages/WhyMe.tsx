@@ -2,6 +2,7 @@ import { Suspense, type ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
+import CompactHighlightSection from "@/components/layout/CompactHighlightSection";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
@@ -60,13 +61,13 @@ export default function WhyMe() {
       icon: Layers,
       title: "Three Levels of Mastery",
       description:
-        "Enterprise BI → Analytics Engineering → Modern Data Platforms. I connect data architecture with real business insights, building decision platforms not just pipelines.",
+        "From Enterprise BI to Analytics Engineering to Modern Data Platforms, I connect architecture with real business insight.",
     },
     {
       icon: Target,
       title: "Architecture Over Tools",
       description:
-        "Technology changes fast, but good engineering principles last decades. I solve problems at the architectural and organizational level, where real value lives.",
+        "Tools change fast, but engineering principles last. I solve problems at the architectural and organizational level, where long-term value is created.",
     },
     {
       icon: Users,
@@ -78,13 +79,13 @@ export default function WhyMe() {
       icon: ShieldCheck,
       title: "End-to-End Ownership",
       description:
-        "I take full responsibility from problem definition to production impact—ensuring solutions are not only built, but adopted, trusted and measurable.",
+        "I take responsibility from problem definition to production impact, ensuring solutions are built, adopted, trusted, and measurable.",
     },
     {
       icon: Sparkles,
       title: "Relentless Focus on Quality",
       description:
-        "I don’t settle for 'working solutions'. I push for robust, scalable and elegant systems. Always aiming for the best possible implementation.",
+        "I don’t settle for working solutions. I push for robust, scalable, and elegant systems.",
     },
     {
       icon: BarChart3,
@@ -102,15 +103,15 @@ export default function WhyMe() {
       content: (
         <div className="w-full space-y-6 text-muted-foreground text-lg leading-relaxed text-justify">
           <p>
-            This leadership philosophy is grounded in an <strong>Engineering First</strong> mindset, where decisions are driven by strong principles and a focus on scalability rather than short-term gains. In parallel, <strong>Data Drives Decisions</strong> emphasizes that platforms are not just tools, but strategic infrastructure that should guide how organizations think, operate and evolve.
+            My leadership philosophy is grounded in an <strong>Engineering First</strong> mindset, where decisions are guided by strong principles, scalability, and long-term value. I believe that <strong>Data Drives Decisions</strong>, meaning data platforms are not just technical assets, but strategic infrastructure that should help shape how organizations operate and evolve.
           </p>
 
           <p>
-            In high-pressure environments, <strong>Calm & Clarity Under Pressure</strong> highlights the importance of maintaining a composed and thoughtful approach, enabling better decisions, stronger teams and more sustainable outcomes. This is reinforced by <strong>Empathy & Understanding</strong>, recognizing that great systems are built by people.
+            In high-pressure environments, I value <strong>Calm & Clarity Under Pressure</strong>, staying composed and thoughtful to support better decisions, stronger teams, and more sustainable outcomes. This is reinforced by <strong>Empathy & Understanding</strong>, because great systems are built by people, and good leadership starts with listening, context, and respect.
           </p>
 
           <p>
-            Finally, <strong>Human-Centered AI</strong> reflects the belief that technology should amplify human capability—empowering people to achieve higher levels of performance and innovation.
+            Finally, <strong>Human-Centered AI</strong> reflects my belief that technology should amplify human capability, helping people perform at higher levels and achieve more meaningful results.
           </p>
         </div>
       ),
@@ -145,22 +146,22 @@ export default function WhyMe() {
           <PageCard
             title="Data as a Product"
             icon={<Package />}
-            description="Treating data with the same rigor as software: SLAs, contracts and discoverability."
+            description="I treat data with the same rigor as software: contracts, SLAs, and discoverability."
           />
           <PageCard
             title="AI-Native Architecture"
             icon={<Cpu />}
-            description="From passive platforms to proactive AI-native systems with real-time intelligence."
+            description=" I help move from passive platforms to proactive AI-native systems with real-time intelligence."
           />
           <PageCard
             title="Human-AI Augmentation"
             icon={<Users />}
-            description="AI as a multiplier of human strategy, not a replacement."
+            description="I see AI as a multiplier of strategy and execution, not a replacement."
           />
           <PageCard
             title="Trust & Governance"
             icon={<ShieldCheck />}
-            description="Security, lineage and explainability by design."
+            description="I design for security, lineage, and explainability from the start."
           />
         </PageGrid>
       ),
@@ -182,7 +183,7 @@ export default function WhyMe() {
         <PageHero
           variant="page"
           title="WHY WORK WITH ME"
-          subtitle="15+ years building data systems taught me one thing: data architecture defines organizational intelligence."
+          subtitle="15+ years building data systems taught me one thing: architecture shapes how organizations think, decide, and scale."
           image="/rodrigo_why_me.webp"
         />
       </PageSection>
@@ -213,6 +214,13 @@ export default function WhyMe() {
           </Suspense>
         );
       })}
+
+      <CompactHighlightSection>
+        <p className="max-w-4xl text-lg font-medium leading-relaxed text-foreground/90 md:text-xl">
+          My goal is simple: build data platforms that people trust, businesses
+          rely on, and teams can scale with confidence.
+        </p>
+      </CompactHighlightSection>
     </MainLayout>
   );
 }

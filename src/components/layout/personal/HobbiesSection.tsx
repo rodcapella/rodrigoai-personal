@@ -9,25 +9,25 @@ const hobbies = [
     icon: Music,
     title: "Rock & Heavy Metal",
     description:
-      "Daily fuel. From Nirvana to Iron Maiden, music is not background noise, it's part of how I think and operate.",
+      "My daily fuel. From Nirvana to Iron Maiden, music is not background noise, it's part of how I think and operate.",
   },
   {
     icon: Guitar,
     title: "Electric Guitar",
     description:
-      "Playing guitar as a form of expression and discipline, constantly exploring tone, technique and musical identity.",
+      "Playing guitar is both expression and discipline, a constant exploration of tone, technique, and musical identity.",
   },
   {
     icon: BookOpen,
     title: "Writing & Storytelling",
     description:
-      "Currently writing a non-technical book exploring the intersection of music, society and historical context.",
+      "I’m currently writing a non-technical book exploring the intersection of music, society and historical context.",
   },
   {
     icon: Gamepad2,
     title: "Gaming",
     description:
-      "Gamer since Atari. Today on PlayStation, still chasing immersion, storytelling and competitive edge.",
+      "A gamer since Atari, I still enjoy PlayStation for immersion, storytelling, and the occasional competitive edge.",
   },
   {
     icon: Film,
@@ -39,7 +39,7 @@ const hobbies = [
     icon: Dumbbell,
     title: "Training & Discipline",
     description:
-      "Gym, basketball and running as pillars for consistency, focus and mental performance.",
+      "Gym, basketball, and running are pillars of consistency, focus, and mental performance.",
   },
 ];
 

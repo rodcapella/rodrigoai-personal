@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
-import { BookOpen, Zap, Rocket, Lightbulb, Brain } from "@/lib/icons";
+import { BookOpen, Rocket, Lightbulb, Brain, ShieldCheck } from "@/lib/icons";
 
 const WhatDrivesMe = () => {
   const facts = [
@@ -10,25 +10,31 @@ const WhatDrivesMe = () => {
       icon: Lightbulb,
       title: "Continuous Learner",
       description:
-        "I spend significant time learning new technologies, reading research papers, and exploring emerging trends in data engineering and AI.",
+        "I spend time learning new technologies, reading research papers, and exploring emerging trends in data engineering and AI.",
     },
     {
       icon: BookOpen,
       title: "Technical Writer",
       description:
-        "I enjoy writing technical articles and documentation. Sharing knowledge helps solidify understanding and contributes to the community.",
+        "I enjoy writing technical articles and documentation. Sharing knowledge helps me refine ideas and contribute to the community.",
     },
     {
-      icon: Zap,
-      title: "Open Source Enthusiast",
+      icon: ShieldCheck,
+      title: "Data Quality & Governance",
       description:
-        "Active contributor to open-source projects. I believe in the power of collaborative development and community-driven innovation.",
+        "I’m passionate about building reliable, well-governed data platforms that teams can trust.",
+    },
+    {
+      icon: Brain,
+      title: "Data Strategy",
+      description:
+        "I enjoy connecting business goals with scalable data solutions that create measurable impact.",
     },
     {
       icon: Rocket,
       title: "Side Projects",
       description:
-        "Always tinkering with new ideas and experimental projects. Some of my side projects have evolved into innovation.",
+        "I’m always experimenting with new ideas and side projects. Some of them evolve into real products or useful prototypes.",
     },
   ];
 

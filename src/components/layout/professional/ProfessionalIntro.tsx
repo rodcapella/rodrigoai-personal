@@ -17,22 +17,22 @@ export default function ProfessionalIntro() {
         <p className="body-lg text-justify">
           Specialized in Azure Databricks, Delta Lake, PySpark, SQL and Power BI
           (Power Query, DAX, M and semantic modeling) within modern data stack
-          environments.
+          ecosystems.
         </p>
 
         <p className="body-lg text-justify">
-          Delivered enterprise data modernization programs improving analytical
+          Delivered enterprise data modernization programs that improved analytical
           efficiency and governance maturity across multi-domain environments.
         </p>
 
         <p className="body-lg text-justify">
-          Expert in building governed and secure data platforms, implementing
+          Skilled in building governed and secure data platforms, implementing
           GDPR-compliant architectures and scalable distributed data pipelines.
         </p>
 
         <p className="body-lg text-justify">
-          Strong background in defining data architecture standards, leading
-          engineering teams and aligning technical strategy with business goals.
+          Strong background in defining data architecture standards, leading cross-functional engineering teams
+           and aligning technical strategy with business goals.
         </p>
       </div>
     </SectionContent>

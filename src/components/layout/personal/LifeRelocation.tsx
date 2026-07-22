@@ -17,14 +17,13 @@ export default function LifeRelocation() {
 
         <p className="body-md">
           The move was driven by the ambition to work on international projects,
-          explore more mature data ecosystems and expand both technical and
+          explore more mature data ecosystems and expand both my technical and
           personal horizons.
         </p>
 
         <p className="body-md">
-          Today, Portugal is home. The family has grown, now with two dogs, and
-          the balance between career evolution and personal life became a
-          reality, not just a goal.
+          Today, Portugal is our home. Our family has grown, now with two dogs (Tonho and Apollo), and the balance between career evolution 
+          and personal life has become a reality rather than a goal.
         </p>
 
         <p className="body-md">
