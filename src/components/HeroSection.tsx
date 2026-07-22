@@ -37,7 +37,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
           <motion.p className="hero-title text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight text-foreground/90 mb-10">
             Designing Enterprise Data Platforms
             <br />
-            That Scale, Govern and Drive Decisions.
+            That Scale, Stay Governed and Drive Decisions.
           </motion.p>
         </motion.div>
 
