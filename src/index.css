@@ -48,6 +48,9 @@ body {
     --glow-primary: 217 91% 53%;
     --glow-secondary: 160 84% 40%;
 
+    --scrollbar-thumb: 206 92% 63%;
+    --scrollbar-light: 194 48% 89%;
+
     --glass-bg: 215 25% 12%;
     --glass-border: 215 20% 22%;
 
@@ -93,6 +96,9 @@ body {
     --glow-primary: 217 91% 53%;
     --glow-secondary: 160 84% 40%;
 
+    --scrollbar-thumb: 206 92% 63%;
+    --scrollbar-light: 194 48% 89%;
+
     --glass-bg: 0 0% 100%;
     --glass-border: 215 20% 78%;
 
@@ -108,6 +114,34 @@ body {
 
   *, ::before, ::after {
     border-color: hsl(var(--border));
+  }
+
+  * {
+    scrollbar-color: hsl(var(--scrollbar-thumb)) transparent;
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary)),
+      hsl(var(--scrollbar-light))
+    );
+    border: 2px solid hsl(var(--background));
+    border-radius: 999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--scrollbar-thumb));
   }
 
   body {
@@ -256,7 +290,7 @@ body {
   .light .site-header,
   .light .site-header.glass,
   .light .site-footer {
-    background: #94e7ff;
+    background: #d7ebf1;
   }
 
   /* Grid pattern */
