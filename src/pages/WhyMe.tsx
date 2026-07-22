@@ -216,10 +216,10 @@ export default function WhyMe() {
       })}
 
       <CompactHighlightSection>
-        <p className="max-w-4xl text-lg font-medium leading-relaxed text-foreground/90 md:text-xl">
+        <blockquote className="w-full max-w-4xl rounded-r-xl border-l-4 border-primary bg-primary/5 px-6 py-5 text-left text-lg font-semibold italic leading-relaxed text-foreground shadow-lg shadow-primary/5 sm:px-8 sm:py-6 md:text-2xl">
           My goal is simple: build data platforms that people trust, businesses
           rely on, and teams can scale with confidence.
-        </p>
+        </blockquote>
       </CompactHighlightSection>
     </MainLayout>
   );
