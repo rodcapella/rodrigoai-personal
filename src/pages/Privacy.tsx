@@ -16,7 +16,7 @@ const sections = [
     icon: BarChart3,
     title: "Google Analytics",
     content:
-      "Google Analytics is used exclusively to understand website performance and improve its content. Measurement is activated only after consent. Advertising storage, Google signals and ad personalisation remain disabled.",
+      "Google Analytics is used exclusively to understand website performance and improve its content. The Google tag starts with Analytics storage denied and may send limited consent signals without Analytics cookies. Analytics storage and full audience measurement are activated only after consent. Advertising storage, Google signals and ad personalisation remain disabled.",
   },
   {
     icon: Cookie,

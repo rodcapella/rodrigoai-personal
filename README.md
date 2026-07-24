@@ -63,7 +63,9 @@ The platform is designed to communicate:
 
 ## 📊 Google Analytics and privacy consent
 
-The site loads Google Analytics only after explicit visitor consent and tracks SPA route changes manually.
+The site loads the Google tag with Consent Mode v2 denied by default. Analytics
+storage and full audience measurement start only after explicit visitor consent,
+and SPA route changes are tracked manually.
 
 1. Create a GA4 web data stream for `https://www.rpovoadata.tech`.
 2. In Vercel, open **Project Settings → Environment Variables**.

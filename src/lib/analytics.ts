@@ -9,7 +9,8 @@ declare global {
 
 const CONSENT_KEY = "rpovoa-analytics-consent";
 const SCRIPT_ID = "google-analytics-gtag";
-let configured = false;
+let configured =
+  typeof document !== "undefined" && Boolean(document.getElementById(SCRIPT_ID));
 let lastTrackedPath = "";
 
 const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
@@ -49,11 +50,13 @@ export const enableAnalytics = () => {
 
   if (!measurementId || configured) return Boolean(measurementId);
 
-  const script = document.createElement("script");
-  script.id = SCRIPT_ID;
-  script.async = true;
-  script.src = `/gtag/js?id=${encodeURIComponent(measurementId)}`;
-  document.head.appendChild(script);
+  if (!document.getElementById(SCRIPT_ID)) {
+    const script = document.createElement("script");
+    script.id = SCRIPT_ID;
+    script.async = true;
+    script.src = `/gtag/js?id=${encodeURIComponent(measurementId)}`;
+    document.head.appendChild(script);
+  }
 
   window.gtag("js", new Date());
   window.gtag("config", measurementId, {
