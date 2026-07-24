@@ -26,9 +26,9 @@ const sections = [
   },
   {
     icon: MessageCircle,
-    title: "Public comments",
+    title: "Contact form",
     content:
-      "When you publish a comment, your chosen name, the comment text and publication date become publicly visible. Do not include an email address, telephone number or other personal data. Content may be removed when necessary for security, abuse prevention or legal compliance.",
+      "When you use the contact form, the name, email address, optional telephone number, subject and message you provide are sent securely to the website owner's mailbox. These details are used only to respond to your enquiry and are not published on the website.",
   },
 ];
 

@@ -77,6 +77,21 @@ Consent preferences can be changed from the cookie button in the lower-left corn
 
 ---
 
+## Contact form SMTP
+
+The contact form sends messages through a server-side Vercel Function. Configure
+the following encrypted environment variables in Vercel:
+
+- `SMTP_HOST=smtp-pt.securemail.pro`
+- `SMTP_PORT=465`
+- `SMTP_USER=contacto@rpovoadata.tech`
+- `SMTP_PASSWORD` with the mailbox password
+- `CONTACT_EMAIL_TO=contacto@rpovoadata.tech`
+
+Redeploy the project after adding or changing these variables.
+
+---
+
 ## 🤝 Let’s Connect
 
 If you're building data platforms, scaling analytics or exploring AI-native systems:

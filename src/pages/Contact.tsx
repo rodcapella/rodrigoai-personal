@@ -14,6 +14,7 @@ type FormData = {
   phone: string;
   subject: string;
   message: string;
+  website: string;
 };
 
 export default function Contact() {
@@ -28,10 +29,12 @@ export default function Contact() {
     phone: "",
     subject: "",
     message: "",
+    website: "",
   });
 
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submissionError, setSubmissionError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const limits = {
@@ -90,22 +93,47 @@ export default function Contact() {
     if (!validate()) return;
 
     setLoading(true);
+    setSubmissionError("");
+    setStatus("idle");
 
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = (await response.json().catch(() => null)) as
+        | { error?: string; success?: boolean }
+        | null;
+
+      if (!response.ok || !result?.success) {
+        throw new Error(
+          result?.error || "The message could not be sent. Please try again.",
+        );
+      }
+
       setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        website: "",
+      });
+    } catch (error) {
+      setStatus("error");
+      setSubmissionError(
+        error instanceof Error
+          ? error.message
+          : "The message could not be sent. Please try again.",
+      );
+    } finally {
       setLoading(false);
-
-      setTimeout(() => {
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
-        setStatus("idle");
-      }, 2500);
-    }, 1200);
+    }
   };
 
   return (
@@ -160,6 +188,17 @@ export default function Contact() {
                 mx-auto
               "
             >
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
+
               <FormField
                 name="name"
                 placeholder="Full Name"
@@ -235,8 +274,19 @@ export default function Contact() {
                 )}
               </div>
 
+              {status === "error" && submissionError && (
+                <p
+                  role="alert"
+                  className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-500"
+                >
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  {submissionError}
+                </p>
+              )}
+
               {/* BUTTON */}
               <button
+                type="submit"
                 disabled={loading}
                 className="
                   w-full py-4 rounded-xl
