@@ -30,6 +30,12 @@ const sections = [
     content:
       "When you use the contact form, the name, email address, optional telephone number, subject and message you provide are sent securely to the website owner's mailbox. These details are used only to respond to your enquiry and are not published on the website.",
   },
+  {
+    icon: ShieldCheck,
+    title: "Spam and abuse protection",
+    content:
+      "The contact form uses Cloudflare Turnstile to distinguish legitimate visitors from automated abuse. Cloudflare may process technical browser and network signals, including the IP address, to validate the request. Submission frequency is also limited to protect the form and email service.",
+  },
 ];
 
 export default function Privacy() {
@@ -42,7 +48,7 @@ export default function Privacy() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Privacy Policy | Rodrigo Póvoa"
-        description="Learn how Rodrigo Póvoa's website handles preferences, comments and navigation data, and how to manage Google Analytics consent."
+        description="Learn how Rodrigo Póvoa's website handles contact details, preferences, spam protection and navigation data."
         language="en-GB"
       />
 
@@ -57,7 +63,7 @@ export default function Privacy() {
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
             Clear information about the data used by this website and control over your audience measurement choice.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">Last updated: 19 July 2026</p>
+          <p className="mt-4 text-sm text-muted-foreground">Last updated: 24 July 2026</p>
         </div>
       </PageSection>
 
@@ -106,7 +112,7 @@ export default function Privacy() {
           <section className="mt-10 space-y-4">
             <h2 className="font-display text-2xl font-semibold">External services</h2>
             <p className="leading-7 text-muted-foreground">
-              Audience measurement is provided by Google. You can also review the{" "}
+              Audience measurement is provided by Google and contact-form abuse protection is provided by Cloudflare Turnstile. Review the{" "}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
@@ -114,6 +120,15 @@ export default function Privacy() {
                 className="font-semibold text-primary hover:underline"
               >
                 Google Privacy Policy
+              </a>{" "}
+              and the{" "}
+              <a
+                href="https://www.cloudflare.com/privacypolicy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary hover:underline"
+              >
+                Cloudflare Privacy Policy
               </a>.
             </p>
           </section>

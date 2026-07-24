@@ -7,11 +7,13 @@ type ContactPayload = {
   subject?: unknown;
   message?: unknown;
   website?: unknown;
+  turnstileToken?: unknown;
 };
 
 type ApiRequest = {
   method?: string;
   body?: ContactPayload;
+  headers?: Record<string, string | string[] | undefined>;
 };
 
 type ApiResponse = {
@@ -26,9 +28,23 @@ const SMTP_USER = process.env.SMTP_USER || "contacto@rpovoadata.tech";
 const SMTP_PASSWORD = process.env.SMTP_PASSWORD;
 const CONTACT_EMAIL_TO =
   process.env.CONTACT_EMAIL_TO || "contacto@rpovoadata.tech";
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+const TURNSTILE_ALLOWED_HOSTNAMES = new Set(
+  (
+    process.env.TURNSTILE_ALLOWED_HOSTNAMES ||
+    "rpovoadata.tech,www.rpovoadata.tech"
+  )
+    .split(",")
+    .map((hostname) => hostname.trim().toLowerCase())
+    .filter(Boolean),
+);
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[\d\s+()-]{8,20}$/;
+const RATE_LIMIT_MAX = 3;
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+
+const rateLimits = new Map<string, { count: number; resetAt: number }>();
 
 const normalize = (value: unknown) =>
   typeof value === "string" ? value.trim() : "";
@@ -46,6 +62,90 @@ const escapeHtml = (value: string) =>
       })[character] || character,
   );
 
+const getClientIp = (req: ApiRequest) => {
+  const forwardedFor = req.headers?.["x-forwarded-for"];
+  const value = Array.isArray(forwardedFor)
+    ? forwardedFor[0]
+    : forwardedFor;
+
+  return value?.split(",")[0]?.trim() || "unknown";
+};
+
+const isRateLimited = (clientIp: string) => {
+  const entry = rateLimits.get(clientIp);
+  if (!entry) return false;
+
+  if (Date.now() >= entry.resetAt) {
+    rateLimits.delete(clientIp);
+    return false;
+  }
+
+  return entry.count >= RATE_LIMIT_MAX;
+};
+
+const recordSubmissionAttempt = (clientIp: string) => {
+  const now = Date.now();
+  const entry = rateLimits.get(clientIp);
+
+  if (!entry || now >= entry.resetAt) {
+    rateLimits.set(clientIp, {
+      count: 1,
+      resetAt: now + RATE_LIMIT_WINDOW_MS,
+    });
+    return;
+  }
+
+  entry.count += 1;
+};
+
+const verifyTurnstile = async (token: string, clientIp: string) => {
+  if (!TURNSTILE_SECRET_KEY) {
+    return { configured: false, valid: false };
+  }
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8_000);
+
+  try {
+    const response = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret: TURNSTILE_SECRET_KEY,
+          response: token,
+          remoteip: clientIp === "unknown" ? undefined : clientIp,
+        }),
+        signal: controller.signal,
+      },
+    );
+
+    const result = (await response.json()) as {
+      action?: string;
+      hostname?: string;
+      success?: boolean;
+    };
+
+    const hostname = result.hostname?.toLowerCase() || "";
+    return {
+      configured: true,
+      valid:
+        response.ok &&
+        result.success === true &&
+        result.action === "contact_form" &&
+        TURNSTILE_ALLOWED_HOSTNAMES.has(hostname),
+    };
+  } catch (error) {
+    console.error("Contact form Turnstile error:", error);
+    return { configured: true, valid: false };
+  } finally {
+    clearTimeout(timeout);
+  }
+};
+
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   res.setHeader("Cache-Control", "no-store");
 
@@ -60,6 +160,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   const subject = normalize(payload.subject).replace(/[\r\n]+/g, " ");
   const message = normalize(payload.message);
   const website = normalize(payload.website);
+  const turnstileToken = normalize(payload.turnstileToken);
+  const clientIp = getClientIp(req);
 
   // Honeypot: legitimate visitors never see or fill this field.
   if (website) {
@@ -78,6 +180,38 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   ) {
     return res.status(400).json({ error: "Please check the submitted fields." });
   }
+
+  if (!turnstileToken || turnstileToken.length > 2048) {
+    return res.status(400).json({
+      code: "TURNSTILE_REQUIRED",
+      error: "Please complete the human verification.",
+    });
+  }
+
+  const turnstile = await verifyTurnstile(turnstileToken, clientIp);
+  if (!turnstile.configured) {
+    return res.status(503).json({
+      code: "TURNSTILE_NOT_CONFIGURED",
+      error: "Human verification is temporarily unavailable.",
+    });
+  }
+
+  if (!turnstile.valid) {
+    return res.status(400).json({
+      code: "TURNSTILE_INVALID",
+      error: "Human verification failed. Please try again.",
+    });
+  }
+
+  if (isRateLimited(clientIp)) {
+    res.setHeader("Retry-After", "900");
+    return res.status(429).json({
+      code: "RATE_LIMITED",
+      error: "Too many messages were sent. Please try again in 15 minutes.",
+    });
+  }
+
+  recordSubmissionAttempt(clientIp);
 
   if (!SMTP_PASSWORD) {
     console.error("Contact form: SMTP_PASSWORD is not configured.");

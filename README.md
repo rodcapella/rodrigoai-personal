@@ -87,8 +87,21 @@ the following encrypted environment variables in Vercel:
 - `SMTP_USER=contacto@rpovoadata.tech`
 - `SMTP_PASSWORD` with the mailbox password
 - `CONTACT_EMAIL_TO=contacto@rpovoadata.tech`
+- `VITE_TURNSTILE_SITE_KEY` with the public Cloudflare Turnstile sitekey
+- `TURNSTILE_SECRET_KEY` with the encrypted Turnstile secret
+- `TURNSTILE_ALLOWED_HOSTNAMES=rpovoadata.tech,www.rpovoadata.tech`
 
 Redeploy the project after adding or changing these variables.
+
+For durable rate limiting, create and publish a Vercel Firewall rule:
+
+- Path matches `^/api/contact$`
+- Action: **Rate Limit**
+- Strategy: **Fixed Window**
+- Window: **900 seconds**
+- Request limit: **3**
+- Key: **IP Address**
+- Result: **Deny**
 
 ---
 

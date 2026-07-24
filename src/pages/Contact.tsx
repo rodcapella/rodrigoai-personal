@@ -1,12 +1,13 @@
 import { useOutletContext } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import { AlertCircle, CheckCircle } from "@/lib/icons";
 import FormField from "@/components/ui/FormField";
+import TurnstileWidget from "@/components/ui/TurnstileWidget";
 
 type FormData = {
   name: string;
@@ -36,6 +37,23 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [submissionError, setSubmissionError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
+
+  const turnstileSiteKey =
+    import.meta.env.VITE_TURNSTILE_SITE_KEY?.trim() || "";
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken("");
+  }, []);
+
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken("");
+    setStatus("error");
+    setSubmissionError(
+      "Human verification could not be completed. Please refresh the page.",
+    );
+  }, []);
 
   const limits = {
     name: { min: 3, max: 80 },
@@ -92,6 +110,18 @@ export default function Contact() {
     e.preventDefault();
     if (!validate()) return;
 
+    if (!turnstileSiteKey) {
+      setStatus("error");
+      setSubmissionError("Human verification is not configured.");
+      return;
+    }
+
+    if (!turnstileToken) {
+      setStatus("error");
+      setSubmissionError("Please complete the human verification.");
+      return;
+    }
+
     setLoading(true);
     setSubmissionError("");
     setStatus("idle");
@@ -102,7 +132,10 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
       });
 
       const result = (await response.json().catch(() => null)) as
@@ -126,6 +159,8 @@ export default function Contact() {
       });
     } catch (error) {
       setStatus("error");
+      setTurnstileToken("");
+      setTurnstileResetKey((value) => value + 1);
       setSubmissionError(
         error instanceof Error
           ? error.message
@@ -274,6 +309,24 @@ export default function Contact() {
                 )}
               </div>
 
+              {turnstileSiteKey ? (
+                <TurnstileWidget
+                  key={turnstileResetKey}
+                  siteKey={turnstileSiteKey}
+                  theme={theme}
+                  onVerify={setTurnstileToken}
+                  onExpire={handleTurnstileExpire}
+                  onError={handleTurnstileError}
+                />
+              ) : (
+                <p
+                  role="alert"
+                  className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-500"
+                >
+                  Human verification is not configured.
+                </p>
+              )}
+
               {status === "error" && submissionError && (
                 <p
                   role="alert"
@@ -287,7 +340,7 @@ export default function Contact() {
               {/* BUTTON */}
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !turnstileSiteKey || !turnstileToken}
                 className="
                   w-full py-4 rounded-xl
                   bg-gradient-to-r from-primary to-secondary
@@ -296,6 +349,9 @@ export default function Contact() {
                   shadow-lg shadow-primary/20
                   hover:scale-[1.02]
                   transition-all duration-300
+                  disabled:cursor-not-allowed
+                  disabled:opacity-60
+                  disabled:hover:scale-100
                 "
               >
                 {loading ? "Sending message ..." : "Send Message"}
