@@ -17,7 +17,7 @@ type ApiRequest = {
 type ApiResponse = {
   setHeader: (name: string, value: string) => void;
   status: (code: number) => ApiResponse;
-  json: (body: { error?: string; success?: boolean }) => void;
+  json: (body: { code?: string; error?: string; success?: boolean }) => void;
 };
 
 const SMTP_HOST = process.env.SMTP_HOST || "smtp-pt.securemail.pro";
@@ -82,6 +82,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (!SMTP_PASSWORD) {
     console.error("Contact form: SMTP_PASSWORD is not configured.");
     return res.status(503).json({
+      code: "SMTP_NOT_CONFIGURED",
       error: "The contact service is temporarily unavailable.",
     });
   }
@@ -138,8 +139,25 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Contact form SMTP error:", error);
+
+    const smtpCode =
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      typeof error.code === "string"
+        ? error.code
+        : "SMTP_UNKNOWN";
+
+    const publicMessage =
+      smtpCode === "EAUTH"
+        ? "The email service authentication failed. Please contact the site owner."
+        : ["ECONNECTION", "ETIMEDOUT", "ESOCKET"].includes(smtpCode)
+          ? "The email service is currently unreachable. Please try again later."
+          : "The message could not be sent. Please try again later.";
+
     return res.status(502).json({
-      error: "The message could not be sent. Please try again later.",
+      code: smtpCode,
+      error: publicMessage,
     });
   }
 }
