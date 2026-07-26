@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import SEO from "@/components/SEO";
@@ -17,6 +17,34 @@ const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
+
+function DeferredSection({ children }: { children: React.ReactNode }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container || isVisible) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsVisible(true);
+        observer.disconnect();
+      },
+      { rootMargin: "160px 0px" },
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  return (
+    <div ref={containerRef} className={isVisible ? "" : "min-h-[280px]"}>
+      {isVisible ? children : null}
+    </div>
+  );
+}
 
 export default function Index() {
   const { theme, onToggleTheme } = useOutletContext<{
@@ -80,7 +108,11 @@ const competences = [
               spacing="none"
               container={false}
             >
-              {section.component}
+              {index < 2 ? (
+                section.component
+              ) : (
+                <DeferredSection>{section.component}</DeferredSection>
+              )}
             </PageSection>
           </Suspense>
         ))}

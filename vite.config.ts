@@ -21,13 +21,30 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          if (id.includes('node_modules')) {
-            // Agrupamos tudo o que é core num só vendor para evitar 
-            // os erros de contexto (future/useContext) que estavas a ter
-            return 'vendor';
+          const moduleId = id.replace(/\\/g, "/");
+          if (!moduleId.includes("/node_modules/")) return;
+
+          if (
+            /\/node_modules\/(?:react|react-dom|react-router|react-router-dom|scheduler|@remix-run)\//.test(
+              moduleId,
+            )
+          ) {
+            return "react-core";
           }
-        }
-      }
-    }
+
+          if (
+            moduleId.includes("/node_modules/framer-motion/") ||
+            moduleId.includes("/node_modules/motion-dom/") ||
+            moduleId.includes("/node_modules/motion-utils/")
+          ) {
+            return "motion";
+          }
+
+          if (moduleId.includes("/node_modules/react-helmet-async/")) {
+            return "seo";
+          }
+        },
+      },
+    },
   }
 });

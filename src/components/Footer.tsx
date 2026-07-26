@@ -22,8 +22,14 @@ const Footer = () => {
         <div className="grid gap-4 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
           <div>
             <img
-              src="/logo_fundo_transparente.webp"
+              src="/logo-96.webp"
+              srcSet="/logo-96.webp 96w, /logo-192.webp 192w"
+              sizes="54px"
               alt="Rodrigo Póvoa Logo"
+              width={96}
+              height={64}
+              loading="lazy"
+              decoding="async"
               className="h-9 opacity-70"
             />
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">

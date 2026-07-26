@@ -26,12 +26,7 @@ const PageHero = ({
       <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-10 md:gap-12 items-center">
         
         {/* TEXT */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-center md:text-left"
-        >
+        <div className="text-center md:text-left">
           <h1
             className={`
               hero-title
@@ -62,7 +57,7 @@ const PageHero = ({
               {description}
             </p>
           )}
-        </motion.div>
+        </div>
 
         {/* IMAGE */}
         {image && (

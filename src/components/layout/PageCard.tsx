@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion";
 
 const variants = {
   default: "glass border border-border",
@@ -14,7 +14,7 @@ const alignMap = {
 };
 
 interface PageCardProps extends Omit<HTMLMotionProps<"div">, "title"> {
-  as?: typeof motion.div;
+  as?: React.ElementType;
   title?: string;
   description?: string;
   icon?: React.ReactNode;
@@ -27,7 +27,7 @@ interface PageCardProps extends Omit<HTMLMotionProps<"div">, "title"> {
 }
 
 const PageCard = ({
-  as: Component = motion.div,
+  as: Component = "div",
   title,
   description,
   icon,
@@ -39,12 +39,19 @@ const PageCard = ({
   align = "default",
   ...props
 }: PageCardProps) => {
+  const animationProps =
+    Component === "div"
+      ? {}
+      : {
+          initial: { opacity: 0, y: 20 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true },
+          transition: { duration: 0.4 },
+        };
+
   return (
     <Component
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4 }}
+      {...animationProps}
       className={`
         relative
         p-5                     /* 🔥 menor e mais elegante */

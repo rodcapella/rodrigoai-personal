@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Github, Linkedin, Sun, Moon, Menu, X } from "@/lib/icons";
-import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/layout/Container";
 
 const links = [
@@ -91,11 +90,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                       </span>
 
                       {isActive && (
-                        <motion.div
-                          layoutId="navbar-indicator"
-                          className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]"
-                          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                        />
+                        <div className="absolute left-0 right-0 -bottom-1 h-[2px] bg-primary shadow-[0_0_8px_rgba(59,130,246,0.9)]" />
                       )}
                     </div>
                   )}
@@ -103,17 +98,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               ))}
 
               {/* Contact Button */}
-              <motion.div
-                animate={{
-                  boxShadow: [
-                    "0 0 8px rgba(59,130,246,0.4)",
-                    "0 0 18px rgba(59,130,246,0.9)",
-                    "0 0 8px rgba(59,130,246,0.4)",
-                  ],
-                }}
-                transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
-                className="ml-4 rounded-lg"
-              >
+              <div className="ml-4 rounded-lg animate-pulse-glow">
                 <NavLink
                   to="/contact"
                   onClick={scrollToPageTop}
@@ -123,7 +108,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                 >
                   Contact
                 </NavLink>
-              </motion.div>
+              </div>
             </div>
 
             {/* RIGHT — Social + Theme + Mobile */}
@@ -172,15 +157,8 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
         </Container>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.25 }}
-              className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden"
-            >
+        {mobileMenuOpen && (
+            <div className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden">
               <Container>
                 <div className="flex flex-col gap-6 py-6">
                   {links.map((link) => (
@@ -216,9 +194,8 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                   </NavLink>
                 </div>
               </Container>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+        )}
       </nav>
     </>
   );

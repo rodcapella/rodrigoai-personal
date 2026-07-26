@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 interface SectionTitleProps {
   icon?: React.ReactNode;
@@ -26,16 +25,12 @@ export default function SectionTitle({
       "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
   };
 
-  const MotionTag = motion(as);
+  const TitleTag = as;
 
   return (
     <div className={`mb-12 ${isCenter ? "text-center" : ""}`}>
       
-      <MotionTag
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+      <TitleTag
         className={`
           group
           heading-lg
@@ -69,17 +64,14 @@ export default function SectionTitle({
         >
           {children}
         </span>
-      </MotionTag>
+      </TitleTag>
 
       {/* UNDERLINE */}
-      <motion.div
-        initial={{ width: 0, opacity: 0 }}
-        whileInView={{ width: isCenter ? "120px" : "80px", opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+      <div
         className={`
           h-[2px] mt-4
           bg-gradient-to-r from-primary to-secondary
+          ${isCenter ? "w-[120px]" : "w-20"}
           ${isCenter ? "mx-auto" : ""}
         `}
       />

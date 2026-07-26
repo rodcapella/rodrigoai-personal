@@ -113,7 +113,15 @@ export default function BlogPost() {
           <h1 className="max-w-4xl font-display text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">{post.title}</h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">{post.excerpt}</p>
           <div className="mt-8 flex items-center gap-4">
-            <img src="/profile.webp" alt="Rodrigo Póvoa" className="h-12 w-12 rounded-full border border-primary/25 object-cover object-[center_34%]" />
+            <img
+              src="/profile-96.webp"
+              alt="Rodrigo Póvoa"
+              width={48}
+              height={48}
+              loading="lazy"
+              decoding="async"
+              className="h-12 w-12 rounded-full border border-primary/25 object-cover"
+            />
             <div><p className="font-semibold">Rodrigo Póvoa</p><p className="text-sm text-muted-foreground">Data Analytics Engineer & Team Leader</p></div>
           </div>
         </div>
