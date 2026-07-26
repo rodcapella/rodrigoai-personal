@@ -75,7 +75,7 @@ export default function Contact() {
 
     if (!formData.email.trim()) e.email = "Email is required";
     else if (!emailRegex.test(formData.email))
-      e.email = "Invalid email format";
+      e.email = "Enter a valid email address (for example, name@example.com)";
 
     if (formData.phone.trim() && !phoneRegex.test(formData.phone))
       e.phone = "Invalid phone number";
@@ -211,6 +211,7 @@ export default function Contact() {
             <motion.form
               key="form"
               onSubmit={handleSubmit}
+              noValidate
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="
