@@ -24,10 +24,10 @@ type ApiResponse = {
 
 const SMTP_HOST = process.env.SMTP_HOST || "smtp-pt.securemail.pro";
 const SMTP_PORT = Number(process.env.SMTP_PORT || 465);
-const SMTP_USER = process.env.SMTP_USER || "contacto@rpovoadata.tech";
+const SMTP_USER = process.env.SMTP_USER || "contact@rpovoadata.tech";
 const SMTP_PASSWORD = process.env.SMTP_PASSWORD;
 const CONTACT_EMAIL_TO =
-  process.env.CONTACT_EMAIL_TO || "contacto@rpovoadata.tech";
+  process.env.CONTACT_EMAIL_TO || "contact@rpovoadata.tech";
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const TURNSTILE_ALLOWED_HOSTNAMES = new Set(
   (

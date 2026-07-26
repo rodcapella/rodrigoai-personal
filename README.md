@@ -84,9 +84,9 @@ the following encrypted environment variables in Vercel:
 
 - `SMTP_HOST=smtp-pt.securemail.pro`
 - `SMTP_PORT=465`
-- `SMTP_USER=contacto@rpovoadata.tech`
+- `SMTP_USER=contact@rpovoadata.tech`
 - `SMTP_PASSWORD` with the mailbox password
-- `CONTACT_EMAIL_TO=contacto@rpovoadata.tech`
+- `CONTACT_EMAIL_TO=contact@rpovoadata.tech`
 - `VITE_TURNSTILE_SITE_KEY` with the public Cloudflare Turnstile sitekey
 - `TURNSTILE_SECRET_KEY` with the encrypted Turnstile secret
 - `TURNSTILE_ALLOWED_HOSTNAMES=rpovoadata.tech,www.rpovoadata.tech`
