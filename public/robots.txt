@@ -13,7 +13,7 @@ Disallow: /node_modules/
 Disallow: /.git/
 
 # Sitemaps
-Sitemap: https://www.rpovoadata.tech/sitemap-index.xml
+Sitemap: https://www.rpovoadata.tech/sitemaps/sitemap-index.xml
 
 # Social preview crawlers
 User-agent: Twitterbot

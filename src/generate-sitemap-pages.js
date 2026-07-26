@@ -1,5 +1,6 @@
 import fs from "node:fs";
 
+const sitemapDirectory = "dist/sitemaps";
 const pages = [
   "/",
   "/why-me",
@@ -26,6 +27,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 `;
 
-fs.writeFileSync("dist/sitemap-pages.xml", sitemap, "utf8");
+fs.mkdirSync(sitemapDirectory, { recursive: true });
+fs.writeFileSync(`${sitemapDirectory}/sitemap-pages.xml`, sitemap, "utf8");
 
 console.log("sitemap-pages.xml generated");

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 
+const sitemapDirectory = "dist/sitemaps";
 const projects = [
   // coloca aqui os teus paths
   "/side-projects",
@@ -21,6 +22,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 `;
 
-fs.writeFileSync("dist/sitemap-projects.xml", sitemap, "utf8");
+fs.mkdirSync(sitemapDirectory, { recursive: true });
+fs.writeFileSync(`${sitemapDirectory}/sitemap-projects.xml`, sitemap, "utf8");
 
 console.log("sitemap-projects.xml generated");

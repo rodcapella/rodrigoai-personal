@@ -32,6 +32,7 @@ try {
     vite.ssrLoadModule("/src/data/blogPosts.ts"),
   ]);
   const template = await fs.readFile(path.join(distDirectory, "index.html"), "utf8");
+  const sitemapDirectory = path.join(distDirectory, "sitemaps");
   const prerenderRoutes = [
     "/",
     "/blog",
@@ -91,12 +92,13 @@ try {
     })
     .join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${sitemapUrls}\n</urlset>\n`;
-  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap>\n    <loc>${baseUrl}/sitemap-pages.xml</loc>\n    <lastmod>${escapeXml(blogLastModified)}</lastmod>\n  </sitemap>\n</sitemapindex>\n`;
+  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap>\n    <loc>${baseUrl}/sitemaps/sitemap-pages.xml</loc>\n    <lastmod>${escapeXml(blogLastModified)}</lastmod>\n  </sitemap>\n</sitemapindex>\n`;
 
+  await fs.mkdir(sitemapDirectory, { recursive: true });
   await Promise.all([
-    fs.writeFile(path.join(distDirectory, "sitemap-pages.xml"), sitemap, "utf8"),
-    fs.writeFile(path.join(distDirectory, "sitemap-index.xml"), sitemapIndex, "utf8"),
-    fs.writeFile(path.join(distDirectory, "sitemap.xml"), sitemapIndex, "utf8"),
+    fs.writeFile(path.join(sitemapDirectory, "sitemap-pages.xml"), sitemap, "utf8"),
+    fs.writeFile(path.join(sitemapDirectory, "sitemap-index.xml"), sitemapIndex, "utf8"),
+    fs.writeFile(path.join(sitemapDirectory, "sitemap.xml"), sitemapIndex, "utf8"),
   ]);
   console.log(
     `Prerendered ${prerenderRoutes.length} routes and generated SEO sitemaps.`,

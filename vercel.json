@@ -1,6 +1,22 @@
 {
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/sitemaps/sitemap.xml"
+    },
+    {
+      "source": "/sitemap-index.xml",
+      "destination": "/sitemaps/sitemap-index.xml"
+    },
+    {
+      "source": "/sitemap-pages.xml",
+      "destination": "/sitemaps/sitemap-pages.xml"
+    },
+    {
+      "source": "/sitemap-projects.xml",
+      "destination": "/sitemaps/sitemap-projects.xml"
+    },
+    {
       "source": "/gtag/js",
       "destination": "https://www.googletagmanager.com/gtag/js"
     },
