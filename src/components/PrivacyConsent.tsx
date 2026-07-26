@@ -130,7 +130,7 @@ export default function PrivacyConsent() {
         title="Cookie and privacy preferences"
       >
         <img
-          src="/cookie-privacy-button_blue.webp"
+          src="/cookie-privacy-button.webp"
           alt=""
           className="h-full w-full object-contain transition-transform duration-200 group-hover:rotate-[-7deg] group-hover:scale-105"
         />
