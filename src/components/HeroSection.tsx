@@ -43,7 +43,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
             <div className="relative rounded-3xl overflow-hidden border border-primary/20 shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] transition-all duration-500">
               <img
                 src="/profile-320.webp"
-                srcSet="/profile-320.webp 320w, /profile-640.webp 640w"
+                srcSet="/profile-320.webp 320w, /profile-480.webp 480w, /profile-640.webp 640w"
                 sizes="(min-width: 768px) 300px, 260px"
                 alt="Rodrigo Povoa"
                 width={320}

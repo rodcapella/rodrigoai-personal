@@ -32,7 +32,11 @@ try {
     vite.ssrLoadModule("/src/data/blogPosts.ts"),
   ]);
   const template = await fs.readFile(path.join(distDirectory, "index.html"), "utf8");
-  const prerenderRoutes = ["/blog", ...blogPosts.map((post) => `/blog/${post.slug}`)];
+  const prerenderRoutes = [
+    "/",
+    "/blog",
+    ...blogPosts.map((post) => `/blog/${post.slug}`),
+  ];
 
   for (const route of prerenderRoutes) {
     const { appHtml, head, htmlAttributes } = await render(route);
@@ -94,7 +98,9 @@ try {
     fs.writeFile(path.join(distDirectory, "sitemap-index.xml"), sitemapIndex, "utf8"),
     fs.writeFile(path.join(distDirectory, "sitemap.xml"), sitemapIndex, "utf8"),
   ]);
-  console.log(`Prerendered ${prerenderRoutes.length} blog routes and generated SEO sitemaps.`);
+  console.log(
+    `Prerendered ${prerenderRoutes.length} routes and generated SEO sitemaps.`,
+  );
 } finally {
   console.error = originalConsoleError;
   await vite.close();

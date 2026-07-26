@@ -1,35 +1,63 @@
-import { renderToString } from "react-dom/server";
+import { PassThrough } from "node:stream";
+import { renderToPipeableStream } from "react-dom/server";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
+import {
+  HelmetProvider,
+  type HelmetServerState,
+} from "react-helmet-async";
 import { routes } from "./routes";
-
-type HelmetFragment = { toString: () => string };
-type HelmetState = {
-  title: HelmetFragment;
-  priority: HelmetFragment;
-  meta: HelmetFragment;
-  link: HelmetFragment;
-  script: HelmetFragment;
-  htmlAttributes: HelmetFragment;
-};
 
 export async function render(url: string) {
   const router = createMemoryRouter(routes, { initialEntries: [url] });
-  const helmetContext: { helmet?: HelmetState } = {};
-  const appHtml = renderToString(
+  const helmetContext: { helmet?: HelmetServerState } = {};
+  const application = (
     <HelmetProvider context={helmetContext}>
       <RouterProvider router={router} />
-    </HelmetProvider>,
+    </HelmetProvider>
   );
-  const helmet = helmetContext.helmet;
 
-  return {
-    appHtml,
-    htmlAttributes: helmet?.htmlAttributes.toString() || 'lang="en"',
-    head: helmet
-      ? [helmet.title, helmet.priority, helmet.meta, helmet.link, helmet.script]
-          .map((fragment) => fragment.toString())
-          .join("\n")
-      : "",
-  };
+  return new Promise<{
+    appHtml: string;
+    htmlAttributes: string;
+    head: string;
+  }>((resolve, reject) => {
+    const { pipe } = renderToPipeableStream(application, {
+      onAllReady() {
+        const output = new PassThrough();
+        let appHtml = "";
+
+        output.setEncoding("utf8");
+        output.on("data", (chunk: string) => {
+          appHtml += chunk;
+        });
+        output.on("error", reject);
+        output.on("end", () => {
+          const helmet = helmetContext.helmet;
+
+          resolve({
+            appHtml,
+            htmlAttributes:
+              helmet?.htmlAttributes.toString() || 'lang="en"',
+            head: helmet
+              ? [
+                  helmet.title,
+                  helmet.priority,
+                  helmet.meta,
+                  helmet.link,
+                  helmet.script,
+                ]
+                  .map((fragment) => fragment.toString())
+                  .join("\n")
+              : "",
+          });
+        });
+
+        pipe(output);
+      },
+      onShellError: reject,
+      onError(error) {
+        console.error(error);
+      },
+    });
+  });
 }

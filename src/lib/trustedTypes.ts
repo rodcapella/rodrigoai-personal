@@ -58,7 +58,8 @@ if (typeof window !== "undefined") {
           if (value === "" || isSchemaJson(value)) return value;
           throw new TypeError("Dynamic HTML injection is not allowed.");
         },
-        createScript: () => {
+        createScript: (value) => {
+          if (isSchemaJson(value)) return value;
           throw new TypeError("Dynamic JavaScript evaluation is not allowed.");
         },
         createScriptURL: (value) => {

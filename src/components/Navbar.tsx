@@ -98,13 +98,13 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               ))}
 
               {/* Contact Button */}
-              <div className="ml-4 rounded-lg animate-pulse-glow">
+              <div className="relative isolate ml-4 rounded-lg after:pointer-events-none after:absolute after:-inset-1 after:-z-10 after:rounded-xl after:bg-primary/40 after:blur-md after:animate-pulse">
                 <NavLink
                   to="/contact"
                   onClick={scrollToPageTop}
                   onMouseEnter={() => preloadMap["/contact"]?.()}
                   onTouchStart={() => preloadMap["/contact"]?.()}
-                  className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all"
+                  className="px-5 py-2 rounded-lg bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90"
                 >
                   Contact
                 </NavLink>
