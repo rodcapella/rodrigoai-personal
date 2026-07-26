@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import PrivacyConsent from "@/components/PrivacyConsent";
 import { trackPageView } from "@/lib/analytics";
@@ -11,8 +11,11 @@ export default function App() {
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    if (stored === "dark" || stored === "light") setTheme(stored);
-    setThemeReady(true);
+
+    startTransition(() => {
+      if (stored === "dark" || stored === "light") setTheme(stored);
+      setThemeReady(true);
+    });
   }, []);
 
   const handleToggleTheme = () => {

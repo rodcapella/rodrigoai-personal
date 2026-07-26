@@ -30,7 +30,7 @@ const Footer = () => {
               height={64}
               loading="lazy"
               decoding="async"
-              className="h-9 opacity-70"
+              className="h-9 w-auto opacity-70"
             />
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Data Analytics Engineer, Technical Data Leader and founder of Sapiente.AI.
