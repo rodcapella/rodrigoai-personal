@@ -193,12 +193,12 @@ export default function SideProjects() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Sapiente.AI | AI Innovation Hub"
+        title="Innovation Hub | Rodrigo Póvoa – Sapiente.AI"
         description="Explore Sapiente.AI and innovation projects focused on AI systems, intelligent automation and modern data platforms built by Rodrigo Póvoa." 
       />
 
       <Helmet>
-        <title>Rodrigo Póvoa – Sapiente.AI Innovation Hub</title>
+        <title>Innovation Hub | Rodrigo Póvoa – Sapiente.AI</title>
       </Helmet>
 
       {/* HERO */}

@@ -109,6 +109,7 @@ export default function TurnstileWidget({
     <div
       ref={containerRef}
       className="min-h-[65px] w-full"
+      role="group"
       aria-label="Human verification"
     />
   );

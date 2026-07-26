@@ -4,7 +4,12 @@ import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";
 import { AlertTriangle } from "@/lib/icons";
 
-const NotFound = ({ theme, onToggleTheme }: any) => {
+interface NotFoundProps {
+  theme?: "dark" | "light";
+  onToggleTheme?: () => void;
+}
+
+const NotFound = ({ theme, onToggleTheme }: NotFoundProps) => {
   const location = useLocation();
 
   useEffect(() => {

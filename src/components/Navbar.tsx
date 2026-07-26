@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { Github, Linkedin, Sun, Moon, Menu, X } from "@/lib/icons";
 import Container from "@/components/layout/Container";
@@ -32,6 +32,8 @@ const scrollToPageTop = () => {
 const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -41,6 +43,22 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    if (mobileMenuOpen) {
+      window.requestAnimationFrame(() => firstMobileLinkRef.current?.focus());
+    }
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      setMobileMenuOpen(false);
+      window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
+    };
+
+    if (mobileMenuOpen) document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, [mobileMenuOpen]);
 
   useEffect(() => {
@@ -56,13 +74,15 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
         Skip to content
       </a>
 
-      <nav
-        className={`site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "glass py-3 border-b border-primary/20 backdrop-blur-md"
-            : "py-5"
-        }`}
-      >
+      <header>
+        <nav
+          aria-label="Primary navigation"
+          className={`site-header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled
+              ? "glass py-3 border-b border-primary/20 backdrop-blur-md"
+              : "py-5"
+          }`}
+        >
         <Container>
           <div className="flex items-center justify-between">
             {/* LEFT — Navigation */}
@@ -117,7 +137,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               <button
                 onClick={() => onToggleTheme?.()}
                 className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-muted-foreground hover:text-primary"
-                aria-label="Toggle theme"
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
               >
                 {theme === "dark" ? <Sun className="w-6 h-6 opacity-80" /> : <Moon className="w-6 h-6 opacity-80" />}
               </button>
@@ -146,9 +166,12 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
 
               {/* Mobile Menu Button */}
               <button
+                ref={mobileMenuButtonRef}
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden p-2 text-foreground"
-                aria-label="Toggle menu"
+                aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation-menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -158,11 +181,12 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-            <div className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden">
+            <div id="mobile-navigation-menu" className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden">
               <Container>
                 <div className="flex flex-col gap-6 py-6">
-                  {links.map((link) => (
+                  {links.map((link, index) => (
                     <NavLink
+                      ref={index === 0 ? firstMobileLinkRef : undefined}
                       key={link.href}
                       to={link.href}
                       end={link.href === "/"}
@@ -196,7 +220,8 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
               </Container>
             </div>
         )}
-      </nav>
+        </nav>
+      </header>
     </>
   );
 };

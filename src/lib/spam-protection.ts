@@ -222,7 +222,7 @@ export function validateContactForm(
 
   // Phone validation (if provided)
   if (phone && phone.trim()) {
-    const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
+    const phoneRegex = /^[\d\s+()-]{10,}$/;
     if (!phoneRegex.test(phone)) {
       errors.push('Invalid phone number');
     }

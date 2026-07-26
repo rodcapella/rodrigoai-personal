@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
@@ -32,9 +32,14 @@ export default function Contact() {
     message: "",
     website: "",
   });
+  const successMessageRef = useRef<HTMLDivElement>(null);
 
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  useEffect(() => {
+    if (status === "success") successMessageRef.current?.focus();
+  }, [status]);
   const [submissionError, setSubmissionError] = useState("");
   const [loading, setLoading] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState("");
@@ -174,7 +179,7 @@ export default function Contact() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Contact"
+        title="Contact | Rodrigo Póvoa"
         description="Get in touch with Rodrigo Póvoa to discuss data engineering, AI systems, analytics platforms or strategic technology initiatives." 
       />
 
@@ -193,7 +198,11 @@ export default function Contact() {
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div
+              ref={successMessageRef}
               key="success"
+              tabIndex={-1}
+              role="status"
+              aria-live="polite"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
@@ -274,12 +283,21 @@ export default function Contact() {
 
               {/* TEXTAREA */}
               <div className="space-y-2">
+                <label htmlFor="contact-message" className="sr-only">
+                  Message
+                </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   rows={4}
                   placeholder="Tell me about your idea, project or challenge..."
+                  disabled={loading}
                   value={formData.message}
                   onChange={handleChange}
+                  aria-invalid={Boolean(errors.message)}
+                  aria-describedby={
+                    errors.message ? "contact-message-error" : undefined
+                  }
                   className={`
                     w-full
                     px-4 py-3
@@ -303,7 +321,11 @@ export default function Contact() {
                 />
 
                 {errors.message && (
-                  <p className="text-red-500 text-xs mt-1 flex gap-2 items-center">
+                  <p
+                    id="contact-message-error"
+                    role="alert"
+                    className="text-red-500 text-xs mt-1 flex gap-2 items-center"
+                  >
                     <AlertCircle className="w-4 h-4" />
                     {errors.message}
                   </p>

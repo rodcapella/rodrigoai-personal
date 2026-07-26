@@ -12,21 +12,97 @@ import { PRIVACY_CONSENT_EVENT } from "@/lib/privacyConsent";
 
 export default function PrivacyConsent() {
   const dialogRef = useRef<HTMLDivElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
   useEffect(() => {
     setOpen(getAnalyticsConsent() === null);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+      returnFocusRef.current =
+        document.activeElement instanceof HTMLElement
+          ? document.activeElement
+          : null;
+      setOpen(true);
+    };
     window.addEventListener(PRIVACY_CONSENT_EVENT, handleOpen);
     return () => window.removeEventListener(PRIVACY_CONSENT_EVENT, handleOpen);
   }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    if (open) dialogRef.current?.focus();
+    if (!open) return;
+
+    const dialog = dialogRef.current;
+    const root = document.getElementById("root");
+    const backgroundElements = root
+      ? Array.from(root.children).filter(
+          (element): element is HTMLElement =>
+            element instanceof HTMLElement &&
+            !element.hasAttribute("data-privacy-dialog"),
+        )
+      : [];
+
+    backgroundElements.forEach((element) => {
+      element.inert = true;
+      element.setAttribute("aria-hidden", "true");
+    });
+
+    const focusFrame = window.requestAnimationFrame(() => dialog?.focus());
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || !dialog) return;
+
+      const focusableElements = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter(
+        (element) =>
+          element.getAttribute("aria-hidden") !== "true" &&
+          element.getClientRects().length > 0,
+      );
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        dialog.focus();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (
+        !event.shiftKey &&
+        document.activeElement === lastElement
+      ) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+      backgroundElements.forEach((element) => {
+        element.inert = false;
+        element.removeAttribute("aria-hidden");
+      });
+
+      window.requestAnimationFrame(() => {
+        const fallback = document.querySelector<HTMLButtonElement>(
+          '[aria-label="Open cookie and privacy preferences"]',
+        );
+        const returnTarget = returnFocusRef.current;
+        if (returnTarget?.isConnected) returnTarget.focus();
+        else fallback?.focus();
+        returnFocusRef.current = null;
+      });
     };
   }, [open]);
 
@@ -45,13 +121,16 @@ export default function PrivacyConsent() {
     return (
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={(event) => {
+          returnFocusRef.current = event.currentTarget;
+          setOpen(true);
+        }}
         className="group fixed bottom-5 left-5 z-[80] flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/25 bg-background/90 p-2 shadow-lg shadow-primary/15 backdrop-blur-md transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
         aria-label="Open cookie and privacy preferences"
         title="Cookie and privacy preferences"
       >
         <img
-          src="/cookie-privacy-button.webp"
+          src="/cookie-privacy-button_blue.webp"
           alt=""
           className="h-full w-full object-contain transition-transform duration-200 group-hover:rotate-[-7deg] group-hover:scale-105"
         />
@@ -61,13 +140,16 @@ export default function PrivacyConsent() {
 
   return (
     <div
+      ref={dialogRef}
+      tabIndex={-1}
+      data-privacy-dialog
       className="fixed inset-0 z-[100] flex items-end justify-center bg-slate-950/65 p-0 backdrop-blur-sm sm:items-center sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="privacy-consent-title"
       aria-describedby="privacy-consent-description"
     >
-      <div ref={dialogRef} tabIndex={-1} className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/75 p-6 shadow-2xl backdrop-blur-xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
+      <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/75 p-6 shadow-2xl backdrop-blur-xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
         {getAnalyticsConsent() !== null && (
           <button
             type="button"
@@ -94,12 +176,13 @@ export default function PrivacyConsent() {
           onClick={() => setShowDetails((value) => !value)}
           className="mt-5 text-sm font-semibold text-primary hover:underline"
           aria-expanded={showDetails}
+          aria-controls="privacy-consent-details"
         >
           {showDetails ? "Hide details" : "View details and preferences"}
         </button>
 
         {showDetails && (
-          <div className="mt-5 space-y-3">
+          <div id="privacy-consent-details" className="mt-5 space-y-3">
             <div className="flex gap-3 rounded-xl border border-primary/10 bg-card/50 p-4">
               <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div>
