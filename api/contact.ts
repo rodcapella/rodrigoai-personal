@@ -1,4 +1,8 @@
 import nodemailer from "nodemailer";
+import {
+  isDisposableDomain,
+  isDisposableEmail,
+} from "@rodcapella/common-resources";
 
 type ContactPayload = {
   name?: unknown;
@@ -43,6 +47,8 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_PATTERN = /^[\d\s+()-]{8,20}$/;
 const RATE_LIMIT_MAX = 3;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const BLACKLISTED_EMAIL_MESSAGE =
+  "This email address uses a domain that appears on a public email blacklist. Please use a different email address.";
 
 const rateLimits = new Map<string, { count: number; resetAt: number }>();
 
@@ -179,6 +185,14 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     message.length > 1000
   ) {
     return res.status(400).json({ error: "Please check the submitted fields." });
+  }
+
+  const emailDomain = email.slice(email.lastIndexOf("@") + 1).toLowerCase();
+  if (isDisposableEmail(email) || isDisposableDomain(emailDomain)) {
+    return res.status(400).json({
+      code: "EMAIL_DOMAIN_BLACKLISTED",
+      error: BLACKLISTED_EMAIL_MESSAGE,
+    });
   }
 
   if (!turnstileToken || turnstileToken.length > 2048) {

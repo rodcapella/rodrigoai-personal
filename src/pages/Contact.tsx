@@ -18,6 +18,9 @@ type FormData = {
   website: string;
 };
 
+const BLACKLISTED_EMAIL_MESSAGE =
+  "This email address uses a domain that appears on a public email blacklist. Please use a different email address.";
+
 export default function Contact() {
   const { theme, onToggleTheme } = useOutletContext<{
     theme: "dark" | "light";
@@ -114,6 +117,38 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
+    const normalizedEmail = formData.email.trim().toLowerCase();
+    const emailDomain = normalizedEmail.slice(
+      normalizedEmail.lastIndexOf("@") + 1,
+    );
+
+    let isBlacklisted = false;
+    try {
+      const { isDisposableDomain, isDisposableEmail } = await import(
+        "@rodcapella/common-resources"
+      );
+      isBlacklisted =
+        isDisposableEmail(normalizedEmail) ||
+        isDisposableDomain(emailDomain);
+    } catch (error) {
+      console.error("Email blacklist validation failed:", error);
+      setStatus("error");
+      setSubmissionError(
+        "Email validation is temporarily unavailable. Please try again.",
+      );
+      return;
+    }
+
+    if (isBlacklisted) {
+      setErrors((current) => ({
+        ...current,
+        email: BLACKLISTED_EMAIL_MESSAGE,
+      }));
+      setStatus("error");
+      setSubmissionError(BLACKLISTED_EMAIL_MESSAGE);
+      return;
+    }
 
     if (!turnstileSiteKey) {
       setStatus("error");
