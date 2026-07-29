@@ -1,5 +1,10 @@
 import type { RouteObject } from "react-router-dom";
-import { lazy, Suspense, type ReactNode } from "react";
+import {
+  lazy,
+  Suspense,
+  type ComponentType,
+  type ReactNode,
+} from "react";
 import App from "./App";
 import Index from "./pages/Index";
 
@@ -26,20 +31,79 @@ const lazyPage = (page: ReactNode) => (
   </Suspense>
 );
 
-export const routes: RouteObject[] = [
+const routePage = (
+  path: string,
+  lazyElement: ReactNode,
+  initialPath?: string,
+  InitialComponent?: ComponentType,
+) => {
+  const isInitialRoute =
+    initialPath === path ||
+    (path === "/blog/:slug" && initialPath?.startsWith("/blog/"));
+
+  return isInitialRoute && InitialComponent
+    ? <InitialComponent />
+    : lazyPage(lazyElement);
+};
+
+export const createRoutes = (
+  initialPath?: string,
+  InitialComponent?: ComponentType,
+): RouteObject[] => [
   {
     path: "/",
     element: <App />,
     children: [
       { index: true, element: <Index /> },
-      { path: "contact", element: lazyPage(<Contact />) },
-      { path: "professional", element: lazyPage(<Professional />) },
-      { path: "personal", element: lazyPage(<Personal />) },
-      { path: "why-me", element: lazyPage(<WhyMe />) },
-      { path: "side-projects", element: lazyPage(<SideProjects />) },
-      { path: "blog", element: lazyPage(<Blog />) },
-      { path: "blog/:slug", element: lazyPage(<BlogPost />) },
-      { path: "privacy", element: lazyPage(<Privacy />) },
+      {
+        path: "contact",
+        element: routePage("/contact", <Contact />, initialPath, InitialComponent),
+      },
+      {
+        path: "professional",
+        element: routePage(
+          "/professional",
+          <Professional />,
+          initialPath,
+          InitialComponent,
+        ),
+      },
+      {
+        path: "personal",
+        element: routePage("/personal", <Personal />, initialPath, InitialComponent),
+      },
+      {
+        path: "why-me",
+        element: routePage("/why-me", <WhyMe />, initialPath, InitialComponent),
+      },
+      {
+        path: "side-projects",
+        element: routePage(
+          "/side-projects",
+          <SideProjects />,
+          initialPath,
+          InitialComponent,
+        ),
+      },
+      {
+        path: "blog",
+        element: routePage("/blog", <Blog />, initialPath, InitialComponent),
+      },
+      {
+        path: "blog/:slug",
+        element: routePage(
+          "/blog/:slug",
+          <BlogPost />,
+          initialPath,
+          InitialComponent,
+        ),
+      },
+      {
+        path: "privacy",
+        element: routePage("/privacy", <Privacy />, initialPath, InitialComponent),
+      },
     ],
   },
 ];
+
+export const routes = createRoutes();

@@ -1,18 +1,28 @@
 import { PassThrough } from "node:stream";
 import { renderToPipeableStream } from "react-dom/server";
-import { createMemoryRouter, RouterProvider } from "react-router-dom";
+import { StaticRouter } from "react-router-dom/server";
 import {
   HelmetProvider,
   type HelmetServerState,
 } from "react-helmet-async";
-import { routes } from "./routes";
+import { ErrorBoundary } from "./components/ErrorBoundary";
+import AppRoutes from "./AppRoutes";
+import { loadInitialRoute } from "./routePreload";
 
 export async function render(url: string) {
-  const router = createMemoryRouter(routes, { initialEntries: [url] });
   const helmetContext: { helmet?: HelmetServerState } = {};
+  const initialPath = new URL(url, "https://www.rpovoadata.tech").pathname;
+  const InitialComponent = await loadInitialRoute(initialPath);
   const application = (
     <HelmetProvider context={helmetContext}>
-      <RouterProvider router={router} />
+      <StaticRouter location={url}>
+        <ErrorBoundary>
+          <AppRoutes
+            initialPath={initialPath}
+            InitialComponent={InitialComponent}
+          />
+        </ErrorBoundary>
+      </StaticRouter>
     </HelmetProvider>
   );
 

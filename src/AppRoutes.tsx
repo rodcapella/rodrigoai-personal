@@ -1,6 +1,15 @@
+import type { ComponentType } from "react";
 import { useRoutes } from "react-router-dom";
-import { routes } from "./routes";
+import { createRoutes } from "./routes";
 
-export default function AppRoutes() {
-  return useRoutes(routes);
+interface AppRoutesProps {
+  initialPath?: string;
+  InitialComponent?: ComponentType;
+}
+
+export default function AppRoutes({
+  initialPath,
+  InitialComponent,
+}: AppRoutesProps) {
+  return useRoutes(createRoutes(initialPath, InitialComponent));
 }
