@@ -69,10 +69,13 @@ if (typeof window !== "undefined") {
         },
       });
     } catch (error) {
-      if (
-        !(error instanceof DOMException) ||
-        error.name !== "InvalidStateError"
-      ) {
+      const isExistingDefaultPolicy =
+        error instanceof TypeError &&
+        error.message.includes('Policy with name "default" already exists');
+      const isInvalidState =
+        error instanceof DOMException && error.name === "InvalidStateError";
+
+      if (!isExistingDefaultPolicy && !isInvalidState) {
         throw error;
       }
     }

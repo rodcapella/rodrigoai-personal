@@ -57,4 +57,19 @@ describe("Trusted Types policy", () => {
 
     expect(rules.createScriptURL?.(scriptUrl)).toBe(scriptUrl);
   });
+
+  it("does not fail when another integration already created the default policy", async () => {
+    vi.stubGlobal("window", {
+      location: { origin: "https://www.rpovoadata.tech" },
+      trustedTypes: {
+        createPolicy: () => {
+          throw new TypeError(
+            'Failed to execute \'createPolicy\': Policy with name "default" already exists.',
+          );
+        },
+      },
+    });
+
+    await expect(import("./trustedTypes")).resolves.toBeDefined();
+  });
 });
