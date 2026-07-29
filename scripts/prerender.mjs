@@ -33,9 +33,18 @@ try {
   ]);
   const template = await fs.readFile(path.join(distDirectory, "index.html"), "utf8");
   const sitemapDirectory = path.join(distDirectory, "sitemaps");
-  const prerenderRoutes = [
+  const staticPages = [
     "/",
+    "/why-me",
+    "/professional",
+    "/personal",
+    "/side-projects",
     "/blog",
+    "/privacy",
+    "/contact",
+  ];
+  const prerenderRoutes = [
+    ...staticPages,
     ...blogPosts.map((post) => `/blog/${post.slug}`),
   ];
 
@@ -51,16 +60,6 @@ try {
     await fs.writeFile(path.join(outputDirectory, "index.html"), html, "utf8");
   }
 
-  const staticPages = [
-    "/",
-    "/why-me",
-    "/professional",
-    "/personal",
-    "/side-projects",
-    "/blog",
-    "/privacy",
-    "/contact",
-  ];
   const blogLastModified = blogPosts
     .map((post) => post.updatedAt || post.publishedAt)
     .sort()

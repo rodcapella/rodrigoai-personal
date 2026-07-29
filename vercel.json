@@ -68,6 +68,10 @@
         {
           "key": "Origin-Agent-Cluster",
           "value": "?1"
+        },
+        {
+          "key": "Content-Signal",
+          "value": "ai-train=no, search=yes, ai-input=yes"
         }
       ]
     },
