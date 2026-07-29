@@ -70,6 +70,183 @@ const escapeHtml = (value: string) =>
       })[character] || character,
   );
 
+type ContactEmailTemplate = {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  jobTitle: string;
+  subject: string;
+  message: string;
+  replyUrl: string;
+};
+
+const buildContactEmailHtml = ({
+  name,
+  email,
+  phone,
+  company,
+  jobTitle,
+  subject,
+  message,
+  replyUrl,
+}: ContactEmailTemplate) => {
+  const identityDetail =
+    jobTitle !== "Not provided" && company !== "Not provided"
+      ? `${jobTitle} at ${company}`
+      : jobTitle !== "Not provided"
+        ? jobTitle
+        : company !== "Not provided"
+          ? company
+          : "Contact form visitor";
+
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="supported-color-schemes" content="dark" />
+    <title>New Connection Request</title>
+    <style>
+      @media only screen and (max-width: 620px) {
+        .email-shell { width: 100% !important; }
+        .email-padding { padding-left: 20px !important; padding-right: 20px !important; }
+        .column { display: block !important; width: 100% !important; }
+        .column-gap { display: none !important; }
+        .metadata-label, .metadata-value { display: block !important; width: 100% !important; text-align: left !important; }
+        .metadata-value { padding-top: 6px !important; }
+      }
+    </style>
+  </head>
+  <body style="margin:0;padding:0;background-color:#060e20;color:#dae2fd;font-family:Arial,Helvetica,sans-serif;">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+      New website contact from ${name}: ${subject}
+    </div>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background-color:#060e20;">
+      <tr>
+        <td align="center" style="padding:16px;">
+          <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" class="email-shell" style="width:600px;max-width:600px;background-color:#0b1326;border:1px solid #2d3449;border-collapse:separate;">
+            <tr>
+              <td class="email-padding" style="padding:18px 24px;border-bottom:1px solid #222a3d;color:#adc6ff;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:700;letter-spacing:-0.3px;">
+                RPOVOADATA.TECH
+              </td>
+            </tr>
+            <tr>
+              <td class="email-padding" style="padding:28px 24px 32px;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td style="padding-bottom:8px;color:#adc6ff;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;">
+                      &#9889;&nbsp;&nbsp;System Alert
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding-bottom:8px;color:#ffffff;font-size:32px;line-height:40px;font-weight:700;letter-spacing:-0.6px;">
+                      New Connection Request
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding-bottom:28px;color:#c2c6d6;font-size:16px;line-height:24px;">
+                      A new message has been captured via the contact website.
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td class="column" width="49%" valign="top" style="width:49%;padding:24px;border:1px solid #2d3449;background-color:#0b1326;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td style="padding-bottom:20px;color:#adc6ff;font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;">Identity</td>
+                          <td align="right" style="padding-bottom:20px;color:#637398;font-size:20px;">&#9675;</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" style="color:#ffffff;font-size:20px;line-height:28px;font-weight:700;">${name}</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" style="color:#c2c6d6;font-size:14px;line-height:20px;">${identityDetail}</td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td class="column-gap" width="16" style="width:16px;font-size:0;line-height:0;">&nbsp;</td>
+                    <td class="column" width="49%" valign="top" style="width:49%;padding:24px;border:1px solid #2d3449;background-color:#0b1326;">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                          <td style="padding-bottom:20px;color:#adc6ff;font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;">Subject</td>
+                          <td align="right" style="padding-bottom:20px;color:#637398;font-size:22px;font-weight:700;">#</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" style="color:#ffffff;font-size:20px;line-height:28px;font-weight:700;">${subject}</td>
+                        </tr>
+                        <tr>
+                          <td colspan="2" style="color:#c2c6d6;font-size:14px;line-height:20px;">Priority: Standard</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:32px;border:1px solid #2d3449;border-radius:6px;border-collapse:separate;overflow:hidden;">
+                  <tr>
+                    <td colspan="2" style="padding:14px 24px;background-color:#131b2e;border-bottom:1px solid #222a3d;color:#adc6ff;font-size:12px;font-weight:700;letter-spacing:0.5px;">
+                      Metadata Protocol
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="metadata-label" width="45%" style="padding:17px 24px;border-bottom:1px solid #171f33;color:#c2c6d6;font-size:14px;line-height:20px;">&#9993;&nbsp;&nbsp;Email Address</td>
+                    <td class="metadata-value" align="right" style="padding:17px 24px;border-bottom:1px solid #171f33;color:#ffffff;font-size:14px;line-height:20px;font-weight:600;word-break:break-word;">${email}</td>
+                  </tr>
+                  <tr>
+                    <td class="metadata-label" width="45%" style="padding:17px 24px;border-bottom:1px solid #171f33;color:#c2c6d6;font-size:14px;line-height:20px;">&#9742;&nbsp;&nbsp;Direct Line</td>
+                    <td class="metadata-value" align="right" style="padding:17px 24px;border-bottom:1px solid #171f33;color:#ffffff;font-size:14px;line-height:20px;font-weight:600;">${phone}</td>
+                  </tr>
+                  <tr>
+                    <td class="metadata-label" width="45%" style="padding:17px 24px;border-bottom:1px solid #171f33;color:#c2c6d6;font-size:14px;line-height:20px;">&#9638;&nbsp;&nbsp;Organization</td>
+                    <td class="metadata-value" align="right" style="padding:17px 24px;border-bottom:1px solid #171f33;color:#ffffff;font-size:14px;line-height:20px;font-weight:600;">${company}</td>
+                  </tr>
+                  <tr>
+                    <td class="metadata-label" width="45%" style="padding:17px 24px;color:#c2c6d6;font-size:14px;line-height:20px;">&#9671;&nbsp;&nbsp;Job Title</td>
+                    <td class="metadata-value" align="right" style="padding:17px 24px;color:#ffffff;font-size:14px;line-height:20px;font-weight:600;">${jobTitle}</td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:32px;">
+                  <tr>
+                    <td style="padding-bottom:14px;color:#c2c6d6;font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;">
+                      &#9633;&nbsp;&nbsp;Message Payload
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding:24px;background-color:#171f33;border:1px solid #424754;border-radius:8px;color:#adc6ff;font-size:19px;line-height:30px;font-weight:600;font-style:italic;">
+                      &ldquo;${message}&rdquo;
+                    </td>
+                  </tr>
+                </table>
+
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-top:32px;padding-top:32px;border-top:1px solid #2d3449;">
+                  <tr>
+                    <td align="center" bgcolor="#adc6ff" style="border-radius:4px;">
+                      <a href="${replyUrl}" style="display:block;padding:17px 24px;color:#002e6a;font-size:16px;line-height:22px;font-weight:600;text-decoration:none;">
+                        &#8617;&nbsp;&nbsp;Reply Directly
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding:34px 24px;background-color:#060e20;border-top:1px solid #171f33;color:#adc6ff;font-size:12px;font-weight:700;letter-spacing:1px;">
+                RPOVOADATA.TECH
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+};
+
 const getClientIp = (req: ApiRequest) => {
   const forwardedFor = req.headers?.["x-forwarded-for"];
   const value = Array.isArray(forwardedFor)
@@ -266,6 +443,9 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     const safeJobTitle = escapeHtml(jobTitle || "Not provided");
     const safeSubject = escapeHtml(subject);
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+    const safeReplyUrl = escapeHtml(
+      `mailto:${email}?subject=${encodeURIComponent(`Re: ${subject}`)}`,
+    );
 
     await transporter.sendMail({
       from: `"Rodrigo Póvoa website" <${SMTP_USER}>`,
@@ -285,17 +465,16 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
         "",
         message,
       ].join("\n"),
-      html: `
-        <h2>New website contact</h2>
-        <p><strong>Name:</strong> ${safeName}</p>
-        <p><strong>Email:</strong> ${safeEmail}</p>
-        <p><strong>Phone:</strong> ${safePhone}</p>
-        <p><strong>Company:</strong> ${safeCompany}</p>
-        <p><strong>Job title:</strong> ${safeJobTitle}</p>
-        <p><strong>Subject:</strong> ${safeSubject}</p>
-        <hr />
-        <p>${safeMessage}</p>
-      `,
+      html: buildContactEmailHtml({
+        name: safeName,
+        email: safeEmail,
+        phone: safePhone,
+        company: safeCompany,
+        jobTitle: safeJobTitle,
+        subject: safeSubject,
+        message: safeMessage,
+        replyUrl: safeReplyUrl,
+      }),
     });
 
     return res.status(200).json({ success: true });
