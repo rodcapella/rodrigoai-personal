@@ -33,6 +33,30 @@
       "destination": "/blog/:slug/index.html"
     },
     {
+      "source": "/why-me",
+      "destination": "/why-me/index.html"
+    },
+    {
+      "source": "/professional",
+      "destination": "/professional/index.html"
+    },
+    {
+      "source": "/personal",
+      "destination": "/personal/index.html"
+    },
+    {
+      "source": "/side-projects",
+      "destination": "/side-projects/index.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
