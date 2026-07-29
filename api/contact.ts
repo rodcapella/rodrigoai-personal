@@ -453,8 +453,21 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     const safeJobTitle = escapeHtml(jobTitle || "Not provided");
     const safeSubject = escapeHtml(subject);
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+    const replyBody = [
+      `Hi ${name},`,
+      "",
+      "",
+      "----- Original website message -----",
+      `From: ${name} <${email}>`,
+      `Phone: ${phone || "Not provided"}`,
+      `Company: ${company || "Not provided"}`,
+      `Job title: ${jobTitle || "Not provided"}`,
+      `Subject: ${subject}`,
+      "",
+      message,
+    ].join("\r\n");
     const safeReplyUrl = escapeHtml(
-      `mailto:${email}?subject=${encodeURIComponent(`Re: ${subject}`)}`,
+      `mailto:${email}?subject=${encodeURIComponent(`Re: ${subject}`)}&body=${encodeURIComponent(replyBody)}`,
     );
 
     await transporter.sendMail({
