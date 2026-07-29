@@ -1,7 +1,7 @@
 import "./lib/trustedTypes";
 import "./index.css";
 import React from "react";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ErrorBoundary } from "./components/ErrorBoundary";
@@ -31,11 +31,8 @@ const startApplication = async () => {
     </React.StrictMode>
   );
 
-  if (rootElement.hasChildNodes()) {
-    hydrateRoot(rootElement, application);
-  } else {
-    createRoot(rootElement).render(application);
-  }
+  rootElement.replaceChildren();
+  createRoot(rootElement).render(application);
 };
 
 void startApplication();
