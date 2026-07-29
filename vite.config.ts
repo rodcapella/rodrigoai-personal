@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 
 const strictCspBootstrap =
-  'const s=document.createElement("script"),u="/assets/app.js";s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
+  `const m=document.querySelector('meta[name="app-entry"]'),u=m&&m.content;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);`;
 const strictCspHash = `sha256-${createHash("sha256")
   .update(strictCspBootstrap)
   .digest("base64")}`;
@@ -32,7 +32,7 @@ export default defineConfig({
       enforce: "post",
       transformIndexHtml: {
         order: "post",
-        handler(html) {
+        handler(html, context) {
           const entryScript =
             '<script type="module" crossorigin src="/assets/app.js"></script>';
 
@@ -40,10 +40,27 @@ export default defineConfig({
             throw new Error("The production entry script could not be secured.");
           }
 
-          return html.replace(
-            entryScript,
-            `<script>${strictCspBootstrap}</script>`,
-          );
+          const entryChunk = context.bundle?.["assets/app.js"];
+
+          if (!entryChunk || entryChunk.type !== "chunk") {
+            throw new Error("The production entry chunk could not be versioned.");
+          }
+
+          const appVersion = createHash("sha256")
+            .update(entryChunk.code)
+            .digest("hex")
+            .slice(0, 12);
+          const appEntry = `/assets/app.js?v=${appVersion}`;
+
+          return html
+            .replace(
+              "</head>",
+              `    <meta name="app-entry" content="${appEntry}" />\n  </head>`,
+            )
+            .replace(
+              entryScript,
+              `<script>${strictCspBootstrap}</script>`,
+            );
         },
       },
     },
