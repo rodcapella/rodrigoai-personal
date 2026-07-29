@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 
 const strictCspBootstrap =
-  `const m=document.querySelector('meta[name="app-entry"]'),u=m&&m.content;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);`;
+  'const c=document.currentScript,u=c&&c.dataset.appEntry;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
 const strictCspHash = `sha256-${createHash("sha256")
   .update(strictCspBootstrap)
   .digest("base64")}`;
@@ -52,15 +52,10 @@ export default defineConfig({
             .slice(0, 12);
           const appEntry = `/assets/app.js?v=${appVersion}`;
 
-          return html
-            .replace(
-              "</head>",
-              `    <meta name="app-entry" content="${appEntry}" />\n  </head>`,
-            )
-            .replace(
-              entryScript,
-              `<script>${strictCspBootstrap}</script>`,
-            );
+          return html.replace(
+            entryScript,
+            `<script data-app-entry="${appEntry}">${strictCspBootstrap}</script>`,
+          );
         },
       },
     },
