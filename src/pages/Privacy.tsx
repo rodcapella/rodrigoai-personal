@@ -10,13 +10,19 @@ const sections = [
     icon: Database,
     title: "Data we process",
     content:
-      "When you consent to audience measurement, technical data may be processed, including pages visited, time of access, approximate traffic source, device type, browser and navigation interactions. The website does not ask you to provide personal data for Analytics purposes.",
+      "When you consent to Google Analytics, technical navigation data may be processed, including pages visited, time of access, approximate traffic source, device type and browser. Vercel Speed Insights separately processes anonymous performance measurements such as route, Web Vitals, network speed, browser, device type, operating system and country.",
   },
   {
     icon: BarChart3,
     title: "Google Analytics",
     content:
       "Google Analytics is used exclusively to understand website performance and improve its content. The Google tag is downloaded and audience measurement starts only after you consent. Advertising storage, Google signals and ad personalisation remain disabled.",
+  },
+  {
+    icon: BarChart3,
+    title: "Vercel Speed Insights",
+    content:
+      "Vercel Speed Insights measures real-world website performance and Core Web Vitals. Its data points are anonymous, are not associated with an individual visitor or IP address, and cannot be used to reconstruct a browsing session across pages.",
   },
   {
     icon: Cookie,
@@ -28,7 +34,7 @@ const sections = [
     icon: MessageCircle,
     title: "Contact form",
     content:
-      "When you use the contact form, the name, email address, optional telephone number, subject and message you provide are sent securely to the website owner's mailbox. These details are used only to respond to your enquiry and are not published on the website.",
+      "When you use the contact form, the name, email address, optional telephone number, company, job title, subject and message you provide are sent securely to the website owner's mailbox. These details are used only to respond to your enquiry and are not published on the website.",
   },
   {
     icon: ShieldCheck,
@@ -63,7 +69,7 @@ export default function Privacy() {
           <p className="mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground">
             Clear information about the data used by this website and control over your audience measurement choice.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">Last updated: 24 July 2026</p>
+          <p className="mt-4 text-sm text-muted-foreground">Last updated: 28 July 2026</p>
         </div>
       </PageSection>
 
@@ -88,7 +94,7 @@ export default function Privacy() {
           <section className="mt-10 space-y-4">
             <h2 className="font-display text-2xl font-semibold">Purpose and control</h2>
             <p className="leading-7 text-muted-foreground">
-              Measurement data is processed on the basis of your consent. You may accept, refuse or withdraw that consent at any time using the button below. Refusing consent does not restrict access to the website.
+              Google Analytics measurement is processed on the basis of your consent. You may accept, refuse or withdraw that consent at any time using the button below. Refusing consent does not restrict access to the website. Vercel Speed Insights processes anonymous performance data without creating an identifiable browsing profile.
             </p>
             <button
               type="button"
@@ -112,7 +118,7 @@ export default function Privacy() {
           <section className="mt-10 space-y-4">
             <h2 className="font-display text-2xl font-semibold">External services</h2>
             <p className="leading-7 text-muted-foreground">
-              Audience measurement is provided by Google and contact-form abuse protection is provided by Cloudflare Turnstile. Review the{" "}
+              Audience measurement is provided by Google, anonymous performance measurement by Vercel, and contact-form abuse protection by Cloudflare Turnstile. Review the{" "}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
@@ -120,6 +126,14 @@ export default function Privacy() {
                 className="font-semibold text-primary hover:underline"
               >
                 Google Privacy Policy
+              </a>, the{" "}
+              <a
+                href="https://vercel.com/docs/speed-insights/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary hover:underline"
+              >
+                Vercel Speed Insights privacy information
               </a>{" "}
               and the{" "}
               <a

@@ -3,6 +3,7 @@ interface FormFieldProps {
   type?: string;
   placeholder?: string;
   disabled?: boolean;
+  maxLength?: number;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
@@ -13,6 +14,7 @@ const FormField = ({
   type = "text",
   placeholder,
   disabled = false,
+  maxLength,
   value,
   onChange,
   error,
@@ -31,6 +33,7 @@ const FormField = ({
         name={name}
         placeholder={placeholder}
         disabled={disabled}
+        maxLength={maxLength}
         value={value}
         onChange={onChange}
         aria-invalid={Boolean(error)}

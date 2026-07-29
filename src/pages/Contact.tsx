@@ -13,6 +13,8 @@ type FormData = {
   name: string;
   email: string;
   phone: string;
+  company: string;
+  jobTitle: string;
   subject: string;
   message: string;
   website: string;
@@ -31,6 +33,8 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
+    company: "",
+    jobTitle: "",
     subject: "",
     message: "",
     website: "",
@@ -64,7 +68,11 @@ export default function Contact() {
   }, []);
 
   const limits = {
-    name: { min: 3, max: 80 },
+    name: { min: 3, max: 100 },
+    email: { max: 254 },
+    phone: { max: 20 },
+    company: { max: 100 },
+    jobTitle: { max: 80 },
     subject: { min: 3, max: 120 },
     message: { min: 10, max: 1000 },
   };
@@ -84,13 +92,25 @@ export default function Contact() {
     if (!formData.email.trim()) e.email = "Email is required";
     else if (!emailRegex.test(formData.email))
       e.email = "Enter a valid email address (for example, name@example.com)";
+    else if (formData.email.length > limits.email.max)
+      e.email = `Max ${limits.email.max} characters`;
 
-    if (formData.phone.trim() && !phoneRegex.test(formData.phone))
+    if (formData.phone.length > limits.phone.max)
+      e.phone = `Max ${limits.phone.max} characters`;
+    else if (formData.phone.trim() && !phoneRegex.test(formData.phone))
       e.phone = "Invalid phone number";
+
+    if (formData.company.length > limits.company.max)
+      e.company = `Max ${limits.company.max} characters`;
+
+    if (formData.jobTitle.length > limits.jobTitle.max)
+      e.jobTitle = `Max ${limits.jobTitle.max} characters`;
 
     if (!formData.subject.trim()) e.subject = "Subject is required";
     else if (formData.subject.length < limits.subject.min)
       e.subject = `Min ${limits.subject.min} characters`;
+    else if (formData.subject.length > limits.subject.max)
+      e.subject = `Max ${limits.subject.max} characters`;
 
     if (!formData.message.trim()) e.message = "Message is required";
     else if (formData.message.length < limits.message.min)
@@ -193,6 +213,8 @@ export default function Contact() {
         name: "",
         email: "",
         phone: "",
+        company: "",
+        jobTitle: "",
         subject: "",
         message: "",
         website: "",
@@ -283,6 +305,7 @@ export default function Contact() {
                 name="name"
                 placeholder="Full Name"
                 disabled={loading}
+                maxLength={limits.name.max}
                 value={formData.name}
                 onChange={handleChange}
                 error={errors.name}
@@ -293,6 +316,7 @@ export default function Contact() {
                 type="email"
                 placeholder="Email"
                 disabled={loading}
+                maxLength={limits.email.max}
                 value={formData.email}
                 onChange={handleChange}
                 error={errors.email}
@@ -302,15 +326,37 @@ export default function Contact() {
                 name="phone"
                 placeholder="Phone (optional)"
                 disabled={loading}
+                maxLength={limits.phone.max}
                 value={formData.phone}
                 onChange={handleChange}
                 error={errors.phone}
               />
 
               <FormField
+                name="company"
+                placeholder="Company (optional)"
+                disabled={loading}
+                maxLength={limits.company.max}
+                value={formData.company}
+                onChange={handleChange}
+                error={errors.company}
+              />
+
+              <FormField
+                name="jobTitle"
+                placeholder="Job Title (optional)"
+                disabled={loading}
+                maxLength={limits.jobTitle.max}
+                value={formData.jobTitle}
+                onChange={handleChange}
+                error={errors.jobTitle}
+              />
+
+              <FormField
                 name="subject"
                 placeholder="Subject"
                 disabled={loading}
+                maxLength={limits.subject.max}
                 value={formData.subject}
                 onChange={handleChange}
                 error={errors.subject}
@@ -327,11 +373,14 @@ export default function Contact() {
                   rows={4}
                   placeholder="Tell me about your idea, project or challenge..."
                   disabled={loading}
+                  maxLength={limits.message.max}
                   value={formData.message}
                   onChange={handleChange}
                   aria-invalid={Boolean(errors.message)}
                   aria-describedby={
-                    errors.message ? "contact-message-error" : undefined
+                    errors.message
+                      ? "contact-message-error contact-message-count"
+                      : "contact-message-count"
                   }
                   className={`
                     w-full
@@ -354,6 +403,13 @@ export default function Contact() {
                     }
                   `}
                 />
+
+                <p
+                  id="contact-message-count"
+                  className="text-right text-xs text-muted-foreground"
+                >
+                  {formData.message.length} / {limits.message.max}
+                </p>
 
                 {errors.message && (
                   <p

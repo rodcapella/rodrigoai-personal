@@ -3,9 +3,13 @@ import { startTransition, useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import PrivacyConsent from "@/components/PrivacyConsent";
 import { trackPageView } from "@/lib/analytics";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function App() {
   const location = useLocation();
+  const speedInsightsRoute = location.pathname.startsWith("/blog/")
+    ? "/blog/:slug"
+    : location.pathname;
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [themeReady, setThemeReady] = useState(false);
 
@@ -44,6 +48,7 @@ export default function App() {
       <Outlet context={{ theme, onToggleTheme: handleToggleTheme }} />
       <Footer />
       <PrivacyConsent />
+      <SpeedInsights route={speedInsightsRoute} />
     </>
   );
 }

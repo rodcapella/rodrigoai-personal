@@ -8,6 +8,8 @@ type ContactPayload = {
   name?: unknown;
   email?: unknown;
   phone?: unknown;
+  company?: unknown;
+  jobTitle?: unknown;
   subject?: unknown;
   message?: unknown;
   website?: unknown;
@@ -163,6 +165,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   const name = normalize(payload.name);
   const email = normalize(payload.email);
   const phone = normalize(payload.phone);
+  const company = normalize(payload.company);
+  const jobTitle = normalize(payload.jobTitle);
   const subject = normalize(payload.subject).replace(/[\r\n]+/g, " ");
   const message = normalize(payload.message);
   const website = normalize(payload.website);
@@ -176,9 +180,13 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   if (
     name.length < 3 ||
-    name.length > 80 ||
+    name.length > 100 ||
     !EMAIL_PATTERN.test(email) ||
+    email.length > 254 ||
     (phone && !PHONE_PATTERN.test(phone)) ||
+    phone.length > 20 ||
+    company.length > 100 ||
+    jobTitle.length > 80 ||
     subject.length < 3 ||
     subject.length > 120 ||
     message.length < 10 ||
@@ -254,6 +262,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     const safeName = escapeHtml(name);
     const safeEmail = escapeHtml(email);
     const safePhone = escapeHtml(phone || "Not provided");
+    const safeCompany = escapeHtml(company || "Not provided");
+    const safeJobTitle = escapeHtml(jobTitle || "Not provided");
     const safeSubject = escapeHtml(subject);
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
 
@@ -269,6 +279,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
         `Name: ${name}`,
         `Email: ${email}`,
         `Phone: ${phone || "Not provided"}`,
+        `Company: ${company || "Not provided"}`,
+        `Job title: ${jobTitle || "Not provided"}`,
         `Subject: ${subject}`,
         "",
         message,
@@ -278,6 +290,8 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Phone:</strong> ${safePhone}</p>
+        <p><strong>Company:</strong> ${safeCompany}</p>
+        <p><strong>Job title:</strong> ${safeJobTitle}</p>
         <p><strong>Subject:</strong> ${safeSubject}</p>
         <hr />
         <p>${safeMessage}</p>
