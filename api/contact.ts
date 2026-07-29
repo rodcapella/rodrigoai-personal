@@ -128,8 +128,13 @@ const buildContactEmailHtml = ({
         <td align="center" style="padding:16px;">
           <table role="presentation" width="600" cellspacing="0" cellpadding="0" border="0" class="email-shell" style="width:600px;max-width:600px;background-color:#0b1326;border:1px solid #2d3449;border-collapse:separate;">
             <tr>
-              <td class="email-padding" style="padding:18px 24px;border-bottom:1px solid #222a3d;color:#adc6ff;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:700;letter-spacing:-0.3px;">
-                RPOVOADATA.TECH
+              <td class="email-padding" style="padding:18px 24px;border-bottom:1px solid #222a3d;font-family:Arial,Helvetica,sans-serif;">
+                <a href="https://www.rpovoadata.tech" style="color:#adc6ff;font-size:20px;line-height:26px;font-weight:700;letter-spacing:-0.3px;text-decoration:none;">
+                  RPOVOADATA.TECH
+                </a>
+                <div style="padding-top:4px;color:#8f9ab5;font-size:12px;line-height:18px;font-weight:400;letter-spacing:0;">
+                  Data Analytics Engineer, Technical Data Leader and founder of Sapiente.AI.
+                </div>
               </td>
             </tr>
             <tr>
@@ -235,8 +240,13 @@ const buildContactEmailHtml = ({
               </td>
             </tr>
             <tr>
-              <td align="center" style="padding:34px 24px;background-color:#060e20;border-top:1px solid #171f33;color:#adc6ff;font-size:12px;font-weight:700;letter-spacing:1px;">
-                RPOVOADATA.TECH
+              <td align="center" style="padding:28px 24px;background-color:#060e20;border-top:1px solid #171f33;">
+                <a href="https://www.rpovoadata.tech" style="color:#adc6ff;font-size:12px;line-height:18px;font-weight:700;letter-spacing:1px;text-decoration:none;">
+                  RPOVOADATA.TECH
+                </a>
+                <div style="padding-top:7px;color:#8f9ab5;font-size:11px;line-height:17px;font-weight:400;letter-spacing:0;">
+                  &copy; 2026 Rodrigo P&oacute;voa &mdash; Data Analytics Engineer &amp; Team Leader
+                </div>
               </td>
             </tr>
           </table>
