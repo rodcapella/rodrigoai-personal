@@ -50,4 +50,11 @@ describe("Trusted Types policy", () => {
       rules.createScriptURL?.("https://malicious.example/payload.js"),
     ).toThrow("Untrusted script URL blocked");
   });
+
+  it("allows the same-origin Vercel Speed Insights script", async () => {
+    const rules = await loadPolicyRules();
+    const scriptUrl = "/_vercel/speed-insights/script.js";
+
+    expect(rules.createScriptURL?.(scriptUrl)).toBe(scriptUrl);
+  });
 });

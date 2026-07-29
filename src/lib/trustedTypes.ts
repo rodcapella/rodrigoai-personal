@@ -19,7 +19,8 @@ const isAllowedScriptUrl = (value: string) => {
     return (
       url.pathname.startsWith("/assets/") ||
       url.pathname === "/gtag/js" ||
-      url.pathname === "/gtm.js"
+      url.pathname === "/gtm.js" ||
+      url.pathname === "/_vercel/speed-insights/script.js"
     );
   }
 
