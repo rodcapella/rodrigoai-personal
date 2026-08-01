@@ -10,6 +10,7 @@ type TurnstileApi = {
       callback: (token: string) => void;
       "error-callback": () => void;
       "expired-callback": () => void;
+      language: "en";
       sitekey: string;
       size: "flexible";
       theme: "dark" | "light";
@@ -88,6 +89,7 @@ export default function TurnstileWidget({
           sitekey: siteKey,
           action: "contact_form",
           appearance: "interaction-only",
+          language: "en",
           size: "flexible",
           theme,
           callback: onVerify,
