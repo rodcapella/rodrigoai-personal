@@ -50,6 +50,10 @@ export const blogPosts: BlogPost[] = [
       "Version control for Power BI illustrated by chaotic PBIX files transitioning into a structured PBIP project with Git commits, branches and change history",
     imageWidth: 1672,
     imageHeight: 941,
+    source: {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/pulse/from-chaos-version-control-how-pbip-git-power-bi-rodrigo-p%C3%B3voa-qsahe",
+    },
     references: [
       {
         name: "Power BI Desktop projects (PBIP) overview — Microsoft Learn",
