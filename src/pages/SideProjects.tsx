@@ -207,7 +207,7 @@ export default function SideProjects() {
           variant="page"
           title="Innovation Hub: Sapiente.AI"
           subtitle="Founder & Lead Researcher"
-          image="/logo_sapienteai.webp"
+          image="/logos/logo_sapienteai.webp"
         />
       </PageSection>
 

@@ -71,8 +71,9 @@ export default function BlogPost() {
       name: "Rodrigo Póvoa",
       url: `${baseUrl}/professional`,
     },
-    isBasedOn: post.source.url,
-    sameAs: post.source.url,
+    ...(post.source
+      ? { isBasedOn: post.source.url, sameAs: post.source.url }
+      : {}),
     ...(post.references?.length
       ? { citation: post.references.map((reference) => reference.url) }
       : {}),
@@ -166,6 +167,7 @@ export default function BlogPost() {
                 </ul>
               </div>
             ) : null}
+            {post.source ? (
             <div className="mt-14 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
               <p className="text-sm font-semibold uppercase tracking-wider text-primary">Original publication</p>
               <p className="mt-3 text-muted-foreground">This article was written by Rodrigo Póvoa and originally published on {post.source.name}.</p>
@@ -176,6 +178,7 @@ export default function BlogPost() {
                 )}
               </div>
             </div>
+            ) : null}
             <Link
               to="/blog"
               className="mt-8 inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"

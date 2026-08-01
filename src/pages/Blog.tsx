@@ -83,7 +83,7 @@ export default function Blog() {
           variant="page"
           title="BLOG"
           subtitle="Ideas, experiences and publications on data, AI, technology and leadership."
-          image="/rodrigo_blog_image.webp"
+          image="/blog/rodrigo_blog_image.webp"
         />
       </PageSection>
 

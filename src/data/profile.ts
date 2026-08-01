@@ -162,7 +162,7 @@ export const profile = {
       title: "Senior Data Engineer",
       company: "Tips4y – Automotive Intelligence",
       location: "Portugal",
-      period: "Jul 2025 – Present",
+      period: "Jul 2025 – Jul 2026",
       highlights: [
         "Built and documented a scalable data lakehouse (Bronze, Silver, Gold) aligned with DataOps and Data Mesh principles, leveraging Delta Lake schema evolution and GDPR-compliant governance.",
         "Developed ingestion pipelines from multiple sources (SQL Server, CSV, JSON, Azure Blob) into Delta Lake with automated validation, data transformations, data profiling and cleansing.",

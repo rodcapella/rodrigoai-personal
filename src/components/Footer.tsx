@@ -22,8 +22,8 @@ const Footer = () => {
         <div className="grid gap-4 md:grid-cols-[1.25fr_0.75fr_0.75fr]">
           <div>
             <img
-              src="/logo-96.webp"
-              srcSet="/logo-96.webp 96w, /logo-192.webp 192w"
+              src="/logos/logo-96.webp"
+              srcSet="/logos/logo-96.webp 96w, /logos/logo-192.webp 192w"
               sizes="54px"
               alt="Rodrigo Póvoa Logo"
               width={96}

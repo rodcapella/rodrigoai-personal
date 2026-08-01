@@ -1,21 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://www.rpovoadata.tech/</loc></url>
-  <url><loc>https://www.rpovoadata.tech/why-me</loc></url>
-  <url><loc>https://www.rpovoadata.tech/professional</loc></url>
-  <url><loc>https://www.rpovoadata.tech/personal</loc></url>
-  <url><loc>https://www.rpovoadata.tech/side-projects</loc></url>
-  <url><loc>https://www.rpovoadata.tech/blog</loc><lastmod>2026-07-15T11:28:45+00:00</lastmod></url>
+  <url>
+    <loc>https://www.rpovoadata.tech/</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/why-me</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/professional</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/personal</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/side-projects</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/blog</loc>
+    <lastmod>2026-08-01T09:00:00+01:00</lastmod>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/privacy</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/contact</loc>
+  </url>
+  <url>
+    <loc>https://www.rpovoadata.tech/blog/from-chaos-to-version-control-how-pbip-and-git-are-revolutionizing-power-bi-development</loc>
+    <lastmod>2026-08-01T09:00:00+01:00</lastmod>
+    <image:image>
+      <image:loc>https://www.rpovoadata.tech/blog/pbip-git-power-bi-cover.webp</image:loc>
+      <image:title>From Chaos to Version Control: How PBIP and Git Are Revolutionizing Power BI Development</image:title>
+      <image:caption>Version control for Power BI illustrated by chaotic PBIX files transitioning into a structured PBIP project with Git commits, branches and change history</image:caption>
+    </image:image>
+  </url>
   <url>
     <loc>https://www.rpovoadata.tech/blog/sem-dados-de-qualidade-nao-ha-ia-que-salve-o-negocio</loc>
     <lastmod>2026-07-15T11:28:45+00:00</lastmod>
-    <image:image><image:loc>https://www.rpovoadata.tech/blog-data-quality-ai-cover.png</image:loc></image:image>
+    <image:image>
+      <image:loc>https://www.rpovoadata.tech/blog/blog-data-quality-ai-cover.png</image:loc>
+      <image:title>Sem dados de qualidade, não há IA que salve o negócio</image:title>
+      <image:caption>Fluxos de dados fragmentados atravessam camadas de validação antes de alimentar um sistema de inteligência artificial</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.rpovoadata.tech/blog/next-challenge-data-engineering-isnt-scale-its-ai-governance</loc>
     <lastmod>2026-07-09T11:24:24+00:00</lastmod>
-    <image:image><image:loc>https://www.rpovoadata.tech/next_challenge_for_DE.webp</image:loc></image:image>
+    <image:image>
+      <image:loc>https://www.rpovoadata.tech/blog/next_challenge_for_DE.webp</image:loc>
+      <image:title>The next challenge for Data Engineering isn&apos;t scale. It&apos;s AI Governance.</image:title>
+      <image:caption>Diagram showing the evolution from data platforms built for human users to AI-ready platforms governed for autonomous agents</image:caption>
+    </image:image>
   </url>
-  <url><loc>https://www.rpovoadata.tech/privacy</loc></url>
-  <url><loc>https://www.rpovoadata.tech/contact</loc></url>
 </urlset>
