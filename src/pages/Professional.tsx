@@ -8,9 +8,14 @@ import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { profile } from "@/data/profile";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
+import DirectAnswersSection from "@/components/layout/DirectAnswersSection";
+import { ProfilePageSchema } from "@/components/seo/ProfilePageSchema";
+import { MessageCircle } from "@/lib/icons";
+import { staticPageMetadata } from "@/data/siteMetadata";
 
 const ProfessionalIntro = lazy(() => import("@/components/layout/professional/ProfessionalIntro"));
 const ExperienceEnvironmentsSection = lazy(() => import("@/components/layout/professional/ExperienceEnvironmentsSection"));
+const LeadershipBeyondTechnologySection = lazy(() => import("@/components/layout/professional/LeadershipBeyondTechnologySection"));
 const TechStackSection = lazy(() => import("@/components/layout/professional/TechStackSection"));
 const ExperienceTimeline = lazy(() => import("@/components/layout/professional/ExperienceTimeline"));
 const EducationSection = lazy(() => import("@/components/layout/professional/EducationSection"));
@@ -33,6 +38,33 @@ export default function Professional() {
     {
       component: <ExperienceEnvironmentsSection />,
       variant: "muted",
+    },
+    { component: <LeadershipBeyondTechnologySection /> },
+    {
+      component: (
+        <DirectAnswersSection
+          title="Professional Snapshot"
+          icon={<MessageCircle />}
+          variant="muted"
+          answers={[
+            {
+              question: "What professional roles am I targeting?",
+              answer:
+                "Senior and leadership opportunities across Data Engineering, Data Architecture and Analytics.",
+            },
+            {
+              question: "What is my core technical specialization?",
+              answer:
+                "End-to-end data platforms, from ingestion and orchestration to governance and analytics, with a strong focus on Azure Databricks Lakehouse architectures.",
+            },
+            {
+              question: "What environments have I worked in?",
+              answer:
+                "Large enterprises, consulting, international banking, retail, digital businesses and technology startups in both regulated and fast-moving contexts.",
+            },
+          ]}
+        />
+      ),
     },
     {
       component: (
@@ -60,7 +92,15 @@ export default function Professional() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Professional"
-        description="Explore Rodrigo Póvoa's 15+ year journey from Enterprise BI and distributed Big Data ecosystems to Azure Databricks Lakehouse architecture and end-to-end data leadership."
+        description="Explore Rodrigo Póvoa's end-to-end data career, combining Azure Databricks architecture, hands-on engineering, multidisciplinary team leadership and business-focused delivery."
+        keywords="Rodrigo Póvoa, end-to-end data leader, technical data leadership, multidisciplinary data teams, stakeholder management, solution scoping, Azure Databricks architecture"
+      />
+
+      <ProfilePageSchema
+        path="/professional"
+        name="Rodrigo Póvoa — Professional Experience"
+        description="Professional profile covering end-to-end data engineering, architecture, analytics and technical leadership."
+        dateModified={staticPageMetadata["/professional"].lastModified!}
       />
 
       <Helmet>
@@ -86,6 +126,7 @@ export default function Professional() {
           title="PROFESSIONAL JOURNEY"
           subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
           image="/ai-portrait.webp"
+          imageFit="contain"
         />
       </PageSection>
 

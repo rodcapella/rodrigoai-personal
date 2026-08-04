@@ -355,7 +355,7 @@ export const profile = {
       title: "Early Career (Trainee to BI Team Leader)",
       company: "Wilson Sons, FGV & Delphos Tecnologia em Seguros",
       location: "Brazil",
-      period: "2007 – 2014",
+      period: "2007 – 2013",
       highlights: [
         "Progressed from Trainee to BI Team Leader while delivering data and analytics solutions across Oracle, IBM Cognos and SQL Server environments.",
         "Built a strong foundation in data modeling, PL/SQL development, ETL processes and business reporting for finance and operations.",

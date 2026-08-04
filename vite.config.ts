@@ -4,6 +4,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "path";
 import { fileURLToPath } from 'url';
+import { resolvePageLastModified } from "./scripts/lastmod.mjs";
 
 const strictCspBootstrap =
   'const c=document.currentScript,u=c&&c.dataset.appEntry;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
@@ -22,8 +23,12 @@ if (!vercelConfig.includes(`'${strictCspHash}'`)) {
 // Se o __dirname der erro em ESM, usamos isto:
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const pageLastModified = resolvePageLastModified(__dirname);
 
 export default defineConfig({
+  define: {
+    __PAGE_LAST_MODIFIED__: JSON.stringify(pageLastModified),
+  },
   plugins: [
     react(),
     {

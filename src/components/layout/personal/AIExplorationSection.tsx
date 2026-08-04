@@ -51,7 +51,7 @@ export default function AIExplorationSection() {
 
           {/* Platforms */}
           <div>
-            <span className="text-xs font-medium tracking-wide text-orange-400/80 uppercase">
+            <span className="text-xs font-medium tracking-wide text-[#FFDD79] uppercase">
               Platforms Explored
             </span>
 
@@ -63,7 +63,7 @@ export default function AIExplorationSection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className="tag-ai flex items-center gap-2 group"
+                  className="tag-tech flex items-center gap-2 group"
                 >
                   {platform.name}
                   {platform.type && <span>{platform.type}</span>}

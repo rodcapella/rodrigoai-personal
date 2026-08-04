@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import PrivacyConsent from "@/components/PrivacyConsent";
 import { trackPageView } from "@/lib/analytics";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { PersonSchema } from "@/components/seo/PersonSchema";
+import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
 
 export default function App() {
   const location = useLocation();
@@ -45,6 +47,8 @@ export default function App() {
 
   return (
     <>
+      <WebSiteSchema />
+      <PersonSchema />
       <Outlet context={{ theme, onToggleTheme: handleToggleTheme }} />
       <Footer />
       <PrivacyConsent />
