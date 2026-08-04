@@ -18,7 +18,7 @@ interface Props {
   techStack: TechGroup[];
 }
 
-const MAX_YEARS = 20;
+const TOTAL_EXPERIENCE_YEARS = 19;
 
 export default function TechStackSection({ techStack }: Props) {
   if (!techStack?.length) return null;
@@ -49,7 +49,7 @@ export default function TechStackSection({ techStack }: Props) {
             <div className="space-content">
               {group.items.map((tech) => {
                 const width = Math.min(
-                  (tech.years / MAX_YEARS) * 100,
+                  (tech.years / TOTAL_EXPERIENCE_YEARS) * 100,
                   100
                 );
 

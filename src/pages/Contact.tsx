@@ -1,11 +1,18 @@
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import MainLayout from "@/components/layout/MainLayout";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
-import { AlertCircle, CheckCircle } from "@/lib/icons";
+import {
+  AlertCircle,
+  Briefcase,
+  CheckCircle,
+  Github,
+  Linkedin,
+  Mail,
+} from "@/lib/icons";
 import FormField from "@/components/ui/FormField";
 import TurnstileWidget from "@/components/ui/TurnstileWidget";
 
@@ -237,7 +244,8 @@ export default function Contact() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Contact | Rodrigo Póvoa"
-        description="Get in touch with Rodrigo Póvoa to discuss data engineering, AI systems, analytics platforms or strategic technology initiatives." 
+        description="Connect with Rodrigo Póvoa about end-to-end data leadership, data engineering, Azure Databricks, analytics platforms, consulting opportunities or technical collaboration."
+        keywords="contact Rodrigo Póvoa, data leader, data engineering consultant, Azure Databricks, analytics leadership, technical collaboration"
       />
 
       {/* HERO */}
@@ -250,8 +258,52 @@ export default function Contact() {
         />
       </PageSection>
 
+      <PageSection title="For Recruiters & Collaborators" icon={<Briefcase />}>
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="body-lg text-muted-foreground">
+            Explore my professional experience, review selected projects on
+            GitHub, connect with me on LinkedIn or contact me directly.
+          </p>
+
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/professional"
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              <Briefcase className="h-4 w-4" aria-hidden="true" />
+              View Professional Experience
+            </Link>
+            <a
+              href="https://github.com/rodcapella"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-semibold transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Github className="h-4 w-4" aria-hidden="true" />
+              Explore GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rodrigocspovoa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-semibold transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Linkedin className="h-4 w-4" aria-hidden="true" />
+              Connect on LinkedIn
+            </a>
+            <a
+              href="#contact-form"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-semibold transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              Contact Me
+            </a>
+          </div>
+        </div>
+      </PageSection>
+
       {/* FORM */}
-      <PageSection variant="glass">
+      <PageSection id="contact-form" variant="glass">
         <AnimatePresence mode="wait">
           {status === "success" ? (
             <motion.div

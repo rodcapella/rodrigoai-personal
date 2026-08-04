@@ -22,6 +22,9 @@ import {
   BarChart3,
   Cpu,
   Package,
+  Database,
+  Cloud,
+  Network,
 } from "@/lib/icons";
 
 const layers = ["layer-yellow", "layer-blue", "layer-purple", "layer-green"];
@@ -96,6 +99,35 @@ export default function WhyMe() {
   ];
 
   const sections: Section[] = [
+    {
+      title: "My Data Journey",
+      icon: <Network />,
+      variant: "muted",
+      content: (
+        <PageGrid cols={4}>
+          <PageCard
+            title="Enterprise BI & Data Warehousing"
+            icon={<Database />}
+            description="ETL, dimensional modeling, semantic layers, Cognos, Microsoft BI and corporate reporting."
+          />
+          <PageCard
+            title="Big Data & Distributed Platforms"
+            icon={<Layers />}
+            description="Hadoop, Hive, Elasticsearch, large-scale processing and multi-platform integration."
+          />
+          <PageCard
+            title="Cloud & Lakehouse Modernization"
+            icon={<Cloud />}
+            description="Azure, Databricks, Delta Lake, PySpark, governance and analytics-ready data products."
+          />
+          <PageCard
+            title="End-to-End Data Leadership"
+            icon={<Users />}
+            description="Architecture, engineering, analytics, multidisciplinary teams, stakeholders and business delivery."
+          />
+        </PageGrid>
+      ),
+    },
     {
       title: "Leadership Philosophy",
       icon: <Brain />,
@@ -172,7 +204,8 @@ export default function WhyMe() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Why Me?"
-        description="Why work with Rodrigo Póvoa: 15+ years building data platforms, combining architecture expertise, AI-driven thinking and business-focused engineering." 
+        description="Discover Rodrigo Póvoa's data journey from Enterprise BI and Big Data to Azure Databricks Lakehouse modernization and end-to-end data leadership."
+        keywords="Rodrigo Póvoa, data leadership, Enterprise BI, data warehousing, Big Data, Azure Databricks, Lakehouse modernization, data architecture"
       />
 
       <Helmet>
