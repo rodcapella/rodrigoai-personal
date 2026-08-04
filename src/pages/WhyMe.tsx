@@ -9,6 +9,9 @@ import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
 import SectionContent from "@/components/layout/SectionContent";
+import DirectAnswersSection from "@/components/layout/DirectAnswersSection";
+import { ProfilePageSchema } from "@/components/seo/ProfilePageSchema";
+import { staticPageMetadata } from "@/data/siteMetadata";
 
 import {
   Layers,
@@ -25,6 +28,7 @@ import {
   Database,
   Cloud,
   Network,
+  MessageCircle,
 } from "@/lib/icons";
 
 const layers = ["layer-yellow", "layer-blue", "layer-purple", "layer-green"];
@@ -74,9 +78,9 @@ export default function WhyMe() {
     },
     {
       icon: Users,
-      title: "People Amplified by AI",
+      title: "Leadership That Scales",
       description:
-        "AI and automation enhance human capability, they don't replace it. My philosophy centers on building systems where technology multiplies team effectiveness.",
+        "I build autonomous teams through clear standards, mentoring, shared ownership and decisions that remain understandable beyond a single expert.",
     },
     {
       icon: ShieldCheck,
@@ -143,7 +147,7 @@ export default function WhyMe() {
           </p>
 
           <p>
-            Finally, <strong>Human-Centered AI</strong> reflects my belief that technology should amplify human capability, helping people perform at higher levels and achieve more meaningful results.
+            Finally, <strong>Accountable Technical Judgment</strong> means making decisions that can be explained, challenged, and improved. Strong leadership creates clarity without removing ownership from the people closest to the work.
           </p>
         </div>
       ),
@@ -181,21 +185,48 @@ export default function WhyMe() {
             description="I treat data with the same rigor as software: contracts, SLAs, and discoverability."
           />
           <PageCard
-            title="AI-Native Architecture"
+            title="Composable Lakehouse Architecture"
             icon={<Cpu />}
-            description=" I help move from passive platforms to proactive AI-native systems with real-time intelligence."
+            description="I design modular platforms that can evolve across ingestion, transformation, governance and analytics without unnecessary rework."
           />
           <PageCard
-            title="Human-AI Augmentation"
+            title="Decision-Ready Analytics"
             icon={<Users />}
-            description="I see AI as a multiplier of strategy and execution, not a replacement."
+            description="I connect reliable data products to reporting and analytics that help teams make timely, confident decisions."
+          />
+          <PageCard
+            title="Documentation by Design"
+            icon={<Network />}
+            description="I document data flows, operational processes, transformation rules and governance decisions across the entire pipeline, supported by clear models and maintainable technical documentation."
+          />
+          <PageCard
+            title="Data Management as a Product Discipline"
+            icon={<Database />}
+            description="I manage data products through clear ownership, lifecycle practices, shared definitions, service expectations, metadata and continuous improvement so they remain usable, discoverable and accountable."
           />
           <PageCard
             title="Trust & Governance"
             icon={<ShieldCheck />}
-            description="I design for security, lineage, and explainability from the start."
+            description="I embed security, access controls, lineage, quality controls, auditability and regulatory considerations into architecture and delivery from the start."
           />
         </PageGrid>
+      ),
+    },
+    {
+      title: "AI-Assisted Engineering, Human-Governed",
+      icon: <Cpu />,
+      variant: "muted",
+      content: (
+        <PageCard hover={false} className="mx-auto max-w-5xl">
+          <p className="body-lg text-justify">
+            I integrate AI-assisted engineering into technical research,
+            solution design, documentation, code review, troubleshooting and
+            workflow automation. I use LLMs and MCP-based integrations as
+            accelerators for engineering and decision-making, while maintaining
+            human validation, security controls and established quality
+            standards.
+          </p>
+        </PageCard>
       ),
     },
   ];
@@ -204,8 +235,15 @@ export default function WhyMe() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Why Me?"
-        description="Discover Rodrigo Póvoa's data journey from Enterprise BI and Big Data to Azure Databricks Lakehouse modernization and end-to-end data leadership."
-        keywords="Rodrigo Póvoa, data leadership, Enterprise BI, data warehousing, Big Data, Azure Databricks, Lakehouse modernization, data architecture"
+        description="Discover Rodrigo Póvoa's approach to end-to-end data leadership, AI-assisted engineering, MCP-based integrations and human-validated, governed technical delivery."
+        keywords="Rodrigo Póvoa, AI-assisted engineering, MCP-based integrations, human-validated AI, data leadership, Azure Databricks, data architecture, data governance"
+      />
+
+      <ProfilePageSchema
+        path="/why-me"
+        name="Why Work With Rodrigo Póvoa"
+        description="Rodrigo Póvoa's approach to data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
+        dateModified={staticPageMetadata["/why-me"].lastModified!}
       />
 
       <Helmet>
@@ -247,6 +285,29 @@ export default function WhyMe() {
           </Suspense>
         );
       })}
+
+      <DirectAnswersSection
+        title="How I Work"
+        icon={<MessageCircle />}
+        variant="gradient"
+        answers={[
+          {
+            question: "How do I turn strategy into delivery?",
+            answer:
+              "I translate business priorities into architecture, delivery standards and incremental outcomes that teams can implement, measure and improve.",
+          },
+          {
+            question: "What distinguishes my leadership approach?",
+            answer:
+              "I combine hands-on technical depth with team mentoring, stakeholder alignment and responsibility for measurable business outcomes.",
+          },
+          {
+            question: "How do I maintain trust and governance?",
+            answer:
+              "I establish clear ownership, access controls, data quality, lineage and engineering standards from design through production delivery.",
+          },
+        ]}
+      />
 
       <CompactHighlightSection>
         <blockquote className="w-full max-w-4xl rounded-r-xl border-l-4 border-primary bg-primary/5 px-6 py-5 text-left text-lg font-semibold italic leading-relaxed text-foreground shadow-lg shadow-primary/5 sm:px-8 sm:py-6 md:text-2xl">

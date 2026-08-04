@@ -244,8 +244,8 @@ export default function Contact() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Contact | Rodrigo Póvoa"
-        description="Connect with Rodrigo Póvoa about end-to-end data leadership, data engineering, Azure Databricks, analytics platforms, consulting opportunities or technical collaboration."
-        keywords="contact Rodrigo Póvoa, data leader, data engineering consultant, Azure Databricks, analytics leadership, technical collaboration"
+        description="Connect with Rodrigo Póvoa about senior and leadership opportunities combining end-to-end data expertise, AI-assisted engineering and governed data platform delivery."
+        keywords="contact Rodrigo Póvoa, senior data leadership opportunities, end-to-end data leader, AI-assisted engineering, Azure Databricks, data engineering leadership"
       />
 
       {/* HERO */}
@@ -261,8 +261,10 @@ export default function Contact() {
       <PageSection title="For Recruiters & Collaborators" icon={<Briefcase />}>
         <div className="mx-auto max-w-4xl text-center">
           <p className="body-lg text-muted-foreground">
-            Explore my professional experience, review selected projects on
-            GitHub, connect with me on LinkedIn or contact me directly.
+            I am open to senior and leadership opportunities where I can combine
+            technical depth, end-to-end data expertise, AI-assisted engineering
+            and team leadership to build scalable, governed and
+            business-oriented data solutions.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">

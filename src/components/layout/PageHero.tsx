@@ -5,6 +5,7 @@ interface PageHeroProps {
   subtitle?: string;
   description?: string;
   image?: string;
+  imageFit?: "cover" | "contain";
   variant?: "hero" | "page";
 }
 
@@ -13,6 +14,7 @@ const PageHero = ({
   subtitle,
   description,
   image,
+  imageFit = "cover",
   variant = "page",
 }: PageHeroProps) => {
   return (
@@ -75,15 +77,24 @@ const PageHero = ({
                     ? "w-[220px] sm:w-[260px] md:w-[320px]"
                     : "w-[180px] sm:w-[200px] md:w-[240px]"
                 }
+                aspect-square flex justify-center
               `}
             >
-              <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl" />
+              <div
+                className={`relative h-full ${
+                  imageFit === "contain" ? "aspect-[2/3]" : "w-full"
+                }`}
+              >
+                <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl" />
 
-              <img
-                src={image}
-                alt={title}
-                className="relative rounded-3xl border border-primary/20 shadow-2xl aspect-square w-full h-full object-cover"
-              />
+                <img
+                  src={image}
+                  alt={title}
+                  className={`relative h-full w-full rounded-3xl border border-primary/20 shadow-2xl ${
+                    imageFit === "contain" ? "object-contain" : "object-cover"
+                  }`}
+                />
+              </div>
             </div>
           </motion.div>
         )}

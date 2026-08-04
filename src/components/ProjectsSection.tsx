@@ -91,15 +91,25 @@ const ProjectsSection = () => {
               </p>
 
               {/* STACK */}
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="tag-ai text-[0.7rem] px-3 py-1 font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="mt-6 space-tight">
+                <span className="text-xs font-medium tracking-wide text-[#FFDD79] uppercase">
+                  Tech Stack
+                </span>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.map((tech, techIndex) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: techIndex * 0.04 }}
+                      className="tag-tech"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
             </PageCard>
           </motion.div>

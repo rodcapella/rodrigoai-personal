@@ -27,22 +27,18 @@ const escapeXml = (value) =>
     .replaceAll("'", "&apos;");
 
 try {
-  const [{ render }, { blogPosts }] = await Promise.all([
+  const [
+    { render },
+    { blogPosts },
+    { blogPostTemplateLastModified, staticPageMetadata },
+  ] = await Promise.all([
     vite.ssrLoadModule("/src/entry-server.tsx"),
     vite.ssrLoadModule("/src/data/blogPosts.ts"),
+    vite.ssrLoadModule("/src/data/siteMetadata.ts"),
   ]);
   const template = await fs.readFile(path.join(distDirectory, "index.html"), "utf8");
   const sitemapDirectory = path.join(distDirectory, "sitemaps");
-  const staticPages = [
-    "/",
-    "/why-me",
-    "/professional",
-    "/personal",
-    "/side-projects",
-    "/blog",
-    "/privacy",
-    "/contact",
-  ];
+  const staticPages = Object.keys(staticPageMetadata);
   const prerenderRoutes = [
     ...staticPages,
     ...blogPosts.map((post) => `/blog/${post.slug}`),
@@ -64,16 +60,25 @@ try {
     .map((post) => post.updatedAt || post.publishedAt)
     .sort()
     .at(-1);
+  const latestTimestamp = (...timestamps) =>
+    timestamps.filter(Boolean).sort().at(-1);
   const sitemapEntries = [
     ...staticPages.map((page) => ({
       path: page,
-      ...(page === "/blog" && blogLastModified
-        ? { lastModified: blogLastModified }
-        : {}),
+      lastModified:
+        page === "/blog"
+          ? latestTimestamp(
+              blogLastModified,
+              staticPageMetadata[page].lastModified,
+            )
+          : staticPageMetadata[page].lastModified,
     })),
     ...blogPosts.map((post) => ({
       path: `/blog/${post.slug}`,
-      lastModified: post.updatedAt || post.publishedAt,
+      lastModified: latestTimestamp(
+        post.updatedAt || post.publishedAt,
+        blogPostTemplateLastModified,
+      ),
       image: post.image,
       imageTitle: post.title,
       imageCaption: post.imageAlt,
@@ -91,7 +96,15 @@ try {
     })
     .join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${sitemapUrls}\n</urlset>\n`;
-  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap>\n    <loc>${baseUrl}/sitemaps/sitemap-pages.xml</loc>\n    <lastmod>${escapeXml(blogLastModified)}</lastmod>\n  </sitemap>\n</sitemapindex>\n`;
+  const sitemapLastModified = sitemapEntries
+    .map((entry) => entry.lastModified)
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+  const sitemapIndexLastModified = sitemapLastModified
+    ? `\n    <lastmod>${escapeXml(sitemapLastModified)}</lastmod>`
+    : "";
+  const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <sitemap>\n    <loc>${baseUrl}/sitemaps/sitemap-pages.xml</loc>${sitemapIndexLastModified}\n  </sitemap>\n</sitemapindex>\n`;
 
   await fs.mkdir(sitemapDirectory, { recursive: true });
   await Promise.all([

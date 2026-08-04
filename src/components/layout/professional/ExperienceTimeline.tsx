@@ -82,7 +82,7 @@ export default function ExperienceTimeline({
               <div className="space-tight">
                 
                 {/* label mais discreta */}
-                <span className="text-xs font-medium tracking-wide text-orange-400/80 uppercase">
+                <span className="text-xs font-medium tracking-wide text-[#FFDD79] uppercase">
                   Tech Stack
                 </span>
 
@@ -94,7 +94,7 @@ export default function ExperienceTimeline({
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: i * 0.04 }}
-                      className="tag-ai"
+                      className="tag-tech"
                     >
                       {tech}
                     </motion.span>

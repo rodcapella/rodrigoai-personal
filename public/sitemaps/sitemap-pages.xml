@@ -2,12 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.rpovoadata.tech/</loc>
+    <lastmod>2026-08-03T00:00:00+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.rpovoadata.tech/why-me</loc>
+    <lastmod>2026-08-04T00:00:00+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.rpovoadata.tech/professional</loc>
+    <lastmod>2026-08-04T00:00:00+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.rpovoadata.tech/personal</loc>
@@ -24,6 +27,7 @@
   </url>
   <url>
     <loc>https://www.rpovoadata.tech/contact</loc>
+    <lastmod>2026-08-04T00:00:00+01:00</lastmod>
   </url>
   <url>
     <loc>https://www.rpovoadata.tech/blog/from-chaos-to-version-control-how-pbip-and-git-are-revolutionizing-power-bi-development</loc>
