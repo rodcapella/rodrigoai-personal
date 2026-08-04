@@ -7,11 +7,11 @@ const AboutSection = () => {
     <SectionContent title={profile.name} icon={<User />}>
       <div className="space-text">
         <p className="body-lg text-justify">
-          {profile.summary}
+          {profile.leadership_focus}
         </p>
 
         <p className="body-lg text-justify">
-          {profile.positioning_statement}
+          {profile.impact_orientation}
         </p>
       </div>
     </SectionContent>

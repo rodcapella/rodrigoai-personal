@@ -10,6 +10,7 @@ import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
 
 const ProfessionalIntro = lazy(() => import("@/components/layout/professional/ProfessionalIntro"));
+const ExperienceEnvironmentsSection = lazy(() => import("@/components/layout/professional/ExperienceEnvironmentsSection"));
 const TechStackSection = lazy(() => import("@/components/layout/professional/TechStackSection"));
 const ExperienceTimeline = lazy(() => import("@/components/layout/professional/ExperienceTimeline"));
 const EducationSection = lazy(() => import("@/components/layout/professional/EducationSection"));
@@ -30,17 +31,25 @@ export default function Professional() {
   }[] = [
     { component: <ProfessionalIntro /> },
     {
+      component: <ExperienceEnvironmentsSection />,
+      variant: "muted",
+    },
+    {
       component: (
         <TechStackSection techStack={profile.technical_stack} />
       ),
+    },
+    {
+      component: <ExperienceTimeline experiences={profile.experience} />,
       variant: "muted",
     },
-    { component: <ExperienceTimeline experiences={profile.experience} /> },
     {
       component: <EducationSection education={profile.education} />,
+    },
+    {
+      component: <CertificationsSection certifications={profile.certifications} />,
       variant: "muted",
     },
-    { component: <CertificationsSection certifications={profile.certifications} /> },
     {
       component: <LanguagesSection languages={profile.languages} />,
       variant: "glass",
@@ -51,12 +60,12 @@ export default function Professional() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Professional"
-        description="Explore Rodrigo Póvoa’s professional journey in Data Analytics Engineer, including Azure Databricks, PySpark, distributed systems and enterprise data platform architecture." 
+        description="Explore Rodrigo Póvoa's 15+ year journey from Enterprise BI and distributed Big Data ecosystems to Azure Databricks Lakehouse architecture and end-to-end data leadership."
       />
 
       <Helmet>
         <title>
-          Professional Experience | Rodrigo Póvoa - Data Analytics Engineer Leader
+          Professional Experience | Rodrigo Póvoa - End-to-End Data Leader
         </title>
       </Helmet>
 

@@ -24,14 +24,17 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
         
         {/* LEFT */}
         <div className="max-w-xl">
-          <h1 className="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-[0.18em] mb-6 text-gradient">
-            DATA ANALYTICS ENGINEER • TEAM LEADER
+          <h1 className="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-[0.12em] mb-6 text-gradient">
+            End-to-End Data Leader &amp; Data Analytics Engineer
           </h1>
 
-          <p className="hero-title text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight text-foreground/90 mb-10">
-            Designing Enterprise Data Platforms
-            <br />
-            That Scale, Stay Governed and Drive Decisions.
+          <p className="max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+            Bridging 15+ years of experience across Data Architecture,
+            Engineering, and Analytics. From traditional Enterprise Data
+            Warehousing and Big Data ecosystems to modern Azure Databricks
+            Lakehouse architectures, I help organizations scale their data
+            platforms, ensure rigorous governance, and drive business decisions
+            through reliable data.
           </p>
         </div>
 

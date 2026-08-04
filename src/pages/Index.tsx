@@ -85,9 +85,9 @@ const competences = [
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Rodrigo Póvoa | Technical Data Leader & Data Analytics Engineer"
-        description="Rodrigo Póvoa is a Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Europe."
-        keywords="Rodrigo Póvoa, technical data leader, data analytics engineer, data engineering, AI systems"
+        title="Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer"
+        description="Rodrigo Póvoa is an End-to-End Data Leader with 15+ years across data architecture, engineering and analytics, from enterprise data warehousing to Azure Databricks Lakehouse platforms."
+        keywords="Rodrigo Póvoa, end-to-end data leader, data analytics engineer, data architecture, Azure Databricks, Lakehouse, data governance"
       />
 
       <BreadcrumbSchema
