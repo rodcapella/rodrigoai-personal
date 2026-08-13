@@ -11,7 +11,6 @@ import {
   CheckCircle,
   Github,
   Linkedin,
-  Mail,
 } from "@/lib/icons";
 import FormField from "@/components/ui/FormField";
 import TurnstileWidget from "@/components/ui/TurnstileWidget";
@@ -292,13 +291,6 @@ export default function Contact() {
             >
               <Linkedin className="h-4 w-4" aria-hidden="true" />
               Connect on LinkedIn
-            </a>
-            <a
-              href="#contact-form"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-semibold transition-colors hover:border-primary/50 hover:text-primary"
-            >
-              <Mail className="h-4 w-4" aria-hidden="true" />
-              Contact Me
             </a>
           </div>
         </div>

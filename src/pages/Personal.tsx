@@ -54,7 +54,7 @@ export default function Personal() {
           variant="page"
           title="PERSONAL"
           subtitle="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
-          image="/rodrigo_flamengo_porto.png"
+          image="/rodrigo_flamengo_porto.webp"
         />
       </PageSection>
 

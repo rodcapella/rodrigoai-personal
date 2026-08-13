@@ -126,7 +126,7 @@ export default function Professional() {
           title="PROFESSIONAL JOURNEY"
           subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
           image="/ai-portrait.webp"
-          imageFit="contain"
+          imagePosition="top"
         />
       </PageSection>
 
