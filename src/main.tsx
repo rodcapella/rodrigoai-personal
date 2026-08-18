@@ -9,9 +9,13 @@ import AppRoutes from "./AppRoutes";
 import { initializeConsentMode } from "./lib/analytics";
 import { loadInitialRoute } from "./routePreload";
 
-initializeConsentMode();
+type ApplicationWindow = Window & {
+  __rpovoaApplicationStart?: Promise<void>;
+};
 
 const startApplication = async () => {
+  initializeConsentMode();
+
   const initialPath = window.location.pathname;
   const InitialComponent = await loadInitialRoute(initialPath);
 
@@ -35,4 +39,6 @@ const startApplication = async () => {
   createRoot(rootElement).render(application);
 };
 
-void startApplication();
+const applicationWindow = window as ApplicationWindow;
+applicationWindow.__rpovoaApplicationStart ??= startApplication();
+void applicationWindow.__rpovoaApplicationStart;

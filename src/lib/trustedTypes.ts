@@ -9,7 +9,20 @@ type TrustedTypesFactory = {
 };
 
 type TrustedTypesWindow = Window & {
+  __rpovoaTrustedTypesInitialized?: boolean;
   trustedTypes?: TrustedTypesFactory;
+};
+
+const isDuplicatePolicyError = (error: unknown) => {
+  if (!(error instanceof Error)) return false;
+
+  const message = error.message.toLowerCase();
+  return (
+    message.includes("default") &&
+    (message.includes("already exists") ||
+      message.includes("creating a trustedtypepolicy") ||
+      message.includes("violates the following content security policy"))
+  );
 };
 
 const isAllowedScriptUrl = (value: string) => {
@@ -50,9 +63,12 @@ const isSchemaJson = (value: string) => {
 };
 
 if (typeof window !== "undefined") {
-  const trustedTypes = (window as TrustedTypesWindow).trustedTypes;
+  const trustedTypesWindow = window as TrustedTypesWindow;
+  const trustedTypes = trustedTypesWindow.trustedTypes;
 
-  if (trustedTypes) {
+  if (trustedTypes && !trustedTypesWindow.__rpovoaTrustedTypesInitialized) {
+    trustedTypesWindow.__rpovoaTrustedTypesInitialized = true;
+
     try {
       trustedTypes.createPolicy("default", {
         createHTML: (value) => {
@@ -69,13 +85,11 @@ if (typeof window !== "undefined") {
         },
       });
     } catch (error) {
-      const isExistingDefaultPolicy =
-        error instanceof TypeError &&
-        error.message.includes('Policy with name "default" already exists');
       const isInvalidState =
         error instanceof DOMException && error.name === "InvalidStateError";
 
-      if (!isExistingDefaultPolicy && !isInvalidState) {
+      if (!isDuplicatePolicyError(error) && !isInvalidState) {
+        trustedTypesWindow.__rpovoaTrustedTypesInitialized = false;
         throw error;
       }
     }

@@ -36,6 +36,13 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
       {keywords && <meta name="keywords" content={keywords} />}
       {author && <meta name="author" content={author} />}
       <link rel="canonical" href={currentUrl} />
+      <link
+        rel="alternate"
+        type="text/markdown"
+        href={currentUrl}
+        title={`${title} in Markdown`}
+      />
+      <link rel="author" href={`${baseUrl}/professional`} />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />

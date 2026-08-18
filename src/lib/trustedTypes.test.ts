@@ -72,4 +72,34 @@ describe("Trusted Types policy", () => {
 
     await expect(import("./trustedTypes")).resolves.toBeDefined();
   });
+
+  it("handles the CSP duplicate-policy error reported by Chromium", async () => {
+    vi.stubGlobal("window", {
+      location: { origin: "https://www.rpovoadata.tech" },
+      trustedTypes: {
+        createPolicy: () => {
+          throw new TypeError(
+            "Creating a TrustedTypePolicy named 'default' violates the following Content Security Policy directive because a TrustedTypePolicy with that name already exists.",
+          );
+        },
+      },
+    });
+
+    await expect(import("./trustedTypes")).resolves.toBeDefined();
+  });
+
+  it("creates the default policy only once per page lifecycle", async () => {
+    const createPolicy = vi.fn();
+    const trustedWindow = {
+      location: { origin: "https://www.rpovoadata.tech" },
+      trustedTypes: { createPolicy },
+    };
+    vi.stubGlobal("window", trustedWindow);
+
+    await import("./trustedTypes");
+    vi.resetModules();
+    await import("./trustedTypes");
+
+    expect(createPolicy).toHaveBeenCalledTimes(1);
+  });
 });
