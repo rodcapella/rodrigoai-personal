@@ -58,6 +58,13 @@ describe("Trusted Types policy", () => {
     expect(rules.createScriptURL?.(scriptUrl)).toBe(scriptUrl);
   });
 
+  it("allows the same-origin Vercel Web Analytics script", async () => {
+    const rules = await loadPolicyRules();
+    const scriptUrl = "/_vercel/insights/script.js";
+
+    expect(rules.createScriptURL?.(scriptUrl)).toBe(scriptUrl);
+  });
+
   it("does not fail when another integration already created the default policy", async () => {
     vi.stubGlobal("window", {
       location: { origin: "https://www.rpovoadata.tech" },

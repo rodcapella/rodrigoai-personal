@@ -3,6 +3,7 @@ import { startTransition, useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import PrivacyConsent from "@/components/PrivacyConsent";
 import { trackPageView } from "@/lib/analytics";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { PersonSchema } from "@/components/seo/PersonSchema";
 import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
@@ -52,6 +53,7 @@ export default function App() {
       <Outlet context={{ theme, onToggleTheme: handleToggleTheme }} />
       <Footer />
       <PrivacyConsent />
+      <Analytics />
       <SpeedInsights route={speedInsightsRoute} />
     </>
   );
