@@ -1,5 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "rodrigoai-personal.vercel.app"
+        }
+      ],
+      "destination": "https://www.rpovoadata.tech/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
