@@ -189,6 +189,31 @@ body {
       0 0 28px hsl(var(--secondary) / .15);
   }
 
+  .hero-ambient-glow {
+    background: radial-gradient(
+      circle,
+      hsl(var(--primary) / .1) 0%,
+      hsl(var(--primary) / .04) 42%,
+      transparent 72%
+    );
+  }
+
+  .privacy-consent-launcher {
+    display: flex;
+  }
+
+  .privacy-consent-dialog {
+    display: none;
+  }
+
+  html[data-privacy-view="dialog"] .privacy-consent-launcher {
+    display: none;
+  }
+
+  html[data-privacy-view="dialog"] .privacy-consent-dialog {
+    display: flex;
+  }
+
   .tag-ai {
     @apply px-4 py-1.5 rounded-full
           bg-[#FAC65B]

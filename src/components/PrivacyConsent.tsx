@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { BarChart3, Cookie, ShieldCheck, X } from "@/lib/icons";
 import {
@@ -10,24 +10,44 @@ import {
 } from "@/lib/analytics";
 import { PRIVACY_CONSENT_EVENT } from "@/lib/privacyConsent";
 
+const setPrivacyView = (view: "dialog" | "launcher") => {
+  document.documentElement.dataset.privacyView = view;
+};
+
 export default function PrivacyConsent() {
   const dialogRef = useRef<HTMLDivElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
+  const [hasDecision, setHasDecision] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
 
+  const openDialog = useCallback(() => {
+    setPrivacyView("dialog");
+    setOpen(true);
+  }, []);
+
+  const closeDialog = useCallback(() => {
+    setPrivacyView("launcher");
+    setOpen(false);
+  }, []);
+
   useEffect(() => {
-    setOpen(getAnalyticsConsent() === null);
+    const consent = getAnalyticsConsent();
+    const shouldOpen = consent === null;
+    setPrivacyView(shouldOpen ? "dialog" : "launcher");
+    setHasDecision(consent !== null);
+    setOpen(shouldOpen);
+
     const handleOpen = () => {
       returnFocusRef.current =
         document.activeElement instanceof HTMLElement
           ? document.activeElement
           : null;
-      setOpen(true);
+      openDialog();
     };
     window.addEventListener(PRIVACY_CONSENT_EVENT, handleOpen);
     return () => window.removeEventListener(PRIVACY_CONSENT_EVENT, handleOpen);
-  }, []);
+  }, [openDialog]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -109,23 +129,26 @@ export default function PrivacyConsent() {
   const acceptAnalytics = () => {
     enableAnalytics();
     trackPageView(`${window.location.pathname}${window.location.search}`);
-    setOpen(false);
+    setHasDecision(true);
+    closeDialog();
   };
 
   const rejectAnalytics = () => {
     disableAnalytics();
-    setOpen(false);
+    setHasDecision(true);
+    closeDialog();
   };
 
-  if (!open) {
-    return (
+  return (
+    <>
       <button
+        data-privacy-launcher
         type="button"
         onClick={(event) => {
           returnFocusRef.current = event.currentTarget;
-          setOpen(true);
+          openDialog();
         }}
-        className="group fixed bottom-5 left-5 z-[80] flex h-14 w-14 items-center justify-center rounded-2xl border border-primary/25 bg-background/90 p-2 shadow-lg shadow-primary/15 backdrop-blur-md transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
+        className="privacy-consent-launcher group fixed bottom-5 left-5 z-[80] h-14 w-14 items-center justify-center rounded-2xl border border-primary/25 bg-background/90 p-2 shadow-lg shadow-primary/15 backdrop-blur-md transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
         aria-label="Open cookie and privacy preferences"
         title="Cookie and privacy preferences"
       >
@@ -135,53 +158,51 @@ export default function PrivacyConsent() {
           className="h-full w-full object-contain transition-transform duration-200 group-hover:rotate-[-7deg] group-hover:scale-105"
         />
       </button>
-    );
-  }
 
-  return (
-    <div
-      ref={dialogRef}
-      tabIndex={-1}
-      data-privacy-dialog
-      className="fixed inset-0 z-[100] flex items-end justify-center bg-slate-950/65 p-0 backdrop-blur-sm sm:items-center sm:p-6"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="privacy-consent-title"
-      aria-describedby="privacy-consent-description"
-    >
-      <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/75 p-6 shadow-2xl backdrop-blur-xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
-        {getAnalyticsConsent() !== null && (
+      <div
+        ref={dialogRef}
+        tabIndex={-1}
+        data-privacy-dialog
+        data-nosnippet
+        className="privacy-consent-dialog fixed inset-0 z-[100] items-end justify-center bg-slate-950/65 p-0 backdrop-blur-sm sm:items-center sm:p-6"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="privacy-consent-title"
+        aria-describedby="privacy-consent-description"
+      >
+        <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/75 p-6 shadow-2xl backdrop-blur-xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
+          {hasDecision && (
           <button
             type="button"
-            onClick={() => setOpen(false)}
+            onClick={closeDialog}
             className="float-right rounded-lg p-2 text-muted-foreground transition hover:bg-primary/10 hover:text-primary"
             aria-label="Close privacy preferences"
           >
             <X className="h-5 w-5" />
           </button>
-        )}
+          )}
 
-        <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
-          <ShieldCheck className="h-6 w-6" />
-        </div>
-        <h2 id="privacy-consent-title" className="font-display text-2xl font-semibold sm:text-3xl">
-          Your privacy matters
-        </h2>
-        <p id="privacy-consent-description" className="mt-4 leading-relaxed text-muted-foreground">
-          This website uses strictly necessary storage to remember your preferences. With your permission, we also use Google Analytics to understand navigation and improve the content.
-        </p>
+          <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
+            <ShieldCheck className="h-6 w-6" />
+          </div>
+          <h2 id="privacy-consent-title" className="font-display text-2xl font-semibold sm:text-3xl">
+            Your privacy matters
+          </h2>
+          <p id="privacy-consent-description" className="mt-4 leading-relaxed text-muted-foreground">
+            This website uses strictly necessary storage to remember your preferences. With your permission, we also use Google Analytics to understand navigation and improve the content.
+          </p>
 
-        <button
-          type="button"
-          onClick={() => setShowDetails((value) => !value)}
-          className="mt-5 text-sm font-semibold text-primary hover:underline"
-          aria-expanded={showDetails}
-          aria-controls="privacy-consent-details"
-        >
-          {showDetails ? "Hide details" : "View details and preferences"}
-        </button>
+          <button
+            type="button"
+            onClick={() => setShowDetails((value) => !value)}
+            className="mt-5 text-sm font-semibold text-primary hover:underline"
+            aria-expanded={showDetails}
+            aria-controls="privacy-consent-details"
+          >
+            {showDetails ? "Hide details" : "View details and preferences"}
+          </button>
 
-        {showDetails && (
+          {showDetails && (
           <div id="privacy-consent-details" className="mt-5 space-y-3">
             <div className="flex gap-3 rounded-xl border border-primary/10 bg-card/50 p-4">
               <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -212,32 +233,33 @@ export default function PrivacyConsent() {
               </p>
             )}
           </div>
-        )}
+          )}
 
-        <p className="mt-5 text-sm text-muted-foreground">
-          You can change this choice at any time using the cookie button in the lower-left corner. Read the{" "}
-          <Link to="/privacy" onClick={() => setOpen(false)} className="font-semibold text-primary hover:underline">
-            Privacy Policy
-          </Link>.
-        </p>
+          <p className="mt-5 text-sm text-muted-foreground">
+            You can change this choice at any time using the cookie button in the lower-left corner. Read the{" "}
+            <Link to="/privacy" onClick={closeDialog} className="font-semibold text-primary hover:underline">
+              Privacy Policy
+            </Link>.
+          </p>
 
-        <div className="mt-7 grid gap-3 sm:grid-cols-2">
-          <button
-            type="button"
-            onClick={acceptAnalytics}
-            className="rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90"
-          >
-            Accept Analytics
-          </button>
-          <button
-            type="button"
-            onClick={rejectAnalytics}
-            className="rounded-xl border border-primary/20 px-5 py-3 font-semibold transition hover:border-primary/40 hover:text-primary"
-          >
-            Necessary only
-          </button>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            <button
+              type="button"
+              onClick={acceptAnalytics}
+              className="rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90"
+            >
+              Accept Analytics
+            </button>
+            <button
+              type="button"
+              onClick={rejectAnalytics}
+              className="rounded-xl border border-primary/20 px-5 py-3 font-semibold transition hover:border-primary/40 hover:text-primary"
+            >
+              Necessary only
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

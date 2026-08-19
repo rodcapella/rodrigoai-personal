@@ -18,7 +18,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
 
       {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full bg-primary/5 blur-[120px]" />
+      <div className="hero-ambient-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] rounded-full" />
 
       <div className="grid md:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
         
@@ -52,6 +52,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 width={320}
                 height={320}
                 loading="eager"
+                {...{ fetchpriority: "high" }}
                 decoding="async"
                 className="w-full h-full object-cover"
               />
