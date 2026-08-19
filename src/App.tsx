@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { startTransition, useEffect, useState } from "react";
+import { startTransition, useEffect, useRef, useState } from "react";
 import Footer from "@/components/Footer";
 import PrivacyConsent from "@/components/PrivacyConsent";
 import { trackPageView } from "@/lib/analytics";
@@ -10,6 +10,7 @@ import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
 
 export default function App() {
   const location = useLocation();
+  const previousPathRef = useRef(location.pathname);
   const speedInsightsRoute = location.pathname.startsWith("/blog/")
     ? "/blog/:slug"
     : location.pathname;
@@ -44,6 +45,16 @@ export default function App() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    if (previousPathRef.current === location.pathname) return;
+    previousPathRef.current = location.pathname;
+
+    const focusFrame = window.requestAnimationFrame(() => {
+      if (document.documentElement.dataset.privacyView === "dialog") return;
+      document.getElementById("main-content")?.focus({ preventScroll: true });
+    });
+
+    return () => window.cancelAnimationFrame(focusFrame);
   }, [location.pathname]);
 
   return (

@@ -11,7 +11,11 @@ const MainLayout = ({ children, theme, onToggleTheme }: MainLayoutProps) => {
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navbar theme={theme} onToggleTheme={onToggleTheme} />
 
-      <main id="main-content" className="flex-1 pt-[var(--navbar-height)]">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 pt-[var(--navbar-height)]"
+      >
         {children}
       </main>
 

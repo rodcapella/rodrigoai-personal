@@ -147,7 +147,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                 href="https://www.linkedin.com/in/rodrigocspovoa"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn de Rodrigo Póvoa"
+                aria-label="Rodrigo Póvoa on LinkedIn"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin className="w-6 h-6 opacity-80" />
@@ -158,7 +158,7 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                 href="https://github.com/rodcapella"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub de Rodrigo Póvoa"
+                aria-label="Rodrigo Póvoa on GitHub"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Github className="w-6 h-6 opacity-80" />
