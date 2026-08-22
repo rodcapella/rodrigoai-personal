@@ -80,12 +80,25 @@ export default function TurnstileWidget({
   useEffect(() => {
     let active = true;
     let widgetId: string | null = null;
+    let iframeObserver: MutationObserver | null = null;
 
     loadTurnstile()
       .then(() => {
         if (!active || !containerRef.current || !window.turnstile) return;
 
-        widgetId = window.turnstile.render(containerRef.current, {
+        const container = containerRef.current;
+        const labelTurnstileFrames = () => {
+          container.querySelectorAll("iframe").forEach((frame) => {
+            if (!frame.title) {
+              frame.title = "Cloudflare Turnstile human verification";
+            }
+          });
+        };
+
+        iframeObserver = new MutationObserver(labelTurnstileFrames);
+        iframeObserver.observe(container, { childList: true, subtree: true });
+
+        widgetId = window.turnstile.render(container, {
           sitekey: siteKey,
           action: "contact_form",
           appearance: "interaction-only",
@@ -96,11 +109,13 @@ export default function TurnstileWidget({
           "expired-callback": onExpire,
           "error-callback": onError,
         });
+        labelTurnstileFrames();
       })
       .catch(onError);
 
     return () => {
       active = false;
+      iframeObserver?.disconnect();
       if (widgetId && window.turnstile) {
         window.turnstile.remove(widgetId);
       }

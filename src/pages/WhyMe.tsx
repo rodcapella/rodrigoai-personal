@@ -256,6 +256,7 @@ export default function WhyMe() {
           title="WHY WORK WITH ME"
           subtitle="15+ years building data systems taught me one thing: architecture shapes how organizations think, decide, and scale."
           image="/rodrigo_why_me.webp"
+          imageAlt="Rodrigo Póvoa presenting data analytics and artificial intelligence concepts"
         />
       </PageSection>
 

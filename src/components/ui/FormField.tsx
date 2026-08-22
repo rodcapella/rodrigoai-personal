@@ -2,6 +2,8 @@ interface FormFieldProps {
   name: string;
   type?: string;
   placeholder?: string;
+  autoComplete?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
   disabled?: boolean;
   maxLength?: number;
   value: string;
@@ -13,6 +15,8 @@ const FormField = ({
   name,
   type = "text",
   placeholder,
+  autoComplete,
+  inputMode,
   disabled = false,
   maxLength,
   value,
@@ -32,6 +36,8 @@ const FormField = ({
         type={type}
         name={name}
         placeholder={placeholder}
+        autoComplete={autoComplete}
+        inputMode={inputMode}
         disabled={disabled}
         maxLength={maxLength}
         value={value}

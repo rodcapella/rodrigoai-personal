@@ -55,6 +55,7 @@ export default function Personal() {
           title="PERSONAL"
           subtitle="I combine analytical rigor with cultural curiosity, balancing engineering with interests in music, sports and long-term vision."
           image="/rodrigo_flamengo_porto.webp"
+          imageAlt="Rodrigo Póvoa celebrating his connection with Flamengo and FC Porto"
         />
       </PageSection>
 

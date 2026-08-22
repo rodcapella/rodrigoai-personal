@@ -125,7 +125,17 @@ export default function Contact() {
       e.message = `Max ${limits.message.max} characters`;
 
     setErrors(e);
-    return Object.keys(e).length === 0;
+    const firstInvalidField = Object.keys(e)[0];
+
+    if (firstInvalidField) {
+      window.requestAnimationFrame(() => {
+        document
+          .getElementById(`contact-${firstInvalidField}`)
+          ?.focus({ preventScroll: false });
+      });
+    }
+
+    return !firstInvalidField;
   };
 
   const handleChange = (
@@ -254,6 +264,7 @@ export default function Contact() {
           title="LET'S CONNECT"
           subtitle="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
           image="/rodrigo_contact_image.webp"
+          imageAlt="Rodrigo Póvoa available for professional conversations and collaboration"
         />
       </PageSection>
 
@@ -350,6 +361,7 @@ export default function Contact() {
               <FormField
                 name="name"
                 placeholder="Full Name"
+                autoComplete="name"
                 disabled={loading}
                 maxLength={limits.name.max}
                 value={formData.name}
@@ -361,6 +373,8 @@ export default function Contact() {
                 name="email"
                 type="email"
                 placeholder="Email"
+                autoComplete="email"
+                inputMode="email"
                 disabled={loading}
                 maxLength={limits.email.max}
                 value={formData.email}
@@ -370,7 +384,10 @@ export default function Contact() {
 
               <FormField
                 name="phone"
+                type="tel"
                 placeholder="Phone (optional)"
+                autoComplete="tel"
+                inputMode="tel"
                 disabled={loading}
                 maxLength={limits.phone.max}
                 value={formData.phone}
@@ -381,6 +398,7 @@ export default function Contact() {
               <FormField
                 name="company"
                 placeholder="Company (optional)"
+                autoComplete="organization"
                 disabled={loading}
                 maxLength={limits.company.max}
                 value={formData.company}
@@ -391,6 +409,7 @@ export default function Contact() {
               <FormField
                 name="jobTitle"
                 placeholder="Job Title (optional)"
+                autoComplete="organization-title"
                 disabled={loading}
                 maxLength={limits.jobTitle.max}
                 value={formData.jobTitle}
@@ -401,6 +420,7 @@ export default function Contact() {
               <FormField
                 name="subject"
                 placeholder="Subject"
+                autoComplete="off"
                 disabled={loading}
                 maxLength={limits.subject.max}
                 value={formData.subject}
@@ -418,6 +438,7 @@ export default function Contact() {
                   name="message"
                   rows={4}
                   placeholder="Tell me about your idea, project or challenge..."
+                  autoComplete="off"
                   disabled={loading}
                   maxLength={limits.message.max}
                   value={formData.message}

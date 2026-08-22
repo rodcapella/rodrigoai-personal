@@ -109,7 +109,7 @@ export default function Privacy() {
             <h2 className="font-display text-2xl font-semibold">Your rights</h2>
             <p className="leading-7 text-muted-foreground">
               You may request information about, correction of or deletion of data relating to you, and you may withdraw consent. For privacy requests, use the{" "}
-              <Link to="/contact" className="font-semibold text-primary hover:underline">
+              <Link to="/contact" className="font-semibold text-primary underline underline-offset-4">
                 contact page
               </Link>.
             </p>
@@ -123,7 +123,7 @@ export default function Privacy() {
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-primary hover:underline"
+                className="font-semibold text-primary underline underline-offset-4"
               >
                 Google Privacy Policy
               </a>, the{" "}
@@ -131,7 +131,7 @@ export default function Privacy() {
                 href="https://vercel.com/docs/speed-insights/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-primary hover:underline"
+                className="font-semibold text-primary underline underline-offset-4"
               >
                 Vercel Speed Insights privacy information
               </a>{" "}
@@ -140,7 +140,7 @@ export default function Privacy() {
                 href="https://www.cloudflare.com/privacypolicy/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-primary hover:underline"
+                className="font-semibold text-primary underline underline-offset-4"
               >
                 Cloudflare Privacy Policy
               </a>.

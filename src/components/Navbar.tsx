@@ -180,8 +180,12 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
         </Container>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-            <div id="mobile-navigation-menu" className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden">
+            <div
+              id="mobile-navigation-menu"
+              hidden={!mobileMenuOpen}
+              aria-hidden={!mobileMenuOpen}
+              className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden"
+            >
               <Container>
                 <div className="flex flex-col gap-6 py-6">
                   {links.map((link, index) => (
@@ -219,7 +223,6 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
                 </div>
               </Container>
             </div>
-        )}
         </nav>
       </header>
     </>

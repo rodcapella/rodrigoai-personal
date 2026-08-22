@@ -202,8 +202,12 @@ export default function PrivacyConsent() {
             {showDetails ? "Hide details" : "View details and preferences"}
           </button>
 
-          {showDetails && (
-          <div id="privacy-consent-details" className="mt-5 space-y-3">
+          <div
+            id="privacy-consent-details"
+            hidden={!showDetails}
+            aria-hidden={!showDetails}
+            className="mt-5 space-y-3"
+          >
             <div className="flex gap-3 rounded-xl border border-primary/10 bg-card/50 p-4">
               <Cookie className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
               <div>
@@ -233,11 +237,10 @@ export default function PrivacyConsent() {
               </p>
             )}
           </div>
-          )}
 
           <p className="mt-5 text-sm text-muted-foreground">
             You can change this choice at any time using the cookie button in the lower-left corner. Read the{" "}
-            <Link to="/privacy" onClick={closeDialog} className="font-semibold text-primary hover:underline">
+            <Link to="/privacy" onClick={closeDialog} className="font-semibold text-primary underline underline-offset-4">
               Privacy Policy
             </Link>.
           </p>

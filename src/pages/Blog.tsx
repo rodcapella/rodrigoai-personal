@@ -84,6 +84,7 @@ export default function Blog() {
           title="BLOG"
           subtitle="Ideas, experiences and publications on data, AI, technology and leadership."
           image="/blog/rodrigo_blog_image.webp"
+          imageAlt="Rodrigo Póvoa with data and artificial intelligence publications"
         />
       </PageSection>
 
