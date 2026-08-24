@@ -199,15 +199,20 @@ body {
   }
 
   .privacy-consent-launcher {
-    display: flex;
+    display: none;
   }
 
   .privacy-consent-dialog {
     display: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  html[data-privacy-view="dialog"] .privacy-consent-launcher {
-    display: none;
+  .privacy-consent-dialog .font-display {
+    font-family: inherit;
+  }
+
+  html[data-privacy-view="launcher"] .privacy-consent-launcher {
+    display: flex;
   }
 
   html[data-privacy-view="dialog"] .privacy-consent-dialog {
