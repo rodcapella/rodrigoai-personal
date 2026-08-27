@@ -46,7 +46,7 @@ const ContactSection = () => {
       </p>
 
       {content.contactGuidance && (
-        <p className="mb-2 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
           <strong className="font-semibold text-foreground">
             To start a conversation:
           </strong>{" "}
@@ -85,7 +85,7 @@ const ContactSection = () => {
       </div>
 
       {content.responseTime && (
-        <p className="mt-3 max-w-2xl text-center text-[10px] leading-4 text-muted-foreground">
+        <p className="mt-7 max-w-2xl text-center text-[10px] leading-4 text-muted-foreground">
           {content.responseTime}
         </p>
       )}

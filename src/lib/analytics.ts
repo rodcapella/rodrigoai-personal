@@ -19,9 +19,11 @@ const ensureGtag = () => {
   window.dataLayer = window.dataLayer || [];
   window.gtag =
     window.gtag ||
-    ((...args: unknown[]) => {
-      window.dataLayer.push(args);
-    });
+    function gtag() {
+      // Google requires the native Arguments object for gtag command processing.
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments);
+    };
 };
 
 const setConsentState = (analytics: "granted" | "denied", mode: "default" | "update") => {
@@ -87,10 +89,11 @@ export const disableAnalytics = () => {
 
 export const trackPageView = (path: string, title = document.title) => {
   if (!measurementId || getAnalyticsConsent() !== "granted") return;
-  enableAnalytics();
+  if (!configured) enableAnalytics();
   if (lastTrackedPath === path) return;
 
   window.gtag("event", "page_view", {
+    send_to: measurementId,
     page_title: title,
     page_location: `${window.location.origin}${path}`,
     page_path: path,
