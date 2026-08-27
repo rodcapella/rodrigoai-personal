@@ -92,7 +92,7 @@ const ProjectsSection = () => {
 
               {/* STACK */}
               <div className="mt-6 space-tight">
-                <span className="text-xs font-medium tracking-wide text-[#FFDD79] uppercase">
+                <span className="text-xs font-medium tracking-wide text-[#e59b4b] uppercase dark:text-[#FFDD79]">
                   Tech Stack
                 </span>
 

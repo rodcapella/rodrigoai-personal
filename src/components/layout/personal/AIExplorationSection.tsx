@@ -51,7 +51,7 @@ export default function AIExplorationSection() {
 
           {/* Platforms */}
           <div>
-            <span className="text-xs font-medium tracking-wide text-[#FFDD79] uppercase">
+            <span className="text-xs font-medium tracking-wide text-[#e59b4b] uppercase dark:text-[#FFDD79]">
               Platforms Explored
             </span>
 
