@@ -320,7 +320,7 @@ export default function Contact() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
-              className="glass p-10 rounded-2xl text-center glow-primary"
+              className="contact-form-card glass p-10 rounded-2xl text-center glow-primary"
             >
               <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
               <h3 className="text-xl font-semibold mb-text">
@@ -338,6 +338,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="
+                contact-form-card
                 glass
                 p-10
                 rounded-2xl

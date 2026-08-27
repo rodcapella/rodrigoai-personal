@@ -18,7 +18,7 @@ const CTA_VARIANTS = {
     description:
       "I am currently exploring opportunities across Data Engineering, Data Architecture, Analytics and technical leadership.",
     contactGuidance:
-      "Visit the Contact page or connect with Rodrigo on LinkedIn.",
+      "Visit the Contact page or connect with me on LinkedIn.",
     responseTime: "Messages are normally answered within 48 business hours.",
     primaryLabel: "Start a Conversation",
     showLinkedInLabel: true,

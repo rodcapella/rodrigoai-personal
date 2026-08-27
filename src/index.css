@@ -342,6 +342,10 @@ body {
     background: #d7ebf1;
   }
 
+  .light .contact-form-card {
+    background: #e4edf9;
+  }
+
   /* Grid pattern */
   .grid-pattern {
     background-image:
