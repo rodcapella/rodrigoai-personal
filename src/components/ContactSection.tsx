@@ -54,12 +54,6 @@ const ContactSection = () => {
         </p>
       )}
 
-      {content.responseTime && (
-        <p className="mb-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          {content.responseTime}
-        </p>
-      )}
-
       <div className="flex flex-wrap items-center justify-center gap-4">
         <a
           href="/contact"
@@ -89,6 +83,12 @@ const ContactSection = () => {
           )}
         </a>
       </div>
+
+      {content.responseTime && (
+        <p className="mt-3 max-w-2xl text-center text-[10px] leading-4 text-muted-foreground">
+          {content.responseTime}
+        </p>
+      )}
     </CompactHighlightSection>
   );
 };

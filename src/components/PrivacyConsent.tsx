@@ -148,7 +148,7 @@ export default function PrivacyConsent() {
           returnFocusRef.current = event.currentTarget;
           openDialog();
         }}
-        className="privacy-consent-launcher group fixed bottom-5 left-5 z-[80] h-14 w-14 items-center justify-center rounded-2xl border border-primary/25 bg-background/90 p-2 shadow-lg shadow-primary/15 backdrop-blur-md transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-primary/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
+        className="privacy-consent-launcher group fixed bottom-5 left-5 z-[80] h-14 w-14 items-center justify-center p-2 transition hover:-translate-y-1 focus-visible:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
         aria-label="Open cookie and privacy preferences"
         title="Cookie and privacy preferences"
       >
