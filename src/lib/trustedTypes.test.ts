@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { resolveSpeedInsightsScriptUrl } from "./vercelObservability";
 
 type PolicyRules = {
   createHTML?: (value: string) => string;
@@ -29,6 +30,27 @@ afterEach(() => {
 });
 
 describe("Trusted Types policy", () => {
+  it("resolves only same-origin resilient Speed Insights scripts", () => {
+    const origin = "https://www.rpovoadata.tech";
+    const config = JSON.stringify({
+      speedInsights: {
+        scriptSrc: "/randomized-intake/script.js",
+      },
+    });
+
+    expect(resolveSpeedInsightsScriptUrl(config, origin)).toBe(
+      `${origin}/randomized-intake/script.js`,
+    );
+    expect(
+      resolveSpeedInsightsScriptUrl(
+        JSON.stringify({
+          speedInsights: { scriptSrc: "https://malicious.example/script.js" },
+        }),
+        origin,
+      ),
+    ).toBeNull();
+  });
+
   it("allows safe Schema.org JSON-LD as script content", async () => {
     const rules = await loadPolicyRules();
     const schema = JSON.stringify({

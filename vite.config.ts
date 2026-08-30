@@ -24,10 +24,17 @@ if (!vercelConfig.includes(`'${strictCspHash}'`)) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const pageLastModified = resolvePageLastModified(__dirname);
+const vercelObservabilityClientConfig =
+  process.env.VERCEL_OBSERVABILITY_CLIENT_CONFIG ??
+  process.env.REACT_APP_VERCEL_OBSERVABILITY_CLIENT_CONFIG ??
+  "";
 
 export default defineConfig({
   define: {
     __PAGE_LAST_MODIFIED__: JSON.stringify(pageLastModified),
+    __VERCEL_OBSERVABILITY_CLIENT_CONFIG__: JSON.stringify(
+      vercelObservabilityClientConfig,
+    ),
   },
   plugins: [
     react(),

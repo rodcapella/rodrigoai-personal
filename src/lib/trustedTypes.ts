@@ -1,3 +1,8 @@
+import {
+  resolveSpeedInsightsScriptUrl,
+  vercelObservabilityClientConfig,
+} from "./vercelObservability";
+
 type TrustedTypePolicyRules = {
   createHTML?: (value: string) => string;
   createScript?: (value: string) => string;
@@ -27,6 +32,10 @@ const isDuplicatePolicyError = (error: unknown) => {
 
 const isAllowedScriptUrl = (value: string) => {
   const url = new URL(value, window.location.origin);
+  const resilientSpeedInsightsScriptUrl = resolveSpeedInsightsScriptUrl(
+    vercelObservabilityClientConfig,
+    window.location.origin,
+  );
 
   if (url.origin === window.location.origin) {
     return (
@@ -34,7 +43,8 @@ const isAllowedScriptUrl = (value: string) => {
       url.pathname === "/gtag/js" ||
       url.pathname === "/gtm.js" ||
       url.pathname === "/_vercel/insights/script.js" ||
-      url.pathname === "/_vercel/speed-insights/script.js"
+      url.pathname === "/_vercel/speed-insights/script.js" ||
+      url.href === resilientSpeedInsightsScriptUrl
     );
   }
 

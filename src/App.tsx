@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { PersonSchema } from "@/components/seo/PersonSchema";
 import { WebSiteSchema } from "@/components/seo/WebSiteSchema";
+import { vercelObservabilityClientConfig } from "@/lib/vercelObservability";
 
 export default function App() {
   const location = useLocation();
@@ -65,7 +66,10 @@ export default function App() {
       <Footer />
       <PrivacyConsent />
       <Analytics />
-      <SpeedInsights route={speedInsightsRoute} />
+      <SpeedInsights
+        route={speedInsightsRoute}
+        configString={vercelObservabilityClientConfig || undefined}
+      />
     </>
   );
 }
