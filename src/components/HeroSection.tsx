@@ -11,6 +11,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
     <PageSection
       variant="gradient"
       container={true}
+      critical
       spacing="none"
       className="relative overflow-hidden pt-12 pb-6 md:pt-16 md:pb-8"
     >

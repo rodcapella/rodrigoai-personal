@@ -63,10 +63,16 @@ export default defineConfig({
             .digest("hex")
             .slice(0, 12);
           const appEntry = `/assets/app.js?v=${appVersion}`;
+          const stylesheetLinks =
+            html.match(/<link rel="stylesheet"[^>]*>/g) ?? [];
+          const htmlWithPrioritizedStyles = stylesheetLinks.reduce(
+            (result, stylesheet) => result.replace(stylesheet, ""),
+            html,
+          );
 
-          return html.replace(
+          return htmlWithPrioritizedStyles.replace(
             entryScript,
-            `<script data-app-entry="${appEntry}">${strictCspBootstrap}</script>`,
+            `${stylesheetLinks.join("\n")}\n<script data-app-entry="${appEntry}">${strictCspBootstrap}</script>`,
           );
         },
       },

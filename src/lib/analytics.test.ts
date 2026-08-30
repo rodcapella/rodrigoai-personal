@@ -18,6 +18,7 @@ describe("Google Analytics command queue", () => {
   });
 
   afterEach(() => {
+    vi.useRealTimers();
     vi.unstubAllEnvs();
   });
 
@@ -77,5 +78,35 @@ describe("Google Analytics command queue", () => {
         page_path: "/professional",
       },
     ]);
+  });
+
+  it("defers analytics for a returning visitor and preserves the initial page view", async () => {
+    vi.useFakeTimers();
+    localStorage.setItem("rpovoa-analytics-consent", "granted");
+    const analytics = await import("./analytics");
+
+    analytics.initializeConsentMode();
+    analytics.trackPageView("/", "Home");
+
+    expect(window.dataLayer.map(commandValues).map((command) => command[0])).toEqual([
+      "consent",
+    ]);
+    expect(document.getElementById("google-analytics-gtag")).toBeNull();
+
+    window.dispatchEvent(new Event("load"));
+    await vi.runAllTimersAsync();
+
+    const commands = window.dataLayer.map(commandValues);
+    expect(commands.map((command) => command[0])).toEqual([
+      "consent",
+      "consent",
+      "js",
+      "config",
+      "event",
+    ]);
+    expect(commands.at(-1)?.[2]).toMatchObject({
+      page_path: "/",
+      page_title: "Home",
+    });
   });
 });

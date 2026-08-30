@@ -22,7 +22,7 @@ const PageHero = ({
   variant = "page",
 }: PageHeroProps) => {
   return (
-    <div className="relative overflow-hidden">
+    <div data-beasties-container className="relative overflow-hidden">
       {/* Grid background */}
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
 

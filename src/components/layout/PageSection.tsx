@@ -12,6 +12,7 @@ interface PageSectionProps {
   variant?: "default" | "muted" | "gradient" | "glass"
   container?: boolean
   spacing?: "none" | "default" | "sm" | "lg"
+  critical?: boolean
 }
 
 const variants = {
@@ -37,7 +38,8 @@ const PageSection = ({
   containerClassName = "",
   variant = "default",
   container = true,
-  spacing = "default"
+  spacing = "default",
+  critical = false,
 }: PageSectionProps) => {
 
   const content = (
@@ -65,6 +67,7 @@ const PageSection = ({
   return (
     <section
       id={id}
+      data-beasties-container={critical ? "" : undefined}
       className={`relative ${spacingMap[spacing]} ${variants[variant]} ${className}`}
     >
       {container ? (

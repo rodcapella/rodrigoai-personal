@@ -20,6 +20,8 @@ export default function PrivacyConsent() {
   const [open, setOpen] = useState(false);
   const [hasDecision, setHasDecision] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
+  const [analyticsConfigurationChecked, setAnalyticsConfigurationChecked] =
+    useState(false);
 
   const openDialog = useCallback(() => {
     setPrivacyView("dialog");
@@ -32,6 +34,8 @@ export default function PrivacyConsent() {
   }, []);
 
   useEffect(() => {
+    setAnalyticsConfigurationChecked(true);
+
     const consent = getAnalyticsConsent();
     const shouldOpen = consent === null;
     setPrivacyView(shouldOpen ? "dialog" : "launcher");
@@ -143,6 +147,7 @@ export default function PrivacyConsent() {
     <>
       <button
         data-privacy-launcher
+        data-beasties-container
         type="button"
         onClick={(event) => {
           returnFocusRef.current = event.currentTarget;
@@ -163,14 +168,15 @@ export default function PrivacyConsent() {
         ref={dialogRef}
         tabIndex={-1}
         data-privacy-dialog
+        data-beasties-container
         data-nosnippet
-        className="privacy-consent-dialog fixed inset-0 z-[100] items-end justify-center bg-slate-950/65 p-0 backdrop-blur-sm sm:items-center sm:p-6"
+        className="privacy-consent-dialog fixed inset-0 z-[100] items-end justify-center bg-slate-950/65 p-0 sm:items-center sm:p-6 sm:backdrop-blur-sm"
         role="dialog"
         aria-modal="true"
         aria-labelledby="privacy-consent-title"
         aria-describedby="privacy-consent-description"
       >
-        <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/75 p-6 shadow-2xl backdrop-blur-xl outline-none sm:max-w-2xl sm:rounded-3xl sm:p-8">
+        <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/95 p-6 shadow-2xl outline-none sm:max-w-2xl sm:rounded-3xl sm:bg-background/75 sm:p-8 sm:backdrop-blur-xl">
           {hasDecision && (
           <button
             type="button"
@@ -231,7 +237,7 @@ export default function PrivacyConsent() {
               </div>
             </div>
 
-            {!isAnalyticsConfigured() && (
+            {analyticsConfigurationChecked && !isAnalyticsConfigured() && (
               <p className="rounded-lg border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-sm text-amber-500">
                 Audience measurement is not yet configured in this environment.
               </p>

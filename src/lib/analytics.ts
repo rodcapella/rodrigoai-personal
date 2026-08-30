@@ -12,6 +12,19 @@ const SCRIPT_ID = "google-analytics-gtag";
 let configured =
   typeof document !== "undefined" && Boolean(document.getElementById(SCRIPT_ID));
 let lastTrackedPath = "";
+let analyticsLoadScheduled = false;
+let analyticsLoadTimer: number | undefined;
+let analyticsIdleCallback: number | undefined;
+let analyticsLoadHandler: (() => void) | undefined;
+let pendingPageView: { path: string; title: string } | null = null;
+
+type IdleWindow = Window & {
+  requestIdleCallback?: (
+    callback: () => void,
+    options?: { timeout: number },
+  ) => number;
+  cancelIdleCallback?: (handle: number) => void;
+};
 
 const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
 
@@ -43,30 +56,115 @@ export const getAnalyticsConsent = (): AnalyticsConsent => {
 
 export const initializeConsentMode = () => {
   setConsentState("denied", "default");
-  if (getAnalyticsConsent() === "granted") enableAnalytics();
+  if (getAnalyticsConsent() === "granted") scheduleAnalyticsLoad();
 };
 
+const cancelScheduledAnalyticsLoad = () => {
+  const idleWindow = window as IdleWindow;
+
+  if (analyticsLoadTimer !== undefined) {
+    window.clearTimeout(analyticsLoadTimer);
+    analyticsLoadTimer = undefined;
+  }
+
+  if (analyticsIdleCallback !== undefined) {
+    idleWindow.cancelIdleCallback?.(analyticsIdleCallback);
+    analyticsIdleCallback = undefined;
+  }
+
+  if (analyticsLoadHandler) {
+    window.removeEventListener("load", analyticsLoadHandler);
+    analyticsLoadHandler = undefined;
+  }
+
+  analyticsLoadScheduled = false;
+};
+
+const sendPageView = (path: string, title: string) => {
+  if (!measurementId || lastTrackedPath === path) return;
+
+  window.gtag("event", "page_view", {
+    send_to: measurementId,
+    page_title: title,
+    page_location: `${window.location.origin}${path}`,
+    page_path: path,
+  });
+  lastTrackedPath = path;
+};
+
+function scheduleAnalyticsLoad() {
+  if (
+    !measurementId ||
+    configured ||
+    analyticsLoadScheduled ||
+    getAnalyticsConsent() !== "granted"
+  ) {
+    return;
+  }
+
+  analyticsLoadScheduled = true;
+
+  const scheduleAfterLoad = () => {
+    const idleWindow = window as IdleWindow;
+    const loadAnalytics = () => {
+      analyticsLoadScheduled = false;
+      analyticsIdleCallback = undefined;
+      analyticsLoadTimer = undefined;
+      enableAnalytics();
+    };
+
+    if (idleWindow.requestIdleCallback) {
+      analyticsIdleCallback = idleWindow.requestIdleCallback(loadAnalytics, {
+        timeout: 2_000,
+      });
+      return;
+    }
+
+    analyticsLoadTimer = window.setTimeout(loadAnalytics, 1_500);
+  };
+
+  if (document.readyState === "complete") {
+    scheduleAfterLoad();
+  } else {
+    analyticsLoadHandler = () => {
+      analyticsLoadHandler = undefined;
+      scheduleAfterLoad();
+    };
+    window.addEventListener("load", analyticsLoadHandler, { once: true });
+  }
+}
+
 export const enableAnalytics = () => {
+  cancelScheduledAnalyticsLoad();
   localStorage.setItem(CONSENT_KEY, "granted");
   setConsentState("granted", "update");
 
-  if (!measurementId || configured) return Boolean(measurementId);
+  if (!measurementId) return false;
 
-  if (!document.getElementById(SCRIPT_ID)) {
-    const script = document.createElement("script");
-    script.id = SCRIPT_ID;
-    script.async = true;
-    script.src = `/gtag/js?id=${encodeURIComponent(measurementId)}`;
-    document.head.appendChild(script);
+  if (!configured) {
+    if (!document.getElementById(SCRIPT_ID)) {
+      const script = document.createElement("script");
+      script.id = SCRIPT_ID;
+      script.async = true;
+      script.src = `/gtag/js?id=${encodeURIComponent(measurementId)}`;
+      document.head.appendChild(script);
+    }
+
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, {
+      send_page_view: false,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    });
+    configured = true;
   }
 
-  window.gtag("js", new Date());
-  window.gtag("config", measurementId, {
-    send_page_view: false,
-    allow_google_signals: false,
-    allow_ad_personalization_signals: false,
-  });
-  configured = true;
+  if (pendingPageView) {
+    const pageView = pendingPageView;
+    pendingPageView = null;
+    sendPageView(pageView.path, pageView.title);
+  }
+
   return true;
 };
 
@@ -81,24 +179,23 @@ const deleteAnalyticsCookies = () => {
 };
 
 export const disableAnalytics = () => {
+  cancelScheduledAnalyticsLoad();
   localStorage.setItem(CONSENT_KEY, "denied");
   setConsentState("denied", "update");
   deleteAnalyticsCookies();
   lastTrackedPath = "";
+  pendingPageView = null;
 };
 
 export const trackPageView = (path: string, title = document.title) => {
   if (!measurementId || getAnalyticsConsent() !== "granted") return;
-  if (!configured) enableAnalytics();
-  if (lastTrackedPath === path) return;
+  if (!configured) {
+    pendingPageView = { path, title };
+    scheduleAnalyticsLoad();
+    return;
+  }
 
-  window.gtag("event", "page_view", {
-    send_to: measurementId,
-    page_title: title,
-    page_location: `${window.location.origin}${path}`,
-    page_path: path,
-  });
-  lastTrackedPath = path;
+  sendPageView(path, title);
 };
 
 export const isAnalyticsConfigured = () => Boolean(measurementId);
