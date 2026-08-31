@@ -1,17 +1,17 @@
-import { profile } from "@/data/profile";
+import { homeProfile } from "@/data/homeProfile";
 import { User } from "@/lib/icons";
 import SectionContent from "@/components/layout/SectionContent";
 
 const AboutSection = () => {
   return (
-    <SectionContent title={profile.name} icon={<User />}>
+    <SectionContent title={homeProfile.name} icon={<User />}>
       <div className="space-text">
         <p className="body-lg text-justify">
-          {profile.leadership_focus}
+          {homeProfile.leadershipFocus}
         </p>
 
         <p className="body-lg text-justify">
-          {profile.impact_orientation}
+          {homeProfile.impactOrientation}
         </p>
       </div>
     </SectionContent>

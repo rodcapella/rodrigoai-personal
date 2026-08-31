@@ -44,7 +44,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
           <div className="relative w-[260px] md:w-[300px] aspect-square">
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-primary/30 via-primary/10 to-transparent blur-2xl" />
 
-            <div className="relative rounded-3xl overflow-hidden border border-primary/20 shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] transition-all duration-500">
+            <div className="relative h-full w-full aspect-square rounded-3xl overflow-hidden border border-primary/20 shadow-2xl hover:shadow-[0_0_40px_rgba(59,130,246,0.35)] transition-all duration-500">
               <img
                 src="/profile-320.webp"
                 srcSet="/profile-320.webp 320w, /profile-480.webp 480w, /profile-640.webp 640w"
@@ -55,7 +55,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 loading="eager"
                 {...{ fetchpriority: "high" }}
                 decoding="async"
-                className="w-full h-full object-cover"
+                className="block h-full w-full aspect-square object-cover"
               />
             </div>
           </div>

@@ -6,11 +6,11 @@ import MainLayout from "@/components/layout/MainLayout";
 import HeroSection from "@/components/HeroSection";
 import PageSection from "@/components/layout/PageSection";
 import SectionLoader from "@/components/ui/SectionLoader";
+import AboutSection from "@/components/AboutSection";
+import CoreCompetencesSection from "@/components/CoreCompetencesSection";
 
 import { Cpu, Award, Network, Database, Lightbulb, ShieldCheck, Brain, BarChart3, Workflow } from "@/lib/icons";
 
-const AboutSection = lazy(() => import("@/components/AboutSection"));
-const CoreCompetencesSection = lazy(() => import("@/components/CoreCompetencesSection"));
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
 const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
 const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));

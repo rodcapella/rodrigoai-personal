@@ -8,9 +8,10 @@ import {
   Users,
   GitBranch,
 } from "@/lib/icons";
+import { homeProfile } from "@/data/homeProfile";
 
 export const profile = {
-  name: "Rodrigo Póvoa",
+  name: homeProfile.name,
 
   title: "Technical Data Leader | Data Analytics Engineer",
 
@@ -138,11 +139,9 @@ export const profile = {
         },
   ],
 
-  leadership_focus:
-    "Proven experience in building analytics capabilities from the ground up, leading multidisciplinary teams and delivering large-scale data initiatives that align technical execution with strategic business goals.",
+  leadership_focus: homeProfile.leadershipFocus,
 
-  impact_orientation:
-    "Focused on turning data into organizational leverage, ensuring platforms are not only technically robust, but also governed, scalable and aligned with executive decision-making.",
+  impact_orientation: homeProfile.impactOrientation,
 
   positioning_statement:
     "I lead the design of intelligent data infrastructures that scale with the organization: combining technical depth, governance discipline and strategic clarity.",
