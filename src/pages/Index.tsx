@@ -15,7 +15,6 @@ import { Cpu, Award, Network, Database, Lightbulb, ShieldCheck, Brain, BarChart3
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
 const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
 const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
-const ContactSection = lazy(() => import("@/components/ContactSection"));
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
@@ -85,10 +84,6 @@ const competences = [
       component: <HomeFaqSection />,
       variant: "muted",
       defer: false,
-    },
-    {
-      component: <ContactSection />,
-      variant: "glass",
     },
   ];
 
