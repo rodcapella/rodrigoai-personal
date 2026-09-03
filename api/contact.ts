@@ -131,7 +131,7 @@ const buildContactEmailHtml = ({
                   RPOVOADATA.TECH
                 </a>
                 <div style="padding-top:4px;color:#8f9ab5;font-size:12px;line-height:18px;font-weight:400;letter-spacing:0;">
-                  Data Analytics Engineer, Technical Data Leader and founder of Sapiente.AI.
+                  End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
                 </div>
               </td>
             </tr>
@@ -234,7 +234,7 @@ const buildContactEmailHtml = ({
                   RPOVOADATA.TECH
                 </a>
                 <div style="padding-top:7px;color:#8f9ab5;font-size:11px;line-height:17px;font-weight:400;letter-spacing:0;">
-                  &copy; 2026 Rodrigo P&oacute;voa &mdash; Data Analytics Engineer &amp; Team Leader
+                  &copy; 2026 Rodrigo P&oacute;voa &mdash; End-to-End Data Leader &amp; Data Analytics Engineer
                 </div>
               </td>
             </tr>
@@ -287,7 +287,7 @@ const buildContactConfirmationEmailHtml = ({
                   RPOVOADATA.TECH
                 </a>
                 <div style="padding-top:4px;color:#8f9ab5;font-size:12px;line-height:18px;font-weight:400;letter-spacing:0;">
-                  Data Analytics Engineer, Technical Data Leader and founder of Sapiente.AI.
+                  End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
                 </div>
               </td>
             </tr>
@@ -389,7 +389,7 @@ const buildContactConfirmationEmailHtml = ({
                   RPOVOADATA.TECH
                 </a>
                 <div style="padding-top:7px;color:#8f9ab5;font-size:11px;line-height:17px;font-weight:400;letter-spacing:0;">
-                  &copy; 2026 Rodrigo P&oacute;voa &mdash; Data Analytics Engineer &amp; Team Leader
+                  &copy; 2026 Rodrigo P&oacute;voa &mdash; End-to-End Data Leader &amp; Data Analytics Engineer
                 </div>
               </td>
             </tr>
@@ -645,7 +645,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
           message,
           "",
           "Rodrigo Póvoa",
-          "Data Analytics Engineer & Team Leader",
+          "End-to-End Data Leader & Data Analytics Engineer",
           "https://www.rpovoadata.tech",
         ].join("\n"),
         html: buildContactConfirmationEmailHtml({

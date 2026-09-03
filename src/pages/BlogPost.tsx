@@ -123,7 +123,7 @@ export default function BlogPost() {
               decoding="async"
               className="h-12 w-12 rounded-full border border-primary/25 object-cover"
             />
-            <div><p className="font-semibold">Rodrigo Póvoa</p><p className="text-sm text-muted-foreground">Data Analytics Engineer & Team Leader</p></div>
+            <div><p className="font-semibold">Rodrigo Póvoa</p><p className="text-sm text-muted-foreground">End-to-End Data Leader &amp; Data Analytics Engineer</p></div>
           </div>
         </div>
       </PageSection>
@@ -190,7 +190,7 @@ export default function BlogPost() {
             <div className="sticky top-28 rounded-xl border border-primary/15 bg-card/60 p-5">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">About the author</p>
               <p className="mt-3 font-semibold">Rodrigo Póvoa</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">Technical Data Leader, Data Analytics Engineer and founder of Sapiente.AI.</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">End-to-End Data Leader, Data Analytics Engineer and founder of Sapiente.AI.</p>
               <Link to="/professional" className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline">View professional profile</Link>
             </div>
           </aside>

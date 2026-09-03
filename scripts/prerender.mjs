@@ -297,7 +297,7 @@ try {
   const articles = markdownDocuments.filter(({ route }) =>
     route.startsWith("/blog/"),
   );
-  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader and Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\n\n## Core pages\n\n${coreRoutes
+  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\n\n## Core pages\n\n${coreRoutes
     .map(({ title, canonical }) => `- [${title}](${canonical})`)
     .join("\n")}\n\n## Articles\n\n${articles
     .map(({ title, canonical }) => `- [${title}](${canonical})`)

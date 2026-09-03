@@ -26,6 +26,21 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
     ? image.startsWith("http") ? image : `${baseUrl}${image}`
     : `${baseUrl}/ai-portrait.webp`;
   const ogLocale = language.toLowerCase().startsWith("pt") ? "pt_PT" : "en_GB";
+  const identityKeywords = [
+    "Rodrigo Póvoa",
+    "End-to-End Data Leader",
+    "Data Analytics Engineer",
+  ];
+  const resolvedKeywords = [...identityKeywords, ...(keywords?.split(",") || [])]
+    .map((keyword) => keyword.trim())
+    .filter(
+      (keyword, index, allKeywords) =>
+        keyword &&
+        allKeywords.findIndex(
+          (candidate) => candidate.toLowerCase() === keyword.toLowerCase(),
+        ) === index,
+    )
+    .join(", ");
 
   return (
     <Helmet htmlAttributes={{ lang: language }}>
@@ -33,7 +48,7 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="keywords" content={resolvedKeywords} />
       {author && <meta name="author" content={author} />}
       <link rel="canonical" href={currentUrl} />
       <link rel="alternate" hrefLang={language} href={currentUrl} />

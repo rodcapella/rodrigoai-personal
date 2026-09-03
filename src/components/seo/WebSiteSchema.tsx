@@ -11,7 +11,7 @@ export const WebSiteSchema = () => (
         name: "Rodrigo Póvoa",
         url: siteBaseUrl,
         description:
-          "Professional website of Rodrigo Póvoa, End-to-End Data Leader and Data Analytics Engineer.",
+          "Professional website of Rodrigo Póvoa, End-to-End Data Leader & Data Analytics Engineer.",
         inLanguage: "en",
         author: {
           "@id": `${siteBaseUrl}/#person`,

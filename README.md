@@ -1,6 +1,6 @@
 # RodrigoAI — Personal Portfolio
 
-Data Analytics Engineer - Team Leader 
+End-to-End Data Leader & Data Analytics Engineer
 Rodrigo Póvoa is a Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Brazil and Europe.
 
 ---

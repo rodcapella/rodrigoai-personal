@@ -33,7 +33,7 @@ const Footer = () => {
               className="h-9 w-auto opacity-70"
             />
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Data Analytics Engineer, Technical Data Leader and founder of Sapiente.AI.
+              End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
             </p>
             <div className="mt-3 flex gap-3">
               <a
@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-4 border-t border-primary/10 pt-3 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Rodrigo Póvoa — Data Analytics Engineer & Team Leader
+          © {new Date().getFullYear()} Rodrigo Póvoa — End-to-End Data Leader &amp; Data Analytics Engineer
         </div>
       </Container>
     </footer>

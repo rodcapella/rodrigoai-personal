@@ -13,10 +13,10 @@ import { homeProfile } from "@/data/homeProfile";
 export const profile = {
   name: homeProfile.name,
 
-  title: "Technical Data Leader | Data Analytics Engineer",
+  title: "End-to-End Data Leader & Data Analytics Engineer",
 
   summary: [
-    "Technical Data Leader specialized in turning fragmented data landscapes into strategic assets. My work sits at the intersection of Data Engineering, Analytics, and Generative AI. While I architect robust platforms for global organizations, I also lead Sapiente.AI, an innovation hub focused on intelligent applications, custom branding, and autonomous data-driven systems.",
+    "End-to-End Data Leader specialized in turning fragmented data landscapes into strategic assets. My work sits at the intersection of Data Engineering, Analytics, and Generative AI. While I architect robust platforms for global organizations, I also lead Sapiente.AI, an innovation hub focused on intelligent applications, custom branding, and autonomous data-driven systems.",
   ],
 
   core_skills: [
