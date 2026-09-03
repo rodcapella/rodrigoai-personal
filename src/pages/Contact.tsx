@@ -253,7 +253,7 @@ export default function Contact() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Contact | Rodrigo Póvoa"
-        description="Connect with Rodrigo Póvoa about senior and leadership opportunities combining end-to-end data expertise, AI-assisted engineering and governed data platform delivery."
+        description="Contact Rodrigo Póvoa about senior and leadership opportunities in data engineering, architecture, analytics and governed platform delivery."
         keywords="contact Rodrigo Póvoa, senior data leadership opportunities, end-to-end data leader, AI-assisted engineering, Azure Databricks, data engineering leadership"
       />
 

@@ -15,51 +15,6 @@
   ],
   "rewrites": [
     {
-      "source": "/",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/index.md"
-    },
-    {
-      "source": "/why-me",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/why-me.md"
-    },
-    {
-      "source": "/professional",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/professional.md"
-    },
-    {
-      "source": "/personal",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/personal.md"
-    },
-    {
-      "source": "/side-projects",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/side-projects.md"
-    },
-    {
-      "source": "/blog",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/blog.md"
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/blog/:slug.md"
-    },
-    {
-      "source": "/privacy",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/privacy.md"
-    },
-    {
-      "source": "/contact",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "destination": "/markdown/contact.md"
-    },
-    {
       "source": "/sitemap.xml",
       "destination": "/sitemaps/sitemap.xml"
     },
@@ -171,33 +126,6 @@
     {
       "source": "/blog/:slug",
       "headers": [{ "key": "Vary", "value": "Accept" }]
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "Vary", "value": "Accept" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/:page(why-me|professional|personal|side-projects|blog|privacy|contact)",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "Vary", "value": "Accept" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    },
-    {
-      "source": "/blog/:slug",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
-      "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "Vary", "value": "Accept" },
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
     },
     {
       "source": "/llms.txt",

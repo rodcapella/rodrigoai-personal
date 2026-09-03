@@ -14,7 +14,7 @@ interface SEOProps {
   language?: string;
 }
 
-export default function SEO({ title, description, image, imageAlt, type = "website", keywords, publishedTime, modifiedTime, author, language }: SEOProps) {
+export default function SEO({ title, description, image, imageAlt, type = "website", keywords, publishedTime, modifiedTime, author, language = "en-GB" }: SEOProps) {
   const location = useLocation();
   const baseUrl = "https://www.rpovoadata.tech";
 
@@ -25,10 +25,10 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
   const ogImage = image
     ? image.startsWith("http") ? image : `${baseUrl}${image}`
     : `${baseUrl}/ai-portrait.webp`;
-  const ogLocale = language?.toLowerCase().startsWith("pt") ? "pt_PT" : "en_GB";
+  const ogLocale = language.toLowerCase().startsWith("pt") ? "pt_PT" : "en_GB";
 
   return (
-    <Helmet htmlAttributes={language ? { lang: language } : undefined}>
+    <Helmet htmlAttributes={{ lang: language }}>
       {/* Basic */}
       <title>{title}</title>
       <meta name="description" content={description} />
@@ -36,6 +36,8 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
       {keywords && <meta name="keywords" content={keywords} />}
       {author && <meta name="author" content={author} />}
       <link rel="canonical" href={currentUrl} />
+      <link rel="alternate" hrefLang={language} href={currentUrl} />
+      <link rel="alternate" hrefLang="x-default" href={currentUrl} />
       <link
         rel="alternate"
         type="text/markdown"

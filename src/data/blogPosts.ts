@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     title:
       "From Chaos to Version Control: How PBIP and Git Are Revolutionizing Power BI Development",
     excerpt:
-      "PBIP turns Power BI projects from opaque binary files into structured text, enabling Git history, parallel development, pull requests and controlled conflict resolution.",
+      "Learn how PBIP transforms Power BI projects into structured text for Git history, parallel development, pull requests and controlled conflict resolution.",
     category: "Power BI & Engineering",
     publishedAt: "2026-08-01T09:00:00+01:00",
     readingTime: "4 min read",
@@ -228,7 +228,7 @@ export const blogPosts: BlogPost[] = [
     slug: "next-challenge-data-engineering-isnt-scale-its-ai-governance",
     title: "The next challenge for Data Engineering isn't scale. It's AI Governance.",
     excerpt:
-      "As AI agents become major consumers of enterprise data platforms, governance must expand beyond data access to models, tools, permissions, lineage and automated actions.",
+      "Learn how AI agents reshape enterprise data governance across models, tools, permissions, lineage, access controls and automated actions.",
     category: "Data Engineering & AI",
     publishedAt: "2026-07-09T11:23:54+00:00",
     updatedAt: "2026-07-09T11:24:24+00:00",

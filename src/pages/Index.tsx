@@ -8,6 +8,7 @@ import PageSection from "@/components/layout/PageSection";
 import SectionLoader from "@/components/ui/SectionLoader";
 import AboutSection from "@/components/AboutSection";
 import CoreCompetencesSection from "@/components/CoreCompetencesSection";
+import HomeFaqSection from "@/components/HomeFaqSection";
 
 import { Cpu, Award, Network, Database, Lightbulb, ShieldCheck, Brain, BarChart3, Workflow } from "@/lib/icons";
 
@@ -64,7 +65,11 @@ const competences = [
   { icon: ShieldCheck, title: "AI Governance & Ethics" },
 ];
 
-  const sections: { component: React.ReactNode; variant?: SectionVariant }[] = [
+  const sections: {
+    component: React.ReactNode;
+    variant?: SectionVariant;
+    defer?: boolean;
+  }[] = [
     { component: <AboutSection /> },
     {
       component: <CoreCompetencesSection competences={competences} />,
@@ -77,6 +82,11 @@ const competences = [
     },
     { component: <AboutMyCareer /> },
     {
+      component: <HomeFaqSection />,
+      variant: "muted",
+      defer: false,
+    },
+    {
       component: <ContactSection />,
       variant: "glass",
     },
@@ -86,7 +96,7 @@ const competences = [
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer"
-        description="Rodrigo Póvoa is an End-to-End Data Leader with 15+ years across data architecture, engineering and analytics, from enterprise data warehousing to Azure Databricks Lakehouse platforms."
+        description="Rodrigo Póvoa is an End-to-End Data Leader with 15+ years in data architecture, engineering, analytics and Azure Databricks Lakehouse platforms."
         keywords="Rodrigo Póvoa, end-to-end data leader, data analytics engineer, data architecture, Azure Databricks, Lakehouse, data governance"
       />
 
@@ -108,7 +118,7 @@ const competences = [
               spacing="none"
               container={false}
             >
-              {index < 2 ? (
+              {index < 2 || section.defer === false ? (
                 section.component
               ) : (
                 <DeferredSection>{section.component}</DeferredSection>

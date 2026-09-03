@@ -1,8 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
+import markdownMiddleware from "../middleware.js";
 
 const root = process.cwd();
 const dist = path.join(root, "dist");
+const baseUrl = "https://www.rpovoadata.tech";
 const requiredRoutes = [
   "/",
   "/why-me",
@@ -45,6 +47,23 @@ for (const route of requiredRoutes) {
   if (!html.includes('rel="alternate" type="text/markdown"')) {
     fail(`missing Markdown alternate link for ${route}`);
   }
+
+  for (const hreflang of ["en-GB", "x-default"]) {
+    const alternatePattern = new RegExp(
+      `<link[^>]+rel="alternate"[^>]+hreflang="${hreflang}"[^>]*>`,
+      "i",
+    );
+    if (!alternatePattern.test(html)) {
+      fail(`missing ${hreflang} hreflang alternate link for ${route}`);
+    }
+  }
+
+  const description = html.match(
+    /<meta[^>]+name="description"[^>]+content="([^"]+)"/i,
+  )?.[1];
+  if (!description || description.length > 160) {
+    fail(`missing or oversized meta description for ${route}`);
+  }
 }
 
 const agentManifest = JSON.parse(
@@ -74,18 +93,46 @@ if (
   fail("catch-all SPA rewrite would create soft 404 responses");
 }
 
-const markdownRewrites = vercelConfig.rewrites.filter((rewrite) =>
-  rewrite.has?.some(
-    (condition) =>
-      condition.type === "header" &&
-      condition.key.toLowerCase() === "accept" &&
-      condition.value.includes("text/markdown"),
+const markdownDestinations = {
+  "/": "/markdown/index.md",
+  ...Object.fromEntries(
+    requiredRoutes
+      .filter((route) => route !== "/")
+      .map((route) => [route, `/markdown${route}.md`]),
   ),
-);
-if (markdownRewrites.length < requiredRoutes.length) {
-  fail("not all public routes declare Markdown negotiation rewrites");
+};
+
+for (const [route, destination] of Object.entries(markdownDestinations)) {
+  const markdownResponse = markdownMiddleware(
+    new Request(`${baseUrl}${route}`, {
+      headers: { Accept: "text/markdown, text/html;q=0.9" },
+    }),
+  );
+  const rewriteDestination = markdownResponse.headers.get(
+    "x-middleware-rewrite",
+  );
+
+  if (rewriteDestination !== `${baseUrl}${destination}`) {
+    fail(`Markdown middleware does not rewrite ${route} to ${destination}`);
+  }
+  if (
+    markdownResponse.headers.get("content-type") !==
+    "text/markdown; charset=utf-8"
+  ) {
+    fail(`Markdown middleware does not set the correct content type for ${route}`);
+  }
+  if (markdownResponse.headers.get("vary") !== "Accept") {
+    fail(`Markdown middleware does not vary ${route} by Accept`);
+  }
+
+  const htmlResponse = markdownMiddleware(
+    new Request(`${baseUrl}${route}`, { headers: { Accept: "text/html" } }),
+  );
+  if (htmlResponse.headers.get("x-middleware-next") !== "1") {
+    fail(`HTML request does not continue to the regular route for ${route}`);
+  }
 }
 
 console.log(
-  `Validated ${requiredRoutes.length} static pages, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
+  `Validated ${requiredRoutes.length} static pages, SEO metadata, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
 );

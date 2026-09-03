@@ -92,7 +92,7 @@ export default function Professional() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Professional"
-        description="Explore Rodrigo Póvoa's end-to-end data career, combining Azure Databricks architecture, hands-on engineering, multidisciplinary team leadership and business-focused delivery."
+        description="Explore Rodrigo Póvoa's 15+ year career in data engineering, architecture, analytics, Azure Databricks and multidisciplinary team leadership."
         keywords="Rodrigo Póvoa, end-to-end data leader, technical data leadership, multidisciplinary data teams, stakeholder management, solution scoping, Azure Databricks architecture"
       />
 
