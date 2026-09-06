@@ -119,6 +119,17 @@ if (!robots.includes(`Sitemap: ${baseUrl}/sitemaps/sitemap-index.xml`)) {
   fail("robots.txt does not reference the sitemap index");
 }
 
+const sitemapFiles = fs
+  .readdirSync(path.join(dist, "sitemaps"))
+  .filter((file) => file.endsWith(".xml"))
+  .sort();
+const expectedSitemapFiles = ["sitemap-index.xml", "sitemap-pages.xml"];
+if (JSON.stringify(sitemapFiles) !== JSON.stringify(expectedSitemapFiles)) {
+  fail(
+    `unexpected sitemap files: expected ${expectedSitemapFiles.join(", ")}, found ${sitemapFiles.join(", ")}`,
+  );
+}
+
 for (const route of requiredRoutes) {
   const htmlFile =
     route === "/"
@@ -299,5 +310,5 @@ for (const [route, destination] of Object.entries(markdownDestinations)) {
 }
 
 console.log(
-  `Validated ${pageTitles.size} search pages, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
+  `Validated ${pageTitles.size} search pages, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
 );

@@ -343,7 +343,6 @@ try {
   await Promise.all([
     fs.writeFile(path.join(sitemapDirectory, "sitemap-pages.xml"), sitemap, "utf8"),
     fs.writeFile(path.join(sitemapDirectory, "sitemap-index.xml"), sitemapIndex, "utf8"),
-    fs.writeFile(path.join(sitemapDirectory, "sitemap.xml"), sitemapIndex, "utf8"),
     fs.writeFile(path.join(distDirectory, "llms.txt"), llmsTxt, "utf8"),
     fs.writeFile(path.join(distDirectory, "llms-full.txt"), llmsFullTxt, "utf8"),
     fs.writeFile(
