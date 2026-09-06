@@ -1,6 +1,5 @@
 import { Suspense, type ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import CompactHighlightSection from "@/components/layout/CompactHighlightSection";
 import PageHero from "@/components/layout/PageHero";
@@ -235,7 +234,7 @@ export default function WhyMe() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Why Me?"
+        title="Why Me? | Rodrigo Póvoa"
         description="Discover Rodrigo Póvoa's approach to end-to-end data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
         keywords="Rodrigo Póvoa, AI-assisted engineering, MCP-based integrations, human-validated AI, data leadership, Azure Databricks, data architecture, data governance"
       />
@@ -254,10 +253,6 @@ export default function WhyMe() {
           { name: "Why Me?", url: "https://www.rpovoadata.tech/why-me" },
         ]}
       />
-
-      <Helmet>
-        <title>Why Me? | Rodrigo Póvoa</title>
-      </Helmet>
 
       <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">
         <PageHero

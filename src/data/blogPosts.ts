@@ -7,6 +7,7 @@ export type BlogSection = {
 export type BlogPost = {
   slug: string;
   title: string;
+  seoTitle?: string;
   excerpt: string;
   category: string;
   publishedAt: string;
@@ -28,6 +29,7 @@ export const blogPosts: BlogPost[] = [
     slug: "from-chaos-to-version-control-how-pbip-and-git-are-revolutionizing-power-bi-development",
     title:
       "From Chaos to Version Control: How PBIP and Git Are Revolutionizing Power BI Development",
+    seoTitle: "PBIP and Git: Version Control for Power BI | Rodrigo Póvoa",
     excerpt:
       "Learn how PBIP transforms Power BI projects into structured text for Git history, parallel development, pull requests and controlled conflict resolution.",
     category: "Power BI & Engineering",
@@ -227,6 +229,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "next-challenge-data-engineering-isnt-scale-its-ai-governance",
     title: "The next challenge for Data Engineering isn't scale. It's AI Governance.",
+    seoTitle: "AI Governance: Data Engineering's Next Challenge | Rodrigo Póvoa",
     excerpt:
       "Learn how AI agents reshape enterprise data governance across models, tools, permissions, lineage, access controls and automated actions.",
     category: "Data Engineering & AI",

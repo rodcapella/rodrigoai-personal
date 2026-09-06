@@ -49,7 +49,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
                 src="/profile-320.webp"
                 srcSet="/profile-320.webp 320w, /profile-480.webp 480w, /profile-640.webp 640w"
                 sizes="(min-width: 768px) 300px, 260px"
-                alt="Rodrigo Povoa"
+                alt="Rodrigo Póvoa, End-to-End Data Leader and Data Analytics Engineer"
                 width={320}
                 height={320}
                 loading="eager"

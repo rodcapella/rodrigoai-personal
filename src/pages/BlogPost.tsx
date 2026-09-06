@@ -82,7 +82,7 @@ export default function BlogPost() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title={`${post.title} | Rodrigo Póvoa`}
+        title={post.seoTitle || `${post.title} | Rodrigo Póvoa`}
         description={post.excerpt}
         image={post.image}
         imageAlt={post.imageAlt}

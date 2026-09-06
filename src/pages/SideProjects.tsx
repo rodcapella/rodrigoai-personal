@@ -1,6 +1,5 @@
 import { Suspense, type ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
@@ -163,7 +162,7 @@ export default function SideProjects() {
           <div className="flex justify-center mb-6">
             <img
               src="/banner_SapienteAI.webp"
-              alt="SapienteAI Banner"
+              alt="Sapiente.AI platform for artificial intelligence governance and automation"
               className="h-48 w-auto opacity-90"
             />
           </div>
@@ -207,10 +206,6 @@ export default function SideProjects() {
           },
         ]}
       />
-
-      <Helmet>
-        <title>Innovation Hub | Rodrigo Póvoa – Sapiente.AI</title>
-      </Helmet>
 
       {/* HERO */}
       <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">

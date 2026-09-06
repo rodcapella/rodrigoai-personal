@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
@@ -40,7 +39,7 @@ export default function Personal() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Personal"
+        title="Personal | Rodrigo Póvoa – Values, Vision & AI Exploration"
         description="Discover the personal mindset, values, hobbies and influences of Rodrigo Póvoa, combining analytical thinking, cultural curiosity and AI exploration." 
       />
 
@@ -50,11 +49,6 @@ export default function Personal() {
           { name: "Personal", url: "https://www.rpovoadata.tech/personal" },
         ]}
       />
-
-      <Helmet>
-        <title>Personal | Rodrigo Póvoa – Values, Vision & AI Exploration</title>
-        <link rel="canonical" href="https://www.rpovoadata.tech/personal" />
-      </Helmet>
 
       {/* HERO */}
       <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">

@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { useOutletContext } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
@@ -91,7 +90,7 @@ export default function Professional() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Professional"
+        title="Professional Experience | Rodrigo Póvoa - End-to-End Data Leader"
         description="Explore Rodrigo Póvoa's 15+ year career in data engineering, architecture, analytics, Azure Databricks and multidisciplinary team leadership."
         keywords="Rodrigo Póvoa, end-to-end data leader, technical data leadership, multidisciplinary data teams, stakeholder management, solution scoping, Azure Databricks architecture"
       />
@@ -103,12 +102,6 @@ export default function Professional() {
         dateCreated={staticPageMetadata["/professional"].dateCreated!}
         dateModified={staticPageMetadata["/professional"].lastModified!}
       />
-
-      <Helmet>
-        <title>
-          Professional Experience | Rodrigo Póvoa - End-to-End Data Leader
-        </title>
-      </Helmet>
 
       <BreadcrumbSchema
         items={[
