@@ -30,6 +30,10 @@ const escapeXml = (value) =>
 const markdownEscape = (value) => value.replaceAll("|", "\\|");
 const latestTimestamp = (...timestamps) =>
   timestamps.filter(Boolean).sort().at(-1);
+const absoluteContentUrl = (value) => {
+  if (!value || !value.startsWith("/")) return value;
+  return new URL(value, baseUrl).href;
+};
 
 const htmlToMarkdown = (html) => {
   const document = new JSDOM(html).window.document;
@@ -68,13 +72,17 @@ const htmlToMarkdown = (html) => {
 
     if (tag === "a") {
       const href = node.getAttribute("href");
-      return href && content ? `[${content}](${href})` : content;
+      return href && content
+        ? `[${content}](${absoluteContentUrl(href)})`
+        : content;
     }
 
     if (tag === "img") {
       const source = node.getAttribute("src");
       const alt = node.getAttribute("alt") || "";
-      return source ? `\n\n![${alt}](${source})\n\n` : "";
+      return source
+        ? `\n\n![${alt}](${absoluteContentUrl(source)})\n\n`
+        : "";
     }
 
     if (tag === "blockquote") {
@@ -113,7 +121,20 @@ const htmlToMarkdown = (html) => {
         .join("\n")}\n\n`;
     }
 
-    if (["main", "section", "article", "div", "header"].includes(tag)) {
+    if (
+      [
+        "main",
+        "section",
+        "article",
+        "div",
+        "header",
+        "footer",
+        "nav",
+        "aside",
+        "details",
+        "summary",
+      ].includes(tag)
+    ) {
       return content ? `\n\n${content}\n\n` : "";
     }
 
@@ -182,7 +203,11 @@ const createMarkdownDocument = ({
   return {
     route,
     title: metadata.title,
+    description: metadata.description,
     canonical: metadata.canonical,
+    language,
+    lastModified,
+    estimatedTokens,
     body: markdownBody,
     content: `${frontmatter}\n\n${markdownBody}\n`,
   };
@@ -297,17 +322,125 @@ try {
   const articles = markdownDocuments.filter(({ route }) =>
     route.startsWith("/blog/"),
   );
-  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\n\n## Core pages\n\n${coreRoutes
-    .map(({ title, canonical }) => `- [${title}](${canonical})`)
+  const optionalRoutes = markdownDocuments.filter(
+    ({ route }) => route === "/privacy",
+  );
+  const corpusLastModified = markdownDocuments
+    .map(({ lastModified }) => lastModified)
+    .filter(Boolean)
+    .sort()
+    .at(-1);
+  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Core pages\n\n${coreRoutes
+    .map(
+      ({ title, canonical, description }) =>
+        `- [${title}](${canonical}): ${description}`,
+    )
     .join("\n")}\n\n## Articles\n\n${articles
-    .map(({ title, canonical }) => `- [${title}](${canonical})`)
-    .join("\n")}\n\n## Machine-readable resources\n\n- [Complete Markdown corpus](${baseUrl}/llms-full.txt)\n- [XML sitemap](${baseUrl}/sitemaps/sitemap-index.xml)\n- [Agent manifest](${baseUrl}/.well-known/agent.json)\n- [Robots policy](${baseUrl}/robots.txt)\n\n## Content usage\n\nContent-Signal: ai-train=no, search=yes, ai-input=yes\n`;
-  const llmsFullTxt = markdownDocuments
+    .map(
+      ({ title, canonical, description }) =>
+        `- [${title}](${canonical}): ${description}`,
+    )
+    .join("\n")}\n\n## Machine-readable resources\n\n- [Complete Markdown corpus](${baseUrl}/llms-full.txt): Full text of every public page and article.\n- [AI usage and discovery manifest](${baseUrl}/ai.json): Structured permissions, restrictions, identity and content endpoints.\n- [Agent manifest](${baseUrl}/.well-known/agent.json): Agent discovery and content-negotiation metadata.\n- [XML sitemap](${baseUrl}/sitemaps/sitemap-index.xml): Canonical index of search-visible URLs.\n- [Robots policy](${baseUrl}/robots.txt): Crawler access rules.\n\n## Optional\n\n${optionalRoutes
+    .map(
+      ({ title, canonical, description }) =>
+        `- [${title}](${canonical}): ${description}`,
+    )
+    .join("\n")}\n`;
+  const llmsFullTxt = `# Rodrigo Póvoa — Complete AI-readable corpus\n\n> Full text of the public professional profile, portfolio and articles published at ${baseUrl}.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nLast modified: ${corpusLastModified}\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n---\n\n${markdownDocuments
     .map(
       ({ title, canonical, body }) =>
         `# ${title}\n\nSource: ${canonical}\n\n${body}`,
     )
-    .join("\n\n---\n\n");
+    .join("\n\n---\n\n")}\n`;
+  const aiManifest = {
+    $schema:
+      "https://www.ai-visibility.org.uk/specifications/ai-json/v1/ai-json.schema.json",
+    name: "Rodrigo Póvoa",
+    url: baseUrl,
+    language: "en-GB",
+    permissions: [
+      {
+        action: "search-indexing",
+        description: "Public pages may be indexed and surfaced in search results.",
+      },
+      {
+        action: "ai-input",
+        description:
+          "Public content may be retrieved to answer user-initiated questions.",
+      },
+    ],
+    restrictions: [
+      {
+        action: "ai-training",
+        reason: "Public content is not licensed for AI model training.",
+        severity: "must-not",
+      },
+    ],
+    contact: {
+      url: `${baseUrl}/contact`,
+    },
+    scope: {
+      appliesTo: "All publicly accessible content on www.rpovoadata.tech",
+      excludes: ["/api", "/admin", "/private"],
+    },
+    licensing: {
+      aiTrainingAllowed: false,
+      aiTrainingNotes:
+        "Search indexing and user-initiated AI retrieval are allowed; model training is not permitted.",
+    },
+    metadata: {
+      version: "1.0.0",
+      lastUpdated: corpusLastModified.slice(0, 10),
+      generator: "rpovoadata.tech prerender build",
+    },
+    publisher: {
+      type: "Person",
+      name: "Rodrigo Póvoa",
+      jobTitle: "End-to-End Data Leader & Data Analytics Engineer",
+      profile: `${baseUrl}/professional`,
+      sameAs: [
+        "https://www.linkedin.com/in/rodrigocspovoa",
+        "https://github.com/rodcapella",
+      ],
+    },
+    topics: [
+      "Data Engineering",
+      "Data Architecture",
+      "Data Analytics",
+      "Data Governance",
+      "Azure Databricks",
+      "Lakehouse Architecture",
+      "Business Intelligence",
+      "Technical Data Leadership",
+      "AI Governance",
+    ],
+    contentNegotiation: {
+      default: "text/html",
+      alternate: "text/markdown",
+      requestHeader: "Accept: text/markdown",
+    },
+    resources: {
+      llms: `${baseUrl}/llms.txt`,
+      llmsFull: `${baseUrl}/llms-full.txt`,
+      agentManifest: `${baseUrl}/.well-known/agent.json`,
+      sitemap: `${baseUrl}/sitemaps/sitemap-index.xml`,
+      robots: `${baseUrl}/robots.txt`,
+    },
+    content: markdownDocuments.map(
+      ({ route, title, description, canonical, language, lastModified }) => ({
+        type: route.startsWith("/blog/") ? "article" : "page",
+        title,
+        description,
+        url: canonical,
+        language,
+        lastModified,
+        markdown: {
+          url: canonical,
+          accept: "text/markdown",
+        },
+      }),
+    ),
+  };
   const agentManifest = {
     version: "1.0",
     name: "Rodrigo Póvoa Professional Website",
@@ -319,7 +452,7 @@ try {
       name: "Rodrigo Póvoa",
       url: `${baseUrl}/professional`,
     },
-    languages: ["en", "en-GB", "pt-PT"],
+    languages: ["en", "en-GB"],
     content_negotiation: {
       default: "text/html",
       alternate: "text/markdown",
@@ -328,6 +461,7 @@ try {
     endpoints: {
       llms_txt: `${baseUrl}/llms.txt`,
       llms_full: `${baseUrl}/llms-full.txt`,
+      ai_json: `${baseUrl}/ai.json`,
       sitemap: `${baseUrl}/sitemaps/sitemap-index.xml`,
       robots: `${baseUrl}/robots.txt`,
     },
@@ -345,6 +479,11 @@ try {
     fs.writeFile(path.join(sitemapDirectory, "sitemap-index.xml"), sitemapIndex, "utf8"),
     fs.writeFile(path.join(distDirectory, "llms.txt"), llmsTxt, "utf8"),
     fs.writeFile(path.join(distDirectory, "llms-full.txt"), llmsFullTxt, "utf8"),
+    fs.writeFile(
+      path.join(distDirectory, "ai.json"),
+      `${JSON.stringify(aiManifest, null, 2)}\n`,
+      "utf8",
+    ),
     fs.writeFile(
       path.join(distDirectory, ".well-known", "agent.json"),
       `${JSON.stringify(agentManifest, null, 2)}\n`,

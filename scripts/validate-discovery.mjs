@@ -85,6 +85,7 @@ const validateSearchPage = (route, html) => {
 
 requireFile(path.join(dist, "llms.txt"));
 requireFile(path.join(dist, "llms-full.txt"));
+requireFile(path.join(dist, "ai.json"));
 requireFile(path.join(dist, ".well-known", "agent.json"));
 requireFile(path.join(dist, "robots.txt"));
 
@@ -240,14 +241,60 @@ const agentManifest = JSON.parse(
 if (agentManifest.content_negotiation?.alternate !== "text/markdown") {
   fail("agent manifest does not declare Markdown negotiation");
 }
+if (agentManifest.endpoints?.ai_json !== `${baseUrl}/ai.json`) {
+  fail("agent manifest does not reference ai.json");
+}
 
 const llms = fs.readFileSync(path.join(dist, "llms.txt"), "utf8");
 for (const endpoint of [
   "/llms-full.txt",
+  "/ai.json",
   "/sitemaps/sitemap-index.xml",
   "/.well-known/agent.json",
 ]) {
   if (!llms.includes(endpoint)) fail(`llms.txt does not reference ${endpoint}`);
+}
+if (!llms.startsWith("# Rodrigo Póvoa\n\n> ") || /<[^>]+>/.test(llms)) {
+  fail("llms.txt is not clean Markdown with the expected identity summary");
+}
+if (!/^## Optional$/m.test(llms)) {
+  fail("llms.txt does not include an Optional section");
+}
+
+const llmsFull = fs.readFileSync(path.join(dist, "llms-full.txt"), "utf8");
+if (/\]\(\//.test(llmsFull) || /!\[[^\]]*\]\(\//.test(llmsFull)) {
+  fail("llms-full.txt contains relative content URLs");
+}
+for (const route of pageTitles.values()) {
+  const canonical = `${baseUrl}${route === "/" ? "/" : route}`;
+  if (!llmsFull.includes(`Source: ${canonical}`)) {
+    fail(`llms-full.txt does not include ${canonical}`);
+  }
+}
+
+const aiManifest = JSON.parse(
+  fs.readFileSync(path.join(dist, "ai.json"), "utf8"),
+);
+if (
+  aiManifest.$schema !==
+    "https://www.ai-visibility.org.uk/specifications/ai-json/v1/ai-json.schema.json" ||
+  aiManifest.name !== "Rodrigo Póvoa" ||
+  aiManifest.url !== baseUrl ||
+  !Array.isArray(aiManifest.permissions) ||
+  !aiManifest.permissions.length ||
+  !Array.isArray(aiManifest.restrictions) ||
+  !aiManifest.restrictions.some(
+    (restriction) =>
+      restriction.action === "ai-training" &&
+      restriction.severity === "must-not",
+  ) ||
+  aiManifest.licensing?.aiTrainingAllowed !== false ||
+  aiManifest.resources?.llms !== `${baseUrl}/llms.txt` ||
+  aiManifest.resources?.llmsFull !== `${baseUrl}/llms-full.txt` ||
+  !Array.isArray(aiManifest.content) ||
+  aiManifest.content.length !== pageTitles.size
+) {
+  fail("ai.json is incomplete or inconsistent with the published site");
 }
 
 const vercelConfig = JSON.parse(
@@ -310,5 +357,5 @@ for (const [route, destination] of Object.entries(markdownDestinations)) {
 }
 
 console.log(
-  `Validated ${pageTitles.size} search pages, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
+  `Validated ${pageTitles.size} search pages, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, ai.json, llms.txt, llms-full.txt, agent manifest and real 404 routing.`,
 );

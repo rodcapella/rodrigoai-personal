@@ -98,7 +98,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\", </.well-known/agent.json>; rel=\"service-desc\"; type=\"application/json\", </sitemaps/sitemap-index.xml>; rel=\"sitemap\"; type=\"application/xml\""
+          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </ai.json>; rel=\"describedby\"; type=\"application/json\", </.well-known/agent.json>; rel=\"service-desc\"; type=\"application/json\", </sitemaps/sitemap-index.xml>; rel=\"sitemap\"; type=\"application/xml\""
         },
         { "key": "Vary", "value": "Accept" }
       ]
@@ -114,14 +114,21 @@
     {
       "source": "/llms.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
     {
       "source": "/llms-full.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/ai.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
