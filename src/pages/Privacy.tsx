@@ -4,6 +4,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import { openPrivacyConsent } from "@/lib/privacyConsent";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 const sections = [
   {
@@ -56,6 +57,16 @@ export default function Privacy() {
         title="Privacy Policy | Rodrigo Póvoa"
         description="Learn how Rodrigo Póvoa's website handles contact details, preferences, spam protection and navigation data."
         language="en-GB"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          {
+            name: "Privacy Policy",
+            url: "https://www.rpovoadata.tech/privacy",
+          },
+        ]}
       />
 
       <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">

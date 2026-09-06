@@ -15,12 +15,13 @@ export const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => (
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        "@id": `${items.at(-1)?.url}#breadcrumb`,
         itemListElement: items.map((item, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: item.name,
-          item: item.url
-        }))
+          ...(index < items.length - 1 ? { item: item.url } : {}),
+        })),
       })}
     </script>
   </Helmet>

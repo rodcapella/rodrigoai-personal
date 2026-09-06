@@ -14,6 +14,7 @@ import {
 } from "@/lib/icons";
 import FormField from "@/components/ui/FormField";
 import TurnstileWidget from "@/components/ui/TurnstileWidget";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 type FormData = {
   name: string;
@@ -255,6 +256,13 @@ export default function Contact() {
         title="Contact | Rodrigo Póvoa"
         description="Contact Rodrigo Póvoa about senior and leadership opportunities in data engineering, architecture, analytics and governed platform delivery."
         keywords="contact Rodrigo Póvoa, senior data leadership opportunities, end-to-end data leader, AI-assisted engineering, Azure Databricks, data engineering leadership"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          { name: "Contact", url: "https://www.rpovoadata.tech/contact" },
+        ]}
       />
 
       {/* HERO */}

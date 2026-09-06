@@ -100,6 +100,7 @@ export default function Professional() {
         path="/professional"
         name="Rodrigo Póvoa — Professional Experience"
         description="Professional profile covering end-to-end data engineering, architecture, analytics and technical leadership."
+        dateCreated={staticPageMetadata["/professional"].dateCreated!}
         dateModified={staticPageMetadata["/professional"].lastModified!}
       />
 

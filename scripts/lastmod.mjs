@@ -34,8 +34,15 @@ export const pageLastModifiedSources = {
     "src/components/layout/personal",
   ],
   "/side-projects": ["src/pages/SideProjects.tsx"],
-  "/blog": ["src/pages/Blog.tsx", "src/data/blogPosts.ts"],
-  "/blog/:slug": ["src/pages/BlogPost.tsx"],
+  "/blog": [
+    "src/pages/Blog.tsx",
+    "src/data/blogPosts.ts",
+    "src/data/personSchema.ts",
+  ],
+  "/blog/:slug": [
+    "src/pages/BlogPost.tsx",
+    "src/data/personSchema.ts",
+  ],
   "/privacy": ["src/pages/Privacy.tsx"],
   "/contact": [
     "src/pages/Contact.tsx",

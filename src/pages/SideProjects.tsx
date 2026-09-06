@@ -10,6 +10,7 @@ import PageCard from "@/components/layout/PageCard";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
 import SectionContent from "@/components/layout/SectionContent";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 import {
   Zap,
@@ -195,6 +196,16 @@ export default function SideProjects() {
       <SEO
         title="Innovation Hub | Rodrigo Póvoa – Sapiente.AI"
         description="Explore Sapiente.AI and innovation projects focused on AI systems, intelligent automation and modern data platforms built by Rodrigo Póvoa." 
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          {
+            name: "Innovation Hub",
+            url: "https://www.rpovoadata.tech/side-projects",
+          },
+        ]}
       />
 
       <Helmet>

@@ -15,6 +15,7 @@ const requiredRoutes = [
   "/privacy",
   "/contact",
 ];
+const profilePageRoutes = new Set(["/professional", "/why-me"]);
 
 const fail = (message) => {
   throw new Error(`Agent discovery validation failed: ${message}`);
@@ -64,6 +65,76 @@ for (const route of requiredRoutes) {
   if (!description || description.length > 160) {
     fail(`missing or oversized meta description for ${route}`);
   }
+
+  const schemas = [...html.matchAll(
+    /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi,
+  )].flatMap((match) => {
+    const schema = JSON.parse(match[1]);
+    return Array.isArray(schema) ? schema : [schema];
+  });
+  const breadcrumb = schemas.find(
+    (schema) => schema?.["@type"] === "BreadcrumbList",
+  );
+  const profilePage = schemas.find(
+    (schema) => schema?.["@type"] === "ProfilePage",
+  );
+
+  if (profilePageRoutes.has(route)) {
+    const person = profilePage?.mainEntity;
+    const createdAt = Date.parse(profilePage?.dateCreated);
+    const modifiedAt = Date.parse(profilePage?.dateModified);
+
+    if (
+      profilePage?.["@id"] !== `${baseUrl}${route}#profile-page` ||
+      profilePage.url !== `${baseUrl}${route}` ||
+      profilePage.inLanguage !== "en" ||
+      !Number.isFinite(createdAt) ||
+      !Number.isFinite(modifiedAt) ||
+      modifiedAt < createdAt
+    ) {
+      fail(`invalid ProfilePage metadata for ${route}`);
+    }
+
+    if (
+      person?.["@type"] !== "Person" ||
+      person?.["@id"] !== `${baseUrl}/#person` ||
+      person.name !== "Rodrigo Póvoa" ||
+      person.url !== `${baseUrl}/professional` ||
+      typeof person.description !== "string" ||
+      !person.description.trim() ||
+      !String(person.image).startsWith(`${baseUrl}/`) ||
+      !Array.isArray(person.sameAs) ||
+      person.sameAs.length < 2
+    ) {
+      fail(`invalid ProfilePage mainEntity for ${route}`);
+    }
+  } else if (profilePage) {
+    fail(`ProfilePage must only appear on a person-focused page, found on ${route}`);
+  }
+
+  if (route === "/") {
+    if (breadcrumb) fail("the home page must not publish a one-level breadcrumb");
+    continue;
+  }
+
+  const breadcrumbItems = breadcrumb?.itemListElement;
+  if (!Array.isArray(breadcrumbItems) || breadcrumbItems.length < 2) {
+    fail(`missing a BreadcrumbList with at least two items for ${route}`);
+  }
+
+  breadcrumbItems.forEach((item, index) => {
+    if (
+      item?.["@type"] !== "ListItem" ||
+      item.position !== index + 1 ||
+      typeof item.name !== "string" ||
+      !item.name.trim()
+    ) {
+      fail(`invalid breadcrumb item ${index + 1} for ${route}`);
+    }
+    if (index < breadcrumbItems.length - 1 && !item.item) {
+      fail(`breadcrumb item ${index + 1} has no destination for ${route}`);
+    }
+  });
 }
 
 const agentManifest = JSON.parse(
@@ -134,5 +205,5 @@ for (const [route, destination] of Object.entries(markdownDestinations)) {
 }
 
 console.log(
-  `Validated ${requiredRoutes.length} static pages, SEO metadata, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
+  `Validated ${requiredRoutes.length} static pages, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, llms.txt, agent manifest and real 404 routing.`,
 );

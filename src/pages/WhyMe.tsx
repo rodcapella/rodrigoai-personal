@@ -11,6 +11,7 @@ import SEO from "@/components/SEO";
 import SectionContent from "@/components/layout/SectionContent";
 import DirectAnswersSection from "@/components/layout/DirectAnswersSection";
 import { ProfilePageSchema } from "@/components/seo/ProfilePageSchema";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import { staticPageMetadata } from "@/data/siteMetadata";
 
 import {
@@ -243,7 +244,15 @@ export default function WhyMe() {
         path="/why-me"
         name="Why Work With Rodrigo Póvoa"
         description="Rodrigo Póvoa's approach to data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
+        dateCreated={staticPageMetadata["/why-me"].dateCreated!}
         dateModified={staticPageMetadata["/why-me"].lastModified!}
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          { name: "Why Me?", url: "https://www.rpovoadata.tech/why-me" },
+        ]}
       />
 
       <Helmet>

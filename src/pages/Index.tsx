@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useOutletContext } from "react-router-dom";
-import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 import SEO from "@/components/SEO";
 import MainLayout from "@/components/layout/MainLayout";
 import HeroSection from "@/components/HeroSection";
@@ -93,10 +92,6 @@ const competences = [
         title="Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer"
         description="Rodrigo Póvoa is an End-to-End Data Leader with 15+ years in data architecture, engineering, analytics and Azure Databricks Lakehouse platforms."
         keywords="Rodrigo Póvoa, end-to-end data leader, data analytics engineer, data architecture, Azure Databricks, Lakehouse, data governance"
-      />
-
-      <BreadcrumbSchema
-        items={[{ name: "Home", url: "https://www.rpovoadata.tech/" }]}
       />
 
       <div>

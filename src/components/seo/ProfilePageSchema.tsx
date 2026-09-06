@@ -6,6 +6,7 @@ interface ProfilePageSchemaProps {
   path: "/professional" | "/why-me";
   name: string;
   description: string;
+  dateCreated: string;
   dateModified: string;
 }
 
@@ -13,6 +14,7 @@ export function ProfilePageSchema({
   path,
   name,
   description,
+  dateCreated,
   dateModified,
 }: ProfilePageSchemaProps) {
   const url = `${siteBaseUrl}${path}`;
@@ -28,6 +30,7 @@ export function ProfilePageSchema({
           name,
           description,
           inLanguage: "en",
+          dateCreated,
           dateModified,
           mainEntity: personSchemaData,
           isPartOf: {

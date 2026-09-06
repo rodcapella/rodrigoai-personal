@@ -33,7 +33,7 @@ export default function Blog() {
     inLanguage: "en-GB",
     author: {
       "@type": "Person",
-      "@id": `${baseUrl}/professional#person`,
+      "@id": `${baseUrl}/#person`,
       name: "Rodrigo Póvoa",
       url: `${baseUrl}/professional`,
     },

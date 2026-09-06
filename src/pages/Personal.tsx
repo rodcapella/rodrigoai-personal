@@ -6,6 +6,7 @@ import PageHero from "@/components/layout/PageHero";
 import PageSection from "@/components/layout/PageSection";
 import SEO from "@/components/SEO";
 import SectionLoader from "@/components/ui/SectionLoader";
+import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
 
 const PersonalPhilosophy = lazy(() => import("@/components/layout/personal/PersonalPhilosophy"));
 const LifeRelocation = lazy(() => import("@/components/layout/personal/LifeRelocation"));
@@ -41,6 +42,13 @@ export default function Personal() {
       <SEO
         title="Personal"
         description="Discover the personal mindset, values, hobbies and influences of Rodrigo Póvoa, combining analytical thinking, cultural curiosity and AI exploration." 
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.rpovoadata.tech/" },
+          { name: "Personal", url: "https://www.rpovoadata.tech/personal" },
+        ]}
       />
 
       <Helmet>

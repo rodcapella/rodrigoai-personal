@@ -30,7 +30,7 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/blog" replace />;
 
   const articleUrl = `${baseUrl}/blog/${post.slug}`;
-  const authorId = `${baseUrl}/professional#person`;
+  const authorId = `${baseUrl}/#person`;
   const imageObject = {
     "@type": "ImageObject",
     url: `${baseUrl}${post.image}`,
