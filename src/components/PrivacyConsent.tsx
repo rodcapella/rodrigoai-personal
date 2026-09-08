@@ -72,7 +72,9 @@ export default function PrivacyConsent() {
       element.setAttribute("aria-hidden", "true");
     });
 
-    const focusFrame = window.requestAnimationFrame(() => dialog?.focus());
+    const focusFrame = window.requestAnimationFrame(() =>
+      dialog?.focus({ preventScroll: true }),
+    );
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Tab" || !dialog) return;
 
@@ -160,6 +162,8 @@ export default function PrivacyConsent() {
         <img
           src="/cookie-privacy-button.webp"
           alt=""
+          width="64"
+          height="64"
           className="h-full w-full object-contain transition-transform duration-200 group-hover:rotate-[-7deg] group-hover:scale-105"
         />
       </button>
