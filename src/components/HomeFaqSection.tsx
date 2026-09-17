@@ -14,6 +14,21 @@ const questions = [
       "I specialize in end-to-end data platforms, from ingestion, transformation and orchestration through quality, security, governance and analytics, with strong experience in Azure Databricks Lakehouse architectures.",
   },
   {
+    question: "Do I combine hands-on engineering with technical leadership?",
+    answer:
+      "Yes. I remain involved in architecture, engineering standards, code and solution reviews, troubleshooting and delivery decisions while leading multidisciplinary teams, mentoring professionals and aligning stakeholders.",
+  },
+  {
+    question: "Which technologies are most relevant to my recent work?",
+    answer:
+      "My recent work focuses on Azure Databricks, Delta Lake, PySpark, Python, SQL, ADLS, Unity Catalog and Power BI, supported by data quality, lineage, orchestration, security and governance practices.",
+  },
+  {
+    question: "What types of organizations and environments have I worked in?",
+    answer:
+      "My experience spans large enterprises, consulting engagements, international banking and retail projects, digital businesses and technology startups across Brazil and Europe.",
+  },
+  {
     question: "How can recruiters and organizations contact me?",
     answer:
       "Use the Contact page to send me a message or connect with me directly on LinkedIn. Messages are normally answered within 48 business hours.",

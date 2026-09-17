@@ -6,7 +6,7 @@ export const personSchemaData = {
   name: "Rodrigo Póvoa",
   jobTitle: "End-to-End Data Leader & Data Analytics Engineer",
   description:
-    "End-to-End Data Leader with 15+ years of experience across Data Engineering, Architecture and Analytics.",
+    "End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Engineering, Architecture and Analytics.",
   url: `${siteBaseUrl}/professional`,
   image: `${siteBaseUrl}/profile-640.webp`,
   sameAs: [

@@ -9,6 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
+    "validate:production": "node scripts/validate-production.mjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

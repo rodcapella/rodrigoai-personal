@@ -62,7 +62,7 @@ export default function Blog() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Blog | Rodrigo Póvoa"
+        title="Data Engineering, AI Governance & Analytics | Rodrigo Póvoa"
         description="Articles and reflections by Rodrigo Póvoa on data, artificial intelligence, technical leadership and digital transformation."
         keywords="Rodrigo Póvoa, data blog, artificial intelligence, data engineering, data quality, technical leadership"
         language="en-GB"

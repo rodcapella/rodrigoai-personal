@@ -190,7 +190,7 @@ export default function BlogPost() {
             <div className="sticky top-28 rounded-xl border border-primary/15 bg-card/60 p-5">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">About the author</p>
               <p className="mt-3 font-semibold">Rodrigo Póvoa</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">End-to-End Data Leader, Data Analytics Engineer and founder of Sapiente.AI.</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">End-to-End Data Leader &amp; Data Analytics Engineer; founder of Sapiente.AI.</p>
               <Link to="/professional" className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline">View professional profile</Link>
             </div>
           </aside>

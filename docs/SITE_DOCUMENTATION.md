@@ -19,7 +19,7 @@ Ele deve ser atualizado sempre que houver mudança relevante de arquitetura, inc
 
 ## 2. Visão do produto
 
-O RodrigoAI é o portfólio profissional de Rodrigo Póvoa. O site posiciona o autor como Technical Data Leader e Data Analytics Engineer, apresentando experiência, competências, visão sobre dados e inteligência artificial, projetos paralelos, publicações e canais de contato.
+O RodrigoAI é o portfólio profissional de Rodrigo Póvoa. O site posiciona o autor como End-to-End Data Leader & Data Analytics Engineer, apresentando experiência, competências, visão sobre dados e inteligência artificial, projetos paralelos, publicações e canais de contato.
 
 ### 2.1 Públicos principais
 

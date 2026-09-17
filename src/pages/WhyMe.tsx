@@ -234,7 +234,7 @@ export default function WhyMe() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Why Me? | Rodrigo Póvoa"
+        title="Why Rodrigo Póvoa | Data Leadership & Architecture"
         description="Discover Rodrigo Póvoa's approach to end-to-end data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
         keywords="Rodrigo Póvoa, AI-assisted engineering, MCP-based integrations, human-validated AI, data leadership, Azure Databricks, data architecture, data governance"
       />

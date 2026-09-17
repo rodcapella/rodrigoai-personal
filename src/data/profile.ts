@@ -16,7 +16,7 @@ export const profile = {
   title: "End-to-End Data Leader & Data Analytics Engineer",
 
   summary: [
-    "End-to-End Data Leader specialized in turning fragmented data landscapes into strategic assets. My work sits at the intersection of Data Engineering, Analytics, and Generative AI. While I architect robust platforms for global organizations, I also lead Sapiente.AI, an innovation hub focused on intelligent applications, custom branding, and autonomous data-driven systems.",
+    "End-to-End Data Leader & Data Analytics Engineer specialized in turning fragmented data landscapes into strategic assets. My work sits at the intersection of Data Engineering, Analytics, and Generative AI. While I architect robust platforms for global organizations, I also lead Sapiente.AI, an innovation hub focused on intelligent applications, custom branding, and autonomous data-driven systems.",
   ],
 
   core_skills: [

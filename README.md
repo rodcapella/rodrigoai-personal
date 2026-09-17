@@ -1,7 +1,7 @@
 # RodrigoAI — Personal Portfolio
 
 End-to-End Data Leader & Data Analytics Engineer
-Rodrigo Póvoa is a Tech Leader and Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Brazil and Europe.
+Rodrigo Póvoa is an End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience designing scalable data platforms, AI-native systems and leading cross-functional teams across Brazil and Europe.
 
 ---
 
@@ -14,7 +14,7 @@ Production URL:
 
 ## 🧠 About This Project
 
-This repository contains the personal portfolio of **Rodrigo Póvoa**, a Data Analytics Engineer and Tech Leader based in Aveiro, Portugal.
+This repository contains the personal portfolio of **Rodrigo Póvoa**, an End-to-End Data Leader & Data Analytics Engineer based in Aveiro, Portugal.
 
 The platform is designed to communicate:
 
