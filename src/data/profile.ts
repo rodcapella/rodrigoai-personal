@@ -90,19 +90,6 @@ export const profile = {
       ],
     },
     {
-      category: "AI, Web & Cloud Engineering",
-      items: [
-        { name: "Cloud Infrastructure", years: 3 },
-        { name: "Google Analytics", years: 1 },
-        { name: "Vercel", years: 1 },
-        { name: "AI APIs", years: 1 },
-        { name: "RAG", years: 1 },
-        { name: "Generative AI", years: 1 },
-        { name: "Modern Web Technologies", years: 1 },
-        { name: "SEO/AEO Frameworks", years: 1 },
-      ],
-    },
-    {
       category: "BI & Analytics Platforms",
       items: [
         { name: "IBM Cognos", years: 5 },   
@@ -150,6 +137,19 @@ export const profile = {
             { name: "DataOps", years: 2 },
           ],
         },
+    {
+      category: "AI, Web & Cloud Engineering",
+      items: [
+        { name: "Cloud Infrastructure", years: 3 },
+        { name: "Google Analytics", years: 1 },
+        { name: "Vercel", years: 1 },
+        { name: "AI APIs", years: 1 },
+        { name: "RAG", years: 1 },
+        { name: "Generative AI", years: 1 },
+        { name: "Modern Web Technologies", years: 1 },
+        { name: "SEO/AEO Frameworks", years: 1 },
+      ],
+    },
   ],
 
   leadership_focus: homeProfile.leadershipFocus,

@@ -166,36 +166,35 @@ export default function SideProjects() {
       title: "What I’m Building at Sapiente.AI",
       icon: <Briefcase />,
       content: (
-        <div className="space-y-8">
-          <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">
-            As Founder &amp; Technical Lead, I am building the technical
-            foundation for intelligent digital products, autonomous workflows
-            and data-driven solutions.
-          </p>
+        <div className="glass layer-blue rounded-2xl p-8 glow-primary-sm sm:p-12">
+          <div className="space-y-8">
+            <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">
+              As Founder &amp; Technical Lead, I am building the technical
+              foundation for intelligent digital products, autonomous workflows
+              and data-driven solutions.
+            </p>
 
-          <PageGrid cols={2}>
-            {sapienteAchievements.map((achievement) => (
-              <PageCard
-                key={achievement.title}
-                title={achievement.title}
-                description={achievement.description}
-              />
-            ))}
-          </PageGrid>
-
-          <div className="space-tight">
-            <span className="text-xs font-medium tracking-wide text-[#e59b4b] uppercase dark:text-[#FFDD79]">
-              Tech Stack
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {sapienteTechStack.map((technology) => (
-                <span
-                  key={technology}
-                  className="tag-tech"
-                >
-                  {technology}
-                </span>
+            <PageGrid cols={2}>
+              {sapienteAchievements.map((achievement) => (
+                <PageCard
+                  key={achievement.title}
+                  title={achievement.title}
+                  description={achievement.description}
+                />
               ))}
+            </PageGrid>
+
+            <div className="space-tight">
+              <span className="text-xs font-medium tracking-wide text-[#e59b4b] uppercase dark:text-[#FFDD79]">
+                Tech Stack
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {sapienteTechStack.map((technology) => (
+                  <span key={technology} className="tag-tech">
+                    {technology}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -234,11 +233,11 @@ export default function SideProjects() {
       variant: "gradient",
       content: (
         <div className="glass layer-blue rounded-2xl p-12 text-center glow-primary-sm">
-          <div className="flex justify-center mb-6">
+          <div className="group flex justify-center mb-6">
             <img
               src="/banner_SapienteAI.webp"
               alt="Sapiente.AI platform for artificial intelligence governance, automation and data-driven solutions"
-              className="h-48 w-auto opacity-90"
+              className="h-48 w-auto opacity-90 transition-all duration-500 ease-out group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-[0_0_24px_rgba(59,130,246,0.45)]"
             />
           </div>
 
