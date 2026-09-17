@@ -19,6 +19,7 @@ import {
   Sparkles,
   MessageSquare,
   FlaskConical,
+  Briefcase,
 } from "@/lib/icons";
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
@@ -90,6 +91,41 @@ export default function SideProjects() {
     },
   ];
 
+  const sapienteAchievements = [
+    {
+      title: "Company & Product Leadership",
+      description:
+        "Building and leading an AI-driven technology company, with responsibility for product strategy, software engineering and technical architecture.",
+    },
+    {
+      title: "SEO, GEO & AEO Platform",
+      description:
+        "Designing and continuously evolving the company website and its proprietary free online SEO, GEO and AEO validation platform.",
+    },
+    {
+      title: "AI, Web & Automation Architecture",
+      description:
+        "Engineering modern web architectures, automation workflows and integrations with artificial intelligence services and APIs.",
+    },
+    {
+      title: "Behavioral Analytics Pipeline",
+      description:
+        "Architecting and evolving an end-to-end first-party analytics pipeline that captures website navigation events and delivers structured data to Google BigQuery for user journey and product engagement analysis.",
+    },
+  ];
+
+  const sapienteTechStack = [
+    "Python",
+    "Google BigQuery",
+    "Google Analytics",
+    "Vercel",
+    "AI APIs",
+    "Modern Web Technologies",
+    "SEO / GEO / AEO Frameworks",
+    "Automation",
+    "Cloud Infrastructure",
+  ];
+
   const sections: SectionConfig[] = [
     {
       title:
@@ -124,6 +160,46 @@ export default function SideProjects() {
             The goal is simple: help organizations move from traditional operations to more adaptive, intelligent, and value-driven systems.
           </p>
         </motion.div>
+      ),
+    },
+    {
+      title: "What I’m Building at Sapiente.AI",
+      icon: <Briefcase />,
+      content: (
+        <div className="space-y-8">
+          <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">
+            As Founder &amp; Technical Lead, I am building the technical
+            foundation for intelligent digital products, autonomous workflows
+            and data-driven solutions.
+          </p>
+
+          <PageGrid cols={2}>
+            {sapienteAchievements.map((achievement) => (
+              <PageCard
+                key={achievement.title}
+                title={achievement.title}
+                description={achievement.description}
+                className="layer-blue"
+              />
+            ))}
+          </PageGrid>
+
+          <div className="rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
+            <h3 className="mb-5 text-base font-semibold text-foreground">
+              Technology Stack
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {sapienteTechStack.map((technology) => (
+                <span
+                  key={technology}
+                  className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary"
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       ),
     },
     {
@@ -194,7 +270,8 @@ export default function SideProjects() {
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
         title="Innovation Hub | Rodrigo Póvoa – Sapiente.AI"
-        description="Explore Sapiente.AI and innovation projects focused on AI systems, intelligent automation and modern data platforms built by Rodrigo Póvoa." 
+        description="Explore the AI products, SEO, GEO and AEO platform, automation systems and BigQuery analytics architecture Rodrigo Póvoa is building at Sapiente.AI."
+        keywords="Sapiente.AI, AI product development, technical founder, Google BigQuery, Google Analytics, SEO validator, GEO validator, AEO validator, AI automation"
       />
 
       <BreadcrumbSchema
@@ -212,9 +289,9 @@ export default function SideProjects() {
         <PageHero
           variant="page"
           title="Innovation Hub: Sapiente.AI"
-          subtitle="Founder & Lead Researcher"
+          subtitle="Founder & Technical Lead"
           image="/logos/logo_sapienteai.webp"
-          imageAlt="Sapiente.AI logo"
+          imageAlt="Sapiente.AI artificial intelligence innovation company logo"
         />
       </PageSection>
 
