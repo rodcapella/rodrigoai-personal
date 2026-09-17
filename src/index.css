@@ -329,6 +329,14 @@ body {
     border: 1px solid hsl(var(--glass-border) / 0.5);
   }
 
+  .building-sapiente-panel {
+    background: #0c121a;
+  }
+
+  .light .building-sapiente-panel {
+    background: hsl(var(--glass-bg) / 0.8);
+  }
+
   .light .site-header,
   .light .site-header.glass,
   .light .site-footer {

@@ -166,7 +166,7 @@ export default function SideProjects() {
       title: "What I’m Building at Sapiente.AI",
       icon: <Briefcase />,
       content: (
-        <div className="glass layer-blue rounded-2xl p-8 glow-primary-sm sm:p-12">
+        <div className="building-sapiente-panel glass layer-blue rounded-2xl p-8 glow-primary-sm sm:p-12">
           <div className="space-y-8">
             <p className="max-w-4xl text-lg leading-relaxed text-muted-foreground">
               As Founder &amp; Technical Lead, I am building the technical
