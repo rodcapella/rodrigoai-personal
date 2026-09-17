@@ -179,20 +179,19 @@ export default function SideProjects() {
                 key={achievement.title}
                 title={achievement.title}
                 description={achievement.description}
-                className="layer-blue"
               />
             ))}
           </PageGrid>
 
-          <div className="rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
-            <h3 className="mb-5 text-base font-semibold text-foreground">
-              Technology Stack
-            </h3>
-            <div className="flex flex-wrap gap-3">
+          <div className="space-tight">
+            <span className="text-xs font-medium tracking-wide text-[#e59b4b] uppercase dark:text-[#FFDD79]">
+              Tech Stack
+            </span>
+            <div className="flex flex-wrap gap-2">
               {sapienteTechStack.map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary"
+                  className="tag-tech"
                 >
                   {technology}
                 </span>
