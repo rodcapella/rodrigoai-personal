@@ -25,6 +25,11 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
   const ogImage = image
     ? image.startsWith("http") ? image : `${baseUrl}${image}`
     : `${baseUrl}/ai-portrait.webp`;
+  const ogImageType = ogImage.toLowerCase().endsWith(".png")
+    ? "image/png"
+    : /\.jpe?g(?:$|\?)/i.test(ogImage)
+      ? "image/jpeg"
+      : "image/webp";
   const ogLocale = language.toLowerCase().startsWith("pt") ? "pt_PT" : "en_GB";
   const identityKeywords = [
     "Rodrigo Póvoa",
@@ -66,7 +71,10 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={currentUrl} />
+      <meta property="og:site_name" content="Rodrigo Póvoa" />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      <meta property="og:image:type" content={ogImageType} />
       <meta property="og:image:alt" content={imageAlt || title} />
       <meta property="og:locale" content={ogLocale} />
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}

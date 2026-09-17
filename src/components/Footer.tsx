@@ -25,7 +25,7 @@ const Footer = () => {
               src="/logos/logo-96.webp"
               srcSet="/logos/logo-96.webp 96w, /logos/logo-192.webp 192w"
               sizes="54px"
-              alt="Rodrigo Póvoa Logo"
+              alt="Rodrigo Póvoa personal brand logo"
               width={96}
               height={64}
               loading="lazy"

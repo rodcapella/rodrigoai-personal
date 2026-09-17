@@ -162,7 +162,7 @@ export default function SideProjects() {
           <div className="flex justify-center mb-6">
             <img
               src="/banner_SapienteAI.webp"
-              alt="Sapiente.AI platform for artificial intelligence governance and automation"
+              alt="Sapiente.AI platform for artificial intelligence governance, automation and data-driven solutions"
               className="h-48 w-auto opacity-90"
             />
           </div>

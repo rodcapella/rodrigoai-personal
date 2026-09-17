@@ -5,7 +5,7 @@ interface PageHeroProps {
   subtitle?: string;
   description?: string;
   image?: string;
-  imageAlt?: string;
+  imageAlt: string;
   imageFit?: "cover" | "contain";
   imagePosition?: "center" | "top";
   variant?: "hero" | "page";
@@ -16,7 +16,7 @@ const PageHero = ({
   subtitle,
   description,
   image,
-  imageAlt = "",
+  imageAlt,
   imageFit = "cover",
   imagePosition = "center",
   variant = "page",

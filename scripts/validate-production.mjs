@@ -165,7 +165,38 @@ for (const pageUrl of [...pageUrls].sort()) {
     headers: { Accept: "text/html" },
   });
   requireStatusAndMime(htmlResponse, 200, "text/html", pathname);
+  if (!contentType(htmlResponse).includes("charset=utf-8")) {
+    fail(`${pathname} HTML response does not declare charset=utf-8`);
+  }
   const html = await htmlResponse.text();
+  if (!/<meta\s+charset=["']?utf-8["']?\s*\/?>/i.test(html)) {
+    fail(`${pathname} does not declare UTF-8 encoding`);
+  }
+  if (/Ã.|Â.|â€|ï¿½/.test(html)) {
+    fail(`${pathname} contains possible mojibake characters`);
+  }
+
+  const requiredOpenGraphProperties = [
+    "og:type",
+    "og:title",
+    "og:description",
+    "og:url",
+    "og:site_name",
+    "og:image",
+    "og:image:secure_url",
+    "og:image:type",
+    "og:image:alt",
+    "og:locale",
+  ];
+  for (const property of requiredOpenGraphProperties) {
+    const value = html.match(
+      new RegExp(
+        `<meta[^>]+property=["']${property}["'][^>]+content=["']([^"']+)["']`,
+        "i",
+      ),
+    )?.[1];
+    if (!value) fail(`${pathname} is missing ${property}`);
+  }
 
   const canonicals = extractCanonical(html);
   if (canonicals.length !== 1 || canonicals[0] !== expectedCanonical) {
@@ -174,6 +205,15 @@ for (const pageUrl of [...pageUrls].sort()) {
 
   const h1Count = (html.match(/<h1(?:\s|>)/gi) || []).length;
   if (h1Count !== 1) fail(`${pathname} contains ${h1Count} H1 elements`);
+
+  const imagesWithoutDescriptiveAlt = [...html.matchAll(/<img\b[^>]*>/gi)].filter(
+    ([image]) => !/\salt=(?:"[^"]+"|'[^']+')/i.test(image),
+  );
+  if (imagesWithoutDescriptiveAlt.length) {
+    fail(
+      `${pathname} contains ${imagesWithoutDescriptiveAlt.length} image(s) without descriptive alt text`,
+    );
+  }
 
   const schemaTypes = extractSchemaTypes(html, pathname);
   requireSchemaTypes(schemaTypes, expectedSchemas(pathname), pathname);

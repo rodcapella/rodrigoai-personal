@@ -3,19 +3,24 @@
 User-agent: *
 Allow: /
 
-# Block sensitive paths
+# Block sensitive and technical paths
 Disallow: /admin
 Disallow: /private
 Disallow: /api
-
-# Optional: block technical folders
 Disallow: /node_modules/
 Disallow: /.git/
 
 # Sitemaps
 Sitemap: https://www.rpovoadata.tech/sitemaps/sitemap-index.xml
 
-# Social preview crawlers
+# Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Social Preview Crawlers
 User-agent: Twitterbot
 Allow: /
 
@@ -25,9 +30,28 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-# AI crawlers (optional)
+# AI Crawlers & LLM Indexers
 User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Machine-Readable Discovery Resources (Optional)
+# Concise context: https://www.rpovoadata.tech/llms.txt
+# Extended context: https://www.rpovoadata.tech/llms-full.txt

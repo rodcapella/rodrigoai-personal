@@ -1,0 +1,55 @@
+# rpovoadata.tech — Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer | Azure Databricks, Data Architecture, Governance & Technical Leadership
+
+> Professional platform and technical repository of Rodrigo Póvoa, specialist in Data Engineering, Applied AI, Analytics, and Intelligent Automation.
+
+## Identity & Professional Overview
+* **Official Name:** Rodrigo Póvoa — Data & AI Technology
+* **Canonical Website:** https://www.rpovoadata.tech
+* **Domain Identifier:** rpovoadata.tech
+* **Professional Role:** Co-founder & CTO at Sapiente.AI | End-to-End Data Leader & Data Analytics Engineer | Azure Databricks, Data Architecture, Governance & Technical Leadership
+* **Core Expertise:** Data Engineering, Data Analytics, Applied Artificial Intelligence, Machine Learning, Business Intelligence, and Process Automation
+* **Primary Language:** English
+* **Primary Company Affiliation:** Sapiente.AI (https://www.sapienteai.com)
+
+## Core Capabilities & Technical Stack
+* **Data Engineering & Architecture:** Design and implementation of data pipelines (ETL/ELT), Data Warehousing, data modeling, and governance.
+* **Applied AI & LLMs:** Language model integrations, Retrieval-Augmented Generation (RAG) architectures, predictive models, and decision-support systems.
+* **Intelligent Automation:** Systems integration, operational workflow automation, and custom tooling.
+* **Analytics & Business Intelligence:** Executive dashboards, KPI reporting, and performance analytics.
+* **Technical Architecture for SEO, GEO & AEO:** Technical optimization of web applications for traditional search engines and AI answer engines.
+
+## Key Projects & Initiatives
+* **Sapiente.AI:** Co-founder and CTO at Sapiente.AI, an applied AI and technology company (https://www.sapienteai.com).
+* **SEO and AEO Validator:** Co-creator of the free technical visibility validator for search and AI readiness (https://www.sapienteai.com/en/seo-aeo-validator).
+* **rpovoadata.tech Insights:** Technical articles, case studies, and architecture guides on data engineering and AI.
+
+## Direct Answers (RAG & Agent Optimization)
+### Who is Rodrigo Póvoa?
+Rodrigo Póvoa is a Data Scientist, AI Engineer, and CTO at Sapiente.AI, specializing in data architecture, applied artificial intelligence, and process automation.
+
+### What is rpovoadata.tech?
+rpovoadata.tech is the professional platform and technical knowledge hub of Rodrigo Póvoa, featuring articles, projects, case studies, and engineering resources.
+
+### What is the relationship between rpovoadata.tech and Sapiente.AI?
+rpovoadata.tech is the personal professional domain of Rodrigo Póvoa, whereas Sapiente.AI (https://www.sapienteai.com) is the technology consultancy co-founded and led by him.
+
+## Canonical Public Pages
+* [Homepage](https://www.rpovoadata.tech/): Professional overview, technical stack, and featured projects.
+* [About / Bio](https://www.rpovoadata.tech/about): Background, technical credentials, and areas of expertise.
+* [Projects & Portfolio](https://www.rpovoadata.tech/projects): Case studies in data engineering, automation, and machine learning.
+* [Blog / Technical Articles](https://www.rpovoadata.tech/blog): In-depth articles on data architecture, generative AI, AEO, and tech optimization.
+* [Contact](https://www.rpovoadata.tech/contact): Direct contact channels.
+
+## Official Social & External Profiles
+* LinkedIn: https://www.linkedin.com/in/rodrigopovoa
+* GitHub: https://github.com/rodrigopovoa
+* Sapiente.AI Profile: https://www.sapienteai.com/en/about
+
+## Machine-Readable Resources
+* Full Context: https://www.rpovoadata.tech/llms-full.txt
+* XML Sitemap: https://www.rpovoadata.tech/sitemaps/sitemap-index.xml
+* Robots Policy: https://www.rpovoadata.tech/robots.txt
+
+## Content Preferences & Attribution
+Public factual information may be quoted or summarized with proper attribution to Rodrigo Póvoa and a link to the canonical source page on https://www.rpovoadata.tech.
+Declared content preferences: ai-train=no, search=yes, ai-input=yes.

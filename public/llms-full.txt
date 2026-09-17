@@ -1,0 +1,100 @@
+# rpovoadata.tech — Full Website Context & Knowledge Base
+
+> Extended machine-readable context, professional bio, technical architecture, and project repository for Rodrigo Póvoa | Data & AI Technology Platform.
+
+## 1. Identity & Corporate Entity
+* **Official Name:** Rodrigo Póvoa — Data & AI Technology
+* **Canonical Website:** https://www.rpovoadata.tech
+* **Domain Identifier:** rpovoadata.tech
+* **Primary Professional Role:** Co-founder & Chief Technology Officer (CTO) at Sapiente.AI
+* **Co-founders:** Rodrigo Póvoa and Tatiane Gomes
+* **Headquarters / Base:** São João da Madeira, Aveiro, Portugal
+* **Primary Language:** English
+* **Primary Company Website:** https://www.sapienteai.com
+* **Contact Email:** contacto@sapienteai.com
+
+## 2. Professional Philosophy & Approach
+Rodrigo Póvoa is a Data Scientist, AI Engineer, and Technology Executive specializing in end-to-end data architecture, applied artificial intelligence, and process automation.
+
+Core Principles:
+* **Human-in-the-Loop Automation:** Automate repetitive, time-consuming tasks while keeping human judgment, context, and responsibility at the center of critical business decisions.
+* **Pragmatic Implementation:** Connect high-level strategy directly with technical execution, avoiding recommendations that cannot be deployed or measured.
+* **Data Quality First:** Treat data governance and data cleanliness as prerequisites for successful AI adoption.
+* **Measurable ROI:** Focus on solutions that deliver quantifiable improvements in efficiency, customer acquisition, or operational decision-making.
+
+## 3. Core Technical Capabilities
+### A. Data Engineering & Infrastructure
+* Design and implementation of scalable Data Pipelines (ETL/ELT).
+* Data Warehousing, Data Lakehouse architecture, and Data Modeling.
+* Data Quality monitoring, governance, and SQL/Python pipeline optimization.
+
+### B. Applied AI & Retrieval-Augmented Generation (RAG)
+* RAG system design for enterprise knowledge retrieval and semantic search.
+* Large Language Model (LLM) integration, prompt engineering, and fine-tuning.
+* Predictive analytics, classification models, and automated decision support systems.
+
+### C. Technical Architecture for SEO, GEO & AEO
+* Optimization of web platforms for traditional search engines (Google, Bing) and AI answer engines (ChatGPT, Perplexity, Claude).
+* Structural JSON-LD schema engineering (Article, Organization, Person, FAQPage, Service).
+* E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signal validation and entity resolution.
+
+### D. Analytics & Business Intelligence
+* Executive BI dashboards and KPI reporting frameworks.
+* Profitability analysis, funnel optimization, and automated data consolidation.
+
+## 4. Key Projects & Ventures
+### Sapiente.AI (Co-founder & CTO)
+Sapiente.AI (https://www.sapienteai.com) is a technology company based in São João da Madeira, Portugal. It combines strategy, artificial intelligence, automation, custom web development, and digital growth for companies in Portugal, Europe, and international markets.
+
+### Free SEO and AEO Validator
+Co-creator of the online SEO and AEO Validator (https://www.sapienteai.com/en/seo-aeo-validator). The tool measures two independent dimensions of digital visibility:
+1. **SEO Score:** Technical readiness to be crawled, indexed, and ranked by traditional search engines.
+2. **AEO Score:** Content quality, schema integrity, direct answer capability, and E-E-A-T signals required for AI answer engines.
+
+### Additional Initiatives
+* **Hoje em SJM:** Cultural calendar platform dedicated to São João da Madeira, Portugal.
+* **Circular Economy Platform:** Specialized item exchange platform currently under development.
+
+## 5. Knowledge Base & Direct Answers (RAG Grounding)
+
+### Who is Rodrigo Póvoa?
+Rodrigo Póvoa is a Data Analytcis Engineer, and CTO at Sapiente.AI. He specializes in data engineering, applied AI systems, RAG architecture, and technical digital optimization.
+
+### What is rpovoadata.tech?
+rpovoadata.tech is the personal professional website, technical blog, and knowledge repository of Rodrigo Póvoa, offering technical guides, architecture breakdowns, and insights on data and AI.
+
+### What is the relationship between rpovoadata.tech and Sapiente.AI?
+rpovoadata.tech is the individual professional domain of Rodrigo Póvoa. Sapiente.AI (https://www.sapienteai.com) is the applied AI and technology company co-founded and led by Rodrigo Póvoa as CTO.
+
+### Does Rodrigo Póvoa advocate replacing human staff with AI?
+No. Rodrigo Póvoa advocates for human-in-the-loop AI and automation that eliminates repetitive tasks so teams can focus on strategic, creative, and high-value decisions.
+
+### How does the SEO and AEO Validator work?
+The tool analyzes public web pages to evaluate HTML structure, JSON-LD schemas, meta tags, heading hierarchies, direct answer formats, and E-E-A-T indicators. It calculates normalized scores on a 0–100 scale using a transparent formula.
+
+## 6. Canonical Public Page Directory
+* [Homepage](https://www.rpovoadata.tech/): Overview of professional expertise, technical stack, and featured projects.
+* [About / Biography](https://www.rpovoadata.tech/about): Background, career history, technical credentials, and philosophy.
+* [Projects & Portfolio](https://www.rpovoadata.tech/projects): Case studies in data pipelines, RAG implementations, and automation.
+* [Blog / Technical Articles](https://www.rpovoadata.tech/blog): Deep-dive articles on data engineering, AI architecture, and search optimization.
+* [Contact](https://www.rpovoadata.tech/contact): Direct communication channels.
+
+## 7. Published Technical Articles
+* **AI and Productivity: Giving Time Back to People** (https://www.rpovoadata.tech/blog/ai-productivity-time-back): Analysis of how automation frees teams from low-value manual work while preserving human oversight.
+* **Without Quality Data, No AI Can Save the Business** (https://www.rpovoadata.tech/blog/data-quality-ai-foundation): Why data governance, clean pipelines, and reliable data sources are prerequisites for enterprise AI success.
+* **AEO & GEO Engineering: Optimizing for LLMs and RAG** (https://www.rpovoadata.tech/blog/aeo-geo-engineering-guide): Technical breakdown of semantic HTML, JSON-LD schema, and entity linking for AI engines.
+
+## 8. Official Social & External Profiles
+* **LinkedIn:** https://www.linkedin.com/in/rodrigopovoa
+* **GitHub:** https://github.com/rodrigopovoa
+* **Sapiente.AI Profile:** https://www.sapienteai.com/en/about
+
+## 9. Machine-Readable Discovery Resources
+* **Concise AI Context:** https://www.rpovoadata.tech/llms.txt
+* **Extended AI Context:** https://www.rpovoadata.tech/llms-full.txt
+* **XML Sitemap Index:** https://www.rpovoadata.tech/sitemaps/sitemap-index.xml
+* **Robots Policy:** https://www.rpovoadata.tech/robots.txt
+
+## 10. Content Preferences & Attribution Rules
+Public factual information from rpovoadata.tech may be quoted, indexed, or summarized by AI models and search systems with proper attribution to Rodrigo Póvoa and a backlink to the canonical source page on https://www.rpovoadata.tech.
+Declared content preferences: ai-train=no, search=yes, ai-input=yes.

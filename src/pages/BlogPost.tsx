@@ -116,7 +116,7 @@ export default function BlogPost() {
           <div className="mt-8 flex items-center gap-4">
             <img
               src="/profile-96.webp"
-              alt="Rodrigo Póvoa"
+              alt="Portrait of Rodrigo Póvoa, End-to-End Data Leader and Data Analytics Engineer"
               width={48}
               height={48}
               loading="lazy"

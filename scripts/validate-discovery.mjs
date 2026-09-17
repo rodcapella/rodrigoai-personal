@@ -35,6 +35,13 @@ const markdownFile = (route) =>
 const pageTitles = new Map();
 const pageDescriptions = new Map();
 const validateSearchPage = (route, html) => {
+  if (!/<meta\s+charset=["']?utf-8["']?\s*\/?>/i.test(html)) {
+    fail(`${route} does not declare UTF-8 encoding`);
+  }
+  if (/Ã.|Â.|â€|ï¿½/.test(html)) {
+    fail(`${route} contains possible mojibake characters`);
+  }
+
   const title = html
     .match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]
     ?.replace(/\s+/g, " ")
@@ -60,6 +67,28 @@ const validateSearchPage = (route, html) => {
   }
   pageDescriptions.set(description, route);
 
+  const requiredOpenGraphProperties = [
+    "og:type",
+    "og:title",
+    "og:description",
+    "og:url",
+    "og:site_name",
+    "og:image",
+    "og:image:secure_url",
+    "og:image:type",
+    "og:image:alt",
+    "og:locale",
+  ];
+  for (const property of requiredOpenGraphProperties) {
+    const value = html.match(
+      new RegExp(
+        `<meta[^>]+property=["']${property}["'][^>]+content=["']([^"']+)["']`,
+        "i",
+      ),
+    )?.[1];
+    if (!value) fail(`${route} is missing ${property}`);
+  }
+
   const expectedCanonical = `${baseUrl}${route === "/" ? "/" : route}`;
   const canonicalLinks = [...html.matchAll(
     /<link[^>]+rel="canonical"[^>]+href="([^"]+)"[^>]*>/gi,
@@ -75,11 +104,11 @@ const validateSearchPage = (route, html) => {
     fail(`${route} must contain exactly one h1 heading`);
   }
 
-  const imagesWithoutAlt = [...html.matchAll(/<img\b[^>]*>/gi)].filter(
-    ([image]) => !/\salt=(?:"[^"]*"|'[^']*')/i.test(image),
+  const imagesWithoutDescriptiveAlt = [...html.matchAll(/<img\b[^>]*>/gi)].filter(
+    ([image]) => !/\salt=(?:"[^"]+"|'[^']+')/i.test(image),
   );
-  if (imagesWithoutAlt.length) {
-    fail(`${route} contains images without alt attributes`);
+  if (imagesWithoutDescriptiveAlt.length) {
+    fail(`${route} contains images without descriptive alt text`);
   }
 };
 
