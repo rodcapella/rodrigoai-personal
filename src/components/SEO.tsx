@@ -48,7 +48,13 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
     .join(", ");
 
   return (
-    <Helmet htmlAttributes={{ lang: language }}>
+    <Helmet
+      htmlAttributes={{
+        lang: language,
+        "data-developer": "Sapiente.AI",
+        "data-developer-url": "https://www.sapienteai.com/en",
+      }}
+    >
       {/* Basic */}
       <title>{title}</title>
       <meta name="description" content={description} />

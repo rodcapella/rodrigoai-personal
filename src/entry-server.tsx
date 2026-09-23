@@ -47,7 +47,8 @@ export async function render(url: string) {
           resolve({
             appHtml,
             htmlAttributes:
-              helmet?.htmlAttributes.toString() || 'lang="en"',
+              helmet?.htmlAttributes.toString() ||
+              'lang="en-GB" data-developer="Sapiente.AI" data-developer-url="https://www.sapienteai.com/en"',
             head: helmet
               ? [
                   helmet.title,

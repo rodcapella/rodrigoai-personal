@@ -90,6 +90,18 @@
         {
           "key": "Content-Signal",
           "value": "ai-train=no, search=yes, ai-input=yes"
+        },
+        {
+          "key": "X-Built-By",
+          "value": "Sapiente.AI"
+        },
+        {
+          "key": "X-Developer",
+          "value": "Sapiente.AI"
+        },
+        {
+          "key": "X-Developer-URL",
+          "value": "https://www.sapienteai.com/en"
         }
       ]
     },
@@ -98,7 +110,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </ai.json>; rel=\"describedby\"; type=\"application/json\", </.well-known/agent.json>; rel=\"service-desc\"; type=\"application/json\", </sitemaps/sitemap-index.xml>; rel=\"sitemap\"; type=\"application/xml\""
+          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\", </ai.json>; rel=\"describedby\"; type=\"application/json\", </ai-catalog.json>; rel=\"service-desc\"; type=\"application/json\", </.well-known/agent.json>; rel=\"service-desc\"; type=\"application/json\", </sitemaps/sitemap-index.xml>; rel=\"sitemap\"; type=\"application/xml\""
         },
         { "key": "Vary", "value": "Accept" }
       ]
@@ -133,9 +145,37 @@
       ]
     },
     {
+      "source": "/ai-catalog.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
       "source": "/.well-known/agent.json",
       "headers": [
         { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/humans.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/site.webmanifest",
+      "headers": [
+        { "key": "Content-Type", "value": "application/manifest+json; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/.well-known/security.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },

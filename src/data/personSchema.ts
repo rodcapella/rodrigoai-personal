@@ -9,6 +9,9 @@ export const personSchemaData = {
     "End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Engineering, Architecture and Analytics.",
   url: `${siteBaseUrl}/professional`,
   image: `${siteBaseUrl}/profile-640.webp`,
+  worksFor: {
+    "@id": "https://www.sapienteai.com/#organization",
+  },
   sameAs: [
     "https://www.linkedin.com/in/rodrigocspovoa",
     "https://github.com/rodcapella",

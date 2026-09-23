@@ -1,0 +1,5 @@
+Contact: mailto:contacto@sapienteai.com
+Expires: 2027-09-22T00:00:00Z
+Preferred-Languages: pt, en
+Policy: https://www.sapienteai.com/pt
+Canonical: https://www.rpovoadata.tech/.well-known/security.txt

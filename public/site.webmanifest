@@ -1,0 +1,26 @@
+{
+  "name": "Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer",
+  "short_name": "Rodrigo Póvoa",
+  "description": "Professional portfolio covering Data Engineering, Data Architecture, Analytics, governance and technical leadership.",
+  "developer": {
+    "name": "Sapiente.AI",
+    "url": "https://www.sapienteai.com/en"
+  },
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#0b0f14",
+  "icons": [
+    {
+      "src": "/logos/logo-96.webp",
+      "sizes": "96x64",
+      "type": "image/webp"
+    },
+    {
+      "src": "/logos/logo-192.webp",
+      "sizes": "192x128",
+      "type": "image/webp"
+    }
+  ]
+}

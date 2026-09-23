@@ -239,7 +239,11 @@ const discoveryResources = [
   ["/llms.txt", "text/markdown"],
   ["/llms-full.txt", "text/markdown"],
   ["/ai.json", "application/json"],
+  ["/ai-catalog.json", "application/json"],
   ["/.well-known/agent.json", "application/json"],
+  ["/humans.txt", "text/plain"],
+  ["/site.webmanifest", "application/manifest+json"],
+  ["/.well-known/security.txt", "text/plain"],
   ["/robots.txt", "text/plain"],
   ["/271842674a05455d886613c136dd5333.txt", "text/plain"],
 ];
@@ -266,8 +270,22 @@ for (const [pathname, mime] of discoveryResources) {
 
 const rootResponse = await fetchWithRetry("/");
 const linkHeader = rootResponse.headers.get("link") || "";
-for (const endpoint of ["/llms.txt", "/ai.json", "/.well-known/agent.json"]) {
+for (const endpoint of [
+  "/llms.txt",
+  "/ai.json",
+  "/ai-catalog.json",
+  "/.well-known/agent.json",
+]) {
   if (!linkHeader.includes(endpoint)) fail(`root Link header is missing ${endpoint}`);
+}
+for (const [headerName, expectedValue] of [
+  ["x-built-by", "Sapiente.AI"],
+  ["x-developer", "Sapiente.AI"],
+  ["x-developer-url", "https://www.sapienteai.com/en"],
+]) {
+  if (rootResponse.headers.get(headerName) !== expectedValue) {
+    fail(`${headerName} response header is missing or incorrect`);
+  }
 }
 
 const missingPath = `/__post-deploy-404-${Date.now()}`;

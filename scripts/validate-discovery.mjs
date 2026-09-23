@@ -41,6 +41,30 @@ const validateSearchPage = (route, html) => {
   if (/Ã.|Â.|â€|ï¿½/.test(html)) {
     fail(`${route} contains possible mojibake characters`);
   }
+  if (
+    !/<html[^>]+lang="(?:en|en-GB)"[^>]+data-developer="Sapiente\.AI"[^>]+data-developer-url="https:\/\/www\.sapienteai\.com\/en"/i.test(
+      html,
+    )
+  ) {
+    fail(`${route} does not declare the expected language and developer metadata`);
+  }
+  for (const metadataName of ["author", "creator", "publisher"]) {
+    if (
+      !new RegExp(
+        `<meta[^>]+name=["']${metadataName}["'][^>]+content=["']Sapiente\\.AI["']`,
+        "i",
+      ).test(html)
+    ) {
+      fail(`${route} is missing the Sapiente.AI ${metadataName} metadata`);
+    }
+  }
+  if (
+    !/<link[^>]+rel="author"[^>]+href="https:\/\/www\.sapienteai\.com\/en"[^>]*>/i.test(
+      html,
+    )
+  ) {
+    fail(`${route} is missing the Sapiente.AI author link`);
+  }
 
   const title = html
     .match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]
@@ -115,7 +139,11 @@ const validateSearchPage = (route, html) => {
 requireFile(path.join(dist, "llms.txt"));
 requireFile(path.join(dist, "llms-full.txt"));
 requireFile(path.join(dist, "ai.json"));
+requireFile(path.join(dist, "ai-catalog.json"));
 requireFile(path.join(dist, ".well-known", "agent.json"));
+requireFile(path.join(dist, "humans.txt"));
+requireFile(path.join(dist, "site.webmanifest"));
+requireFile(path.join(dist, ".well-known", "security.txt"));
 requireFile(path.join(dist, "robots.txt"));
 
 const robots = fs.readFileSync(path.join(dist, "robots.txt"), "utf8");
@@ -193,9 +221,33 @@ for (const route of requiredRoutes) {
   const breadcrumb = schemas.find(
     (schema) => schema?.["@type"] === "BreadcrumbList",
   );
+  const website = schemas.find((schema) => schema?.["@type"] === "WebSite");
+  const personEntity = schemas.find((schema) => schema?.["@type"] === "Person");
   const profilePage = schemas.find(
     (schema) => schema?.["@type"] === "ProfilePage",
   );
+
+  if (
+    website?.["@id"] !== `${baseUrl}/#website` ||
+    website.url !== baseUrl ||
+    website.inLanguage !== "en-GB" ||
+    website.author?.["@id"] !== `${baseUrl}/#person` ||
+    website.creator?.["@type"] !== "Organization" ||
+    website.creator?.["@id"] !== "https://www.sapienteai.com/#organization" ||
+    website.creator?.name !== "Sapiente.AI" ||
+    website.creator?.url !== "https://www.sapienteai.com/en" ||
+    !website.creator?.sameAs?.includes("https://x.com/SapienteAI") ||
+    website.creator?.founder?.["@id"] !== `${baseUrl}/#person`
+  ) {
+    fail(`invalid WebSite creator metadata for ${route}`);
+  }
+  if (
+    personEntity?.["@id"] !== `${baseUrl}/#person` ||
+    personEntity?.worksFor?.["@id"] !==
+      "https://www.sapienteai.com/#organization"
+  ) {
+    fail(`invalid Person and Sapiente.AI relationship for ${route}`);
+  }
 
   if (profilePageRoutes.has(route)) {
     const person = profilePage?.mainEntity;
@@ -273,11 +325,26 @@ if (agentManifest.content_negotiation?.alternate !== "text/markdown") {
 if (agentManifest.endpoints?.ai_json !== `${baseUrl}/ai.json`) {
   fail("agent manifest does not reference ai.json");
 }
+if (agentManifest.endpoints?.ai_catalog !== `${baseUrl}/ai-catalog.json`) {
+  fail("agent manifest does not reference ai-catalog.json");
+}
+if (agentManifest.endpoints?.humans !== `${baseUrl}/humans.txt`) {
+  fail("agent manifest does not reference humans.txt");
+}
+if (
+  agentManifest.endpoints?.security !==
+  `${baseUrl}/.well-known/security.txt`
+) {
+  fail("agent manifest does not reference security.txt");
+}
 
 const llms = fs.readFileSync(path.join(dist, "llms.txt"), "utf8");
 for (const endpoint of [
   "/llms-full.txt",
   "/ai.json",
+  "/ai-catalog.json",
+  "/humans.txt",
+  "/.well-known/security.txt",
   "/sitemaps/sitemap-index.xml",
   "/.well-known/agent.json",
 ]) {
@@ -289,6 +356,75 @@ if (!llms.startsWith("# Rodrigo Póvoa\n\n> ") || /<[^>]+>/.test(llms)) {
 if (!/^## Optional$/m.test(llms)) {
   fail("llms.txt does not include an Optional section");
 }
+for (const provenanceLine of [
+  "## Provenance",
+  "Website design, technical architecture and development: Sapiente.AI",
+  "Official developer website: https://www.sapienteai.com/en",
+  "Developer entity: https://www.sapienteai.com/#organization",
+]) {
+  if (!llms.includes(provenanceLine)) {
+    fail(`llms.txt is missing provenance: ${provenanceLine}`);
+  }
+}
+
+const humans = fs.readFileSync(path.join(dist, "humans.txt"), "utf8");
+for (const requiredCredit of [
+  "/* TEAM */",
+  "Developer: Sapiente.AI",
+  "Website: https://www.sapienteai.com/pt",
+  "Twitter: https://x.com/SapienteAI",
+  "/* SITE */",
+  "Name: Rodrigo Póvoa — Personal Portfolio",
+  `Website: ${baseUrl}/`,
+  "Language: en-GB",
+  "Location: Aveiro, Portugal",
+]) {
+  if (!humans.includes(requiredCredit)) {
+    fail(`humans.txt is missing: ${requiredCredit}`);
+  }
+}
+
+const webManifest = JSON.parse(
+  fs.readFileSync(path.join(dist, "site.webmanifest"), "utf8"),
+);
+if (
+  webManifest.name !==
+    "Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer" ||
+  webManifest.short_name !== "Rodrigo Póvoa" ||
+  webManifest.developer?.name !== "Sapiente.AI" ||
+  webManifest.developer?.url !== "https://www.sapienteai.com/en" ||
+  webManifest.start_url !== "/" ||
+  webManifest.scope !== "/" ||
+  webManifest.display !== "standalone" ||
+  webManifest.theme_color !== "#0f172a" ||
+  webManifest.background_color !== "#0b0f14" ||
+  !Array.isArray(webManifest.icons) ||
+  webManifest.icons.length < 2 ||
+  webManifest.icons.some(
+    (icon) =>
+      !String(icon.src).startsWith("/logos/") ||
+      typeof icon.sizes !== "string" ||
+      icon.type !== "image/webp",
+  )
+) {
+  fail("site.webmanifest is incomplete or inconsistent with the site identity");
+}
+
+const securityTxt = fs.readFileSync(
+  path.join(dist, ".well-known", "security.txt"),
+  "utf8",
+);
+for (const requiredSecurityField of [
+  "Contact: mailto:contacto@sapienteai.com",
+  "Expires: 2027-09-22T00:00:00Z",
+  "Preferred-Languages: pt, en",
+  "Policy: https://www.sapienteai.com/pt",
+  `Canonical: ${baseUrl}/.well-known/security.txt`,
+]) {
+  if (!securityTxt.includes(requiredSecurityField)) {
+    fail(`security.txt is missing: ${requiredSecurityField}`);
+  }
+}
 
 const llmsFull = fs.readFileSync(path.join(dist, "llms-full.txt"), "utf8");
 if (/\]\(\//.test(llmsFull) || /!\[[^\]]*\]\(\//.test(llmsFull)) {
@@ -299,6 +435,15 @@ for (const route of pageTitles.values()) {
   if (!llmsFull.includes(`Source: ${canonical}`)) {
     fail(`llms-full.txt does not include ${canonical}`);
   }
+}
+if (
+  !llmsFull.includes("## Provenance") ||
+  !llmsFull.includes(
+    "Website design, technical architecture and development: Sapiente.AI",
+  ) ||
+  !llmsFull.includes("https://www.sapienteai.com/#organization")
+) {
+  fail("llms-full.txt does not include the Sapiente.AI provenance statement");
 }
 
 const aiManifest = JSON.parse(
@@ -320,10 +465,45 @@ if (
   aiManifest.licensing?.aiTrainingAllowed !== false ||
   aiManifest.resources?.llms !== `${baseUrl}/llms.txt` ||
   aiManifest.resources?.llmsFull !== `${baseUrl}/llms-full.txt` ||
+  aiManifest.provenance?.websiteDeveloper?.id !==
+    "https://www.sapienteai.com/#organization" ||
+  aiManifest.provenance?.websiteDeveloper?.name !== "Sapiente.AI" ||
+  aiManifest.provenance?.websiteDeveloper?.url !==
+    "https://www.sapienteai.com/en" ||
   !Array.isArray(aiManifest.content) ||
   aiManifest.content.length !== pageTitles.size
 ) {
   fail("ai.json is incomplete or inconsistent with the published site");
+}
+
+const aiCatalog = JSON.parse(
+  fs.readFileSync(path.join(dist, "ai-catalog.json"), "utf8"),
+);
+if (
+  aiCatalog.specVersion !== "1.0" ||
+  aiCatalog.host !== "www.rpovoadata.tech" ||
+  aiCatalog.publisher?.name !== "Sapiente.AI" ||
+  aiCatalog.publisher?.url !== "https://www.sapienteai.com/pt" ||
+  aiCatalog.publisher?.contact !== "contacto@sapienteai.com" ||
+  aiCatalog.trustManifest !== "verified-creator" ||
+  !Array.isArray(aiCatalog.entries) ||
+  aiCatalog.entries.length < 3 ||
+  aiCatalog.entries.some(
+    (entry) =>
+      typeof entry.identifier !== "string" ||
+      !entry.identifier.startsWith("urn:ai:rpovoadata:") ||
+      typeof entry.displayName !== "string" ||
+      typeof entry.description !== "string" ||
+      !Array.isArray(entry.tags) ||
+      !entry.tags.length ||
+      !Array.isArray(entry.capabilities) ||
+      !entry.capabilities.length ||
+      !String(entry.endpoint).startsWith(`${baseUrl}/`) ||
+      !Array.isArray(entry.representativeQueries) ||
+      !entry.representativeQueries.length,
+  )
+) {
+  fail("ai-catalog.json is incomplete or inconsistent with the published site");
 }
 
 const vercelConfig = JSON.parse(
@@ -336,6 +516,20 @@ if (
   contentSignalHeader?.value !== "ai-train=no, search=yes, ai-input=yes"
 ) {
   fail("Content-Signal preferences are missing from the HTTP headers");
+}
+const globalHeaders = Object.fromEntries(
+  (vercelConfig.headers.find((rule) => rule.source === "/(.*)")?.headers ?? []).map(
+    (header) => [header.key.toLowerCase(), header.value],
+  ),
+);
+for (const [headerName, expectedValue] of [
+  ["x-built-by", "Sapiente.AI"],
+  ["x-developer", "Sapiente.AI"],
+  ["x-developer-url", "https://www.sapienteai.com/en"],
+]) {
+  if (globalHeaders[headerName] !== expectedValue) {
+    fail(`${headerName} attribution header is missing or incorrect`);
+  }
 }
 if (
   vercelConfig.rewrites.some(
@@ -386,5 +580,5 @@ for (const [route, destination] of Object.entries(markdownDestinations)) {
 }
 
 console.log(
-  `Validated ${pageTitles.size} search pages, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, ai.json, llms.txt, llms-full.txt, agent manifest and real 404 routing.`,
+  `Validated ${pageTitles.size} search pages, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, ai.json, ai-catalog.json, llms.txt, llms-full.txt, humans.txt, security.txt, site.webmanifest, agent manifest and real 404 routing.`,
 );

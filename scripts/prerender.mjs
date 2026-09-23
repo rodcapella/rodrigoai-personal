@@ -330,7 +330,7 @@ try {
     .filter(Boolean)
     .sort()
     .at(-1);
-  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Core pages\n\n${coreRoutes
+  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Provenance\n\n- Website design, technical architecture and development: Sapiente.AI\n- Official developer website: https://www.sapienteai.com/en\n- Developer entity: https://www.sapienteai.com/#organization\n\n## Core pages\n\n${coreRoutes
     .map(
       ({ title, canonical, description }) =>
         `- [${title}](${canonical}): ${description}`,
@@ -340,13 +340,13 @@ try {
       ({ title, canonical, description }) =>
         `- [${title}](${canonical}): ${description}`,
     )
-    .join("\n")}\n\n## Machine-readable resources\n\n- [Complete Markdown corpus](${baseUrl}/llms-full.txt): Full text of every public page and article.\n- [AI usage and discovery manifest](${baseUrl}/ai.json): Structured permissions, restrictions, identity and content endpoints.\n- [Agent manifest](${baseUrl}/.well-known/agent.json): Agent discovery and content-negotiation metadata.\n- [XML sitemap](${baseUrl}/sitemaps/sitemap-index.xml): Canonical index of search-visible URLs.\n- [Robots policy](${baseUrl}/robots.txt): Crawler access rules.\n\n## Optional\n\n${optionalRoutes
+    .join("\n")}\n\n## Machine-readable resources\n\n- [Complete Markdown corpus](${baseUrl}/llms-full.txt): Full text of every public page and article.\n- [AI usage and discovery manifest](${baseUrl}/ai.json): Structured permissions, restrictions, identity and content endpoints.\n- [AI capability catalog](${baseUrl}/ai-catalog.json): Structured catalog of the professional profile, public knowledge corpus and contact route.\n- [Agent manifest](${baseUrl}/.well-known/agent.json): Agent discovery and content-negotiation metadata.\n- [Human authorship credits](${baseUrl}/humans.txt): Website creator, ownership and location details.\n- [Security contact](${baseUrl}/.well-known/security.txt): Responsible vulnerability disclosure contact and policy.\n- [XML sitemap](${baseUrl}/sitemaps/sitemap-index.xml): Canonical index of search-visible URLs.\n- [Robots policy](${baseUrl}/robots.txt): Crawler access rules.\n\n## Optional\n\n${optionalRoutes
     .map(
       ({ title, canonical, description }) =>
         `- [${title}](${canonical}): ${description}`,
     )
     .join("\n")}\n`;
-  const llmsFullTxt = `# Rodrigo Póvoa — Complete AI-readable corpus\n\n> Full text of the public professional profile, portfolio and articles published at ${baseUrl}.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nLast modified: ${corpusLastModified}\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n---\n\n${markdownDocuments
+  const llmsFullTxt = `# Rodrigo Póvoa — Complete AI-readable corpus\n\n> Full text of the public professional profile, portfolio and articles published at ${baseUrl}.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nLast modified: ${corpusLastModified}\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Provenance\n\nWebsite design, technical architecture and development: Sapiente.AI\n\nOfficial developer website: https://www.sapienteai.com/en\n\nDeveloper entity: https://www.sapienteai.com/#organization\n\n---\n\n${markdownDocuments
     .map(
       ({ title, canonical, body }) =>
         `# ${title}\n\nSource: ${canonical}\n\n${body}`,
@@ -403,6 +403,17 @@ try {
         "https://github.com/rodcapella",
       ],
     },
+    provenance: {
+      statement:
+        "Website design, technical architecture and development by Sapiente.AI.",
+      websiteDeveloper: {
+        type: "Organization",
+        id: "https://www.sapienteai.com/#organization",
+        name: "Sapiente.AI",
+        url: "https://www.sapienteai.com/en",
+        sameAs: ["https://x.com/SapienteAI"],
+      },
+    },
     topics: [
       "Data Engineering",
       "Data Architecture",
@@ -422,7 +433,10 @@ try {
     resources: {
       llms: `${baseUrl}/llms.txt`,
       llmsFull: `${baseUrl}/llms-full.txt`,
+      aiCatalog: `${baseUrl}/ai-catalog.json`,
       agentManifest: `${baseUrl}/.well-known/agent.json`,
+      humans: `${baseUrl}/humans.txt`,
+      security: `${baseUrl}/.well-known/security.txt`,
       sitemap: `${baseUrl}/sitemaps/sitemap-index.xml`,
       robots: `${baseUrl}/robots.txt`,
     },
@@ -440,6 +454,83 @@ try {
         },
       }),
     ),
+  };
+  const aiCatalog = {
+    specVersion: "1.0",
+    host: "www.rpovoadata.tech",
+    publisher: {
+      name: "Sapiente.AI",
+      url: "https://www.sapienteai.com/pt",
+      contact: "contacto@sapienteai.com",
+    },
+    entries: [
+      {
+        identifier: "urn:ai:rpovoadata:professional-profile",
+        displayName: "Rodrigo Póvoa Professional Profile",
+        description:
+          "Professional profile of an End-to-End Data Leader and Data Analytics Engineer with more than 15 years of experience across data engineering, architecture, analytics, governance and technical leadership.",
+        tags: [
+          "data engineering",
+          "data architecture",
+          "data analytics",
+          "Azure Databricks",
+          "technical leadership",
+        ],
+        capabilities: [
+          "professional-profile-discovery",
+          "expertise-matching",
+        ],
+        endpoint: `${baseUrl}/professional`,
+        representativeQueries: [
+          "What is Rodrigo Póvoa's experience in data engineering and architecture?",
+          "Is Rodrigo Póvoa available for senior data leadership opportunities?",
+        ],
+      },
+      {
+        identifier: "urn:ai:rpovoadata:portfolio-corpus",
+        displayName: "Rodrigo Póvoa AI-Readable Portfolio",
+        description:
+          "Machine-readable corpus covering Rodrigo Póvoa's professional experience, selected projects and articles about data platforms, governance, analytics and AI-assisted engineering.",
+        tags: [
+          "professional portfolio",
+          "data platforms",
+          "data governance",
+          "business intelligence",
+          "AI-assisted engineering",
+        ],
+        capabilities: [
+          "content-discovery",
+          "markdown-negotiation",
+          "semantic-retrieval",
+        ],
+        endpoint: `${baseUrl}/llms-full.txt`,
+        representativeQueries: [
+          "Which data platform projects has Rodrigo Póvoa delivered?",
+          "What has Rodrigo Póvoa written about data governance and artificial intelligence?",
+        ],
+      },
+      {
+        identifier: "urn:ai:rpovoadata:professional-contact",
+        displayName: "Professional Opportunities and Contact",
+        description:
+          "Contact route for recruiters, organisations and professional peers interested in senior opportunities across Data Engineering, Data Architecture, Analytics and technical leadership.",
+        tags: [
+          "recruiting",
+          "professional opportunities",
+          "data leadership",
+          "Portugal",
+          "remote",
+        ],
+        capabilities: ["professional-contact", "opportunity-routing"],
+        endpoint: `${baseUrl}/contact`,
+        representativeQueries: [
+          "How can I contact Rodrigo Póvoa about a data leadership role?",
+          "Where can I discuss a senior data engineering opportunity with Rodrigo Póvoa?",
+        ],
+      },
+    ],
+    trustManifest: "verified-creator",
+    created: "2026-09-23T00:00:00Z",
   };
   const agentManifest = {
     version: "1.0",
@@ -462,6 +553,9 @@ try {
       llms_txt: `${baseUrl}/llms.txt`,
       llms_full: `${baseUrl}/llms-full.txt`,
       ai_json: `${baseUrl}/ai.json`,
+      ai_catalog: `${baseUrl}/ai-catalog.json`,
+      humans: `${baseUrl}/humans.txt`,
+      security: `${baseUrl}/.well-known/security.txt`,
       sitemap: `${baseUrl}/sitemaps/sitemap-index.xml`,
       robots: `${baseUrl}/robots.txt`,
     },
@@ -482,6 +576,11 @@ try {
     fs.writeFile(
       path.join(distDirectory, "ai.json"),
       `${JSON.stringify(aiManifest, null, 2)}\n`,
+      "utf8",
+    ),
+    fs.writeFile(
+      path.join(distDirectory, "ai-catalog.json"),
+      `${JSON.stringify(aiCatalog, null, 2)}\n`,
       "utf8",
     ),
     fs.writeFile(
