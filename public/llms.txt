@@ -9,7 +9,7 @@
 * **Professional Role:** Co-founder & CTO at Sapiente.AI | End-to-End Data Leader & Data Analytics Engineer | Azure Databricks, Data Architecture, Governance & Technical Leadership
 * **Core Expertise:** Data Engineering, Data Analytics, Applied Artificial Intelligence, Machine Learning, Business Intelligence, and Process Automation
 * **Primary Language:** English
-* **Primary Company Affiliation:** Sapiente.AI (https://www.sapienteai.com)
+* **Primary Company Affiliation:** Sapiente.AI (https://www.sapienteai.com/en)
 
 ## Core Capabilities & Technical Stack
 * **Data Engineering & Architecture:** Design and implementation of data pipelines (ETL/ELT), Data Warehousing, data modeling, and governance.
@@ -19,7 +19,7 @@
 * **Technical Architecture for SEO, GEO & AEO:** Technical optimization of web applications for traditional search engines and AI answer engines.
 
 ## Key Projects & Initiatives
-* **Sapiente.AI:** Co-founder and CTO at Sapiente.AI, an applied AI and technology company (https://www.sapienteai.com).
+* **Sapiente.AI:** Co-founder and CTO at Sapiente.AI, an applied AI and technology company (https://www.sapienteai.com/en).
 * **SEO and AEO Validator:** Co-creator of the free technical visibility validator for search and AI readiness (https://www.sapienteai.com/en/seo-aeo-validator).
 * **rpovoadata.tech Insights:** Technical articles, case studies, and architecture guides on data engineering and AI.
 
@@ -31,7 +31,7 @@ Rodrigo Póvoa is a Data Scientist, AI Engineer, and CTO at Sapiente.AI, special
 rpovoadata.tech is the professional platform and technical knowledge hub of Rodrigo Póvoa, featuring articles, projects, case studies, and engineering resources.
 
 ### What is the relationship between rpovoadata.tech and Sapiente.AI?
-rpovoadata.tech is the personal professional domain of Rodrigo Póvoa, whereas Sapiente.AI (https://www.sapienteai.com) is the technology consultancy co-founded and led by him.
+rpovoadata.tech is the personal professional domain of Rodrigo Póvoa, whereas Sapiente.AI (https://www.sapienteai.com/en) is the technology consultancy co-founded and led by him.
 
 ## Canonical Public Pages
 * [Homepage](https://www.rpovoadata.tech/): Professional overview, technical stack, and featured projects.

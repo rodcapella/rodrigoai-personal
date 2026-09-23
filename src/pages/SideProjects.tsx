@@ -252,7 +252,7 @@ export default function SideProjects() {
           </p>
 
           <a
-            href="https://www.sapienteai.com"
+            href="https://www.sapienteai.com/en"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
