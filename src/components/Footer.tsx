@@ -83,23 +83,23 @@ const Footer = () => {
           © {new Date().getFullYear()} Rodrigo Póvoa — End-to-End Data Leader &amp; Data Analytics Engineer
         </div>
 
-        <div className="mt-8 flex flex-col items-center text-center">
-          <p className="text-xs text-muted-foreground">Desenvolvido por</p>
+        <div className="mt-8 flex items-center justify-center gap-2 text-center">
+          <p className="text-xs text-muted-foreground">Developed by</p>
           <a
             href="https://www.sapienteai.com/en"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Sapiente.AI website"
-            className="mt-2 block rounded-lg bg-[#07111f] px-2 transition duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_hsl(var(--primary)/0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex rounded-lg transition duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_hsl(var(--primary)/0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <img
               src="/logos/logo_sapiente_transparente.webp"
               alt="Sapiente.AI"
-              width={400}
-              height={400}
+              width={104}
+              height={32}
               loading="lazy"
               decoding="async"
-              className="h-16 w-52 object-cover object-center"
+              className="h-8 w-[6.5rem] object-contain object-center"
             />
           </a>
         </div>
