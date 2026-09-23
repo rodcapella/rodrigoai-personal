@@ -95,11 +95,11 @@ const Footer = () => {
             <img
               src="/logos/logo_sapiente_transparente.webp"
               alt="Sapiente.AI"
-              width={135}
-              height={42}
+              width={224}
+              height={56}
               loading="lazy"
               decoding="async"
-              className="h-[2.6rem] w-[8.45rem] object-contain object-center"
+              className="h-10 w-40 shrink-0 object-fill object-center md:h-14 md:w-56"
             />
           </a>
         </div>
