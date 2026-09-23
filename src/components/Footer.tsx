@@ -100,7 +100,6 @@ const Footer = () => {
               loading="lazy"
               decoding="async"
               className="aspect-square h-14 object-contain md:h-24"
-              {/* ↑ Mudança aqui: aspect-square h-14 object-contain md:h-24 */}
             />
           </a>
         </div>
