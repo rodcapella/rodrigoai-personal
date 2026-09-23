@@ -90,16 +90,16 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Sapiente.AI website"
-            className="inline-flex rounded-lg transition duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_hsl(var(--primary)/0.22)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <img
               src="/logos/logo_sapiente_transparente.webp"
               alt="Sapiente.AI"
-              width={104}
-              height={32}
+              width={135}
+              height={42}
               loading="lazy"
               decoding="async"
-              className="h-8 w-[6.5rem] object-contain object-center"
+              className="h-[2.6rem] w-[8.45rem] object-contain object-center"
             />
           </a>
         </div>
