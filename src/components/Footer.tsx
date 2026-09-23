@@ -36,7 +36,7 @@ const Footer = () => {
               End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
             </p>
             <div className="mt-3 flex gap-3">
-              
+              <a
                 href="https://www.linkedin.com/in/rodrigocspovoa"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,7 +45,7 @@ const Footer = () => {
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              
+              <a
                 href="https://github.com/rodcapella"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -85,7 +85,7 @@ const Footer = () => {
 
         <div className="mt-8 flex items-center justify-center gap-2 text-center">
           <p className="text-xs text-muted-foreground">Developed by</p>
-          
+          <a
             href="https://www.sapienteai.com/en"
             target="_blank"
             rel="noopener noreferrer"
