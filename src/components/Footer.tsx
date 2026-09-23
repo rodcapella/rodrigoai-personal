@@ -99,7 +99,7 @@ const Footer = () => {
               height={56}
               loading="lazy"
               decoding="async"
-              className="h-10 w-40 shrink-0 object-fill object-center md:h-14 md:w-56"
+              className="h-10 w-10 object-contain md:h-14 md:w-14"
             />
           </a>
         </div>
