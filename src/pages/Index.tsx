@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense } from "react";
 import { useOutletContext } from "react-router-dom";
 import SEO from "@/components/SEO";
 import MainLayout from "@/components/layout/MainLayout";
@@ -18,29 +18,11 @@ const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
 function DeferredSection({ children }: { children: React.ReactNode }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container || isVisible) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setIsVisible(true);
-        observer.disconnect();
-      },
-      { rootMargin: "160px 0px" },
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, [isVisible]);
-
   return (
-    <div ref={containerRef} className={isVisible ? "" : "min-h-[280px]"}>
-      {isVisible ? children : null}
+    <div
+      style={{ contentVisibility: "auto", containIntrinsicSize: "0 420px" }}
+    >
+      {children}
     </div>
   );
 }
@@ -89,7 +71,7 @@ const competences = [
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer"
+        title="Rodrigo Póvoa | Data Engineering & Analytics Leader"
         description="Rodrigo Póvoa is an End-to-End Data Leader with 15+ years in data architecture, engineering, analytics and Azure Databricks Lakehouse platforms."
         keywords="Rodrigo Póvoa, end-to-end data leader, data analytics engineer, data architecture, Azure Databricks, Lakehouse, data governance"
       />
