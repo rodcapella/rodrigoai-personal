@@ -7,7 +7,7 @@ const dist = path.join(root, "dist");
 const baseUrl = "https://www.rpovoadata.tech";
 const requiredRoutes = [
   "/",
-  "/why-me",
+  "/about",
   "/professional",
   "/personal",
   "/side-projects",
@@ -15,7 +15,7 @@ const requiredRoutes = [
   "/privacy",
   "/contact",
 ];
-const profilePageRoutes = new Set(["/professional", "/why-me"]);
+const profilePageRoutes = new Set(["/about", "/professional"]);
 
 const fail = (message) => {
   throw new Error(`Agent discovery validation failed: ${message}`);
@@ -42,7 +42,7 @@ const validateSearchPage = (route, html) => {
     fail(`${route} contains possible mojibake characters`);
   }
   if (
-    !/<html[^>]+lang="(?:en|en-GB)"[^>]+data-developer="Sapiente\.AI"[^>]+data-developer-url="https:\/\/www\.sapienteai\.com\/en"/i.test(
+    !/<html[^>]+lang="(?:en|en-GB)"[^>]+data-developer="Sapiente AI"[^>]+data-developer-url="https:\/\/www\.sapienteai\.com\/en"/i.test(
       html,
     )
   ) {
@@ -51,11 +51,11 @@ const validateSearchPage = (route, html) => {
   for (const metadataName of ["author", "creator", "publisher"]) {
     if (
       !new RegExp(
-        `<meta[^>]+name=["']${metadataName}["'][^>]+content=["']Sapiente\\.AI["']`,
+        `<meta[^>]+name=["']${metadataName}["'][^>]+content=["']Sapiente AI["']`,
         "i",
       ).test(html)
     ) {
-      fail(`${route} is missing the Sapiente.AI ${metadataName} metadata`);
+      fail(`${route} is missing the Sapiente AI ${metadataName} metadata`);
     }
   }
   if (
@@ -63,7 +63,7 @@ const validateSearchPage = (route, html) => {
       html,
     )
   ) {
-    fail(`${route} is missing the Sapiente.AI author link`);
+    fail(`${route} is missing the Sapiente AI author link`);
   }
 
   const title = html
@@ -101,6 +101,8 @@ const validateSearchPage = (route, html) => {
     "og:image:secure_url",
     "og:image:type",
     "og:image:alt",
+    "og:image:width",
+    "og:image:height",
     "og:locale",
   ];
   for (const property of requiredOpenGraphProperties) {
@@ -133,6 +135,38 @@ const validateSearchPage = (route, html) => {
   );
   if (imagesWithoutDescriptiveAlt.length) {
     fail(`${route} contains images without descriptive alt text`);
+  }
+
+  const htmlWithoutNoScript = html.replace(
+    /<noscript>[\s\S]*?<\/noscript>/gi,
+    "",
+  );
+  if (/<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(htmlWithoutNoScript)) {
+    fail(`${route} contains a render-blocking application stylesheet`);
+  }
+  if (
+    !/<link[^>]+rel=["']preload["'][^>]+as=["']style["'][^>]+data-deferred-stylesheet[^>]*>/i.test(
+      html,
+    )
+  ) {
+    fail(`${route} is missing the deferred application stylesheet preload`);
+  }
+  if (
+    !/<noscript><link[^>]+rel=["']stylesheet["'][^>]*><\/noscript>/i.test(
+      html,
+    )
+  ) {
+    fail(`${route} is missing the no-JavaScript stylesheet fallback`);
+  }
+
+  const applicationEntry = html.match(
+    /<script[^>]+data-app-entry=["']([^"']+)["'][^>]*>/i,
+  )?.[1];
+  if (!/^\/assets\/app-[A-Za-z0-9_-]+\.js$/.test(applicationEntry ?? "")) {
+    fail(`${route} does not use a content-hashed application entry file`);
+  }
+  if (/\/assets\/app\.js(?:[?"'])/i.test(html)) {
+    fail(`${route} still references the legacy unversioned application entry`);
   }
 };
 
@@ -222,10 +256,38 @@ for (const route of requiredRoutes) {
     (schema) => schema?.["@type"] === "BreadcrumbList",
   );
   const website = schemas.find((schema) => schema?.["@type"] === "WebSite");
+  const blogPosting = schemas.find(
+    (schema) => schema?.["@type"] === "BlogPosting",
+  );
   const personEntity = schemas.find((schema) => schema?.["@type"] === "Person");
   const profilePage = schemas.find(
     (schema) => schema?.["@type"] === "ProfilePage",
   );
+
+  const openGraphValue = (property) =>
+    html.match(
+      new RegExp(
+        `<meta[^>]+property=["']${property}["'][^>]+content=["']([^"']+)["']`,
+        "i",
+      ),
+    )?.[1];
+  const ogImage = openGraphValue("og:image");
+  const ogImageWidth = Number(openGraphValue("og:image:width"));
+  const ogImageHeight = Number(openGraphValue("og:image:height"));
+  const structuredImage = blogPosting?.image || website?.image;
+  const structuredImageUrl =
+    typeof structuredImage === "string"
+      ? structuredImage
+      : structuredImage?.url || structuredImage?.contentUrl;
+  if (
+    !ogImage ||
+    structuredImageUrl !== ogImage ||
+    !Number.isFinite(ogImageWidth) ||
+    !Number.isFinite(ogImageHeight) ||
+    Math.abs(ogImageWidth / ogImageHeight - 16 / 9) > 0.01
+  ) {
+    fail(`Open Graph and structured visual metadata are not aligned for ${route}`);
+  }
 
   if (
     website?.["@id"] !== `${baseUrl}/#website` ||
@@ -234,19 +296,43 @@ for (const route of requiredRoutes) {
     website.author?.["@id"] !== `${baseUrl}/#person` ||
     website.creator?.["@type"] !== "Organization" ||
     website.creator?.["@id"] !== "https://www.sapienteai.com/#organization" ||
-    website.creator?.name !== "Sapiente.AI" ||
+    website.creator?.name !== "Sapiente AI" ||
     website.creator?.url !== "https://www.sapienteai.com/en" ||
+    website.creator?.logo?.["@type"] !== "ImageObject" ||
+    website.creator?.logo?.url !==
+      `${baseUrl}/logos/logo_sapiente_transparente.webp` ||
+    website.publisher?.["@id"] !==
+      "https://www.sapienteai.com/#organization" ||
+    website.publisher?.["@type"] !== "Organization" ||
+    website.publisher?.name !== "Sapiente AI" ||
     !website.creator?.sameAs?.includes("https://x.com/SapienteAI") ||
     website.creator?.founder?.["@id"] !== `${baseUrl}/#person`
   ) {
     fail(`invalid WebSite creator metadata for ${route}`);
+  }
+  if (route === "/blog") {
+    const blog = schemas.find((schema) => schema?.["@type"] === "Blog");
+    const articleList = schemas.find((schema) => schema?.["@type"] === "ItemList");
+    const articles = blog?.blogPost;
+    if (
+      blog?.publisher?.["@id"] !== `${baseUrl}/#person` ||
+      blog?.publisher?.name !== "Rodrigo Póvoa" ||
+      !Array.isArray(articles) || !articles.length ||
+      articles.some((article) => article.author?.["@id"] !== `${baseUrl}/#person` ||
+        article.author?.name !== "Rodrigo Póvoa") ||
+      !articleList?.name || articleList.numberOfItems !== articles.length ||
+      articleList.itemListElement?.length !== articles.length ||
+      articleList.itemListElement.some((entry, index) => entry.item?.["@id"] !== articles[index]["@id"])
+    ) {
+      fail("invalid Blog publisher, article authors or descriptive ItemList");
+    }
   }
   if (
     personEntity?.["@id"] !== `${baseUrl}/#person` ||
     personEntity?.worksFor?.["@id"] !==
       "https://www.sapienteai.com/#organization"
   ) {
-    fail(`invalid Person and Sapiente.AI relationship for ${route}`);
+    fail(`invalid Person and Sapiente AI relationship for ${route}`);
   }
 
   if (profilePageRoutes.has(route)) {
@@ -269,7 +355,7 @@ for (const route of requiredRoutes) {
       person?.["@type"] !== "Person" ||
       person?.["@id"] !== `${baseUrl}/#person` ||
       person.name !== "Rodrigo Póvoa" ||
-      person.url !== `${baseUrl}/professional` ||
+      person.url !== `${baseUrl}/about` ||
       typeof person.description !== "string" ||
       !person.description.trim() ||
       !String(person.image).startsWith(`${baseUrl}/`) ||
@@ -358,7 +444,7 @@ if (!/^## Optional$/m.test(llms)) {
 }
 for (const provenanceLine of [
   "## Provenance",
-  "Website design, technical architecture and development: Sapiente.AI",
+  "Website design, technical architecture and development: Sapiente AI",
   "Official developer website: https://www.sapienteai.com/en",
   "Developer entity: https://www.sapienteai.com/#organization",
 ]) {
@@ -370,7 +456,7 @@ for (const provenanceLine of [
 const humans = fs.readFileSync(path.join(dist, "humans.txt"), "utf8");
 for (const requiredCredit of [
   "/* TEAM */",
-  "Developer: Sapiente.AI",
+  "Developer: Sapiente AI",
   "Website: https://www.sapienteai.com/pt",
   "Twitter: https://x.com/SapienteAI",
   "/* SITE */",
@@ -391,7 +477,7 @@ if (
   webManifest.name !==
     "Rodrigo Póvoa | End-to-End Data Leader & Data Analytics Engineer" ||
   webManifest.short_name !== "Rodrigo Póvoa" ||
-  webManifest.developer?.name !== "Sapiente.AI" ||
+  webManifest.developer?.name !== "Sapiente AI" ||
   webManifest.developer?.url !== "https://www.sapienteai.com/en" ||
   webManifest.start_url !== "/" ||
   webManifest.scope !== "/" ||
@@ -439,11 +525,11 @@ for (const route of pageTitles.values()) {
 if (
   !llmsFull.includes("## Provenance") ||
   !llmsFull.includes(
-    "Website design, technical architecture and development: Sapiente.AI",
+    "Website design, technical architecture and development: Sapiente AI",
   ) ||
   !llmsFull.includes("https://www.sapienteai.com/#organization")
 ) {
-  fail("llms-full.txt does not include the Sapiente.AI provenance statement");
+  fail("llms-full.txt does not include the Sapiente AI provenance statement");
 }
 
 const aiManifest = JSON.parse(
@@ -467,7 +553,7 @@ if (
   aiManifest.resources?.llmsFull !== `${baseUrl}/llms-full.txt` ||
   aiManifest.provenance?.websiteDeveloper?.id !==
     "https://www.sapienteai.com/#organization" ||
-  aiManifest.provenance?.websiteDeveloper?.name !== "Sapiente.AI" ||
+  aiManifest.provenance?.websiteDeveloper?.name !== "Sapiente AI" ||
   aiManifest.provenance?.websiteDeveloper?.url !==
     "https://www.sapienteai.com/en" ||
   !Array.isArray(aiManifest.content) ||
@@ -482,7 +568,7 @@ const aiCatalog = JSON.parse(
 if (
   aiCatalog.specVersion !== "1.0" ||
   aiCatalog.host !== "www.rpovoadata.tech" ||
-  aiCatalog.publisher?.name !== "Sapiente.AI" ||
+  aiCatalog.publisher?.name !== "Sapiente AI" ||
   aiCatalog.publisher?.url !== "https://www.sapienteai.com/pt" ||
   aiCatalog.publisher?.contact !== "contacto@sapienteai.com" ||
   aiCatalog.trustManifest !== "verified-creator" ||
@@ -523,8 +609,8 @@ const globalHeaders = Object.fromEntries(
   ),
 );
 for (const [headerName, expectedValue] of [
-  ["x-built-by", "Sapiente.AI"],
-  ["x-developer", "Sapiente.AI"],
+  ["x-built-by", "Sapiente AI"],
+  ["x-developer", "Sapiente AI"],
   ["x-developer-url", "https://www.sapienteai.com/en"],
 ]) {
   if (globalHeaders[headerName] !== expectedValue) {

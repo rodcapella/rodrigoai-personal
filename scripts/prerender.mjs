@@ -330,7 +330,7 @@ try {
     .filter(Boolean)
     .sort()
     .at(-1);
-  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Provenance\n\n- Website design, technical architecture and development: Sapiente.AI\n- Official developer website: https://www.sapienteai.com/en\n- Developer entity: https://www.sapienteai.com/#organization\n\n## Core pages\n\n${coreRoutes
+  const llmsTxt = `# Rodrigo Póvoa\n\n> End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Architecture, Engineering, Analytics and technical leadership.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Provenance\n\n- Website design, technical architecture and development: Sapiente AI\n- Official developer website: https://www.sapienteai.com/en\n- Developer entity: https://www.sapienteai.com/#organization\n\n## Core pages\n\n${coreRoutes
     .map(
       ({ title, canonical, description }) =>
         `- [${title}](${canonical}): ${description}`,
@@ -346,7 +346,7 @@ try {
         `- [${title}](${canonical}): ${description}`,
     )
     .join("\n")}\n`;
-  const llmsFullTxt = `# Rodrigo Póvoa — Complete AI-readable corpus\n\n> Full text of the public professional profile, portfolio and articles published at ${baseUrl}.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nLast modified: ${corpusLastModified}\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Provenance\n\nWebsite design, technical architecture and development: Sapiente.AI\n\nOfficial developer website: https://www.sapienteai.com/en\n\nDeveloper entity: https://www.sapienteai.com/#organization\n\n---\n\n${markdownDocuments
+  const llmsFullTxt = `# Rodrigo Póvoa — Complete AI-readable corpus\n\n> Full text of the public professional profile, portfolio and articles published at ${baseUrl}.\n\nCanonical website: ${baseUrl}\nPrimary language: en-GB\nLast modified: ${corpusLastModified}\nContent usage: ai-train=no, search=yes, ai-input=yes\n\n## Provenance\n\nWebsite design, technical architecture and development: Sapiente AI\n\nOfficial developer website: https://www.sapienteai.com/en\n\nDeveloper entity: https://www.sapienteai.com/#organization\n\n---\n\n${markdownDocuments
     .map(
       ({ title, canonical, body }) =>
         `# ${title}\n\nSource: ${canonical}\n\n${body}`,
@@ -405,11 +405,11 @@ try {
     },
     provenance: {
       statement:
-        "Website design, technical architecture and development by Sapiente.AI.",
+        "Website design, technical architecture and development by Sapiente AI.",
       websiteDeveloper: {
         type: "Organization",
         id: "https://www.sapienteai.com/#organization",
-        name: "Sapiente.AI",
+        name: "Sapiente AI",
         url: "https://www.sapienteai.com/en",
         sameAs: ["https://x.com/SapienteAI"],
       },
@@ -459,7 +459,7 @@ try {
     specVersion: "1.0",
     host: "www.rpovoadata.tech",
     publisher: {
-      name: "Sapiente.AI",
+      name: "Sapiente AI",
       url: "https://www.sapienteai.com/pt",
       contact: "contacto@sapienteai.com",
     },

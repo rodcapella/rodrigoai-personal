@@ -3,7 +3,7 @@ import { personSchemaData } from "@/data/personSchema";
 import { siteBaseUrl } from "@/data/siteMetadata";
 
 interface ProfilePageSchemaProps {
-  path: "/professional" | "/why-me";
+  path: "/professional" | "/about";
   name: string;
   description: string;
   dateCreated: string;

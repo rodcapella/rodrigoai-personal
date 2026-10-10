@@ -30,7 +30,7 @@ The platform is designed to communicate:
 - Professional experience and career journey  
 - Personal background and mindset  
 - Core technical expertise  
-- AI-driven side projects (Sapiente.AI)  
+- AI-driven side projects (Sapiente AI)  
 - Data architecture philosophy  
 - Contact channel for strategic collaborations  
 

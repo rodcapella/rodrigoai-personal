@@ -2,7 +2,28 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 
+// Changes to these shared files affect every public page. Including them in
+// each route makes the next build/deploy derive a fresh lastmod directly from
+// the commit that changed the shared navigation, layout, SEO or presentation.
+const sharedPageSources = [
+  "index.html",
+  "src/components/Footer.tsx",
+  "src/components/Navbar.tsx",
+  "src/components/SEO.tsx",
+  "src/components/layout/MainLayout.tsx",
+  "src/components/seo/WebSiteSchema.tsx",
+  "src/index.css",
+  "src/routes.tsx",
+];
+
 export const pageLastModifiedSources = {
+  "/about": [
+    "src/pages/WhyMe.tsx",
+    "src/components/WhatDrivesMe.tsx",
+    "src/components/layout/DirectAnswersSection.tsx",
+    "src/components/seo/ProfilePageSchema.tsx",
+    "src/data/personSchema.ts",
+  ],
   "/": [
     "src/pages/Index.tsx",
     "src/components/HeroSection.tsx",
@@ -11,13 +32,6 @@ export const pageLastModifiedSources = {
     "src/components/ProjectsSection.tsx",
     "src/components/ContactSection.tsx",
     "src/data/profile.ts",
-  ],
-  "/why-me": [
-    "src/pages/WhyMe.tsx",
-    "src/components/WhatDrivesMe.tsx",
-    "src/components/layout/DirectAnswersSection.tsx",
-    "src/components/seo/ProfilePageSchema.tsx",
-    "src/data/personSchema.ts",
   ],
   "/professional": [
     "src/pages/Professional.tsx",
@@ -83,13 +97,15 @@ export const resolvePageLastModified = (root = process.cwd()) => {
 
   return Object.fromEntries(
     Object.entries(pageLastModifiedSources).map(([route, sources]) => {
+      const trackedSources = [...new Set([...sharedPageSources, ...sources])];
+
       try {
         const dirty = gitOutput(root, [
           "status",
           "--porcelain",
           "--untracked-files=all",
           "--",
-          ...sources,
+          ...trackedSources,
         ]);
 
         if (dirty) return [route, buildTimestamp];
@@ -99,15 +115,15 @@ export const resolvePageLastModified = (root = process.cwd()) => {
           "-1",
           "--format=%cI",
           "--",
-          ...sources,
+          ...trackedSources,
         ]);
 
         return [
           route,
-          committedAt || latestFileTimestamp(root, sources),
+          committedAt || latestFileTimestamp(root, trackedSources),
         ];
       } catch {
-        return [route, latestFileTimestamp(root, sources)];
+        return [route, latestFileTimestamp(root, trackedSources)];
       }
     }),
   );

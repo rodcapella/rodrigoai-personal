@@ -35,7 +35,13 @@ export default function Blog() {
       "@type": "Person",
       "@id": `${baseUrl}/#person`,
       name: "Rodrigo Póvoa",
-      url: `${baseUrl}/professional`,
+      url: `${baseUrl}/about`,
+    },
+    publisher: {
+      "@type": "Person",
+      "@id": `${baseUrl}/#person`,
+      name: "Rodrigo Póvoa",
+      url: `${baseUrl}/about`,
     },
     blogPost: blogPosts.map((post) => ({
       "@type": "BlogPosting",
@@ -45,17 +51,36 @@ export default function Blog() {
       datePublished: post.publishedAt,
       dateModified: post.updatedAt || post.publishedAt,
       inLanguage: post.language,
-      image: `${baseUrl}${post.image}`,
+      image: `${baseUrl}${post.socialImage || post.image}`,
+      author: {
+        "@type": "Person",
+        "@id": `${baseUrl}/#person`,
+        name: "Rodrigo Póvoa",
+        url: `${baseUrl}/about`,
+      },
+      publisher:
+        post.source?.name === "IA Hoje"
+          ? {
+              "@type": "Organization",
+              "@id": "https://inteligenciaartificialhoje.pt/#organization",
+              name: "IA Hoje",
+              url: "https://inteligenciaartificialhoje.pt/",
+            }
+          : { "@id": `${baseUrl}/#person` },
     })),
   };
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "@id": `${baseUrl}/blog#article-list`,
+    name: "Rodrigo Póvoa articles on Data Engineering, AI Governance and Analytics",
+    numberOfItems: blogPosts.length,
     itemListElement: blogPosts.map((post, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: post.title,
       url: `${baseUrl}/blog/${post.slug}`,
+      item: { "@id": `${baseUrl}/blog/${post.slug}#article` },
     })),
   };
 
@@ -84,6 +109,8 @@ export default function Blog() {
           title="BLOG"
           subtitle="Ideas, experiences and publications on data, AI, technology and leadership."
           image="/blog/rodrigo_blog_image.webp"
+          imageWidth={1372}
+          imageHeight={784}
           imageAlt="Rodrigo Póvoa with data and artificial intelligence publications"
         />
       </PageSection>
@@ -104,7 +131,15 @@ export default function Blog() {
                   <img
                     src={post.image}
                     alt={post.imageAlt}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    width={post.imageWidth}
+                    height={post.imageHeight}
+                    loading="lazy"
+                    decoding="async"
+                    className={`h-full w-full transition-transform duration-500 ${
+                      post.imageWidth && post.imageHeight && post.imageWidth / post.imageHeight < 1.7
+                        ? "object-contain"
+                        : "object-cover group-hover:scale-[1.03]"
+                    }`}
                   />
                   <span className="absolute left-5 top-5 rounded-full border border-white/20 bg-background/80 px-3 py-1 text-xs font-semibold text-primary backdrop-blur-md">
                     {post.category}

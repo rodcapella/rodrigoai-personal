@@ -25,7 +25,7 @@ const variants = {
 const spacingMap = {
   none: "py-0",
   sm: "py-8 md:py-10",
-  default: "py-12 md:py-16",
+  default: "py-8 md:py-10",
   lg: "py-20 md:py-24"
 }
 

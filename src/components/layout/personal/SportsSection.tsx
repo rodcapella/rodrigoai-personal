@@ -34,15 +34,12 @@ export default function SportsSection() {
                 boxShadow: `0 0 20px rgba(${team.color}, 0.6), 0 0 40px rgba(${team.color}, 0.4)`,
                 scale: 1.05,
               }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
               className="flex flex-col items-center"
             >
               
               {/* EMOJI */}
               <motion.div
                 className="text-4xl mb-1"
-                animate={{ y: [0, -3, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
                 whileHover={{ scale: 1.2 }}
               >
                 {team.emoji}

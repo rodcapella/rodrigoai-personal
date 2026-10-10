@@ -35,7 +35,7 @@ const ContactSection = () => {
 
   return (
     <CompactHighlightSection>
-      <div className="[&>div]:mb-4 [&>div>div]:mt-2">
+      <div className="mb-4 [&>div>div]:mt-2">
         <SectionTitle as="h2" icon={<TitleIcon />}>
           {content.title}
         </SectionTitle>
@@ -57,7 +57,7 @@ const ContactSection = () => {
       <div className="flex flex-wrap items-center justify-center gap-4">
         <a
           href="/contact"
-          className="flex h-11 items-center justify-center gap-2 rounded-lg bg-primary px-6 font-display text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 glow-primary-sm"
+          className="site-button bg-primary text-primary-foreground hover:bg-primary/90 glow-primary-sm"
         >
           <Mail className="w-4 h-4" />
           {content.primaryLabel}
@@ -68,7 +68,7 @@ const ContactSection = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Open Rodrigo Póvoa's LinkedIn profile"
-          className={`flex h-11 items-center justify-center gap-2 rounded-lg border border-border px-3 text-muted-foreground transition-all hover:border-primary/50 hover:text-primary ${
+          className={`site-button site-button-outline ${
             content.showLinkedInLabel ? "sm:px-5" : "w-11"
           }`}
         >

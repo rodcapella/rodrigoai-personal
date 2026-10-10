@@ -234,23 +234,23 @@ export default function WhyMe() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Why Rodrigo Póvoa | Data Leadership & Architecture"
+        title="About Rodrigo Póvoa | Data Leadership & Architecture"
         description="Discover Rodrigo Póvoa's approach to end-to-end data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
         keywords="Rodrigo Póvoa, AI-assisted engineering, MCP-based integrations, human-validated AI, data leadership, Azure Databricks, data architecture, data governance"
       />
 
       <ProfilePageSchema
-        path="/why-me"
+        path="/about"
         name="Why Work With Rodrigo Póvoa"
         description="Rodrigo Póvoa's approach to data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
-        dateCreated={staticPageMetadata["/why-me"].dateCreated!}
-        dateModified={staticPageMetadata["/why-me"].lastModified!}
+        dateCreated={staticPageMetadata["/about"].dateCreated!}
+        dateModified={staticPageMetadata["/about"].lastModified!}
       />
 
       <BreadcrumbSchema
         items={[
           { name: "Home", url: "https://www.rpovoadata.tech/" },
-          { name: "Why Me?", url: "https://www.rpovoadata.tech/why-me" },
+          { name: "About", url: "https://www.rpovoadata.tech/about" },
         ]}
       />
 
@@ -260,6 +260,8 @@ export default function WhyMe() {
           title="WHY WORK WITH ME"
           subtitle="15+ years building data systems taught me one thing: architecture shapes how organizations think, decide, and scale."
           image="/rodrigo_why_me.webp"
+          imageWidth={1344}
+          imageHeight={768}
           imageAlt="Rodrigo Póvoa presenting data analytics and artificial intelligence concepts"
         />
       </PageSection>

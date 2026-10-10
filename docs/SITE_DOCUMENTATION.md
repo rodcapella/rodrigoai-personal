@@ -26,7 +26,7 @@ O RodrigoAI é o portfólio profissional de Rodrigo Póvoa. O site posiciona o a
 1. Recrutadores e empresas procurando liderança técnica em dados.
 2. Gestores e decisores avaliando experiência em arquitetura, analytics e IA.
 3. Profissionais interessados em conteúdo técnico e liderança.
-4. Potenciais parceiros ou clientes da Sapiente.AI.
+4. Potenciais parceiros ou clientes da Sapiente AI.
 5. Mecanismos de busca e plataformas sociais que indexam ou compartilham o conteúdo.
 
 ### 2.2 Objetivos de negócio
@@ -35,7 +35,7 @@ O RodrigoAI é o portfólio profissional de Rodrigo Póvoa. O site posiciona o a
 - centralizar experiência, competências e projetos;
 - gerar oportunidades por meio do formulário de contato;
 - ampliar descoberta orgânica por SEO e conteúdo editorial;
-- fortalecer a ligação entre a marca pessoal e a Sapiente.AI;
+- fortalecer a ligação entre a marca pessoal e a Sapiente AI;
 - medir navegação respeitando o consentimento do visitante.
 
 ### 2.3 Indicadores recomendados
@@ -45,7 +45,7 @@ O site já possui a base para mensuração com GA4. Os indicadores a acompanhar 
 - visitas orgânicas e páginas de entrada;
 - visualizações das páginas Professional, Why Me e Side Projects;
 - leitura dos artigos do blog;
-- cliques em Contact, LinkedIn, GitHub e Sapiente.AI;
+- cliques em Contact, LinkedIn, GitHub e Sapiente AI;
 - início, erro e conclusão do formulário;
 - taxa de consentimento de analytics;
 - Core Web Vitals;
@@ -117,7 +117,7 @@ Humaniza a marca pessoal por meio de:
 
 ### 3.6 Innovation Hub — `/side-projects`
 
-Apresenta a Sapiente.AI como laboratório e ecossistema de inovação:
+Apresenta a Sapiente AI como laboratório e ecossistema de inovação:
 
 - propósito e posicionamento;
 - áreas de exploração em IA;
@@ -125,7 +125,7 @@ Apresenta a Sapiente.AI como laboratório e ecossistema de inovação:
 - automação inteligente;
 - presença digital e interfaces inteligentes;
 - prototipagem;
-- chamada externa para o site da Sapiente.AI.
+- chamada externa para o site da Sapiente AI.
 
 ### 3.7 Blog — `/blog` e `/blog/:slug`
 
@@ -342,7 +342,7 @@ As variáveis prefixadas com `VITE_` são incorporadas no cliente e, portanto, n
 - servidor Securemail: entrega SMTP;
 - Google Analytics: medição consentida;
 - Google Search Console: indexação e desempenho orgânico;
-- LinkedIn, GitHub e Sapiente.AI: destinos externos.
+- LinkedIn, GitHub e Sapiente AI: destinos externos.
 
 ### 5.3 Persistência
 
@@ -515,7 +515,7 @@ Escala de esforço:
 | P3-01 | Decidir o futuro do Povoabot | Conversa pode facilitar descoberta do perfil | M/XL | Caso de uso, fonte, custo, moderação, privacidade e métricas aprovados |
 | P3-02 | Portfólio interativo de arquitetura | Diagramas podem demonstrar senioridade técnica | L | Conteúdo e público-alvo validados com protótipo simples |
 | P3-03 | Assistente de navegação sem IA generativa | Recomenda páginas com menor custo e risco | M | Jornada mostra ganho sobre busca e menu tradicionais |
-| P3-04 | Laboratório de demos da Sapiente.AI | Provas práticas podem gerar oportunidades | XL | Cada demo possui objetivo, orçamento, segurança e manutenção definida |
+| P3-04 | Laboratório de demos da Sapiente AI | Provas práticas podem gerar oportunidades | XL | Cada demo possui objetivo, orçamento, segurança e manutenção definida |
 | P3-05 | Personalização por origem de campanha | Mensagens específicas podem elevar conversão | L | Base legal, limites de privacidade e experimento A/B definidos |
 
 ## 10. Sequência recomendada

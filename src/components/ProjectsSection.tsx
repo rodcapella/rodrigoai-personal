@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import PageSection from "@/components/layout/PageSection";
 import PageGrid from "@/components/layout/PageGrid";
 import PageCard from "@/components/layout/PageCard";
@@ -71,13 +70,9 @@ const ProjectsSection = () => {
   return (
     <PageSection title="Strategic Projects" icon={<Rocket />}>
       <PageGrid cols={2} gap="md">
-        {projects.map((project, i) => (
-          <motion.div
+        {projects.map((project) => (
+          <div
             key={project.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <PageCard>
               {/* TITLE */}
@@ -97,22 +92,18 @@ const ProjectsSection = () => {
                 </span>
 
                 <div className="flex flex-wrap gap-2">
-                  {project.stack.map((tech, techIndex) => (
-                    <motion.span
+                  {project.stack.map((tech) => (
+                    <span
                       key={tech}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: techIndex * 0.04 }}
                       className="tag-tech"
                     >
                       {tech}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
             </PageCard>
-          </motion.div>
+          </div>
         ))}
       </PageGrid>
     </PageSection>

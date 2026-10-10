@@ -120,6 +120,8 @@ export default function Professional() {
           title="PROFESSIONAL JOURNEY"
           subtitle="Experience Building Enterprise Data Platforms and Analytics Capabilities"
           image="/ai-portrait.webp"
+          imageWidth={1024}
+          imageHeight={1536}
           imageAlt="Rodrigo Póvoa in a data analytics and artificial intelligence environment"
           imagePosition="top"
         />

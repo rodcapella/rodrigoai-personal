@@ -54,7 +54,7 @@ const PageCard = ({
       {...animationProps}
       className={`
         relative
-        p-5                     /* 🔥 menor e mais elegante */
+        p-5
         rounded-xl
         h-full
         transition-all duration-300

@@ -80,10 +80,20 @@ const collectSchemaTypes = (value, types = new Set()) => {
   if (Array.isArray(type)) type.forEach((item) => types.add(item));
   else if (typeof type === "string") types.add(type);
 
-  if (Array.isArray(value["@graph"])) {
-    value["@graph"].forEach((item) => collectSchemaTypes(item, types));
-  }
+  Object.values(value).forEach((item) => collectSchemaTypes(item, types));
   return types;
+};
+
+const collectSchemaNodes = (value, nodes = []) => {
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectSchemaNodes(item, nodes));
+    return nodes;
+  }
+  if (!value || typeof value !== "object") return nodes;
+
+  if (value["@type"]) nodes.push(value);
+  Object.values(value).forEach((item) => collectSchemaNodes(item, nodes));
+  return nodes;
 };
 
 const extractSchemaTypes = (html, pathname) => {
@@ -105,6 +115,25 @@ const extractSchemaTypes = (html, pathname) => {
   return types;
 };
 
+const extractSchemaNodes = (html, pathname) => {
+  const scripts = [
+    ...html.matchAll(
+      /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+    ),
+  ];
+  if (!scripts.length) fail(`${pathname} has no JSON-LD`);
+
+  const nodes = [];
+  for (const script of scripts) {
+    try {
+      collectSchemaNodes(JSON.parse(script[1]), nodes);
+    } catch {
+      fail(`${pathname} contains malformed JSON-LD`);
+    }
+  }
+  return nodes;
+};
+
 const requireSchemaTypes = (types, required, pathname) => {
   for (const type of required) {
     if (!types.has(type)) fail(`${pathname} is missing ${type} structured data`);
@@ -116,7 +145,7 @@ const expectedSchemas = (pathname) => {
   if (pathname === "/") required.push("FAQPage");
   else required.push("BreadcrumbList");
 
-  if (pathname === "/professional" || pathname === "/why-me") {
+  if (pathname === "/about" || pathname === "/professional") {
     required.push("ProfilePage");
   }
   if (pathname === "/blog") required.push("Blog", "ItemList");
@@ -186,6 +215,8 @@ for (const pageUrl of [...pageUrls].sort()) {
     "og:image:secure_url",
     "og:image:type",
     "og:image:alt",
+    "og:image:width",
+    "og:image:height",
     "og:locale",
   ];
   for (const property of requiredOpenGraphProperties) {
@@ -217,6 +248,20 @@ for (const pageUrl of [...pageUrls].sort()) {
 
   const schemaTypes = extractSchemaTypes(html, pathname);
   requireSchemaTypes(schemaTypes, expectedSchemas(pathname), pathname);
+  const schemaNodes = extractSchemaNodes(html, pathname);
+  const websiteSchema = schemaNodes.find((node) => node["@type"] === "WebSite");
+  const organizationSchema = schemaNodes.find(
+    (node) => node["@type"] === "Organization",
+  );
+  if (!websiteSchema?.publisher?.["@id"]) {
+    fail(`${pathname} WebSite schema is missing its publisher reference`);
+  }
+  if (
+    organizationSchema?.logo?.["@type"] !== "ImageObject" ||
+    !organizationSchema.logo.url
+  ) {
+    fail(`${pathname} Organization schema is missing its logo URL`);
+  }
 
   const markdownResponse = await fetchWithRetry(pathname, {
     headers: { Accept: "text/markdown, text/html;q=0.9" },
@@ -268,7 +313,17 @@ for (const [pathname, mime] of discoveryResources) {
   }
 }
 
-const rootResponse = await fetchWithRetry("/");
+const rootResponse = await fetchWithRetry("/", {
+  headers: { "Accept-Encoding": "br, gzip" },
+});
+const contentEncoding = (
+  rootResponse.headers.get("content-encoding") || ""
+).toLowerCase();
+if (!/\b(?:br|gzip)\b/.test(contentEncoding)) {
+  fail(
+    `root response is not compressed with Brotli or Gzip (content-encoding: ${contentEncoding || "missing"})`,
+  );
+}
 const linkHeader = rootResponse.headers.get("link") || "";
 for (const endpoint of [
   "/llms.txt",
@@ -279,8 +334,8 @@ for (const endpoint of [
   if (!linkHeader.includes(endpoint)) fail(`root Link header is missing ${endpoint}`);
 }
 for (const [headerName, expectedValue] of [
-  ["x-built-by", "Sapiente.AI"],
-  ["x-developer", "Sapiente.AI"],
+  ["x-built-by", "Sapiente AI"],
+  ["x-developer", "Sapiente AI"],
   ["x-developer-url", "https://www.sapienteai.com/en"],
 ]) {
   if (rootResponse.headers.get(headerName) !== expectedValue) {

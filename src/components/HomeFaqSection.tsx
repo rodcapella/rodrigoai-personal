@@ -1,37 +1,52 @@
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import PageSection from "@/components/layout/PageSection";
+import { FadeInOnScroll } from "@/components/ui/FadeInOnScroll";
 import { ChevronRight, MessageCircle } from "@/lib/icons";
 
 const questions = [
   {
+    id: "faq-professional-opportunities",
+    link: { to: "/contact", label: "Discuss an opportunity" },
     question: "What professional opportunities am I currently exploring?",
     answer:
-      "I am currently exploring senior and leadership opportunities across Data Engineering, Data Architecture and Analytics, where I can combine hands-on technical delivery, governance, stakeholder alignment and team leadership.",
+      "Rodrigo Póvoa is currently exploring senior and leadership opportunities across Data Engineering, Data Architecture and Analytics, combining hands-on technical delivery, governance, stakeholder alignment and team leadership.",
   },
   {
+    id: "faq-data-specialization",
+    link: { to: "/professional", label: "Explore professional experience" },
     question: "What is my core data specialization?",
     answer:
-      "I specialize in end-to-end data platforms, from ingestion, transformation and orchestration through quality, security, governance and analytics, with strong experience in Azure Databricks Lakehouse architectures.",
+      "Rodrigo Póvoa specializes in end-to-end data platforms, from ingestion, transformation and orchestration through quality, security, governance and analytics, with strong experience in Azure Databricks Lakehouse architectures.",
   },
   {
+    id: "faq-engineering-and-leadership",
+    link: { to: "/professional", label: "Review engineering and leadership experience" },
     question: "Do I combine hands-on engineering with technical leadership?",
     answer:
-      "Yes. I remain involved in architecture, engineering standards, code and solution reviews, troubleshooting and delivery decisions while leading multidisciplinary teams, mentoring professionals and aligning stakeholders.",
+      "Yes. Rodrigo Póvoa remains involved in architecture, engineering standards, code and solution reviews, troubleshooting and delivery decisions while leading multidisciplinary teams, mentoring professionals and aligning stakeholders.",
   },
   {
+    id: "faq-technologies",
+    link: { to: "/professional", label: "View technology stack and experience" },
     question: "Which technologies are most relevant to my recent work?",
     answer:
-      "My recent work focuses on Azure Databricks, Delta Lake, PySpark, Python, SQL, ADLS, Unity Catalog and Power BI, supported by data quality, lineage, orchestration, security and governance practices.",
+      "Rodrigo Póvoa’s recent work focuses on Azure Databricks, Delta Lake, PySpark, Python, SQL, ADLS, Unity Catalog and Power BI, supported by data quality, lineage, orchestration, security and governance practices.",
   },
   {
+    id: "faq-organizations-and-environments",
+    link: { to: "/professional", label: "Explore career history" },
     question: "What types of organizations and environments have I worked in?",
     answer:
-      "My experience spans large enterprises, consulting engagements, international banking and retail projects, digital businesses and technology startups across Brazil and Europe.",
+      "Rodrigo Póvoa’s experience spans large enterprises, consulting engagements, international banking and retail projects, digital businesses and technology startups across Brazil and Europe.",
   },
   {
+    id: "faq-contact",
+    link: { to: "/contact", label: "Contact Rodrigo Póvoa" },
     question: "How can recruiters and organizations contact me?",
     answer:
-      "Use the Contact page to send me a message or connect with me directly on LinkedIn. Messages are normally answered within 48 business hours.",
+      "Use the Contact page to send Rodrigo Póvoa a message or connect with him directly on LinkedIn. Messages are normally answered within 48 business hours.",
   },
 ] as const;
 
@@ -39,17 +54,34 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": "https://www.rpovoadata.tech/#frequently-asked-questions",
-  mainEntity: questions.map(({ question, answer }) => ({
+  mainEntity: questions.map(({ id, question, answer, link }) => ({
     "@type": "Question",
+    "@id": `https://www.rpovoadata.tech/#${id}`,
+    url: `https://www.rpovoadata.tech/#${id}`,
     name: question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: answer,
+      text: `${answer} <a href="https://www.rpovoadata.tech${link.to}">${link.label}</a>`,
     },
   })),
 };
 
 export default function HomeFaqSection() {
+  useEffect(() => {
+    const openLinkedQuestion = () => {
+      const question = questions.find(({ id }) => window.location.hash === `#${id}`);
+      if (!question) return;
+      const details = document.getElementById(question.id);
+      if (details instanceof HTMLDetailsElement) {
+        details.open = true;
+        details.scrollIntoView({ block: "start" });
+      }
+    };
+    openLinkedQuestion();
+    window.addEventListener("hashchange", openLinkedQuestion);
+    return () => window.removeEventListener("hashchange", openLinkedQuestion);
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -62,27 +94,34 @@ export default function HomeFaqSection() {
         icon={<MessageCircle />}
       >
         <div className="space-y-5 md:space-y-6">
-          {questions.map(({ question, answer }) => (
-            <details
-              key={question}
-              className="group overflow-hidden rounded-xl border border-border bg-card/50 transition-colors open:border-primary/30 open:bg-card/70"
-            >
-              <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-5 text-left transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-7 [&::-webkit-details-marker]:hidden">
-                <ChevronRight
-                  aria-hidden="true"
-                  className="h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-open:rotate-90"
-                />
-                <h3 className="text-base font-medium text-foreground sm:text-lg">
-                  {question}
-                </h3>
-              </summary>
+          {questions.map(({ id, question, answer, link }, index) => (
+            <FadeInOnScroll key={question} delay={index * 0.04}>
+              <details id={id} className="group scroll-mt-28 overflow-hidden rounded-xl border border-border bg-card/50 transition-colors open:border-primary/30 open:bg-card/70">
+                <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-5 text-left transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-7 [&::-webkit-details-marker]:hidden">
+                  <ChevronRight
+                    aria-hidden="true"
+                    className="h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-open:rotate-90"
+                  />
+                  <h3 className="text-base font-medium text-foreground sm:text-lg">
+                    {question}
+                  </h3>
+                </summary>
 
-              <div className="border-t border-border/70 px-5 py-5 pl-14 sm:px-7 sm:pl-16">
-                <p className="max-w-4xl leading-relaxed text-muted-foreground">
-                  {answer}
-                </p>
-              </div>
-            </details>
+                <div className="border-t border-border/70 px-5 py-5 pl-14 sm:px-7 sm:pl-16">
+                  <p className="max-w-4xl leading-relaxed text-muted-foreground">
+                    {answer}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-sm">
+                    <Link to={link.to} className="font-semibold text-primary underline underline-offset-4">
+                      {link.label}
+                    </Link>
+                    <a href={`#${id}`} aria-label={`Direct link: ${question}`} className="text-primary underline underline-offset-4">
+                      Link to this question
+                    </a>
+                  </div>
+                </div>
+              </details>
+            </FadeInOnScroll>
           ))}
         </div>
       </PageSection>

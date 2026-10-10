@@ -84,16 +84,16 @@ export default function Privacy() {
         </div>
       </PageSection>
 
-      <PageSection className="pt-14">
+      <PageSection spacing="none" className="pt-10 pb-12 md:pb-16">
         <div className="mx-auto max-w-4xl">
           <div className="space-y-5">
             {sections.map(({ icon: Icon, title, content }) => (
               <section key={title} className="rounded-2xl border border-primary/15 bg-card/50 p-6 sm:p-8">
                 <div className="flex gap-4">
-                  <span className="h-fit rounded-lg bg-primary/10 p-2.5 text-primary">
+                  <span className="h-fit shrink-0 rounded-lg bg-primary/10 p-2.5 text-primary">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <div>
+                  <div className="min-w-0">
                     <h2 className="font-display text-xl font-semibold">{title}</h2>
                     <p className="mt-3 leading-7 text-muted-foreground">{content}</p>
                   </div>
@@ -110,7 +110,7 @@ export default function Privacy() {
             <button
               type="button"
               onClick={openPrivacyConsent}
-              className="rounded-xl bg-primary px-5 py-3 font-semibold text-primary-foreground transition hover:bg-primary/90"
+              className="site-button bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Manage privacy preferences
             </button>

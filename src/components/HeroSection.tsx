@@ -24,12 +24,12 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
       <div className="grid md:grid-cols-[1.25fr_0.75fr] gap-12 items-center">
         
         {/* LEFT */}
-        <div className="max-w-xl">
-          <h1 className="font-display text-3xl md:text-4xl font-extrabold uppercase tracking-[0.12em] mb-6 text-gradient">
+        <div className="max-w-xl md:min-h-[21.25rem] lg:min-h-[17rem] xl:min-h-[15.25rem]">
+          <h1 className="font-display text-3xl md:min-h-[7.5rem] md:text-4xl lg:min-h-[5rem] font-extrabold uppercase tracking-[0.12em] mb-6 text-gradient">
             End-to-End Data Leader &amp; Data Analytics Engineer
           </h1>
 
-          <p className="max-w-2xl text-lg leading-relaxed text-foreground/80 md:text-xl">
+          <p className="max-w-2xl text-lg leading-relaxed text-foreground/80 md:min-h-[12.25rem] md:text-xl lg:min-h-[10.5rem] xl:min-h-[8.75rem]">
             Bridging 15+ years of experience across Data Architecture,
             Engineering, and Analytics. From traditional Enterprise Data
             Warehousing and Big Data ecosystems to modern Azure Databricks

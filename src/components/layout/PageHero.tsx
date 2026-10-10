@@ -5,6 +5,8 @@ interface PageHeroProps {
   subtitle?: string;
   description?: string;
   image?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   imageAlt: string;
   imageFit?: "cover" | "contain";
   imagePosition?: "center" | "top";
@@ -16,6 +18,8 @@ const PageHero = ({
   subtitle,
   description,
   image,
+  imageWidth = 320,
+  imageHeight = 320,
   imageAlt,
   imageFit = "cover",
   imagePosition = "center",
@@ -94,6 +98,10 @@ const PageHero = ({
                 <img
                   src={image}
                   alt={imageAlt}
+                  width={imageWidth}
+                  height={imageHeight}
+                  loading="eager"
+                  decoding="async"
                   className={`relative h-full w-full rounded-3xl border border-primary/20 shadow-2xl ${
                     imageFit === "contain" ? "object-contain" : "object-cover"
                   } ${imagePosition === "top" ? "object-top" : "object-center"}`}

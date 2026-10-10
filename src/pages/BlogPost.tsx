@@ -33,15 +33,30 @@ export default function BlogPost() {
   const authorId = `${baseUrl}/#person`;
   const imageObject = {
     "@type": "ImageObject",
-    url: `${baseUrl}${post.image}`,
-    ...(post.imageWidth ? { width: post.imageWidth } : {}),
-    ...(post.imageHeight ? { height: post.imageHeight } : {}),
+    url: `${baseUrl}${post.socialImage || post.image}`,
+    contentUrl: `${baseUrl}${post.socialImage || post.image}`,
+    width: post.socialImage ? 1200 : post.imageWidth,
+    height: post.socialImage ? 675 : post.imageHeight,
   };
   const articleText = post.sections.flatMap((section) => [
     section.heading || "",
     ...section.paragraphs,
     section.quote || "",
   ]);
+  const publisher =
+    post.source?.name === "IA Hoje"
+      ? {
+          "@type": "Organization",
+          "@id": "https://inteligenciaartificialhoje.pt/#organization",
+          name: "IA Hoje",
+          url: "https://inteligenciaartificialhoje.pt/",
+        }
+      : {
+          "@type": "Person",
+          "@id": authorId,
+          name: "Rodrigo Póvoa",
+          url: `${baseUrl}/about`,
+        };
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -62,15 +77,10 @@ export default function BlogPost() {
       "@type": "Person",
       "@id": authorId,
       name: "Rodrigo Póvoa",
-      url: `${baseUrl}/professional`,
+      url: `${baseUrl}/about`,
       sameAs: ["https://www.linkedin.com/in/rodrigocspovoa", "https://github.com/rodcapella"],
     },
-    publisher: {
-      "@type": "Person",
-      "@id": authorId,
-      name: "Rodrigo Póvoa",
-      url: `${baseUrl}/professional`,
-    },
+    publisher,
     ...(post.source
       ? { isBasedOn: post.source.url, sameAs: post.source.url }
       : {}),
@@ -84,13 +94,17 @@ export default function BlogPost() {
       <SEO
         title={post.seoTitle || `${post.title} | Rodrigo Póvoa`}
         description={post.excerpt}
-        image={post.image}
+        image={post.socialImage || post.image}
         imageAlt={post.imageAlt}
+        imageWidth={post.socialImage ? 1200 : post.imageWidth}
+        imageHeight={post.socialImage ? 675 : post.imageHeight}
         type="article"
         keywords={post.keywords.join(", ")}
         publishedTime={post.publishedAt}
         modifiedTime={post.updatedAt}
         author="Rodrigo Póvoa"
+        section={post.category}
+        tags={post.keywords}
         language={post.language}
       />
       <Helmet>
@@ -128,7 +142,7 @@ export default function BlogPost() {
         </div>
       </PageSection>
 
-      <PageSection className="pt-10 pb-0">
+      <PageSection spacing="none" className="pt-10 pb-0">
         <figure className="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-primary/15 bg-card/50 shadow-xl">
           <img
             src={post.image}
@@ -141,7 +155,7 @@ export default function BlogPost() {
         </figure>
       </PageSection>
 
-      <PageSection className="pt-14">
+      <PageSection spacing="none" className="pt-10 pb-12 md:pb-16">
         <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_220px]">
           <article className="min-w-0" lang={post.language}>
             <div className="space-y-12">
@@ -159,9 +173,11 @@ export default function BlogPost() {
                 <ul className="mt-4 space-y-3">
                   {post.references.map((reference) => (
                     <li key={reference.url}>
-                      <a href={reference.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
-                        {reference.name}<ExternalLink className="h-4 w-4 shrink-0" />
-                      </a>
+                      <cite className="not-italic">
+                        <a href={reference.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+                          {reference.name}<ExternalLink className="h-4 w-4 shrink-0" />
+                        </a>
+                      </cite>
                     </li>
                   ))}
                 </ul>
@@ -172,16 +188,16 @@ export default function BlogPost() {
               <p className="text-sm font-semibold uppercase tracking-wider text-primary">Original publication</p>
               <p className="mt-3 text-muted-foreground">This article was written by Rodrigo Póvoa and originally published on {post.source.name}.</p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <a href={post.source.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Read on {post.source.name}<ExternalLink className="h-4 w-4" /></a>
+                <a href={post.source.url} target="_blank" rel="noopener noreferrer" className="site-button bg-primary text-primary-foreground hover:bg-primary/90">Read on {post.source.name}<ExternalLink className="h-4 w-4" /></a>
                 {post.source.linkedInUrl && post.source.linkedInUrl !== post.source.url && (
-                  <a href={post.source.linkedInUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold transition-colors hover:border-primary/40 hover:text-primary">LinkedIn post<Linkedin className="h-4 w-4" /></a>
+                  <a href={post.source.linkedInUrl} target="_blank" rel="noopener noreferrer" className="site-button site-button-outline">LinkedIn post<Linkedin className="h-4 w-4" /></a>
                 )}
               </div>
             </div>
             ) : null}
             <Link
               to="/blog"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg border border-primary/20 px-4 py-2 font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              className="site-button site-button-outline mt-8"
             >
               <ArrowLeft className="h-4 w-4" /> Back to blog
             </Link>
@@ -190,8 +206,8 @@ export default function BlogPost() {
             <div className="sticky top-28 rounded-xl border border-primary/15 bg-card/60 p-5">
               <p className="text-xs font-semibold uppercase tracking-wider text-primary">About the author</p>
               <p className="mt-3 font-semibold">Rodrigo Póvoa</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">End-to-End Data Leader &amp; Data Analytics Engineer; founder of Sapiente.AI.</p>
-              <Link to="/professional" className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline">View professional profile</Link>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">End-to-End Data Leader &amp; Data Analytics Engineer; founder of Sapiente AI.</p>
+              <Link to="/about" className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline">About Rodrigo Póvoa</Link>
             </div>
           </aside>
         </div>

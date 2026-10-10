@@ -5,7 +5,7 @@ import SectionContent from "@/components/layout/SectionContent";
 const AboutSection = () => {
   return (
     <SectionContent title={homeProfile.name} icon={<User />}>
-      <div className="space-text md:min-h-[360px]">
+      <div className="space-text md:min-h-[360px] [&>p]:text-left md:[&>p]:text-justify">
         <p className="body-lg text-justify">
           {homeProfile.leadershipFocus}
         </p>

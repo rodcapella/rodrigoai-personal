@@ -25,21 +25,10 @@ const PageGrid = ({
   cols = 3,
   gap = "md",
   className = "",
-}: PageGridProps & {
-  cols?: number | { base?: number; sm?: number; md?: number; lg?: number }
-}) => {
+}: PageGridProps) => {
 
   const getCols = () => {
-    if (typeof cols === "number") {
-      return colMap[cols]
-    }
-
-    return `
-      ${cols.base ? `grid-cols-${cols.base}` : "grid-cols-1"}
-      ${cols.sm ? `sm:grid-cols-${cols.sm}` : ""}
-      ${cols.md ? `md:grid-cols-${cols.md}` : ""}
-      ${cols.lg ? `lg:grid-cols-${cols.lg}` : ""}
-    `
+    return colMap[cols]
   }
 
   return (

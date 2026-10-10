@@ -19,6 +19,7 @@ export type BlogPost = {
   imageAlt: string;
   imageWidth?: number;
   imageHeight?: number;
+  socialImage?: string;
   source?: { name: string; url: string; linkedInUrl?: string };
   references?: { name: string; url: string }[];
   sections: BlogSection[];
@@ -52,6 +53,7 @@ export const blogPosts: BlogPost[] = [
       "Version control for Power BI illustrated by chaotic PBIX files transitioning into a structured PBIP project with Git commits, branches and change history",
     imageWidth: 1672,
     imageHeight: 941,
+    socialImage: "/social/pbip-git-power-bi-og-1200x675.webp",
     source: {
       name: "LinkedIn",
       url: "https://www.linkedin.com/pulse/from-chaos-version-control-how-pbip-git-power-bi-rodrigo-p%C3%B3voa-qsahe",
@@ -145,6 +147,7 @@ export const blogPosts: BlogPost[] = [
       "Fragmented data flows passing through validation layers before feeding an artificial intelligence system",
     imageWidth: 1672,
     imageHeight: 941,
+    socialImage: "/social/data-quality-ai-og-1200x675.webp",
     source: {
       name: "IA Hoje",
       url: "https://inteligenciaartificialhoje.pt/sem-dados-de-qualidade-nao-ha-ia-que-salve-o-negocio/",
@@ -251,6 +254,7 @@ export const blogPosts: BlogPost[] = [
       "Diagram showing the evolution from data platforms built for human users to AI-ready platforms governed for autonomous agents",
     imageWidth: 1536,
     imageHeight: 1024,
+    socialImage: "/social/ai-governance-og-1200x675.webp",
     source: {
       name: "LinkedIn",
       url: "https://www.linkedin.com/pulse/next-challenge-data-engineering-isnt-scale-its-ai-governance-p%C3%B3voa-8zi5e",

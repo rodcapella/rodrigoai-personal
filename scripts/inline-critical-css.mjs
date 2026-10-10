@@ -50,14 +50,14 @@ for (const htmlFile of htmlFiles) {
 
   const stylesheetPreload = stylesheetLink
     .replace(/rel=["']stylesheet["']/i, 'rel="preload"')
-    .replace(/>$/, ' as="style">');
+    .replace(/>$/, ' as="style" data-deferred-stylesheet>');
   const withCriticalStyles = html.replace(
     stylesheetLink,
     `${criticalStyle}\n${stylesheetPreload}`,
   );
   const optimizedHtml = withCriticalStyles.replace(
     "</body>",
-    `${stylesheetLink}\n</body>`,
+    `<noscript>${stylesheetLink}</noscript>\n</body>`,
   );
   await fs.writeFile(htmlFile, optimizedHtml, "utf8");
 }

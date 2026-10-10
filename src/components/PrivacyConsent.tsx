@@ -155,16 +155,16 @@ export default function PrivacyConsent() {
           returnFocusRef.current = event.currentTarget;
           openDialog();
         }}
-        className="privacy-consent-launcher group fixed bottom-5 left-5 z-[80] h-14 w-14 items-center justify-center p-2 transition hover:-translate-y-1 focus-visible:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16"
+        className="privacy-consent-launcher group fixed bottom-5 left-0 z-[80] h-11 w-11 items-center justify-start transition hover:-translate-y-1 focus-visible:rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-6 sm:left-6 sm:h-16 sm:w-16 sm:justify-center sm:p-2"
         aria-label="Open cookie and privacy preferences"
         title="Cookie and privacy preferences"
       >
         <img
-          src="/cookie-privacy-button.webp"
+          src="/cookie-privacy-button_blue.webp"
           alt="Privacy and cookie preferences"
           width="64"
           height="64"
-          className="h-full w-full object-contain transition-transform duration-200 group-hover:rotate-[-7deg] group-hover:scale-105"
+          className="h-6 w-6 rounded-full object-contain transition-transform duration-200 sm:h-full sm:w-full sm:group-hover:rotate-[-7deg] sm:group-hover:scale-105"
         />
       </button>
 
