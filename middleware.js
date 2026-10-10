@@ -2,7 +2,7 @@ import { next, rewrite } from "@vercel/functions";
 
 const markdownRoutes = new Map([
   ["/", "/markdown/index.md"],
-  ["/why-me", "/markdown/why-me.md"],
+  ["/about", "/markdown/about.md"],
   ["/professional", "/markdown/professional.md"],
   ["/personal", "/markdown/personal.md"],
   ["/side-projects", "/markdown/side-projects.md"],
@@ -46,7 +46,7 @@ export default function middleware(request) {
 export const config = {
   matcher: [
     "/",
-    "/why-me",
+    "/about",
     "/professional",
     "/personal",
     "/side-projects",

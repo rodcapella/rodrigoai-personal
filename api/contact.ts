@@ -1,4 +1,6 @@
 import nodemailer from "nodemailer";
+import { isIP } from "node:net";
+import { createHash } from "node:crypto";
 import {
   isDisposableDomain,
   isDisposableEmail,
@@ -18,7 +20,7 @@ type ContactPayload = {
 
 type ApiRequest = {
   method?: string;
-  body?: ContactPayload;
+  body?: unknown;
   headers?: Record<string, string | string[] | undefined>;
 };
 
@@ -44,9 +46,34 @@ const TURNSTILE_ALLOWED_HOSTNAMES = new Set(
     .map((hostname) => hostname.trim().toLowerCase())
     .filter(Boolean),
 );
+const CONTACT_ALLOWED_ORIGINS = new Set(
+  (
+    process.env.CONTACT_ALLOWED_ORIGINS ||
+    "https://rpovoadata.tech,https://www.rpovoadata.tech"
+  )
+    .split(",")
+    .map((origin) => origin.trim().replace(/\/$/, ""))
+    .filter(Boolean),
+);
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const isValidEmail = (email: string) => {
+  if (email.length > 254) return false;
+  const parts = email.split("@");
+  if (parts.length !== 2) return false;
+  const [local, domain] = parts;
+  return (
+    local.length > 0 && local.length <= 64 &&
+    /^[A-Za-z0-9!#$%&'*+/=?^_`{|}~.-]+$/.test(local) &&
+    !local.startsWith(".") && !local.endsWith(".") && !local.includes("..") &&
+    domain.length <= 253 && domain.includes(".") &&
+    domain.split(".").every((label) =>
+      label.length > 0 && label.length <= 63 &&
+      /^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?$/.test(label),
+    )
+  );
+};
 const PHONE_PATTERN = /^[\d\s+()-]{8,20}$/;
+const MAX_REQUEST_BYTES = 16 * 1024;
 const RATE_LIMIT_MAX = 3;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const BLACKLISTED_EMAIL_MESSAGE =
@@ -54,8 +81,64 @@ const BLACKLISTED_EMAIL_MESSAGE =
 
 const rateLimits = new Map<string, { count: number; resetAt: number }>();
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === "object" && value !== null && !Array.isArray(value);
+
+const getHeader = (req: ApiRequest, name: string) => {
+  const header = Object.entries(req.headers || {}).find(
+    ([key]) => key.toLowerCase() === name.toLowerCase(),
+  )?.[1];
+
+  return Array.isArray(header) ? header[0] : header;
+};
+
+const hasAllowedOrigin = (req: ApiRequest) => {
+  const source = getHeader(req, "origin") || getHeader(req, "referer");
+  if (!source) return process.env.NODE_ENV !== "production";
+
+  try {
+    const origin = new URL(source).origin;
+    if (
+      process.env.NODE_ENV !== "production" &&
+      (origin === "http://localhost:5173" ||
+        origin === "http://127.0.0.1:5173")
+    ) {
+      return true;
+    }
+
+    return CONTACT_ALLOWED_ORIGINS.has(origin);
+  } catch {
+    return false;
+  }
+};
+
+const exceedsRequestLimit = (req: ApiRequest) => {
+  const contentLength = getHeader(req, "content-length");
+  if (contentLength) {
+    const declaredBytes = Number(contentLength);
+    if (!/^\d+$/.test(contentLength) || !Number.isSafeInteger(declaredBytes) || declaredBytes > MAX_REQUEST_BYTES) {
+      return true;
+    }
+  }
+
+  try {
+    return (
+      Buffer.byteLength(JSON.stringify(req.body ?? {}), "utf8") >
+      MAX_REQUEST_BYTES
+    );
+  } catch {
+    return true;
+  }
+};
+
 const normalize = (value: unknown) =>
-  typeof value === "string" ? value.trim() : "";
+  typeof value === "string" ? value.normalize("NFC").trim() : "";
+
+const hasControlCharacters = (value: string) =>
+  Array.from(value).some((character) => {
+    const code = character.charCodeAt(0);
+    return code <= 31 || code === 127;
+  });
 
 const escapeHtml = (value: string) =>
   value.replace(
@@ -131,7 +214,7 @@ const buildContactEmailHtml = ({
                   RPOVOADATA.TECH
                 </a>
                 <div style="padding-top:4px;color:#8f9ab5;font-size:12px;line-height:18px;font-weight:400;letter-spacing:0;">
-                  End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
+                  End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente AI.
                 </div>
               </td>
             </tr>
@@ -287,7 +370,7 @@ const buildContactConfirmationEmailHtml = ({
                   RPOVOADATA.TECH
                 </a>
                 <div style="padding-top:4px;color:#8f9ab5;font-size:12px;line-height:18px;font-weight:400;letter-spacing:0;">
-                  End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
+                  End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente AI.
                 </div>
               </td>
             </tr>
@@ -401,12 +484,17 @@ const buildContactConfirmationEmailHtml = ({
 </html>`;
 
 const getClientIp = (req: ApiRequest) => {
-  const forwardedFor = req.headers?.["x-forwarded-for"];
-  const value = Array.isArray(forwardedFor)
-    ? forwardedFor[0]
-    : forwardedFor;
+  const candidates = [
+    getHeader(req, "x-real-ip"),
+    getHeader(req, "cf-connecting-ip"),
+    getHeader(req, "x-forwarded-for")?.split(",")[0],
+  ];
 
-  return value?.split(",")[0]?.trim() || "unknown";
+  return (
+    candidates
+      .find((candidate) => candidate && isIP(candidate.trim()))
+      ?.trim() || "unknown"
+  );
 };
 
 const isRateLimited = (clientIp: string) => {
@@ -434,6 +522,39 @@ const recordSubmissionAttempt = (clientIp: string) => {
   }
 
   entry.count += 1;
+};
+
+const consumeRateLimit = async (clientIp: string) => {
+  const redisUrl = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const redisToken = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!redisUrl || !redisToken) {
+    if (process.env.NODE_ENV === "production") return null;
+    const limited = isRateLimited(clientIp);
+    recordSubmissionAttempt(clientIp);
+    return limited ? 900 : 0;
+  }
+
+  try {
+    const endpoint = new URL(redisUrl);
+    if (endpoint.protocol !== "https:" || endpoint.username || endpoint.password) return null;
+    const key = `contact:rate:${createHash("sha256").update(clientIp).digest("hex")}`;
+    // Atomic counter and expiry prevent permanent keys or concurrent bypasses.
+    const script = "local n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('PEXPIRE',KEYS[1],ARGV[1]); end; return {n,redis.call('PTTL',KEYS[1])}";
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${redisToken}`, "Content-Type": "application/json" },
+      body: JSON.stringify(["EVAL", script, "1", key, String(RATE_LIMIT_WINDOW_MS)]),
+      signal: AbortSignal.timeout(5_000),
+    });
+    const data = await response.json() as { result?: unknown; error?: unknown };
+    if (!response.ok || data.error || !Array.isArray(data.result)) return null;
+    const [count, ttl] = data.result;
+    if (!Number.isSafeInteger(count) || !Number.isSafeInteger(ttl) || count < 1 || ttl <= 0) return null;
+    return count > RATE_LIMIT_MAX ? Math.ceil(ttl / 1000) : 0;
+  } catch {
+    console.error("contact_rate_limit_unavailable");
+    return null;
+  }
 };
 
 const verifyTurnstile = async (token: string, clientIp: string) => {
@@ -477,7 +598,11 @@ const verifyTurnstile = async (token: string, clientIp: string) => {
         TURNSTILE_ALLOWED_HOSTNAMES.has(hostname),
     };
   } catch (error) {
-    console.error("Contact form Turnstile error:", error);
+    if (process.env.NODE_ENV === "production") {
+      console.error("contact_turnstile_verification_failed");
+    } else {
+      console.error("Contact form Turnstile error:", error);
+    }
     return { configured: true, valid: false };
   } finally {
     clearTimeout(timeout);
@@ -486,18 +611,52 @@ const verifyTurnstile = async (token: string, clientIp: string) => {
 
 export default async function handler(req: ApiRequest, res: ApiResponse) {
   res.setHeader("Cache-Control", "no-store");
+  res.setHeader("Vary", "Origin");
 
   if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
     return res.status(405).json({ error: "Method not allowed." });
   }
 
-  const payload = req.body || {};
+  const contentType = getHeader(req, "content-type") || "";
+  if (contentType.split(";")[0].trim().toLowerCase() !== "application/json") {
+    return res.status(415).json({
+      code: "UNSUPPORTED_MEDIA_TYPE",
+      error: "The request must use JSON.",
+    });
+  }
+
+  if (!hasAllowedOrigin(req)) {
+    return res.status(403).json({
+      code: "REQUEST_REJECTED",
+      error: "The request could not be accepted.",
+    });
+  }
+
+  if (exceedsRequestLimit(req)) {
+    return res.status(413).json({
+      code: "PAYLOAD_TOO_LARGE",
+      error: "The submitted message is too large.",
+    });
+  }
+
+  if (!isRecord(req.body)) {
+    return res.status(400).json({
+      code: "INVALID_REQUEST",
+      error: "Please check the submitted fields.",
+    });
+  }
+
+  const payload: ContactPayload = req.body;
+  if (Object.values(payload).some((value) => typeof value !== "string")) {
+    return res.status(400).json({ code: "INVALID_REQUEST", error: "Please check the submitted fields." });
+  }
   const name = normalize(payload.name);
   const email = normalize(payload.email);
   const phone = normalize(payload.phone);
   const company = normalize(payload.company);
   const jobTitle = normalize(payload.jobTitle);
-  const subject = normalize(payload.subject).replace(/[\r\n]+/g, " ");
+  const subject = normalize(payload.subject);
   const message = normalize(payload.message);
   const website = normalize(payload.website);
   const turnstileToken = normalize(payload.turnstileToken);
@@ -511,7 +670,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
   if (
     name.length < 3 ||
     name.length > 100 ||
-    !EMAIL_PATTERN.test(email) ||
+    !isValidEmail(email) ||
     email.length > 254 ||
     (phone && !PHONE_PATTERN.test(phone)) ||
     phone.length > 20 ||
@@ -520,7 +679,13 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     subject.length < 3 ||
     subject.length > 120 ||
     message.length < 10 ||
-    message.length > 1000
+    message.length > 1000 ||
+    hasControlCharacters(name) ||
+    hasControlCharacters(email) ||
+    hasControlCharacters(subject) ||
+    [payload.name, payload.email, payload.subject].some((value) =>
+      typeof value === "string" && hasControlCharacters(value),
+    )
   ) {
     return res.status(400).json({ error: "Please check the submitted fields." });
   }
@@ -540,6 +705,15 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     });
   }
 
+  const retryAfter = await consumeRateLimit(clientIp);
+  if (retryAfter === null) {
+    return res.status(503).json({ code: "SERVICE_UNAVAILABLE", error: "The contact service is temporarily unavailable." });
+  }
+  if (retryAfter > 0) {
+    res.setHeader("Retry-After", String(retryAfter));
+    return res.status(429).json({ code: "RATE_LIMITED", error: "Too many messages were sent. Please try again later." });
+  }
+
   const turnstile = await verifyTurnstile(turnstileToken, clientIp);
   if (!turnstile.configured) {
     return res.status(503).json({
@@ -555,20 +729,10 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
     });
   }
 
-  if (isRateLimited(clientIp)) {
-    res.setHeader("Retry-After", "900");
-    return res.status(429).json({
-      code: "RATE_LIMITED",
-      error: "Too many messages were sent. Please try again in 15 minutes.",
-    });
-  }
-
-  recordSubmissionAttempt(clientIp);
-
   if (!SMTP_PASSWORD) {
-    console.error("Contact form: SMTP_PASSWORD is not configured.");
+    console.error("contact_service_unavailable");
     return res.status(503).json({
-      code: "SMTP_NOT_CONFIGURED",
+      code: "SERVICE_UNAVAILABLE",
       error: "The contact service is temporarily unavailable.",
     });
   }
@@ -657,26 +821,15 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Contact form SMTP error:", error);
-
-    const smtpCode =
-      typeof error === "object" &&
-      error !== null &&
-      "code" in error &&
-      typeof error.code === "string"
-        ? error.code
-        : "SMTP_UNKNOWN";
-
-    const publicMessage =
-      smtpCode === "EAUTH"
-        ? "The email service authentication failed. Please contact the site owner."
-        : ["ECONNECTION", "ETIMEDOUT", "ESOCKET"].includes(smtpCode)
-          ? "The email service is currently unreachable. Please try again later."
-          : "The message could not be sent. Please try again later.";
+    if (process.env.NODE_ENV === "production") {
+      console.error("contact_delivery_failed");
+    } else {
+      console.error("Contact form SMTP error:", error);
+    }
 
     return res.status(502).json({
-      code: smtpCode,
-      error: publicMessage,
+      code: "REQUEST_FAILED",
+      error: "The message could not be sent. Please try again later.",
     });
   }
 }

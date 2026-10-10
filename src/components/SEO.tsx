@@ -6,15 +6,19 @@ interface SEOProps {
   description: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   type?: "website" | "article";
   keywords?: string;
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
+  section?: string;
+  tags?: string[];
   language?: string;
 }
 
-export default function SEO({ title, description, image, imageAlt, type = "website", keywords, publishedTime, modifiedTime, author, language = "en-GB" }: SEOProps) {
+export default function SEO({ title, description, image, imageAlt, imageWidth, imageHeight, type = "website", keywords, publishedTime, modifiedTime, author, section, tags = [], language = "en-GB" }: SEOProps) {
   const location = useLocation();
   const baseUrl = "https://www.rpovoadata.tech";
 
@@ -24,7 +28,9 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
   const currentUrl = baseUrl + normalizedPath;
   const ogImage = image
     ? image.startsWith("http") ? image : `${baseUrl}${image}`
-    : `${baseUrl}/ai-portrait.webp`;
+    : `${baseUrl}/social/rodrigo-povoa-og-1200x675.webp`;
+  const resolvedImageWidth = imageWidth || (image ? undefined : 1200);
+  const resolvedImageHeight = imageHeight || (image ? undefined : 675);
   const ogImageType = ogImage.toLowerCase().endsWith(".png")
     ? "image/png"
     : /\.jpe?g(?:$|\?)/i.test(ogImage)
@@ -51,7 +57,8 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
     <Helmet
       htmlAttributes={{
         lang: language,
-        "data-developer": "Sapiente.AI",
+        prefix: "og: https://ogp.me/ns# article: https://ogp.me/ns/article#",
+        "data-developer": "Sapiente AI",
         "data-developer-url": "https://www.sapienteai.com/en",
       }}
     >
@@ -70,7 +77,7 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
         href={currentUrl}
         title={`${title} in Markdown`}
       />
-      <link rel="author" href={`${baseUrl}/professional`} />
+      <link rel="author" href={`${baseUrl}/about`} />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />
@@ -82,10 +89,21 @@ export default function SEO({ title, description, image, imageAlt, type = "websi
       <meta property="og:image:secure_url" content={ogImage} />
       <meta property="og:image:type" content={ogImageType} />
       <meta property="og:image:alt" content={imageAlt || title} />
+      {resolvedImageWidth && <meta property="og:image:width" content={String(resolvedImageWidth)} />}
+      {resolvedImageHeight && <meta property="og:image:height" content={String(resolvedImageHeight)} />}
       <meta property="og:locale" content={ogLocale} />
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-      {author && <meta property="article:author" content={author} />}
+      {type === "article" && author && (
+        <meta property="article:author" content={`${baseUrl}/about`} />
+      )}
+      {type === "article" && section && (
+        <meta property="article:section" content={section} />
+      )}
+      {type === "article" &&
+        tags.map((tag) => (
+          <meta property="article:tag" content={tag} key={tag} />
+        ))}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

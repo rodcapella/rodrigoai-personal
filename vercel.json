@@ -11,6 +11,11 @@
       ],
       "destination": "https://www.rpovoadata.tech/:path*",
       "permanent": true
+    },
+    {
+      "source": "/why-me",
+      "destination": "/about",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -23,16 +28,16 @@
       "destination": "https://www.googletagmanager.com/gtm.js"
     },
     {
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
       "source": "/blog",
       "destination": "/blog/index.html"
     },
     {
       "source": "/blog/:slug",
       "destination": "/blog/:slug/index.html"
-    },
-    {
-      "source": "/why-me",
-      "destination": "/why-me/index.html"
     },
     {
       "source": "/professional",
@@ -61,11 +66,19 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'sha256-w8lKegi+cjQCjAvJxjiPZESOC+MJyHo9wpU6xITyT2E=' 'strict-dynamic' 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://www.googletagmanager.com https://challenges.cloudflare.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; media-src 'self'; manifest-src 'self'; require-trusted-types-for 'script'; trusted-types bootstrap default goog#html 'allow-duplicates'; upgrade-insecure-requests"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'sha256-6FXetLbCtdBzaP9FjM082TvQPef0cfcKaQXwMaBpvS4=' 'strict-dynamic' 'self' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://www.googletagmanager.com https://challenges.cloudflare.com; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; media-src 'self'; manifest-src 'self'; require-trusted-types-for 'script'; trusted-types bootstrap default goog#html 'allow-duplicates'; upgrade-insecure-requests"
         },
         {
           "key": "Cross-Origin-Opener-Policy",
           "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
         },
         {
           "key": "X-Frame-Options",
@@ -93,11 +106,11 @@
         },
         {
           "key": "X-Built-By",
-          "value": "Sapiente.AI"
+          "value": "Sapiente AI"
         },
         {
           "key": "X-Developer",
-          "value": "Sapiente.AI"
+          "value": "Sapiente AI"
         },
         {
           "key": "X-Developer-URL",
@@ -116,7 +129,7 @@
       ]
     },
     {
-      "source": "/:page(why-me|professional|personal|side-projects|blog|privacy|contact)",
+      "source": "/:page(about|professional|personal|side-projects|blog|privacy|contact)",
       "headers": [{ "key": "Vary", "value": "Accept" }]
     },
     {
@@ -194,15 +207,6 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/assets/app.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }

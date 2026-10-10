@@ -272,6 +272,8 @@ export default function Contact() {
           title="LET'S CONNECT"
           subtitle="Whether it's a project, an idea or just a conversation. I'm always open to building something meaningful."
           image="/rodrigo_contact_image.webp"
+          imageWidth={1344}
+          imageHeight={768}
           imageAlt="Rodrigo Póvoa available for professional conversations and collaboration"
         />
       </PageSection>
@@ -288,7 +290,7 @@ export default function Contact() {
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               to="/professional"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="site-button bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <Briefcase className="h-4 w-4" aria-hidden="true" />
               View Professional Experience
@@ -297,7 +299,7 @@ export default function Contact() {
               href="https://github.com/rodcapella"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-semibold transition-colors hover:border-primary/50 hover:text-primary"
+              className="site-button site-button-outline"
             >
               <Github className="h-4 w-4" aria-hidden="true" />
               Explore GitHub
@@ -306,7 +308,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/rodrigocspovoa"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 font-semibold transition-colors hover:border-primary/50 hover:text-primary"
+              className="site-button site-button-outline"
             >
               <Linkedin className="h-4 w-4" aria-hidden="true" />
               Connect on LinkedIn
@@ -327,7 +329,6 @@ export default function Contact() {
               aria-live="polite"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
               className="contact-form-card glass p-10 rounded-2xl text-center glow-primary"
             >
               <CheckCircle className="w-12 h-12 mx-auto mb-4 text-green-500" />
@@ -532,7 +533,7 @@ export default function Contact() {
                 type="submit"
                 disabled={loading || !turnstileSiteKey || !turnstileToken}
                 className="
-                  w-full py-4 rounded-xl
+                  site-button w-full
                   bg-gradient-to-r from-primary to-secondary
                   text-white font-semibold
                   tracking-wide

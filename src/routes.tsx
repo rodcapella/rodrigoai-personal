@@ -1,4 +1,4 @@
-import type { RouteObject } from "react-router-dom";
+import { Navigate, type RouteObject } from "react-router-dom";
 import {
   lazy,
   Suspense,
@@ -56,6 +56,10 @@ export const createRoutes = (
     children: [
       { index: true, element: <Index /> },
       {
+        path: "about",
+        element: routePage("/about", <WhyMe />, initialPath, InitialComponent),
+      },
+      {
         path: "contact",
         element: routePage("/contact", <Contact />, initialPath, InitialComponent),
       },
@@ -74,7 +78,7 @@ export const createRoutes = (
       },
       {
         path: "why-me",
-        element: routePage("/why-me", <WhyMe />, initialPath, InitialComponent),
+        element: <Navigate to="/about" replace />,
       },
       {
         path: "side-projects",

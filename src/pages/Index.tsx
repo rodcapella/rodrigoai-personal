@@ -1,23 +1,21 @@
-import { lazy, Suspense } from "react";
+import type { ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
 import SEO from "@/components/SEO";
 import MainLayout from "@/components/layout/MainLayout";
 import HeroSection from "@/components/HeroSection";
 import PageSection from "@/components/layout/PageSection";
-import SectionLoader from "@/components/ui/SectionLoader";
 import AboutSection from "@/components/AboutSection";
 import CoreCompetencesSection from "@/components/CoreCompetencesSection";
 import HomeFaqSection from "@/components/HomeFaqSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import WhatDrivesMe from "@/components/WhatDrivesMe";
+import AboutMyCareer from "@/components/AboutMyCareer";
 
 import { Cpu, Award, Network, Database, Lightbulb, ShieldCheck, Brain, BarChart3, Workflow } from "@/lib/icons";
 
-const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
-const WhatDrivesMe = lazy(() => import("@/components/WhatDrivesMe"));
-const AboutMyCareer = lazy(() => import("@/components/AboutMyCareer"));
-
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
 
-function DeferredSection({ children }: { children: React.ReactNode }) {
+function DeferredSection({ children }: { children: ReactNode }) {
   return (
     <div
       style={{ contentVisibility: "auto", containIntrinsicSize: "0 420px" }}
@@ -46,7 +44,7 @@ const competences = [
 ];
 
   const sections: {
-    component: React.ReactNode;
+    component: ReactNode;
     variant?: SectionVariant;
     defer?: boolean;
   }[] = [
@@ -84,19 +82,18 @@ const competences = [
         />
 
         {sections.map((section, index) => (
-          <Suspense key={index} fallback={<SectionLoader />}>
-            <PageSection
-              variant={section.variant}
-              spacing="none"
-              container={false}
-            >
-              {index < 2 || section.defer === false ? (
-                section.component
-              ) : (
-                <DeferredSection>{section.component}</DeferredSection>
-              )}
-            </PageSection>
-          </Suspense>
+          <PageSection
+            key={index}
+            variant={section.variant}
+            spacing="none"
+            container={false}
+          >
+            {index < 2 || section.defer === false ? (
+              section.component
+            ) : (
+              <DeferredSection>{section.component}</DeferredSection>
+            )}
+          </PageSection>
         ))}
       </div>
     </MainLayout>

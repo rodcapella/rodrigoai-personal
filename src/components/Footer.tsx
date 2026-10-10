@@ -4,7 +4,7 @@ import Container from "@/components/layout/Container";
 
 const navigation = [
   { to: "/", label: "Home" },
-  { to: "/why-me", label: "Why Me?" },
+  { to: "/about", label: "About" },
   { to: "/professional", label: "Professional" },
   { to: "/personal", label: "Personal" },
   { to: "/blog", label: "Blog" },
@@ -33,7 +33,7 @@ const Footer = () => {
               className="h-9 w-auto opacity-70"
             />
             <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente.AI.
+              End-to-End Data Leader &amp; Data Analytics Engineer and founder of Sapiente AI.
             </p>
             <div className="mt-3 flex gap-3">
               <a
@@ -89,17 +89,19 @@ const Footer = () => {
             href="https://www.sapienteai.com/en"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Sapiente.AI website"
+            aria-label="Visit Sapiente AI website"
             className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <img
-              src="/logos/logo_sapiente_transparente.webp"
-              alt="Sapiente.AI"
+              src="/logos/logo_sapiente_footer-224.webp"
+              srcSet="/logos/logo_sapiente_footer-112.webp 112w, /logos/logo_sapiente_footer-224.webp 224w"
+              sizes="(min-width: 768px) 154px, 84px"
+              alt="Sapiente AI"
               width={224}
-              height={56}
+              height={69}
               loading="lazy"
               decoding="async"
-              className="aspect-square h-14 object-contain md:h-24"
+              className="block h-auto w-[84px] object-contain md:w-[154px]"
             />
           </a>
         </div>

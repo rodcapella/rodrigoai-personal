@@ -20,8 +20,19 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ["Inter", "system-ui", "sans-serif"],
-        display: ["Space Grotesk", "system-ui", "sans-serif"],
+        body: [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "sans-serif",
+        ],
+        display: [
+          "Space Grotesk",
+          "Space Grotesk Fallback",
+          "Arial",
+          "sans-serif",
+        ],
       },
 
       colors: {

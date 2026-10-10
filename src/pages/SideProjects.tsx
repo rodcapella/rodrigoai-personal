@@ -129,7 +129,7 @@ export default function SideProjects() {
   const sections: SectionConfig[] = [
     {
       title:
-        "Sapiente.AI: Maximizing human potential through Artificial Intelligence",
+        "Sapiente AI: Maximizing human potential through Artificial Intelligence",
       icon: <Cpu />,
       useNewLayout: true,
       content: (
@@ -141,15 +141,15 @@ export default function SideProjects() {
           className="space-text text-muted-foreground text-lg leading-relaxed"
         >
           <p>
-            Sapiente.AI is an innovation ecosystem focused on building intelligent solutions that combine technology, strategy, and creativity to solve real-world problems.
+            Sapiente AI is an innovation ecosystem focused on building intelligent solutions that combine technology, strategy, and creativity to solve real-world problems.
           </p>
 
           <p>
-            More than a data-driven initiative, Sapiente.AI operates at the intersection of Artificial Intelligence, digital products, automation, and organizational transformation. Its mission is to help companies and ideas evolve from traditional operations into adaptive, intelligent and value-driven systems.
+            More than a data-driven initiative, Sapiente AI operates at the intersection of Artificial Intelligence, digital products, automation, and organizational transformation. Its mission is to help companies and ideas evolve from traditional operations into adaptive, intelligent and value-driven systems.
           </p>
 
           <p>
-            Built on a strong technology foundation and an experimentation-first mindset, Sapiente.AI turns ideas into scalable systems that can learn, adapt, and grow.
+            Built on a strong technology foundation and an experimentation-first mindset, Sapiente AI turns ideas into scalable systems that can learn, adapt, and grow.
           </p>
 
           <p>
@@ -163,7 +163,7 @@ export default function SideProjects() {
       ),
     },
     {
-      title: "What I’m Building at Sapiente.AI",
+      title: "What I’m Building at Sapiente AI",
       icon: <Briefcase />,
       content: (
         <div className="building-sapiente-panel glass layer-blue rounded-2xl p-8 glow-primary-sm sm:p-12">
@@ -236,17 +236,21 @@ export default function SideProjects() {
           <div className="group flex justify-center mb-6">
             <img
               src="/banner_SapienteAI.webp"
-              alt="Sapiente.AI platform for artificial intelligence governance, automation and data-driven solutions"
+              width={1536}
+              height={692}
+              alt="Sapiente AI platform for artificial intelligence governance, automation and data-driven solutions"
+              loading="lazy"
+              decoding="async"
               className="h-48 w-auto opacity-90 transition-all duration-500 ease-out group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-[0_0_24px_rgba(59,130,246,0.45)]"
             />
           </div>
 
           <h3 className="text-base font-semibold text-foreground">
-            Explore Sapiente.AI
+            Explore Sapiente AI
           </h3>
 
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Sapiente.AI is my dedicated innovation lab focused on expanding what generative AI can do in practice.
+            Sapiente AI is my dedicated innovation lab focused on expanding what generative AI can do in practice.
 
             It is where I test ideas, refine patterns, and build systems that bridge experimentation and real-world application.
           </p>
@@ -255,9 +259,9 @@ export default function SideProjects() {
             href="https://www.sapienteai.com/en"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+            className="site-button bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            Visit Sapiente.AI website
+            Visit Sapiente AI website
           </a>
         </div>
       ),
@@ -267,9 +271,9 @@ export default function SideProjects() {
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
       <SEO
-        title="Innovation Hub | Rodrigo Póvoa – Sapiente.AI"
-        description="Explore the AI products, SEO, GEO and AEO platform, automation systems and BigQuery analytics architecture Rodrigo Póvoa is building at Sapiente.AI."
-        keywords="Sapiente.AI, AI product development, technical founder, Google BigQuery, Google Analytics, SEO validator, GEO validator, AEO validator, AI automation"
+        title="Innovation Hub | Rodrigo Póvoa – Sapiente AI"
+        description="Explore the AI products, SEO, GEO and AEO platform, automation systems and BigQuery analytics architecture Rodrigo Póvoa is building at Sapiente AI."
+        keywords="Sapiente AI, AI product development, technical founder, Google BigQuery, Google Analytics, SEO validator, GEO validator, AEO validator, AI automation"
       />
 
       <BreadcrumbSchema
@@ -286,10 +290,12 @@ export default function SideProjects() {
       <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">
         <PageHero
           variant="page"
-          title="Innovation Hub: Sapiente.AI"
+          title="Innovation Hub: Sapiente AI"
           subtitle="Founder & Technical Lead"
           image="/logos/logo_sapienteai.webp"
-          imageAlt="Sapiente.AI artificial intelligence innovation company logo"
+          imageWidth={1536}
+          imageHeight={1024}
+          imageAlt="Sapiente AI artificial intelligence innovation company logo"
         />
       </PageSection>
 

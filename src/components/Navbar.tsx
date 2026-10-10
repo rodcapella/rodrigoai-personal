@@ -5,7 +5,7 @@ import Container from "@/components/layout/Container";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/why-me", label: "Why Me?" },
+  { href: "/about", label: "About" },
   { href: "/professional", label: "Professional" },
   { href: "/personal", label: "Personal" },
   { href: "/blog", label: "Blog" },
@@ -15,7 +15,7 @@ const links = [
 const preloadMap: Record<string, () => Promise<unknown>> = {
   "/professional": () => import("../pages/Professional"),
   "/personal": () => import("../pages/Personal"),
-  "/why-me": () => import("../pages/WhyMe"),
+  "/about": () => import("../pages/WhyMe"),
   "/side-projects": () => import("../pages/SideProjects"),
   "/contact": () => import("../pages/Contact"),
 };

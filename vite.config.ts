@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 import { resolvePageLastModified } from "./scripts/lastmod.mjs";
 
 const strictCspBootstrap =
-  'const k="rpovoa-analytics-consent";let p;try{p=localStorage.getItem(k)}catch{}document.documentElement.dataset.privacyView=p==="granted"||p==="denied"?"launcher":"dialog";const c=document.currentScript,u=c&&c.dataset.appEntry;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
+  'const k="rpovoa-analytics-consent";let p;try{p=localStorage.getItem(k)}catch{}document.documentElement.dataset.privacyView=p==="granted"||p==="denied"?"launcher":"dialog";const l=document.querySelector("link[data-deferred-stylesheet]");if(l){const a=()=>{if(l.rel!=="stylesheet"){l.rel="stylesheet";l.removeAttribute("as")}};l.addEventListener("load",a,{once:true});requestAnimationFrame(()=>requestAnimationFrame(a))}const c=document.currentScript,u=c&&c.dataset.appEntry;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
 const strictCspHash = `sha256-${createHash("sha256")
   .update(strictCspBootstrap)
   .digest("base64")}`;
@@ -45,24 +45,23 @@ export default defineConfig({
       transformIndexHtml: {
         order: "post",
         handler(html, context) {
-          const entryScript =
-            '<script type="module" crossorigin src="/assets/app.js"></script>';
+          const entryScript = html.match(
+            /<script type="module" crossorigin src="\/assets\/app-[A-Za-z0-9_-]+\.js"><\/script>/,
+          )?.[0];
 
-          if (!html.includes(entryScript)) {
+          if (!entryScript) {
             throw new Error("The production entry script could not be secured.");
           }
 
-          const entryChunk = context.bundle?.["assets/app.js"];
+          const entryChunk = Object.values(context.bundle ?? {}).find(
+            (item) => item.type === "chunk" && item.isEntry,
+          );
 
           if (!entryChunk || entryChunk.type !== "chunk") {
             throw new Error("The production entry chunk could not be versioned.");
           }
 
-          const appVersion = createHash("sha256")
-            .update(entryChunk.code)
-            .digest("hex")
-            .slice(0, 12);
-          const appEntry = `/assets/app.js?v=${appVersion}`;
+          const appEntry = `/${entryChunk.fileName}`;
           const stylesheetLinks =
             html.match(/<link rel="stylesheet"[^>]*>/g) ?? [];
           const htmlWithPrioritizedStyles = stylesheetLinks.reduce(
@@ -91,7 +90,7 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        entryFileNames: "assets/app.js",
+        entryFileNames: "assets/app-[hash].js",
         manualChunks: (id) => {
           const moduleId = id.replace(/\\/g, "/");
           if (!moduleId.includes("/node_modules/")) return;

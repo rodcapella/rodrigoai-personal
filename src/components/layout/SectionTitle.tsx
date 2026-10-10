@@ -28,7 +28,7 @@ export default function SectionTitle({
   const TitleTag = as;
 
   return (
-    <div className={`mb-12 ${isCenter ? "text-center" : ""}`}>
+    <div className={isCenter ? "text-center" : ""}>
       
       <TitleTag
         className={`
@@ -47,7 +47,7 @@ export default function SectionTitle({
               transition-all duration-300
               group-hover:scale-110
               group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]
-              flex items-center
+              flex shrink-0 items-center
             "
           >
             {icon}
@@ -57,7 +57,7 @@ export default function SectionTitle({
         {/* TITLE */}
         <span
           className={`
-            transition-all duration-300
+            min-w-0 transition-all duration-300
             ${textVariant[variant]}
             group-hover:opacity-90
           `}

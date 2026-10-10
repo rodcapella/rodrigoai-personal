@@ -7,11 +7,6 @@ html {
   scrollbar-gutter: stable;
 }
 
-/* Aplica a fonte ao corpo do site */
-body {
-  font-family: 'Space Grotesk', sans-serif;
-}
-
 @layer base {
   :root {
     --background: 213 30% 6%;
@@ -212,16 +207,6 @@ body {
     display: flex;
   }
 
-  .tag-ai {
-    @apply px-4 py-1.5 rounded-full
-          bg-[#FAC65B]
-          text-slate-900
-          text-sm font-extrabold tracking-wide
-          border border-[#FAC65B]/60
-          shadow-md shadow-[#FAC65B]/25
-          hover:scale-105
-          transition-all duration-200;
-  }
 
   .tag-tech {
     @apply px-4 py-1.5 rounded-full
@@ -246,6 +231,19 @@ body {
     @apply text-lg font-semibold;
   }
 
+  .heading-sm {
+    @apply text-base font-semibold leading-snug;
+  }
+
+  .site-button {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-transparent px-5 text-sm font-semibold;
+    transition: background-color 200ms, border-color 200ms, color 200ms, transform 200ms;
+  }
+
+  .site-button-outline {
+    @apply border-border text-muted-foreground hover:border-primary/50 hover:text-primary;
+  }
+
   .body-lg {
     @apply text-lg leading-relaxed text-muted-foreground;
   }
@@ -262,9 +260,6 @@ body {
     @apply text-sm font-medium text-foreground;
   }
 
-  .caption {
-    @apply text-xs text-muted-foreground;
-  }
 
   .space-section {
     @apply space-y-10;
@@ -283,24 +278,12 @@ body {
   }
 
   /* Margins padronizadas */
-  .mb-section {
-    @apply mb-12;
-  }
 
-  .mb-content {
-    @apply mb-6;
-  }
 
   .mb-text {
     @apply mb-4;
   }
 
-  .mt-content {
-    @apply mt-6;
-  }
-  .stack-list {
-    @apply space-content md:space-section;
-  }
 }
 
 @layer utilities {
@@ -311,10 +294,6 @@ body {
                 0 0 60px hsl(var(--glow-primary) / 0.1);
   }
 
-  .glow-secondary {
-    box-shadow: 0 0 20px hsl(var(--glow-secondary) / 0.3),
-                0 0 60px hsl(var(--glow-secondary) / 0.1);
-  }
 
   .glow-primary-sm {
     box-shadow: 0 0 10px hsl(var(--glow-primary) / 0.2),
@@ -424,9 +403,6 @@ body {
     animation: fadeIn 0.6s cubic-bezier(.16,.8,.36,1) forwards;
   }
 
-  .fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
 }
 
 @keyframes fadeIn {
@@ -434,7 +410,14 @@ body {
   to { opacity: 1; }
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .tag-tech:hover, .skill-card:hover svg {
+    transform: none;
+  }
 }

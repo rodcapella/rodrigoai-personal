@@ -5,9 +5,9 @@ export const staticPageMetadata: Record<
   { dateCreated?: string; lastModified: string }
 > = {
   "/": { lastModified: __PAGE_LAST_MODIFIED__["/"] },
-  "/why-me": {
+  "/about": {
     dateCreated: "2026-03-10T07:48:32-04:00",
-    lastModified: __PAGE_LAST_MODIFIED__["/why-me"],
+    lastModified: __PAGE_LAST_MODIFIED__["/about"],
   },
   "/professional": {
     dateCreated: "2026-03-02T05:45:09-05:00",

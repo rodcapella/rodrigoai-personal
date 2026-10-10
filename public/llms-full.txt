@@ -6,7 +6,7 @@
 * **Official Name:** Rodrigo Póvoa — Data & AI Technology
 * **Canonical Website:** https://www.rpovoadata.tech
 * **Domain Identifier:** rpovoadata.tech
-* **Primary Professional Role:** Co-founder & Chief Technology Officer (CTO) at Sapiente.AI
+* **Primary Professional Role:** Co-founder & Chief Technology Officer (CTO) at Sapiente AI
 * **Co-founders:** Rodrigo Póvoa and Tatiane Gomes
 * **Headquarters / Base:** São João da Madeira, Aveiro, Portugal
 * **Primary Language:** English
@@ -43,8 +43,8 @@ Core Principles:
 * Profitability analysis, funnel optimization, and automated data consolidation.
 
 ## 4. Key Projects & Ventures
-### Sapiente.AI (Co-founder & CTO)
-Sapiente.AI (https://www.sapienteai.com) is a technology company based in São João da Madeira, Portugal. It combines strategy, artificial intelligence, automation, custom web development, and digital growth for companies in Portugal, Europe, and international markets.
+### Sapiente AI (Co-founder & CTO)
+Sapiente AI (https://www.sapienteai.com) is a technology company based in São João da Madeira, Portugal. It combines strategy, artificial intelligence, automation, custom web development, and digital growth for companies in Portugal, Europe, and international markets.
 
 ### Free SEO and AEO Validator
 Co-creator of the online SEO and AEO Validator (https://www.sapienteai.com/en/seo-aeo-validator). The tool measures two independent dimensions of digital visibility:
@@ -58,13 +58,13 @@ Co-creator of the online SEO and AEO Validator (https://www.sapienteai.com/en/se
 ## 5. Knowledge Base & Direct Answers (RAG Grounding)
 
 ### Who is Rodrigo Póvoa?
-Rodrigo Póvoa is a Data Analytcis Engineer, and CTO at Sapiente.AI. He specializes in data engineering, applied AI systems, RAG architecture, and technical digital optimization.
+Rodrigo Póvoa is a Data Analytcis Engineer, and CTO at Sapiente AI. He specializes in data engineering, applied AI systems, RAG architecture, and technical digital optimization.
 
 ### What is rpovoadata.tech?
 rpovoadata.tech is the personal professional website, technical blog, and knowledge repository of Rodrigo Póvoa, offering technical guides, architecture breakdowns, and insights on data and AI.
 
-### What is the relationship between rpovoadata.tech and Sapiente.AI?
-rpovoadata.tech is the individual professional domain of Rodrigo Póvoa. Sapiente.AI (https://www.sapienteai.com) is the applied AI and technology company co-founded and led by Rodrigo Póvoa as CTO.
+### What is the relationship between rpovoadata.tech and Sapiente AI?
+rpovoadata.tech is the individual professional domain of Rodrigo Póvoa. Sapiente AI (https://www.sapienteai.com) is the applied AI and technology company co-founded and led by Rodrigo Póvoa as CTO.
 
 ### Does Rodrigo Póvoa advocate replacing human staff with AI?
 No. Rodrigo Póvoa advocates for human-in-the-loop AI and automation that eliminates repetitive tasks so teams can focus on strategic, creative, and high-value decisions.
@@ -87,7 +87,7 @@ The tool analyzes public web pages to evaluate HTML structure, JSON-LD schemas, 
 ## 8. Official Social & External Profiles
 * **LinkedIn:** https://www.linkedin.com/in/rodrigopovoa
 * **GitHub:** https://github.com/rodrigopovoa
-* **Sapiente.AI Profile:** https://www.sapienteai.com/en/about
+* **Sapiente AI Profile:** https://www.sapienteai.com/en/about
 
 ## 9. Machine-Readable Discovery Resources
 * **Concise AI Context:** https://www.rpovoadata.tech/llms.txt
