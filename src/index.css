@@ -212,7 +212,7 @@ html {
     @apply px-4 py-1.5 rounded-full
           bg-[#124447]
           text-[#D7EBF1]
-          text-sm font-extrabold tracking-wide
+          text-xs font-semibold tracking-wide
           border border-[#124447]/70
           shadow-md shadow-[#124447]/25
           hover:scale-105

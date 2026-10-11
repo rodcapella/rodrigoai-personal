@@ -160,7 +160,7 @@ export default function PrivacyConsent() {
         title="Cookie and privacy preferences"
       >
         <img
-          src="/cookie-privacy-button_blue.webp"
+          src="/cookie-privacy-button.webp"
           alt="Privacy and cookie preferences"
           width="64"
           height="64"

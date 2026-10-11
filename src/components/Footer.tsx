@@ -93,12 +93,10 @@ const Footer = () => {
             className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <img
-              src="/logos/logo_sapiente_footer-224.webp"
-              srcSet="/logos/logo_sapiente_footer-112.webp 112w, /logos/logo_sapiente_footer-224.webp 224w"
-              sizes="(min-width: 768px) 154px, 84px"
+              src="/logos/logo_sapiente_footer-112.webp"
               alt="Sapiente AI"
-              width={224}
-              height={69}
+              width={112}
+              height={35}
               loading="lazy"
               decoding="async"
               className="block h-auto w-[84px] object-contain md:w-[154px]"
