@@ -10,6 +10,8 @@ interface PageHeroProps {
   imageAlt: string;
   imageFit?: "cover" | "contain";
   imagePosition?: "center" | "top";
+  imageBorder?: boolean;
+  imageLink?: string;
   variant?: "hero" | "page";
 }
 
@@ -23,6 +25,8 @@ const PageHero = ({
   imageAlt,
   imageFit = "cover",
   imagePosition = "center",
+  imageBorder = true,
+  imageLink,
   variant = "page",
 }: PageHeroProps) => {
   return (
@@ -95,6 +99,15 @@ const PageHero = ({
               >
                 <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl" />
 
+                {imageLink && (
+                  <a
+                    href={imageLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${imageAlt} — opens in a new tab`}
+                    className="absolute inset-0 z-10 rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  />
+                )}
                 <img
                   src={image}
                   alt={imageAlt}
@@ -102,7 +115,7 @@ const PageHero = ({
                   height={imageHeight}
                   loading="eager"
                   decoding="async"
-                  className={`relative h-full w-full rounded-3xl border border-primary/20 shadow-2xl ${
+                  className={`relative h-full w-full rounded-3xl shadow-2xl ${imageBorder ? "border border-primary/20" : ""} ${
                     imageFit === "contain" ? "object-contain" : "object-cover"
                   } ${imagePosition === "top" ? "object-top" : "object-center"}`}
                 />

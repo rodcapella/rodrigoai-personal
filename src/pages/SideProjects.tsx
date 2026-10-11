@@ -293,6 +293,8 @@ export default function SideProjects() {
           title="Innovation Hub: Sapiente AI"
           subtitle="Founder & Technical Lead"
           image="/logos/logo_sapienteai.webp"
+          imageBorder={false}
+          imageLink="https://www.sapienteai.com/en"
           imageWidth={1536}
           imageHeight={1024}
           imageAlt="Sapiente AI artificial intelligence innovation company logo"

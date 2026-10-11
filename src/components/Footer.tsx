@@ -99,7 +99,7 @@ const Footer = () => {
               height={35}
               loading="lazy"
               decoding="async"
-              className="block h-auto w-[84px] object-contain md:w-[154px]"
+              className="block h-auto w-[64px] object-contain md:w-[112px]"
             />
           </a>
         </div>
