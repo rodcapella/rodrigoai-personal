@@ -25,7 +25,7 @@ const HeroSection = ({ onOpenChat }: HeroSectionProps) => {
         
         {/* LEFT */}
         <div className="max-w-xl md:min-h-[21.25rem] lg:min-h-[17rem] xl:min-h-[15.25rem]">
-          <h1 className="font-display text-3xl md:min-h-[7.5rem] md:text-4xl lg:min-h-[5rem] font-extrabold uppercase tracking-[0.12em] mb-6 text-gradient">
+          <h1 className="font-display text-3xl md:min-h-[7.5rem] md:text-4xl lg:min-h-[5rem] font-bold uppercase tracking-[0.12em] mb-6 text-gradient">
             End-to-End Data Leader &amp; Data Analytics Engineer
           </h1>
 

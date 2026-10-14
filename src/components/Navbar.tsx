@@ -182,6 +182,12 @@ const Navbar = ({ theme, onToggleTheme }: NavbarProps) => {
         {/* Mobile Menu */}
             <div
               id="mobile-navigation-menu"
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget) &&
+                    event.relatedTarget !== mobileMenuButtonRef.current) {
+                  setMobileMenuOpen(false);
+                }
+              }}
               hidden={!mobileMenuOpen}
               aria-hidden={!mobileMenuOpen}
               className="absolute top-full left-0 right-0 bg-background border-b border-primary/20 lg:hidden"

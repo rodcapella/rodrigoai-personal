@@ -50,12 +50,26 @@ export default function App() {
     if (previousPathRef.current === location.pathname) return;
     previousPathRef.current = location.pathname;
 
+    // Lazy routes may not have mounted their main landmark on the next frame.
+    const focusMain = () => {
+      const main = document.getElementById("main-content");
+      if (!main) return false;
+      if (document.documentElement.dataset.privacyView !== "dialog") {
+        main.focus({ preventScroll: true });
+      }
+      return true;
+    };
+    const observer = new MutationObserver(() => {
+      if (focusMain()) observer.disconnect();
+    });
     const focusFrame = window.requestAnimationFrame(() => {
-      if (document.documentElement.dataset.privacyView === "dialog") return;
-      document.getElementById("main-content")?.focus({ preventScroll: true });
+      if (!focusMain()) observer.observe(document.getElementById("root")!, { childList: true, subtree: true });
     });
 
-    return () => window.cancelAnimationFrame(focusFrame);
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      observer.disconnect();
+    };
   }, [location.pathname]);
 
   return (

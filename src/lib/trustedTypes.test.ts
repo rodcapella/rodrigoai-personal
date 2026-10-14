@@ -73,6 +73,29 @@ describe("Trusted Types policy", () => {
     ).toThrow("Untrusted script URL blocked");
   });
 
+  it("escapes FAQ links in JSON-LD without changing their parsed content", async () => {
+    const rules = await loadPolicyRules();
+    const schema = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      text: '<a href="https://www.rpovoadata.tech/contact">Contact Rodrigo</a>',
+    });
+    const safe = rules.createHTML?.(schema);
+    expect(safe).not.toMatch(/[<>]/);
+    expect(JSON.parse(safe!)).toEqual(JSON.parse(schema));
+  });
+
+  it("keeps markup injection blocked and neutralizes script delimiters in JSON", async () => {
+    const rules = await loadPolicyRules();
+    expect(() => rules.createHTML?.('<img src=x onerror="alert(1)">')).toThrow();
+    const schema = JSON.stringify({
+      "@context": "https://schema.org",
+      name: '</script><script>alert(1)</script>',
+    });
+    expect(rules.createHTML?.(schema)).not.toMatch(/[<>]/);
+    expect(rules.createScript?.(schema)).not.toMatch(/[<>]/);
+  });
+
   it("allows the same-origin Vercel Speed Insights script", async () => {
     const rules = await loadPolicyRules();
     const scriptUrl = "/_vercel/speed-insights/script.js";

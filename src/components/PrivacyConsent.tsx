@@ -18,7 +18,6 @@ export default function PrivacyConsent() {
   const dialogRef = useRef<HTMLDivElement>(null);
   const returnFocusRef = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState(false);
-  const [hasDecision, setHasDecision] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [analyticsConfigurationChecked, setAnalyticsConfigurationChecked] =
     useState(false);
@@ -39,7 +38,6 @@ export default function PrivacyConsent() {
     const consent = getAnalyticsConsent();
     const shouldOpen = consent === null;
     setPrivacyView(shouldOpen ? "dialog" : "launcher");
-    setHasDecision(consent !== null);
     setOpen(shouldOpen);
 
     const handleOpen = () => {
@@ -76,6 +74,11 @@ export default function PrivacyConsent() {
       dialog?.focus({ preventScroll: true }),
     );
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDialog();
+        return;
+      }
       if (event.key !== "Tab" || !dialog) return;
 
       const focusableElements = Array.from(
@@ -97,7 +100,7 @@ export default function PrivacyConsent() {
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
 
-      if (event.shiftKey && document.activeElement === firstElement) {
+      if (event.shiftKey && (document.activeElement === firstElement || document.activeElement === dialog)) {
         event.preventDefault();
         lastElement.focus();
       } else if (
@@ -130,18 +133,16 @@ export default function PrivacyConsent() {
         returnFocusRef.current = null;
       });
     };
-  }, [open]);
+  }, [open, closeDialog]);
 
   const acceptAnalytics = () => {
     enableAnalytics();
     trackPageView(`${window.location.pathname}${window.location.search}`);
-    setHasDecision(true);
     closeDialog();
   };
 
   const rejectAnalytics = () => {
     disableAnalytics();
-    setHasDecision(true);
     closeDialog();
   };
 
@@ -181,7 +182,6 @@ export default function PrivacyConsent() {
         aria-describedby="privacy-consent-description"
       >
         <div className="max-h-[92vh] w-full overflow-y-auto rounded-t-3xl border border-primary/20 bg-background/95 p-6 shadow-2xl outline-none sm:max-w-2xl sm:rounded-3xl sm:bg-background/75 sm:p-8 sm:backdrop-blur-xl">
-          {hasDecision && (
           <button
             type="button"
             onClick={closeDialog}
@@ -190,7 +190,6 @@ export default function PrivacyConsent() {
           >
             <X className="h-5 w-5" />
           </button>
-          )}
 
           <div className="mb-5 inline-flex rounded-xl bg-primary/10 p-3 text-primary">
             <ShieldCheck className="h-6 w-6" />

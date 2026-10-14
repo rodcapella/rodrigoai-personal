@@ -42,7 +42,6 @@ html {
     --radius: 0.75rem;
 
     --glow-primary: 217 91% 53%;
-    --glow-secondary: 160 84% 40%;
 
     --scrollbar-thumb: 206 92% 63%;
     --scrollbar-light: 194 48% 89%;
@@ -90,7 +89,6 @@ html {
     --ring: 217 91% 53%;
 
     --glow-primary: 217 91% 53%;
-    --glow-secondary: 160 84% 40%;
 
     --scrollbar-thumb: 206 92% 63%;
     --scrollbar-light: 194 48% 89%;
@@ -142,6 +140,11 @@ html {
 
   body {
     @apply bg-background text-foreground font-body antialiased overflow-x-hidden;
+  }
+
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 3px;
   }
 
   h1 { @apply heading-xl; }

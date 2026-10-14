@@ -63,7 +63,6 @@ const isSchemaJson = (value: string) => {
     };
 
     return (
-      !/[<>]/.test(value) &&
       parsed !== null &&
       typeof parsed === "object" &&
       parsed["@context"] === "https://schema.org"
@@ -72,6 +71,13 @@ const isSchemaJson = (value: string) => {
     return false;
   }
 };
+
+// Helmet writes JSON-LD through innerHTML. Escape HTML delimiters even inside
+// valid JSON strings, so structured data cannot become executable markup.
+const escapeSchemaHtml = (value: string) => value
+  .replace(/</g, "\\u003c")
+  .replace(/>/g, "\\u003e")
+  .replace(/&/g, "\\u0026");
 
 if (typeof window !== "undefined") {
   const trustedTypesWindow = window as TrustedTypesWindow;
@@ -83,11 +89,12 @@ if (typeof window !== "undefined") {
     try {
       trustedTypes.createPolicy("default", {
         createHTML: (value) => {
-          if (value === "" || isSchemaJson(value)) return value;
+          if (value === "") return value;
+          if (isSchemaJson(value)) return escapeSchemaHtml(value);
           throw new TypeError("Dynamic HTML injection is not allowed.");
         },
         createScript: (value) => {
-          if (isSchemaJson(value)) return value;
+          if (isSchemaJson(value)) return escapeSchemaHtml(value);
           throw new TypeError("Dynamic JavaScript evaluation is not allowed.");
         },
         createScriptURL: (value) => {
