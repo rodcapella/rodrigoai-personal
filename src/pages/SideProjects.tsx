@@ -1,5 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import { useOutletContext } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import PageHero from "@/components/layout/PageHero";
@@ -20,6 +21,9 @@ import {
   MessageSquare,
   FlaskConical,
   Briefcase,
+  Search,
+  CheckCircle,
+  ExternalLink,
 } from "@/lib/icons";
 
 type SectionVariant = "default" | "muted" | "gradient" | "glass";
@@ -201,6 +205,78 @@ export default function SideProjects() {
       ),
     },
     {
+      title: "Free SEO, GEO & AEO Validator",
+      icon: <Search />,
+      variant: "gradient",
+      content: (
+        <div className="glass layer-blue overflow-hidden rounded-2xl glow-primary-sm">
+          <div className="grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:p-12">
+            <div>
+              <span className="mb-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold tracking-[0.16em] text-primary uppercase">
+                Free Tool
+              </span>
+
+              <h3 className="mb-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                See how visible your website really is
+              </h3>
+
+              <p className="mb-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                Evaluate how prepared your website is for traditional search
+                engines, generative AI platforms and answer engines. Receive a
+                clear technical assessment with actionable recommendations,
+                completely free.
+              </p>
+
+              <ul className="mb-8 grid gap-3 text-sm text-foreground/85 sm:grid-cols-2">
+                {[
+                  "Technical SEO",
+                  "AI Discoverability",
+                  "Structured Data",
+                  "Actionable Report",
+                ].map((benefit) => (
+                  <li key={benefit} className="flex items-center gap-2">
+                    <CheckCircle
+                      aria-hidden="true"
+                      className="h-4 w-4 shrink-0 text-primary"
+                    />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="https://www.sapienteai.com/en/seo-aeo-validator"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-button inline-flex bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                Validate Your Website for Free
+                <ExternalLink aria-hidden="true" className="h-4 w-4" />
+              </a>
+            </div>
+
+            <a
+              href="https://www.sapienteai.com/en/seo-aeo-validator"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the free SEO, GEO and AEO Validator in a new tab"
+              className="group block overflow-hidden rounded-xl border border-primary/20 bg-background/35 p-2 transition-colors hover:border-primary/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            >
+              <img
+                src="/capa_validador_SEO.webp"
+                width={600}
+                height={246}
+                alt="SEO, GEO and AEO Validator dashboard by Sapiente AI"
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full rounded-lg transition-transform duration-300 group-hover:scale-[1.02]"
+              />
+            </a>
+          </div>
+        </div>
+      ),
+    },
+    {
       title: "AI Project Focus Areas",
       icon: <Zap />,
       variant: "muted",
@@ -262,6 +338,7 @@ export default function SideProjects() {
             className="site-button bg-primary text-primary-foreground hover:bg-primary/90"
           >
             Visit Sapiente AI website
+            <ExternalLink aria-hidden="true" className="h-4 w-4" />
           </a>
         </div>
       ),
@@ -285,6 +362,46 @@ export default function SideProjects() {
           },
         ]}
       />
+
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "@id":
+              "https://www.sapienteai.com/en/seo-aeo-validator#application",
+            name: "Free SEO, GEO & AEO Validator",
+            url: "https://www.sapienteai.com/en/seo-aeo-validator",
+            description:
+              "A free technical visibility validator that evaluates website readiness for search engines, generative AI platforms and answer engines.",
+            applicationCategory: "BusinessApplication",
+            applicationSubCategory: "Website analysis and optimisation",
+            operatingSystem: "Web",
+            browserRequirements: "Requires a modern web browser",
+            inLanguage: "en",
+            image:
+              "https://www.rpovoadata.tech/capa_validador_SEO.webp",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "EUR",
+              availability: "https://schema.org/OnlineOnly",
+            },
+            publisher: {
+              "@type": "Organization",
+              "@id": "https://www.sapienteai.com/#organization",
+              name: "Sapiente AI",
+              url: "https://www.sapienteai.com/en",
+            },
+            creator: {
+              "@type": "Person",
+              "@id": "https://www.rpovoadata.tech/#person",
+              name: "Rodrigo Póvoa",
+              url: "https://www.rpovoadata.tech/",
+            },
+          })}
+        </script>
+      </Helmet>
 
       {/* HERO */}
       <PageSection variant="gradient" spacing="none" className="pt-12 pb-6 md:pt-16 md:pb-8">
