@@ -16,6 +16,7 @@ const SideProjects = lazy(() => import("./pages/SideProjects"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const lazyPage = (page: ReactNode) => (
   <Suspense
@@ -105,6 +106,10 @@ export const createRoutes = (
       {
         path: "privacy",
         element: routePage("/privacy", <Privacy />, initialPath, InitialComponent),
+      },
+      {
+        path: "*",
+        element: lazyPage(<NotFound />),
       },
     ],
   },

@@ -272,6 +272,21 @@ try {
     markdownDocuments.push(markdownDocument);
   }
 
+  const {
+    appHtml: notFoundAppHtml,
+    head: notFoundHead,
+    htmlAttributes: notFoundHtmlAttributes,
+  } = await render("/__404-not-found");
+  const notFoundHtml = template
+    .replace(/<html[^>]*>/, `<html ${notFoundHtmlAttributes}>`)
+    .replace(/\s*<title>.*?<\/title>/s, "")
+    .replace("</head>", `  ${notFoundHead}\n  </head>`)
+    .replace(
+      '<div id="root"></div>',
+      `<div id="root">${notFoundAppHtml}</div>`,
+    );
+  await fs.writeFile(path.join(distDirectory, "404.html"), notFoundHtml, "utf8");
+
   const sitemapEntries = [
     ...staticPages.map((page) => ({
       path: page,

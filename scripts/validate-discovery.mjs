@@ -34,6 +34,20 @@ const markdownFile = (route) =>
 
 const pageTitles = new Map();
 const pageDescriptions = new Map();
+
+const notFoundFile = path.join(dist, "404.html");
+requireFile(notFoundFile);
+const notFoundHtml = fs.readFileSync(notFoundFile, "utf8");
+if (!/<title[^>]*>Page Not Found \| Rodrigo Póvoa<\/title>/i.test(notFoundHtml)) {
+  fail("custom 404 page is missing its descriptive title");
+}
+if (!/<meta[^>]+name="robots"[^>]+content="noindex, nofollow"/i.test(notFoundHtml)) {
+  fail("custom 404 page must be excluded from search indexing");
+}
+if (!/The route[\s\S]*\/__404-not-found[\s\S]*could not be found/i.test(notFoundHtml)) {
+  fail("custom 404 page content was not prerendered");
+}
+
 const validateSearchPage = (route, html) => {
   if (!/<meta\s+charset=["']?utf-8["']?\s*\/?>/i.test(html)) {
     fail(`${route} does not declare UTF-8 encoding`);

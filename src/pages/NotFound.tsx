@@ -1,57 +1,63 @@
-import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, Link, useOutletContext } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import PageSection from "@/components/layout/PageSection";
 import { AlertTriangle } from "@/lib/icons";
 
-interface NotFoundProps {
-  theme?: "dark" | "light";
-  onToggleTheme?: () => void;
-}
-
-const NotFound = ({ theme, onToggleTheme }: NotFoundProps) => {
+const NotFound = () => {
   const location = useLocation();
-
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
+  const { theme, onToggleTheme } = useOutletContext<{
+    theme: "dark" | "light";
+    onToggleTheme: () => void;
+  }>();
 
   return (
     <MainLayout theme={theme} onToggleTheme={onToggleTheme}>
+      <Helmet>
+        <title>Page Not Found | Rodrigo Póvoa</title>
+        <meta
+          name="description"
+          content="The requested page could not be found. Return to Rodrigo Póvoa's website or use the main navigation."
+        />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <PageSection>
-        <div className="flex flex-col items-center justify-center text-center py-20">
+        <div className="flex min-h-[50vh] flex-col items-center justify-center py-16 text-center md:py-20">
           <div className="mb-6">
-            <AlertTriangle className="w-12 h-12 text-primary opacity-80" />
+            <AlertTriangle
+              aria-hidden="true"
+              className="h-12 w-12 text-primary opacity-80"
+            />
           </div>
 
-          <h1 className="text-6xl font-bold mb-4">404</h1>
+          <p className="mb-3 font-display text-sm font-bold tracking-[0.18em] text-primary uppercase">
+            Page Not Found
+          </p>
+          <h1 className="mb-4 text-6xl font-bold">404</h1>
 
-          <p className="text-xl text-muted-foreground mb-6">
+          <p className="mb-6 text-xl text-muted-foreground">
             This page doesn’t exist… or maybe it was never built.
           </p>
 
-          <p className="text-sm text-muted-foreground mb-10 max-w-md">
+          <p className="mb-10 max-w-md text-sm text-muted-foreground">
             The route{" "}
-            <span className="text-primary font-semibold">
+            <span className="break-all font-semibold text-primary">
               {location.pathname}
             </span>{" "}
             could not be found.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/"
-              className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
+              className="site-button bg-primary text-primary-foreground hover:bg-primary/90"
             >
               Go Home
             </Link>
 
             <Link
               to="/contact"
-              className="px-6 py-3 rounded-lg border border-border hover:border-primary transition-all"
+              className="site-button border border-border text-foreground hover:border-primary"
             >
               Contact Me
             </Link>
