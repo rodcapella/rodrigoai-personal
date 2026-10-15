@@ -41,7 +41,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Rodrigo Póvoa on LinkedIn"
-                className="rounded-lg border border-primary/15 p-2 text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+                className="rounded-lg border border-primary/15 p-2 text-muted-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -50,7 +50,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Rodrigo Póvoa on GitHub"
-                className="rounded-lg border border-primary/15 p-2 text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+                className="rounded-lg border border-primary/15 p-2 text-muted-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:text-primary"
               >
                 <Github className="h-5 w-5" />
               </a>

@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageSection from "@/components/layout/PageSection";
-import { FadeInOnScroll } from "@/components/ui/FadeInOnScroll";
 import { ChevronRight, MessageCircle } from "@/lib/icons";
 
 const questions = [
@@ -94,9 +93,8 @@ export default function HomeFaqSection() {
         icon={<MessageCircle />}
       >
         <div className="space-y-5 md:space-y-6">
-          {questions.map(({ id, question, answer, link }, index) => (
-            <FadeInOnScroll key={question} delay={index * 0.04}>
-              <details id={id} className="group scroll-mt-28 overflow-hidden rounded-xl border border-border bg-card/50 transition-colors open:border-primary/30 open:bg-card/70">
+          {questions.map(({ id, question, answer, link }) => (
+              <details key={question} id={id} className="group scroll-mt-28 overflow-hidden rounded-xl border border-border bg-card/50 transition-colors open:border-primary/30 open:bg-card/70">
                 <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-5 text-left transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:px-7 [&::-webkit-details-marker]:hidden">
                   <ChevronRight
                     aria-hidden="true"
@@ -121,7 +119,6 @@ export default function HomeFaqSection() {
                   </div>
                 </div>
               </details>
-            </FadeInOnScroll>
           ))}
         </div>
       </PageSection>

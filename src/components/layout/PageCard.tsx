@@ -57,12 +57,11 @@ const PageCard = ({
         p-5
         rounded-xl
         h-full
-        transition-all duration-300
         ${variants[variant]}
         ${alignMap[align]}
         ${
           hover
-            ? "hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.12)]"
+            ? "transition-transform duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_25px_rgba(59,130,246,0.12)]"
             : ""
         }
         ${className}

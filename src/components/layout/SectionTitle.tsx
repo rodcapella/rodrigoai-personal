@@ -44,7 +44,7 @@ export default function SectionTitle({
           <span
             className="
               text-primary
-              transition-all duration-300
+              transition-[transform,filter] duration-300
               group-hover:scale-110
               group-hover:drop-shadow-[0_0_10px_rgba(59,130,246,0.6)]
               flex shrink-0 items-center
@@ -57,7 +57,7 @@ export default function SectionTitle({
         {/* TITLE */}
         <span
           className={`
-            min-w-0 transition-all duration-300
+            min-w-0 transition-opacity duration-300
             ${textVariant[variant]}
             group-hover:opacity-90
           `}

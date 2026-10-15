@@ -45,10 +45,9 @@ export default function App() {
   }, [location.pathname, location.search]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-
     if (previousPathRef.current === location.pathname) return;
     previousPathRef.current = location.pathname;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 
     // Lazy routes may not have mounted their main landmark on the next frame.
     const focusMain = () => {
