@@ -189,6 +189,31 @@ html {
     );
   }
 
+  .sapiente-footer-logo {
+    width: 64px;
+    height: auto;
+    aspect-ratio: 112 / 38;
+  }
+
+  .preferred-source-badge-light {
+    display: none;
+  }
+
+  .light .preferred-source-badge-dark {
+    display: none;
+  }
+
+  .light .preferred-source-badge-light {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .sapiente-footer-logo {
+      width: 112px;
+      height: auto;
+    }
+  }
+
   .privacy-consent-launcher {
     display: none;
   }

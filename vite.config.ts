@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url';
 import { resolvePageLastModified } from "./scripts/lastmod.mjs";
 
 const strictCspBootstrap =
-  'const k="rpovoa-analytics-consent";let p;try{p=localStorage.getItem(k)}catch{}document.documentElement.dataset.privacyView=p==="granted"||p==="denied"?"launcher":"dialog";const l=document.querySelector("link[data-deferred-stylesheet]");if(l){const a=()=>{if(l.rel!=="stylesheet"){l.rel="stylesheet";l.removeAttribute("as")}};l.addEventListener("load",a,{once:true});requestAnimationFrame(()=>requestAnimationFrame(a))}const c=document.currentScript,u=c&&c.dataset.appEntry;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
+  'const k="rpovoa-analytics-consent";let p;try{p=localStorage.getItem(k)}catch{}document.documentElement.dataset.privacyView=p==="granted"||p==="denied"?"launcher":"dialog";const c=document.currentScript,u=c&&c.dataset.appEntry;if(!u)throw new Error("Missing app entry");const s=document.createElement("script");s.type="module";s.src=globalThis.trustedTypes?trustedTypes.createPolicy("bootstrap",{createScriptURL:v=>{if(v!==u)throw new TypeError("Blocked script URL");return v}}).createScriptURL(u):u;document.head.append(s);';
 const strictCspHash = `sha256-${createHash("sha256")
   .update(strictCspBootstrap)
   .digest("base64")}`;

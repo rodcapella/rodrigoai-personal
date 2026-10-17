@@ -15,6 +15,7 @@ import {
 import FormField from "@/components/ui/FormField";
 import TurnstileWidget from "@/components/ui/TurnstileWidget";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { InstitutionalPageSchema } from "@/components/seo/InstitutionalPageSchema";
 
 type FormData = {
   name: string;
@@ -256,6 +257,13 @@ export default function Contact() {
         title="Contact Rodrigo Póvoa | Senior Data Leadership"
         description="Contact Rodrigo Póvoa about senior and leadership opportunities in data engineering, architecture, analytics and governed platform delivery."
         keywords="contact Rodrigo Póvoa, senior data leadership opportunities, end-to-end data leader, AI-assisted engineering, Azure Databricks, data engineering leadership"
+      />
+
+      <InstitutionalPageSchema
+        type="ContactPage"
+        path="/contact"
+        name="Contact Rodrigo Póvoa"
+        description="Contact Rodrigo Póvoa about senior and leadership opportunities in data engineering, data architecture, analytics and governed platform delivery."
       />
 
       <BreadcrumbSchema

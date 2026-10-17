@@ -48,6 +48,38 @@ export const WebSiteSchema = () => (
           width: 1200,
           height: 675,
         },
+        hasPart: [
+          {
+            "@type": "AboutPage",
+            "@id": `${siteBaseUrl}/about#about-page`,
+            url: `${siteBaseUrl}/about`,
+            name: "About Rodrigo Póvoa",
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": `${siteBaseUrl}/professional#profile-page`,
+            url: `${siteBaseUrl}/professional`,
+            name: "Professional Experience",
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": `${siteBaseUrl}/side-projects#side-projects`,
+            url: `${siteBaseUrl}/side-projects`,
+            name: "Innovation Hub and Side Projects",
+          },
+          {
+            "@type": "Blog",
+            "@id": `${siteBaseUrl}/blog#blog`,
+            url: `${siteBaseUrl}/blog`,
+            name: "Data, Analytics and AI Articles",
+          },
+          {
+            "@type": "ContactPage",
+            "@id": `${siteBaseUrl}/contact#contact-page`,
+            url: `${siteBaseUrl}/contact`,
+            name: "Contact Rodrigo Póvoa",
+          },
+        ],
       })}
     </script>
   </Helmet>

@@ -367,38 +367,53 @@ export default function SideProjects() {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "@id":
-              "https://www.sapienteai.com/en/seo-aeo-validator#application",
-            name: "Free SEO, GEO & AEO Validator",
-            url: "https://www.sapienteai.com/en/seo-aeo-validator",
-            description:
-              "A free technical visibility validator that evaluates website readiness for search engines, generative AI platforms and answer engines.",
-            applicationCategory: "BusinessApplication",
-            applicationSubCategory: "Website analysis and optimisation",
-            operatingSystem: "Web",
-            browserRequirements: "Requires a modern web browser",
-            inLanguage: "en",
-            image:
-              "https://www.rpovoadata.tech/capa_validador_SEO.webp",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/OnlineOnly",
-            },
-            publisher: {
-              "@type": "Organization",
-              "@id": "https://www.sapienteai.com/#organization",
-              name: "Sapiente AI",
-              url: "https://www.sapienteai.com/en",
-            },
-            creator: {
-              "@type": "Person",
-              "@id": "https://www.rpovoadata.tech/#person",
-              name: "Rodrigo Póvoa",
-              url: "https://www.rpovoadata.tech/",
-            },
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.sapienteai.com/#organization",
+                name: "Sapiente AI",
+                url: "https://www.sapienteai.com/en",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.rpovoadata.tech/logos/logo_sapiente_transparente.webp",
+                },
+                founder: {
+                  "@type": "Person",
+                  "@id": "https://www.rpovoadata.tech/#person",
+                  name: "Rodrigo Póvoa",
+                  url: "https://www.rpovoadata.tech/about",
+                },
+                sameAs: ["https://x.com/SapienteAI"],
+              },
+              {
+                "@type": "WebApplication",
+                "@id":
+                  "https://www.sapienteai.com/en/seo-aeo-validator#application",
+                name: "Free SEO, GEO & AEO Validator",
+                url: "https://www.sapienteai.com/en/seo-aeo-validator",
+                description:
+                  "A free technical visibility validator that evaluates website readiness for search engines, generative AI platforms and answer engines.",
+                applicationCategory: "BusinessApplication",
+                applicationSubCategory: "Website analysis and optimisation",
+                operatingSystem: "Web",
+                browserRequirements: "Requires a modern web browser",
+                inLanguage: "en",
+                image:
+                  "https://www.rpovoadata.tech/capa_validador_SEO.webp",
+                offers: {
+                  "@type": "Offer",
+                  price: "0",
+                  priceCurrency: "EUR",
+                  availability: "https://schema.org/OnlineOnly",
+                },
+                publisher: {
+                  "@id": "https://www.sapienteai.com/#organization",
+                },
+                creator: {
+                  "@id": "https://www.rpovoadata.tech/#person",
+                },
+              },
+            ],
           })}
         </script>
       </Helmet>

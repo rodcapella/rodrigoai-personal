@@ -14,7 +14,8 @@ const MainLayout = ({ children, theme, onToggleTheme }: MainLayoutProps) => {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 pt-[var(--navbar-height)]"
+        className="flex-1"
+        style={{ paddingTop: "var(--navbar-height)" }}
       >
         {children}
       </main>

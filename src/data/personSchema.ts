@@ -12,35 +12,17 @@ export const personSchemaData = {
   name: "Rodrigo Póvoa",
   jobTitle: "End-to-End Data Leader & Data Analytics Engineer",
   description:
-    "End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Engineering, Architecture and Analytics, available for remote projects worldwide conducted in Portuguese or English.",
+    "End-to-End Data Leader & Data Analytics Engineer with 15+ years of experience across Data Engineering, Architecture and Analytics, open to senior and leadership opportunities conducted in Portuguese or English.",
   knowsLanguage: [
     { "@type": "Language", name: "Portuguese", alternateName: "pt" },
     { "@type": "Language", name: "English", alternateName: "en" },
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    contactType: "Professional project enquiries",
+    contactType: "Professional opportunities",
     url: `${siteBaseUrl}/contact`,
     areaServed: "Worldwide",
     availableLanguage: ["Portuguese", "English"],
-  },
-  makesOffer: {
-    "@type": "Offer",
-    itemOffered: {
-      "@type": "Service",
-      "@id": `${siteBaseUrl}/#remote-data-services`,
-      name: "Remote Data Engineering, Architecture, Analytics and Technical Leadership",
-      description:
-        "Remote delivery of data projects worldwide, with project collaboration and communication in Portuguese or English.",
-      serviceType: ["Data Engineering", "Data Architecture", "Data Analytics", "Technical Leadership"],
-      areaServed: "Worldwide",
-      provider: { "@id": `${siteBaseUrl}/#person` },
-      availableChannel: {
-        "@type": "ServiceChannel",
-        serviceUrl: `${siteBaseUrl}/contact`,
-        availableLanguage: ["Portuguese", "English"],
-      },
-    },
   },
   url: `${siteBaseUrl}/about`,
   image: `${siteBaseUrl}/profile-640.webp`,
@@ -71,9 +53,7 @@ export const personSchemaData = {
     "@id": "https://www.sapienteai.com/#organization",
   },
   subjectOf: authoredArticleSlugs.map((slug) => ({
-    "@type": "BlogPosting",
     "@id": `${siteBaseUrl}/blog/${slug}#article`,
-    url: `${siteBaseUrl}/blog/${slug}`,
   })),
   sameAs: [
     "https://www.linkedin.com/in/rodrigocspovoa",

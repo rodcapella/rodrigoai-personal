@@ -165,6 +165,8 @@ export default function PrivacyConsent() {
           alt="Privacy and cookie preferences"
           width="64"
           height="64"
+          loading="lazy"
+          decoding="async"
           className="h-6 w-6 rounded-full object-contain transition-transform duration-200 sm:h-full sm:w-full sm:group-hover:rotate-[-7deg] sm:group-hover:scale-105"
         />
       </button>

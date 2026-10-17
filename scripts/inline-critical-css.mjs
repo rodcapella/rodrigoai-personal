@@ -34,7 +34,13 @@ for (const htmlFile of htmlFiles) {
     pruneSource: false,
     fonts: false,
     logLevel: "silent",
-    allowRules: [/^:root/, /^html/, /^body/, /^\.light/],
+    allowRules: [
+      /^:root/,
+      /^html/,
+      /^body/,
+      /^\.light/,
+      /^\.sapiente-footer-logo/,
+    ],
   });
   // Beasties parses and serializes the entire document. Its serialized body can
   // normalize React's hydration markers and whitespace, so use it only to
@@ -48,18 +54,15 @@ for (const htmlFile of htmlFiles) {
     throw new Error(`Could not extract critical CSS for ${htmlFile}.`);
   }
 
-  const stylesheetPreload = stylesheetLink
-    .replace(/rel=["']stylesheet["']/i, 'rel="preload"')
-    .replace(/>$/, ' as="style" data-deferred-stylesheet>');
+  // Keep the complete stylesheet render-blocking. A preload by itself only
+  // downloads CSS; it does not apply it. Applying the remaining rules after
+  // first paint caused large layout shifts on desktop when the hydrated app
+  // moved from the partial critical styles to the complete layout.
   const withCriticalStyles = html.replace(
     stylesheetLink,
-    `${criticalStyle}\n${stylesheetPreload}`,
+    `${criticalStyle}\n${stylesheetLink}`,
   );
-  const optimizedHtml = withCriticalStyles.replace(
-    "</body>",
-    `<noscript>${stylesheetLink}</noscript>\n</body>`,
-  );
-  await fs.writeFile(htmlFile, optimizedHtml, "utf8");
+  await fs.writeFile(htmlFile, withCriticalStyles, "utf8");
 }
 
 console.log(`Inlined critical CSS for ${htmlFiles.length} prerendered pages.`);

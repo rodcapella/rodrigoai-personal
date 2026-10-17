@@ -10,42 +10,42 @@ const questions = [
     link: { to: "/contact", label: "Discuss an opportunity" },
     question: "What professional opportunities am I currently exploring?",
     answer:
-      "Rodrigo Póvoa is currently exploring senior and leadership opportunities across Data Engineering, Data Architecture and Analytics, combining hands-on technical delivery, governance, stakeholder alignment and team leadership.",
+      "Rodrigo Póvoa is currently exploring senior and leadership opportunities across Data Engineering, Data Architecture and Analytics. He is particularly interested in roles that combine hands-on technical delivery, governed platform design, stakeholder alignment, team leadership and measurable business outcomes.",
   },
   {
     id: "faq-data-specialization",
     link: { to: "/professional", label: "Explore professional experience" },
     question: "What is my core data specialization?",
     answer:
-      "Rodrigo Póvoa specializes in end-to-end data platforms, from ingestion, transformation and orchestration through quality, security, governance and analytics, with strong experience in Azure Databricks Lakehouse architectures.",
+      "Rodrigo Póvoa specializes in end-to-end data platforms, covering ingestion, transformation, orchestration, quality, security, governance and analytics delivery. His recent work focuses on scalable Azure Databricks Lakehouse architectures that turn complex source data into reliable, analytics-ready data products.",
   },
   {
     id: "faq-engineering-and-leadership",
     link: { to: "/professional", label: "Review engineering and leadership experience" },
     question: "Do I combine hands-on engineering with technical leadership?",
     answer:
-      "Yes. Rodrigo Póvoa remains involved in architecture, engineering standards, code and solution reviews, troubleshooting and delivery decisions while leading multidisciplinary teams, mentoring professionals and aligning stakeholders.",
+      "Yes. Rodrigo Póvoa combines hands-on architecture and engineering with technical leadership. He contributes to engineering standards, solution and code reviews, troubleshooting and delivery decisions while leading multidisciplinary teams, mentoring professionals, documenting technical practices and aligning stakeholders around practical outcomes.",
   },
   {
     id: "faq-technologies",
     link: { to: "/professional", label: "View technology stack and experience" },
     question: "Which technologies are most relevant to my recent work?",
     answer:
-      "Rodrigo Póvoa’s recent work focuses on Azure Databricks, Delta Lake, PySpark, Python, SQL, ADLS, Unity Catalog and Power BI, supported by data quality, lineage, orchestration, security and governance practices.",
+      "Rodrigo Póvoa’s recent work focuses on Azure Databricks, Delta Lake, PySpark, Python, SQL, ADLS, Unity Catalog and Power BI. These technologies are supported by practical experience in data quality, lineage, orchestration, access control, performance optimization, security and governance.",
   },
   {
     id: "faq-organizations-and-environments",
     link: { to: "/professional", label: "Explore career history" },
     question: "What types of organizations and environments have I worked in?",
     answer:
-      "Rodrigo Póvoa’s experience spans large enterprises, consulting engagements, international banking and retail projects, digital businesses and technology startups across Brazil and Europe.",
+      "Rodrigo Póvoa’s experience spans large enterprises, consulting engagements, international banking and retail projects, digital businesses and technology startups across Brazil and Europe. This variety supports effective work in regulated corporate environments as well as fast-moving organizations that require ownership and adaptability.",
   },
   {
     id: "faq-contact",
     link: { to: "/contact", label: "Contact Rodrigo Póvoa" },
     question: "How can recruiters and organizations contact me?",
     answer:
-      "Use the Contact page to send Rodrigo Póvoa a message or connect with him directly on LinkedIn. Messages are normally answered within 48 business hours.",
+      "Recruiters and organizations can use the Contact page to send Rodrigo Póvoa a structured message about a role, project or professional conversation. They can also connect with him directly on LinkedIn. Messages submitted through the website are normally answered within 48 business hours.",
   },
 ] as const;
 

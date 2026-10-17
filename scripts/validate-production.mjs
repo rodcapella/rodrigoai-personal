@@ -148,6 +148,8 @@ const expectedSchemas = (pathname) => {
   if (pathname === "/about" || pathname === "/professional") {
     required.push("ProfilePage");
   }
+  if (pathname === "/about") required.push("AboutPage");
+  if (pathname === "/contact") required.push("ContactPage");
   if (pathname === "/blog") required.push("Blog", "ItemList");
   if (pathname.startsWith("/blog/")) required.push("BlogPosting");
   return required;

@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import { JSDOM } from "jsdom";
 import markdownMiddleware from "../middleware.js";
 
 const root = process.cwd();
@@ -35,6 +36,94 @@ const markdownFile = (route) =>
 const pageTitles = new Map();
 const pageDescriptions = new Map();
 
+const accessibleText = (element) =>
+  element.textContent?.replace(/\s+/g, " ").trim() ?? "";
+
+const validateAccessibilitySemantics = (route, html) => {
+  const document = new JSDOM(html).window.document;
+  const ids = [...document.querySelectorAll("[id]")].map(({ id }) => id);
+  const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
+  if (duplicateIds.length) {
+    fail(`${route} contains duplicate IDs: ${duplicateIds.join(", ")}`);
+  }
+
+  if (!document.documentElement.lang) {
+    fail(`${route} is missing a valid HTML language declaration`);
+  }
+  if (!document.querySelector("main")) {
+    fail(`${route} is missing its main landmark`);
+  }
+  const skipLink = document.querySelector('a[href="#main-content"]');
+  if (!skipLink || skipLink.getAttribute("tabindex") === "-1") {
+    fail(`${route} is missing a focusable skip link`);
+  }
+
+  for (const image of document.querySelectorAll("img")) {
+    if (!image.hasAttribute("alt")) {
+      fail(`${route} contains an image without an alt attribute`);
+    }
+  }
+  for (const heading of document.querySelectorAll("h1, h2, h3, h4, h5, h6")) {
+    if (!accessibleText(heading)) {
+      fail(`${route} contains an empty heading`);
+    }
+  }
+  for (const button of document.querySelectorAll("button")) {
+    if (
+      !accessibleText(button) &&
+      !button.getAttribute("aria-label") &&
+      !button.getAttribute("aria-labelledby")
+    ) {
+      fail(`${route} contains a button without an accessible name`);
+    }
+  }
+  for (const link of document.querySelectorAll("a[href]")) {
+    const namedImage = link.querySelector('img[alt]:not([alt=""])');
+    if (
+      !accessibleText(link) &&
+      !link.getAttribute("aria-label") &&
+      !link.getAttribute("aria-labelledby") &&
+      !namedImage
+    ) {
+      fail(`${route} contains a link without an accessible name`);
+    }
+  }
+  for (const control of document.querySelectorAll("input, textarea, select")) {
+    if (
+      control.getAttribute("type") === "hidden" ||
+      control.getAttribute("aria-hidden") === "true"
+    ) {
+      continue;
+    }
+    const id = control.id;
+    const associatedLabel = id
+      ? [...document.querySelectorAll("label[for]")].some(
+          (label) => label.getAttribute("for") === id,
+        )
+      : false;
+    if (
+      !associatedLabel &&
+      !control.getAttribute("aria-label") &&
+      !control.getAttribute("aria-labelledby")
+    ) {
+      fail(`${route} contains a form control without an accessible label`);
+    }
+  }
+  for (const frame of document.querySelectorAll("iframe")) {
+    if (!frame.getAttribute("title")) {
+      fail(`${route} contains an iframe without a title`);
+    }
+  }
+  for (const list of document.querySelectorAll("ul, ol")) {
+    const invalidChild = [...list.children].find(
+      ({ tagName }) => !["LI", "SCRIPT", "TEMPLATE"].includes(tagName),
+    );
+    if (invalidChild) {
+      fail(`${route} contains invalid direct children in a list`);
+    }
+  }
+};
+
 const notFoundFile = path.join(dist, "404.html");
 requireFile(notFoundFile);
 const notFoundHtml = fs.readFileSync(notFoundFile, "utf8");
@@ -49,6 +138,7 @@ if (!/The route[\s\S]*\/__404-not-found[\s\S]*could not be found/i.test(notFound
 }
 
 const validateSearchPage = (route, html) => {
+  validateAccessibilitySemantics(route, html);
   if (!/<meta\s+charset=["']?utf-8["']?\s*\/?>/i.test(html)) {
     fail(`${route} does not declare UTF-8 encoding`);
   }
@@ -145,32 +235,18 @@ const validateSearchPage = (route, html) => {
   }
 
   const imagesWithoutDescriptiveAlt = [...html.matchAll(/<img\b[^>]*>/gi)].filter(
-    ([image]) => !/\salt=(?:"[^"]+"|'[^']+')/i.test(image),
+    ([image]) =>
+      !/\saria-hidden=(?:"true"|'true')/i.test(image) &&
+      !/\salt=(?:"[^"]+"|'[^']+')/i.test(image),
   );
   if (imagesWithoutDescriptiveAlt.length) {
     fail(`${route} contains images without descriptive alt text`);
   }
 
-  const htmlWithoutNoScript = html.replace(
-    /<noscript>[\s\S]*?<\/noscript>/gi,
-    "",
-  );
-  if (/<link[^>]+rel=["']stylesheet["'][^>]*>/i.test(htmlWithoutNoScript)) {
-    fail(`${route} contains a render-blocking application stylesheet`);
-  }
   if (
-    !/<link[^>]+rel=["']preload["'][^>]+as=["']style["'][^>]+data-deferred-stylesheet[^>]*>/i.test(
-      html,
-    )
+    !/<link[^>]+rel=["']stylesheet["'][^>]+href=["'][^"']+\.css[^"']*["'][^>]*>/i.test(html)
   ) {
-    fail(`${route} is missing the deferred application stylesheet preload`);
-  }
-  if (
-    !/<noscript><link[^>]+rel=["']stylesheet["'][^>]*><\/noscript>/i.test(
-      html,
-    )
-  ) {
-    fail(`${route} is missing the no-JavaScript stylesheet fallback`);
+    fail(`${route} is missing the render-blocking application stylesheet`);
   }
 
   const applicationEntry = html.match(
@@ -277,6 +353,15 @@ for (const route of requiredRoutes) {
   const profilePage = schemas.find(
     (schema) => schema?.["@type"] === "ProfilePage",
   );
+  const aboutPage = schemas.find(
+    (schema) => schema?.["@type"] === "AboutPage",
+  );
+  const contactPage = schemas.find(
+    (schema) => schema?.["@type"] === "ContactPage",
+  );
+  const faqPage = schemas.find(
+    (schema) => schema?.["@type"] === "FAQPage",
+  );
 
   const openGraphValue = (property) =>
     html.match(
@@ -324,21 +409,99 @@ for (const route of requiredRoutes) {
   ) {
     fail(`invalid WebSite creator metadata for ${route}`);
   }
+  const expectedInstitutionalParts = [
+    `${baseUrl}/about#about-page`,
+    `${baseUrl}/professional#profile-page`,
+    `${baseUrl}/side-projects#side-projects`,
+    `${baseUrl}/blog#blog`,
+    `${baseUrl}/contact#contact-page`,
+  ];
+  const websitePartIds = Array.isArray(website?.hasPart)
+    ? website.hasPart.map((part) => part?.["@id"])
+    : [];
+  if (expectedInstitutionalParts.some((id) => !websitePartIds.includes(id))) {
+    fail(`WebSite hasPart is missing an institutional page for ${route}`);
+  }
+  if (
+    route === "/about" &&
+    (aboutPage?.["@id"] !== `${baseUrl}/about#about-page` ||
+      aboutPage.mainEntity?.["@id"] !== `${baseUrl}/#person` ||
+      aboutPage.isPartOf?.["@id"] !== `${baseUrl}/#website` ||
+      aboutPage.breadcrumb?.["@id"] !== `${baseUrl}/about#breadcrumb`)
+  ) {
+    fail("invalid AboutPage institutional relationship");
+  }
+  if (
+    route === "/contact" &&
+    (contactPage?.["@id"] !== `${baseUrl}/contact#contact-page` ||
+      contactPage.mainEntity?.["@id"] !== `${baseUrl}/#person` ||
+      contactPage.isPartOf?.["@id"] !== `${baseUrl}/#website` ||
+      contactPage.breadcrumb?.["@id"] !== `${baseUrl}/contact#breadcrumb`)
+  ) {
+    fail("invalid ContactPage institutional relationship");
+  }
   if (route === "/blog") {
     const blog = schemas.find((schema) => schema?.["@type"] === "Blog");
     const articleList = schemas.find((schema) => schema?.["@type"] === "ItemList");
     const articles = blog?.blogPost;
+    const visibleModifiedDate = html.match(
+      /Last updated:(?:<!-- -->)?\s*<time[^>]+dateTime=["']([^"']+)["']/i,
+    )?.[1];
     if (
       blog?.publisher?.["@id"] !== `${baseUrl}/#person` ||
       blog?.publisher?.name !== "Rodrigo Póvoa" ||
+      blog?.author?.["@id"] !== `${baseUrl}/#person` ||
+      blog?.author?.name !== "Rodrigo Póvoa" ||
+      blog?.author?.url !== `${baseUrl}/about` ||
+      !Array.isArray(blog?.author?.sameAs) ||
+      blog.author.sameAs.length < 2 ||
+      blog?.editor?.["@id"] !== `${baseUrl}/#person` ||
+      blog?.accountablePerson?.["@id"] !== `${baseUrl}/#person` ||
+      !Number.isFinite(Date.parse(blog?.dateModified)) ||
+      visibleModifiedDate !== blog.dateModified ||
       !Array.isArray(articles) || !articles.length ||
+      articles.some((article) =>
+        !article.headline ||
+        !article.author?.["@id"] && !article.author?.name ||
+        !Number.isFinite(Date.parse(article.datePublished)) ||
+        !(typeof article.image === "string" ? article.image : article.image?.url)
+      ) ||
       articles.some((article) => article.author?.["@id"] !== `${baseUrl}/#person` ||
         article.author?.name !== "Rodrigo Póvoa") ||
       !articleList?.name || articleList.numberOfItems !== articles.length ||
       articleList.itemListElement?.length !== articles.length ||
       articleList.itemListElement.some((entry, index) => entry.item?.["@id"] !== articles[index]["@id"])
     ) {
-      fail("invalid Blog publisher, article authors or descriptive ItemList");
+      fail("invalid Blog publisher, freshness date, article authors or descriptive ItemList");
+    }
+    if (
+      !/Written and maintained by Rodrigo Póvoa/i.test(html) ||
+      !/<a[^>]+rel=["']author["'][^>]+href=["']\/about["']/i.test(html) ||
+      !/Original publication sources,[\s\S]*references,[\s\S]*publication dates/i.test(html)
+    ) {
+      fail("the Blog page is missing visible authorship or editorial transparency");
+    }
+  }
+  if (route === "/") {
+    const questions = faqPage?.mainEntity;
+    if (!Array.isArray(questions) || questions.length !== 6) {
+      fail("FAQPage must contain the six visible recruiter questions");
+    }
+    for (const question of questions) {
+      const answerText = String(question?.acceptedAnswer?.text || "")
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+      const answerWordCount = answerText ? answerText.split(" ").length : 0;
+      if (
+        question?.["@type"] !== "Question" ||
+        !question.name ||
+        question.acceptedAnswer?.["@type"] !== "Answer" ||
+        answerWordCount < 30 ||
+        answerWordCount > 60
+      ) {
+        fail(`FAQ answer must contain 30 to 60 words: ${question?.name || "unnamed question"}`);
+      }
     }
   }
   if (
@@ -680,5 +843,5 @@ for (const [route, destination] of Object.entries(markdownDestinations)) {
 }
 
 console.log(
-  `Validated ${pageTitles.size} search pages, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, ai.json, ai-catalog.json, llms.txt, llms-full.txt, humans.txt, security.txt, site.webmanifest, agent manifest and real 404 routing.`,
+  `Validated ${pageTitles.size} search pages, accessibility semantics, one canonical sitemap index, Google-compatible robots.txt, titles, canonicals, image alt text, breadcrumbs, ProfilePage data, SEO metadata, Markdown negotiation, ai.json, ai-catalog.json, llms.txt, llms-full.txt, humans.txt, security.txt, site.webmanifest, agent manifest and real 404 routing.`,
 );

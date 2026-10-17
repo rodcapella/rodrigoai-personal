@@ -11,6 +11,7 @@ import SectionContent from "@/components/layout/SectionContent";
 import DirectAnswersSection from "@/components/layout/DirectAnswersSection";
 import { ProfilePageSchema } from "@/components/seo/ProfilePageSchema";
 import { BreadcrumbSchema } from "@/components/seo/BreadcrumbSchema";
+import { InstitutionalPageSchema } from "@/components/seo/InstitutionalPageSchema";
 import { staticPageMetadata } from "@/data/siteMetadata";
 
 import {
@@ -245,6 +246,13 @@ export default function WhyMe() {
         description="Rodrigo Póvoa's approach to data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
         dateCreated={staticPageMetadata["/about"].dateCreated!}
         dateModified={staticPageMetadata["/about"].lastModified!}
+      />
+
+      <InstitutionalPageSchema
+        type="AboutPage"
+        path="/about"
+        name="About Rodrigo Póvoa"
+        description="Learn about Rodrigo Póvoa's approach to end-to-end data leadership, governed architecture, AI-assisted engineering and business-focused delivery."
       />
 
       <BreadcrumbSchema

@@ -22,6 +22,7 @@ export const pageLastModifiedSources = {
     "src/components/WhatDrivesMe.tsx",
     "src/components/layout/DirectAnswersSection.tsx",
     "src/components/seo/ProfilePageSchema.tsx",
+    "src/components/seo/InstitutionalPageSchema.tsx",
     "src/data/personSchema.ts",
   ],
   "/": [
@@ -60,6 +61,7 @@ export const pageLastModifiedSources = {
   "/privacy": ["src/pages/Privacy.tsx"],
   "/contact": [
     "src/pages/Contact.tsx",
+    "src/components/seo/InstitutionalPageSchema.tsx",
     "src/components/ui/FormField.tsx",
     "src/components/ui/TurnstileWidget.tsx",
   ],

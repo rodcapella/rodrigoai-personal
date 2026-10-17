@@ -96,10 +96,10 @@ const Footer = () => {
               src="/logos/logo_sapiente_footer-112.webp"
               alt="Sapiente AI"
               width={112}
-              height={35}
+              height={38}
               loading="lazy"
               decoding="async"
-              className="block h-auto w-[64px] object-contain md:w-[112px]"
+              className="sapiente-footer-logo block object-contain"
             />
           </a>
         </div>
